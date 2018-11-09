@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>ECharts学习笔记 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ECharts学习笔记APIAPI分为 四大类[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]  echarts  init: Function \创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。  (dom, theme?, opts?) =&amp;gt; echartsInst">
+<meta name="keywords" content="ECharts4.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECharts学习笔记">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/10/22/ECharts学习笔记/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="ECharts学习笔记APIAPI分为 四大类[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]  echarts  init: Function \创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。  (dom, theme?, opts?) =&amp;gt; echartsInst">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-29T10:48:43.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECharts学习笔记">
+<meta name="twitter:description" content="ECharts学习笔记APIAPI分为 四大类[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]  echarts  init: Function \创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。  (dom, theme?, opts?) =&amp;gt; echartsInst">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-ECharts学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/22/ECharts学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-10-22T05:46:34.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECharts学习笔记
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ECharts/">ECharts</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/10/22/ECharts学习笔记/" class="leancloud_visitors" data-flag-title="ECharts学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ECharts学习笔记"><a href="#ECharts学习笔记" class="headerlink" title="ECharts学习笔记"></a>ECharts学习笔记</h1><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p>API分为 四大类<br>[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]</p>
+<ul>
+<li><p>echarts</p>
+<ul>
+<li><p>init: Function \<br>创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。</p>
+<blockquote>
+<p>(dom, theme?, opts?) =&gt; echartsInstance</p>
+</blockquote>
+</li>
+<li><p>connect \<br>多个图表实例实现联动。</p>
+</li>
+<li><p>disconnect \<br>解除图表实例的联动，如果只需要移除单个实例，可以将通过将该图表实例 group 设为空。</p>
+</li>
+<li><p>dispose \<br>销毁实例，实例销毁后无法再被使用。</p>
+</li>
+<li><p>getInstanceByDom \<br>获取 dom 容器上的实例。</p>
+</li>
+<li><p>registerMap \<br>注册可用的地图，必须在包括 geo 组件或者 map 图表类型的时候才能使用。</p>
+</li>
+<li><p>getMap \<br>获取已注册的地图，返回的对象类型如下</p>
+</li>
+<li><p>registerTheme \<br>注册主题，用于初始化实例的时候指定。</p>
+</li>
+<li><p>graphic \<br>图形相关帮助方法。</p>
+<ul>
+<li><p>clipPointsByRect<br>输入一组点，和一个矩形，返回被矩形截取过的点。</p>
+</li>
+<li><p>clipRectByRect<br>输入两个矩形，返回第二个矩形截取第一个矩形的结果。</p>
+</li>
+</ul>
+<p>注意：如果矩形完全被截干净，会返回 undefined。</p>
+</li>
+</ul>
+</li>
+<li><p>echartsInstance \<br>通过 echarts.init 创建的实例。</p>
+<ul>
+<li><p>group \<br>图表的分组，用于<code>联动</code></p>
+</li>
+<li><p>setOption !\<br>设置图表实例的配置项以及数据，<strong><code>万能接口</code></strong>，所有参数和数据的修改都可以通过setOption完成，ECharts 会合并新的参数和数据，然后刷新图表。\<br>如开启动画，ECharts 找到两组数据之间的差异然后通过合适的动画去表现数据的变化。</p>
+<p>注： ECharts 2.x 中的通过 <code>addData</code> , <code>setSeries</code> 方法设置配置项的方式将不再支持，在 ECharts 3 中统一使用<code>setOption</code>，可参考示例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">chart.setOption(option, notMerge, lazyUpdate);</span><br><span class="line"></span><br><span class="line">chart.setOption(option, &#123;</span><br><span class="line">    notMerge: ...,</span><br><span class="line">    lazyUpdate: ...,</span><br><span class="line">    silent: ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- getWidth \
+获取 ECharts 实例容器的宽度。
+() =&gt; number
+
+- getHeight \
+获取 ECharts 实例容器的高度。
+() =&gt; number
+
+- getDom \
+获取 ECharts 实例容器的 dom 节点。
+
+- getOption \
+获取当前实例中维护的option对象，返回的option对象中包含了用户多次setOption合并得到的配置项和数据，也记录了用户交互的状态 \
+例如图例的开关，数据区域缩放选择的范围等等。所以从这份 option 可以恢复或者得到一个新的一模一样的实例。 \
+注意：返回的 option 每个组件的属性值都统一是一个`数组`，不管setOption传进来的时候是单个组件的对象还是多个组件的数组。 \
+推荐通过setOption去修改部分配置。
+
+- resize \
+改变图表尺寸，在容器大小发生改变时需要手动调用。
+
+- dispatchAction \
+触发图表行为，例如图例开关`legendToggleSelect`, 数据区域缩放`dataZoom`，显示提示框`showTip`等等，更多见 `action` 和 `events` 的文档。
+
+- on \
+绑定事件处理函数。 \
+ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形上会触发， 2、调用 dispatchAction 后触发的事件。具体见 action 和 events 的文档。 \
+参数 [eventName, query]
+
+- off \
+解绑事件处理函数。 \
+参数 [eventName, handler]
+
+- convertToPixel \
+转换坐标系上的点到像素坐标值。
+
+- convertFromPixel \
+转换像素坐标值到逻辑坐标系上的点。是 convertToPixel 的逆运算。 
+
+- containPixel \
+判断给定的点是否在指定的坐标系或者系列上。
+
+- showLoading \
+显示加载动画效果。可以在加载数据前手动调用改接口显示加载动画，在数据加载完成后调用 hideLoading 隐藏加载动画。
+
+- hideLoading \
+隐藏动画加载效果。
+
+- getDataURL \
+导出图表图片，返回一个 base64 的 URL，可以设置为Image的src。
+
+- getConnectedDataURL \
+导出联动的图表图片，返回一个 base64 的 url，可以设置为Image的src。导出图片中每个图表的相对位置跟容器的相对位置有关。
+
+- appendData \
+此接口用于，在大数据量（百万以上）的渲染场景，分片加载数据和增量渲染。在大数据量的场景下（例如地理数的打点），就算数据使用二进制格式，也会有几十或上百兆，在互联网环境下，往往需要分片加载。appendData 接口提供了分片加载后增量渲染的能力，渲染新加如的数据块时不会清除原有已经渲染的部分。
+
+- clear \
+清空当前实例，会移除实例中所有的组件和图表。清空后调用 getOption 方法返回一个{}空对象。
+
+- isDisposed \
+当前实例是否已经被释放。
+
+- dispose \
+销毁实例，销毁后实例无法再被使用。
+</code></pre><ul>
+<li><p>action \<br>ECharts 中支持的图表行为，通过 dispatchAction 触发。 \<br>注： 代码中的 ?: 表示该属性是可选的。EVENT: 是 action 对应触发的事件。</p>
+<ul>
+<li><p>highlight \<br>高亮指定的数据图形。 \<br>通过<code>seriesName</code>或者<code>seriesIndex</code>指定系列。如果要再指定某个数据可以再指定<code>dataIndex</code>或者<code>name</code>。</p>
+</li>
+<li><p>downplay \<br>取消高亮指定的数据图形。</p>
+</li>
+<li><p>legend \<br>图例组件相关的行为，必须引入图例组件后才能使用。</p>
+<ul>
+<li><p>legendSelect \<br>选中图例。</p>
+</li>
+<li><p>legendUnSelect \<br>取消选中图例。</p>
+</li>
+<li><p>legendToggleSelect \<br>切换图例的选中状态。</p>
+</li>
+<li><p>legendScroll \<br>控制图例的滚动。当 legend.type 为 ‘scroll’ 时有效。</p>
+</li>
+</ul>
+</li>
+<li><p>tooltip \<br>提示框组件相关的行为，必须引入提示框组件后才能使用。</p>
+<ul>
+<li><p>showTip \<br>显示提示框。</p>
+</li>
+<li><p>hideTip \<br>隐藏提示框。</p>
+</li>
+</ul>
+</li>
+<li><p>dataZoom \<br>数据区域缩放组件相关的行为，必须引入数据区域缩放组件后才能使用。</p>
+<ul>
+<li>dataZoom \<br>数据区域缩放。</li>
+</ul>
+</li>
+<li><p>visualMap \<br>视觉映射组件相关的行为，必须引入视觉映射组件后才能使用。</p>
+<ul>
+<li>selectDataRange \<br>选取映射的数值范围。</li>
+</ul>
+</li>
+<li><p>timeline \<br>时间轴组件相关的行为，必须引入时间轴组件后才能使用。</p>
+<ul>
+<li><p>timelineChange \<br>设置当前的时间点。</p>
+</li>
+<li><p>timelinePlayChange \<br>切换时间轴的播放状态。</p>
+</li>
+</ul>
+</li>
+<li><p>toolbox \<br>工具栏组件相关的行为，必须引入工具栏组件后才能使用。</p>
+<ul>
+<li>restore \<br>重置 option。</li>
+</ul>
+</li>
+<li><p>pie \<br>饼图相关的行为，必须引入饼图后才能使用。</p>
+<ul>
+<li><p>pieSelect \<br>选中指定的饼图扇形。</p>
+</li>
+<li><p>pieUnSelect \<br>取消选中指定的饼图扇形。</p>
+</li>
+<li><p>pieToggleSelect \<br>切换指定的饼图扇形选中状态。</p>
+</li>
+</ul>
+</li>
+<li><p>geo \<br>地图组件相关的行为，必须引入地图组件后才能使用。</p>
+<ul>
+<li><p>geoSelect \<br>选中指定的地图区域。</p>
+</li>
+<li><p>geoUnSelect \<br>取消选中指定的地图区域。</p>
+</li>
+<li><p>geoToggleSelect \<br>切换指定的地图区域选中状态。</p>
+</li>
+</ul>
+</li>
+<li><p>map \<br>地图图表相关的行为，必须引入地图图表后才能使用。</p>
+<ul>
+<li><p>mapSelect \<br>选中指定的地图区域。</p>
+</li>
+<li><p>mapUnSelect \<br>取消选中指定的地图区域。</p>
+</li>
+<li><p>mapToggleSelect \<br>切换指定的地图区域选中状态。</p>
+</li>
+</ul>
+</li>
+<li><p>graph \<br>关系图 相关的行为，必须引入 关系图 后才能使用。</p>
+<ul>
+<li><p>focusNodeAdjacency \<br>将指定的节点以及其所有邻接节点高亮。</p>
+</li>
+<li><p>unfocusNodeAdjacency \<br>将指定的节点以及其所有邻接节点高亮。</p>
+</li>
+</ul>
+</li>
+<li><p>brush \<br>区域选择相关的行为。</p>
+<ul>
+<li>brush \<br>触发此 action 可向 echarts 中添加一个或多个选框</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>events \<br>在 ECharts 中主要通过 on 方法添加事件处理函数，该文档描述了所有 ECharts 的事件列表。 \<br>ECharts 中的事件分为两种，一种是鼠标事件，在鼠标点击某个图形上会触发，还有一种是 调用 dispatchAction 后触发的事件。</p>
+<ul>
+<li><p>鼠标事件 \<br>鼠标事件包括<code>click</code>，<code>dblclick</code>，<code>mousedown</code>，<code>mouseup</code>，<code>mouseover</code>，<code>mouseout</code>，<code>globalout</code>，<code>contextmenu</code>。<br>参见 <a href="http://echarts.baidu.com/tutorial.html" target="_blank" rel="noopener">ECharts 中的事件和行为</a></p>
+</li>
+<li><p>legendselectchanged \<br>ACTION: legendToggleSelect 切换图例选中状态后的事件。<br>注：图例组件用户切换图例开关会触发该事件。</p>
+</li>
+<li><p>legendselected \<br>ACTION: legendSelect 图例选中后的事件。</p>
+</li>
+<li><p>legendunselected \<br>ACTION: legendUnSelect 图例取消选中后的事件。</p>
+</li>
+<li><p>legendscroll \<br>ACTION: legendscroll 图例滚动事件。 </p>
+</li>
+<li><p>datazoom \<br>ACTION: dataZoom<br>数据区域缩放后的事件。</p>
+</li>
+<li><p>datarangeselected \<br>ACTION: selectDataRange 视觉映射组件中，range 值改变后触发的事件。</p>
+</li>
+<li><p>timelinechanged \<br>ACTION: timelineChange 时间轴中的时间点改变后的事件。</p>
+</li>
+<li><p>timelineplaychanged \<br>ACTION: timelinePlayChange 时间轴中播放状态的切换事件。</p>
+</li>
+<li><p>restore \<br>ACTION: restore 重置 option 事件。</p>
+</li>
+<li><p>dataviewchanged \<br>工具栏中数据视图的修改事件。</p>
+</li>
+<li><p>magictypechanged \<br>工具栏中动态类型切换的切换事件。</p>
+</li>
+<li><p>geoselectchanged \<br>ACTION: geoToggleSelect \<br>geo 中地图区域切换选中状态的事件。</p>
+</li>
+<li><p>geoselected \<br>ACTION: geoSelect \<br>geo 中地图区域选中后的事件。</p>
+</li>
+<li><p>geounselected \<br>ACTION: geoUnSelect<br>geo 中地图区域取消选中后的事件。</p>
+</li>
+<li><p>pieselectchanged \<br>ACTION: pieToggleSelect<br>series-pie 中饼图扇形切换选中状态的事件。</p>
+</li>
+<li><p>pieselected \<br>ACTION: pieSelect<br>series-pie 中饼图扇形选中后的事件。<br>使用dispatchAction可触发此事件，用户点击不会触发此事件（用户点击事件请使用 pieselectchanged）。</p>
+</li>
+<li><p>pieunselected \<br>ACTION: pieUnSelect<br>series-pie 中饼图扇形取消选中后的事件。</p>
+</li>
+<li><p>mapselectchanged \<br>ACTION: mapToggleSelect<br>series-map 中地图区域切换选中状态的事件。<br>用户点击选中会触发该事件。</p>
+</li>
+<li><p>mapselected \<br>ACTION: mapSelect<br>series-map 中地图区域选中后的事件。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/22/ECharts学习笔记/" data-id="cjo9tdkhk0006oodvo9sbabkc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECharts4-0/">ECharts4.0</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/26/Algorithm/延迟判断算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          延迟判断算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/05/FrontEnd/JS/JS设计模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JS设计模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

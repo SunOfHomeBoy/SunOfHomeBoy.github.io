@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>Node.js--process模块 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[转]Node.js的process模块process模块用来与当前进程互动，可以 通过全局变量process 访问，不必使用require命令加载。它是一个EventEmitter对象的实例。 一、属性process对象提供一系列属性，用于返回系统信息。  process.pid：当前进程的进程号。  process.version：Node的版本，比如v0.10.18。  process.pl">
+<meta name="keywords" content="process">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js--process模块">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/05/10/NodeJS/Node-js-process模块/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="[转]Node.js的process模块process模块用来与当前进程互动，可以 通过全局变量process 访问，不必使用require命令加载。它是一个EventEmitter对象的实例。 一、属性process对象提供一系列属性，用于返回系统信息。  process.pid：当前进程的进程号。  process.version：Node的版本，比如v0.10.18。  process.pl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-05T06:33:18.496Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.js--process模块">
+<meta name="twitter:description" content="[转]Node.js的process模块process模块用来与当前进程互动，可以 通过全局变量process 访问，不必使用require命令加载。它是一个EventEmitter对象的实例。 一、属性process对象提供一系列属性，用于返回系统信息。  process.pid：当前进程的进程号。  process.version：Node的版本，比如v0.10.18。  process.pl">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-NodeJS/Node-js-process模块" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/10/NodeJS/Node-js-process模块/" class="article-date">
+  <time class="post-time" datetime="2018-05-10T01:37:05.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.js--process模块
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/10/NodeJS/Node-js-process模块/" class="leancloud_visitors" data-flag-title="Node.js--process模块">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="转-Node-js的process模块"><a href="#转-Node-js的process模块" class="headerlink" title="[转]Node.js的process模块"></a>[转]<a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">Node.js的process模块</a></h2><p><code>process</code>模块用来与<code>当前进程互动</code>，可以 <code>通过全局变量process</code> 访问，不必使用require命令加载。它是一个<code>EventEmitter</code>对象的实例。</p>
+<h3 id="一、属性"><a href="#一、属性" class="headerlink" title="一、属性"></a>一、属性</h3><p>process对象提供一系列属性，用于返回系统信息。</p>
+<ul>
+<li><p>process.pid：当前进程的进程号。</p>
+</li>
+<li><p>process.version：Node的版本，比如v0.10.18。</p>
+</li>
+<li><p>process.platform：当前系统平台，比如Linux。</p>
+</li>
+<li><p>process.title：默认值为“node”，可以自定义该值。</p>
+</li>
+<li><p>process.argv：当前进程的命令行参数数组。</p>
+</li>
+<li><p>process.env：指向当前<code>shell</code>的环境变量，比如<code>process.env.HOME</code>。</p>
+</li>
+<li><p>process.execPath：运行当前进程的可执行文件的绝对路径。</p>
+</li>
+<li><p>process.stdout：指向标准输出。</p>
+</li>
+<li><p>process.stdin：指向标准输入。</p>
+</li>
+<li><p>process.stderr：指向标准错误。</p>
+</li>
+</ul>
+<h4 id="主要属性介绍"><a href="#主要属性介绍" class="headerlink" title="主要属性介绍"></a>主要属性介绍</h4><p><strong>1. stdout</strong>\<br><code>process.stdout</code>用来控制标准输出，也就是在命令行窗口向用户显示内容。它的write方法等同于console.log。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.log = function() &#123;</span><br><span class="line">    process.stdout.write(format.apply(this, arguments) + &apos;\n&apos;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. argv</strong></p>
+<p><code>process.argv</code> 返回<code>命令行脚本</code>的 各个参数 组成的数组。</p>
+<p>先新建一个脚本文件 argv.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">console.log(&quot;argv: &quot;,process.argv);</span><br><span class="line">console.log(&quot;argc: &quot;,process.argc);</span><br></pre></td></tr></table></figure></p>
+<p>在命令行下调用这个脚本，会得到以下结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node argv.js a b c</span><br><span class="line"></span><br><span class="line"># [ &apos;node&apos;, &apos;/path/to/argv.js&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]</span><br></pre></td></tr></table></figure></p>
+<p>上面代码表示，argv返回数组的成员依次是命令行的各个部分。要得到真正的参数部分，可以把argv.js改写成下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">var myArgs = process.argv.slice(2);</span><br><span class="line">console.log(myArgs);</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h3><p><code>process</code>对象提供以下方法：</p>
+<ul>
+<li><code>process.exit()</code>：退出当前进程。</li>
+<li><code>process.cwd()</code>：返回运行当前脚本的工作目录的路径。_</li>
+<li><code>process.chdir()</code>：改变工作目录。</li>
+<li><code>process.nextTick()</code>：将一个回调函数放在下次事件循环的顶部。</li>
+</ul>
+<p><strong>1. <code>process.chdir()</code> 改变工作目录的例子:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/aaa&apos;</span><br><span class="line"> </span><br><span class="line">process.chdir(&apos;/home/bbb&apos;)</span><br><span class="line"> </span><br><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/bbb&apos;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. <code>process.nextTick()</code> 指定下次事件循环首先运行的任务:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码可以用<code>setTimeout</code>改写，但是<code>nextTick</code>的<code>效率</code>更高、<code>描述</code>更准确。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、事件"><a href="#三、事件" class="headerlink" title="三、事件"></a>三、事件</h3><p><strong>1. exit事件</strong></p>
+<p><code>当前进程退出</code>时，会触发<code>exit事件</code>，可以对该事件指定<code>回调函数</code>。</p>
+<p>这是一个用来 <code>定时检查模块状态</code> 的好<code>钩子(hook)</code>(例如单元测试), 当主事件循环在执行完<code>&#39;exit&#39;</code>的回调函数后将不再执行,所以在<code>exit事件</code>中定义的定时器可能不会被加入事件列表.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;exit&apos;, function () &#123;</span><br><span class="line">    fs.writeFileSync(&apos;/tmp/myfile&apos;, &apos;This MUST be saved on exit.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. uncaughtException事件</strong></p>
+<p>当前<code>进程抛出</code>一个没有被捕捉的意外时，会触发uncaughtException事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;uncaughtException&apos;, function (err) &#123;</span><br><span class="line">    console.error(&apos;An uncaught error occurred!&apos;);</span><br><span class="line">    console.error(err.stack);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/10/NodeJS/Node-js-process模块/" data-id="cjo9tdkmu0052oodv5xmjfla2" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/process/">process</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/11/Editor/VSCode-Update/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          VSCode Update
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JS执行机制与异步回调</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

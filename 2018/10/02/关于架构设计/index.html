@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>关于架构设计 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="架构设计 架构设计的主要目的：解决复杂度带来的问题  架构复杂度来源 孜孜不倦追求 高性能\所有性能提高的背后，都是方法的优化和系统复杂度的提高  防止意外的高可用\系统高可用 本质通过冗余，水多加面，面多加水  应对变化的可拓展\保障在不重构的情况下，为需求变化提供实现可能   高性能、高可用性、可拓展，是架构师工作着重考虑缓解，三点直接作用于 架构设计内部 同样要注意 外部环境 对架构设计影响">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于架构设计">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/10/02/关于架构设计/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="架构设计 架构设计的主要目的：解决复杂度带来的问题  架构复杂度来源 孜孜不倦追求 高性能\所有性能提高的背后，都是方法的优化和系统复杂度的提高  防止意外的高可用\系统高可用 本质通过冗余，水多加面，面多加水  应对变化的可拓展\保障在不重构的情况下，为需求变化提供实现可能   高性能、高可用性、可拓展，是架构师工作着重考虑缓解，三点直接作用于 架构设计内部 同样要注意 外部环境 对架构设计影响">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-02T13:10:26.868Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于架构设计">
+<meta name="twitter:description" content="架构设计 架构设计的主要目的：解决复杂度带来的问题  架构复杂度来源 孜孜不倦追求 高性能\所有性能提高的背后，都是方法的优化和系统复杂度的提高  防止意外的高可用\系统高可用 本质通过冗余，水多加面，面多加水  应对变化的可拓展\保障在不重构的情况下，为需求变化提供实现可能   高性能、高可用性、可拓展，是架构师工作着重考虑缓解，三点直接作用于 架构设计内部 同样要注意 外部环境 对架构设计影响">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-关于架构设计" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/02/关于架构设计/" class="article-date">
+  <time class="post-time" datetime="2018-10-02T12:26:57.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      关于架构设计
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/10/02/关于架构设计/" class="leancloud_visitors" data-flag-title="关于架构设计">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><blockquote>
+<p><strong>架构设计的主要目的</strong>：<br>解决复杂度带来的问题</p>
+</blockquote>
+<h3 id="架构复杂度来源"><a href="#架构复杂度来源" class="headerlink" title="架构复杂度来源"></a>架构复杂度来源</h3><ol>
+<li><p>孜孜不倦追求 高性能\<br>所有性能提高的背后，都是<code>方法的优化</code>和<code>系统复杂度的提高</code></p>
+</li>
+<li><p>防止意外的高可用\<br>系统高可用 本质通过<code>冗余</code>，水多加面，面多加水</p>
+</li>
+<li><p>应对变化的可拓展\<br>保障在<code>不重构</code>的情况下，为<code>需求变化</code>提供实现可能</p>
+</li>
+</ol>
+<p>高性能、高可用性、可拓展，是架构师工作着重考虑缓解，三点直接作用于 <strong>架构设计内部</strong></p>
+<p>同样要注意 <strong>外部环境</strong> 对架构设计影响，比如<code>安全性</code>、<code>成本</code>、<code>规模</code></p>
+<h2 id="找出业务场景短板"><a href="#找出业务场景短板" class="headerlink" title="找出业务场景短板"></a>找出业务场景短板</h2><p>面对实际业务场景 </p>
+<h3 id="第一步-分析并确定架构方向"><a href="#第一步-分析并确定架构方向" class="headerlink" title="第一步 分析并确定架构方向"></a>第一步 分析并确定架构方向</h3><p>需要 <code>高可用?</code> <code>高性能?</code> <code>可扩展?</code> <code>安全?</code></p>
+<h3 id="第二步-准备几套备用方案"><a href="#第二步-准备几套备用方案" class="headerlink" title="第二步 准备几套备用方案"></a>第二步 准备几套备用方案</h3><p>与<code>开发</code> <code>运维</code>等部门讨论，选择针对实际情况最优方案</p>
+<h2 id="虚拟场景"><a href="#虚拟场景" class="headerlink" title="虚拟场景"></a>虚拟场景</h2><p>前浪微博 中间件 团队 6人<br>整体熟悉 JAVA，一人 C/C++<br>开发平台 Linux<br>数据库 MySQL<br>业务系统 单机房部署</p>
+<p>p.s: 发展快 系统协作效率低 各子系统 通过接口调用 出现问题 难定位</p>
+<p>架构设计问题根源 在于 各个业务 子系统 强耦合, <code>信息列队系统</code> 可满足 子系统 解耦</p>
+<h2 id="架构难在哪里"><a href="#架构难在哪里" class="headerlink" title="架构难在哪里?"></a>架构难在哪里?</h2><p>难在灵活多变。高性能、高可用、可拓展、安全性、规模 等, 不可能样样兼顾</p>
+<h3 id="判断复杂度"><a href="#判断复杂度" class="headerlink" title="判断复杂度"></a>判断复杂度</h3><p>对关键点 分权重</p>
+<ol>
+<li><p>是否需要高性能？\<br>目前，发展趋势，预留系统容量 应对 未来业务增长。设计目标定为现在峰值4倍 较为合理</p>
+</li>
+<li><p>是否需要高可用？\<br>信息审核、用户服务 是社交媒体 关键业务。信息列队 需要 <code>高可用性</code>，包括 <strong>信息写入、消息储存、消息读取</strong></p>
+</li>
+<li><p>是否需要高扩展？\<br>本虚拟场景 前浪微博 消息列队 功能明确，基本无须拓展</p>
+</li>
+</ol>
+<h3 id="初步设计备选方案，分析优缺点"><a href="#初步设计备选方案，分析优缺点" class="headerlink" title="初步设计备选方案，分析优缺点"></a>初步设计备选方案，分析优缺点</h3><p>综上，前浪微博 信息列队系统 需要 <strong>高性能 消息读取、高可用 消息写入、高可用 消息存储和读取</strong></p>
+<h4 id="3种备选方案"><a href="#3种备选方案" class="headerlink" title="3种备选方案"></a>3种备选方案</h4><ol>
+<li>开源<code>Kafka</code> 本身是 成熟的开源信息列队方案，性能好</li>
+<li><code>集群 + MySQL</code>存储。采用 数据分散集群架构，省略</li>
+<li><code>集群 + 自研存储方案</code></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/02/关于架构设计/" data-id="cjo9tdki9000poodv3hcrqxq6" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/03/日常记录/十一学习记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          十一学习记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/27/GIT/git-仓库添加SSH公钥/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">git 仓库添加SSH公钥</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

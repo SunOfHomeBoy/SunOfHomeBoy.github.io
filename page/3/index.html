@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="李仕臣的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="李仕臣的博客">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/page/3/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="李仕臣的博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="李仕臣的博客">
+<meta name="twitter:description" content="李仕臣的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redux/">Redux</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
+<ol>
+<li></li>
+<li>定义</li>
+<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
+<p>export const APP_REDUX = “APP_REDUX”;</p>
+</blockquote>
+</li>
+<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
+<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
+</blockquote>
+</li>
+<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
+<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjo9tdku500cxoodvi4199ols" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Editor/编辑器配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/15/Editor/编辑器配置/" class="article-date">
+  <time class="post-time" datetime="2018-08-15T01:53:26.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">15</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/15/Editor/编辑器配置/">编辑器配置</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/edit/">edit</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/08/15/Editor/编辑器配置/" class="leancloud_visitors" data-flag-title="编辑器配置">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
+<h2 id="Version-3-0-0"><a href="#Version-3-0-0" class="headerlink" title="Version: 3.0.0"></a>Version: 3.0.0</h2><p>GitHub Token: c875cc3b573265d55bdbe57a23d554ce9e83cde2<br>GitHub Gist: daeb8021fc8862ba3a1fe162cc301c7c<br>GitHub Gist Type: Secret</p>
+<h2 id="Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme"><a href="#Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme" class="headerlink" title="Restarting Visual Studio Code may be required to apply color and file icon theme."></a>Restarting Visual Studio Code may be required to apply color and file icon theme.</h2><p>Files Uploaded:<br>  javascript.json &gt; snippets|javascript.json</p>
+<p>Extensions Ignored:<br>  No extensions ignored.</p>
+<p>Extensions Removed:<br>  No extensions removed.</p>
+<p>Extensions Added:<br>  Angular2 v6.1.5<br>  background v1.1.19<br>  beautify v1.3.2<br>  bracket-pair-colorizer v1.0.59<br>  code-gnu-global v0.2.2<br>  code-settings-sync v3.0.0<br>  cpptools v0.17.7<br>  ejs-language-support v0.0.1<br>  ejs-snippets v0.1.0<br>  git-project-manager v1.6.1<br>  githistory v0.4.2<br>  gitlens v8.5.4<br>  html-snippets v0.2.1<br>  java v0.29.0<br>  javascript-ejs-support v0.3.2<br>  JavaScriptSnippets v1.7.0<br>  jquerysnippets v0.0.1<br>  language-stylus v1.9.2<br>  markdown-all-in-one v1.6.0<br>  mongoose-os-ide v0.3.0<br>  mssql v1.4.0<br>  node-module-intellisense v1.5.0<br>  npm-intellisense v1.3.0<br>  python v2018.7.1<br>  Theme-MarkdownKit v0.1.4<br>  tslint v1.0.34<br>  vetur v0.12.6<br>  view-in-browser v0.0.5<br>  vscode-eslint v1.4.12<br>  vscode-great-icons v2.1.41<br>  vscode-html-css v0.2.0<br>  vscode-icons v7.25.0<br>  vscode-java-debug v0.11.0<br>  vscode-language-babel v0.0.20<br>  vscode-language-pack-zh-hans v1.25.3<br>  vscode-map-preview v0.4.2<br>  vscode-maven v0.10.0<br>  vscode-mongodb v0.0.2<br>  vscode-npm-script v0.3.5<br>  vscode-preview-server v1.0.1<br>  vue-vscode-snippets v1.3.0<br>  weex v0.4.0</p>
+<h2 id="xml-v2-3-1"><a href="#xml-v2-3-1" class="headerlink" title="  xml v2.3.1"></a>  xml v2.3.1</h2><p>Done.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjo9tdkkg002woodveovj8xrh" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-NodeJS/NPM/npm安装失败-修改-npmrc" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/14/NodeJS/NPM/npm安装失败-修改-npmrc/" class="article-date">
+  <time class="post-time" datetime="2018-08-14T06:11:24.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/NodeJS/NPM/npm安装失败-修改-npmrc/">修改.npmrc</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/npm/">npm</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/08/14/NodeJS/NPM/npm安装失败-修改-npmrc/" class="leancloud_visitors" data-flag-title="修改.npmrc">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Windows修改-npmrc"><a href="#Windows修改-npmrc" class="headerlink" title="Windows修改.npmrc"></a>Windows修改.npmrc</h2><blockquote>
+<p>vim /mnt/c/Users/Administrator/.npmrc</p>
+</blockquote>
+<h2 id="node-sass-安装失败解决"><a href="#node-sass-安装失败解决" class="headerlink" title="node-sass 安装失败解决"></a><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">node-sass 安装失败解决</a></h2><p>@4.8.3 postinstall: <code>node scripts/build.js</code></p>
+<h3 id="解决方法一：创建-npmrc文件"><a href="#解决方法一：创建-npmrc文件" class="headerlink" title="解决方法一：创建.npmrc文件"></a>解决方法一：创建.npmrc文件</h3><p>在项目根目录创建.npmrc文件，复制下面代码到该文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phantomjs_cdnurl=http://cnpmjs.org/downloads</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<h3 id="解决方法二：使用淘宝镜像源"><a href="#解决方法二：使用淘宝镜像源" class="headerlink" title="解决方法二：使用淘宝镜像源"></a>解决方法二：使用淘宝镜像源</h3><blockquote>
+<p>npm uninstall node-sass // 如果出现安装失败，<strong>须先卸载</strong>  </p>
+<p>npm i node-sass –sass_binary_site=<a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a> // 亲测有效</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 也可以设置系统环境变量的方式。示例</span><br><span class="line">// linux、mac 下</span><br><span class="line">SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass</span><br><span class="line"></span><br><span class="line">// window 下</span><br><span class="line">set SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ &amp;&amp; npm install node-sass</span><br></pre></td></tr></table></figure>
+<h3 id="设置全局淘宝镜像"><a href="#设置全局淘宝镜像" class="headerlink" title="设置全局淘宝镜像"></a>设置全局淘宝镜像</h3><blockquote>
+<p>npm config set sass_binary_site <a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a></p>
+</blockquote>
+<p>## </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjo9tdksp00baoodvimd1yrwk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npmrc/">.npmrc</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" class="article-date">
+  <time class="post-time" datetime="2018-08-13T01:47:40.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/">FreeBSD部署开发环境</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/FreeBSD/">FreeBSD</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" class="leancloud_visitors" data-flag-title="FreeBSD部署开发环境">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="pkg安装bash"><a href="#pkg安装bash" class="headerlink" title="pkg安装bash"></a>pkg安装bash</h2><blockquote>
+<p>pkg install bash<br>BSD 使用方便，简洁。安装依赖更容易。</p>
+</blockquote>
+<h2 id="FreeBSD-df"><a href="#FreeBSD-df" class="headerlink" title="FreeBSD df"></a>FreeBSD <code>df</code></h2><p>查看 系统硬盘</p>
+<blockquote>
+<p>cd /mnt/www</p>
+<p>vim /usr/local/etc/mongodb.conf // 修改mongodb配置文件<br>/mnt/www/STORAGE/MONGO // 自定义 data 目录<br>/var/db/mongodb // 默认 data 目录<br>ls -ld /var/db/mongodb // -l 详细信息 -d 目录本身，如不加d，显示第一层文件 -r 递归显示<br>chmod<br>/usr/local/etc/rc.d // 服务的 配置文件 目录</p>
+<p>service mongod onestart<br>rmdir // 删除无效空文件夹，非空有提示 删除错误</p>
+</blockquote>
+<p><strong>项目目录规范</strong><br>前端页面叫 <code>www</code><br>后台管理 <code>administrator</code><br>接口服务 <code>service</code><br>后台上传公共资源 <code>public</code><br>接口 log日志 <code>/tmp/xxx/</code></p>
+<p>p.s :<br>修改配置文件，须先stop服务<br>如无法stop(新配置文件，无法关闭之前的配置)，可用<code>kill -KILL [进程ID]</code></p>
+<p>npm 淘宝镜像</p>
+<ul>
+<li>–registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></li>
+</ul>
+<h2 id="linux修改文件所有者和文件所在组"><a href="#linux修改文件所有者和文件所在组" class="headerlink" title="linux修改文件所有者和文件所在组"></a><a href="https://www.cnblogs.com/DawaTech/p/7249734.html" target="_blank" rel="noopener">linux修改文件所有者和文件所在组</a></h2><blockquote>
+<p>chown 用户名:组 文件名  -R // -R表示递归目录下所有文件<br>chown [-R] 账号名称:组群  文件/目录<br>ega: chown mongodb:mongodb 文件名</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" data-id="cjo9tdkwp00gaoodvbir7gop8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BSD部署/">BSD部署</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/linux查看端口占用情况" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" class="article-date">
+  <time class="post-time" datetime="2018-08-10T04:25:49.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">10</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/">linux查看端口占用情况</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" class="leancloud_visitors" data-flag-title="linux查看端口占用情况">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" data-id="cjo9tdkve00eeoodvn34w7lik" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/4/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

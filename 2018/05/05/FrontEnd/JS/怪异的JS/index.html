@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>怪异的JS系列 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="怪异的JavaScript系列(一)[ ]等于![ ][] == ![] // -&amp;gt; true 相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。 因为[]和![]都会转换为0。我们可以理解[]是一个数组，只不过为空而已，那么为true。右侧![]则为false。false然后转换为数字0。左侧[]直接转换为数字，因为空数组会转换为0，所以尽管我们认为[]为true">
+<meta name="keywords" content="JS特殊情况判断">
+<meta property="og:type" content="article">
+<meta property="og:title" content="怪异的JS系列">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/怪异的JS/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="怪异的JavaScript系列(一)[ ]等于![ ][] == ![] // -&amp;gt; true 相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。 因为[]和![]都会转换为0。我们可以理解[]是一个数组，只不过为空而已，那么为true。右侧![]则为false。false然后转换为数字0。左侧[]直接转换为数字，因为空数组会转换为0，所以尽管我们认为[]为true">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-05T06:33:18.459Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="怪异的JS系列">
+<meta name="twitter:description" content="怪异的JavaScript系列(一)[ ]等于![ ][] == ![] // -&amp;gt; true 相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。 因为[]和![]都会转换为0。我们可以理解[]是一个数组，只不过为空而已，那么为true。右侧![]则为false。false然后转换为数字0。左侧[]直接转换为数字，因为空数组会转换为0，所以尽管我们认为[]为true">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-FrontEnd/JS/怪异的JS" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/FrontEnd/JS/怪异的JS/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T09:50:36.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      怪异的JS系列
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/05/FrontEnd/JS/怪异的JS/" class="leancloud_visitors" data-flag-title="怪异的JS系列">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="怪异的JavaScript系列-一"><a href="#怪异的JavaScript系列-一" class="headerlink" title="怪异的JavaScript系列(一)"></a><a href="https://juejin.im/post/5ade89db6fb9a07aab297b15" target="_blank" rel="noopener">怪异的JavaScript系列(一)</a></h1><h2 id="等于"><a href="#等于" class="headerlink" title="[ ]等于![ ]"></a>[ ]等于![ ]</h2><pre><code>[] == ![] // -&gt; true
+</code></pre><p><strong>相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。</strong></p>
+<p>因为<code>[]</code>和<code>![]</code>都会转换为<code>0</code>。我们可以理解<code>[]</code>是一个<code>数组</code>，只不过<code>为空</code>而已，那么为<code>true</code>。右侧<code>![]</code>则为<code>false</code>。<code>false</code>然后转换为数字<code>0</code>。<code>左侧[]</code>直接<code>转</code>换为<code>数字</code>，因为<code>空数组</code>会转换<code>为0</code>，所以尽管我们认为[]为true，这里却变成了0。<br>简算过程:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+[] == +![]</span><br><span class="line">0 == +false</span><br><span class="line">0 == 0</span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<h2 id="true-是-false"><a href="#true-是-false" class="headerlink" title="true 是 false"></a>true 是 false</h2><pre><code>!!&apos;false&apos; ==  !!&apos;true&apos;  // -&gt; true
+!!&apos;false&apos; === !!&apos;true&apos; // -&gt; true
+</code></pre><p><strong>true是一个真值，用1表示；<code>字符串的“true”则为NaN</code>。</strong></p>
+<pre><code>true == &apos;true&apos;    // -&gt; false
+false == &apos;false&apos;  // -&gt; false
+</code></pre><p><strong>‘false’是一个有意义的字符串。</strong></p>
+<h2 id="baNaNa"><a href="#baNaNa" class="headerlink" title="baNaNa"></a>baNaNa</h2><pre><code>&apos;b&apos; + &apos;a&apos; ++ &apos;a&apos; + &apos;a&apos; // -&gt; baNaNa
+</code></pre><p><strong>这是一个旧笑话，不过改进过的。原始的长这样：</strong></p>
+<pre><code>&apos;foo&apos; ++ &apos;bar&apos; // -&gt; &apos;fooNaN&apos;
+</code></pre><p>该表达式以<code>&#39;foo&#39; + (+&#39;bar&#39;)</code>的形式计算，因为<code>bar不是数字</code>，所以转换为<code>NaN</code>。    </p>
+<h2 id="NaN不等于NaN"><a href="#NaN不等于NaN" class="headerlink" title="NaN不等于NaN"></a>NaN不等于NaN</h2><pre><code>NaN === NaN // -&gt; false
+</code></pre><p>根据 === 的算法，我们可以容易理解为什么为false。</p>
+<h2 id="fail"><a href="#fail" class="headerlink" title="fail"></a>fail</h2><pre><code>(![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]] // -&gt; fail
+</code></pre><p>如果我们仔细观察序列的规律，会发现下面的模式出现很多次：</p>
+<pre><code>(![]+[]) // -&gt; &apos;false&apos;
+![]      // -&gt; false    
+</code></pre><p>因此，我们尝试将<code>[]</code>和<code>false</code>相加。但是根据内部一些列函数的计算(binary + Operator -&gt; ToPrimitive -&gt; [[DefaultValue]])，右侧的[]最终转换为string：</p>
+<pre><code>(![]+[].toString()) // &apos;false&apos;
+</code></pre><p>对于一个字符串，我们就可以通过下标来获取对应的字符：</p>
+<pre><code>&apos;false&apos;[0] // -&gt; &apos;f&apos;        
+</code></pre><p>剩下的都很直观，除了<code>i</code>很取巧。<code>fail</code>中的<code>i</code>是通过在<code>falseundefined</code>中获取第十个下标对应的字符而得到。    </p>
+<h2 id="包含值，但不是true"><a href="#包含值，但不是true" class="headerlink" title="[ ]包含值，但不是true"></a>[ ]包含值，但不是true</h2><h2 id="null不等于false"><a href="#null不等于false" class="headerlink" title="null不等于false"></a>null不等于false</h2><h2 id="document-all是一个对象，不过是-undefined"><a href="#document-all是一个对象，不过是-undefined" class="headerlink" title="document.all是一个对象，不过是 undefined"></a><code>document.all</code>是一个对象，不过是 undefined</h2><p><strong>⚠️这个是前端浏览器API，在Nodejs环境无法使用。</strong></p>
+<p>尽管<code>document.all</code>可以返回一个像<code>数组一样的对象</code>，可以用来<code>访问DOM节点</code>。但是呢，通过<code>typeof</code>查看<code>document.all</code>，你会惊讶地发现类型是<code>undefined</code>。</p>
+<pre><code>document.all instanceof Object // -&gt; true
+typeof document.all // -&gt; &apos;undefined&apos;
+</code></pre><p>而且，<code>document.all</code>并不等于<code>undefined</code>。</p>
+<pre><code>document.all === undefined // -&gt; false
+document.all === null // -&gt; false
+</code></pre><p>而且，更惊讶的是：</p>
+<pre><code>document.all == null // -&gt; true
+</code></pre><p><code>document.all</code>是一个过去常用的<code>获取DOM元素</code>的方法，特别是老版本的IE。但是<code>从未进入标准</code>，尽管广泛使用在过去的JS代码中。当<code>新的API</code>突出来(比如<code>document.getElementById</code>)后，<code>document.all</code>就被<code>淘汰</code>了。标准委员会不知道怎么处理它。可是因为它已经被广泛使用，所以委员会觉得保留它，但是违背了<code>JavaScript</code>的规范。</p>
+<h2 id="最小值比0还大"><a href="#最小值比0还大" class="headerlink" title="最小值比0还大"></a>最小值比0还大</h2><p><code>Number.MIN_VALUE</code>是最小的数，但是它比<code>0</code>还大。</p>
+<pre><code>Number.MIN_VALUE &gt; 0 // -&gt; true
+</code></pre><p>因为<code>Number.MIN_VALUE</code>是<code>5e-324</code>。也就是说即使<code>最小的值</code>也可以用<code>浮点数</code>表示出来，虽然<code>离0很接近</code>，但是<code>依然比0大</code>。其实最小的数是<code>Number.NEGATIVE_INFINITY</code>，尽管它<code>不是一个实际存在</code>的数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/怪异的JS/" data-id="cjo9tdks300ajoodvvpd55g71" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS特殊情况判断/">JS特殊情况判断</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/07/Algorithm/电梯调度算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          电梯调度算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/05/Operating System/UnixLike/Linux/Linux-進程管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Linux-進程管理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

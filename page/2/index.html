@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="李仕臣的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="李仕臣的博客">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/page/2/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="李仕臣的博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="李仕臣的博客">
+<meta name="twitter:description" content="李仕臣的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main">
+  
+    <article id="post-GIT/git-仓库添加SSH公钥" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="article-date">
+  <time class="post-time" datetime="2018-09-27T02:06:10.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/27/GIT/git-仓库添加SSH公钥/">git 仓库添加SSH公钥</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="leancloud_visitors" data-flag-title="git 仓库添加SSH公钥">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git仓库添加SSH公钥"><a href="#Git仓库添加SSH公钥" class="headerlink" title="Git仓库添加SSH公钥"></a>Git仓库添加SSH公钥</h1><h2 id="第一步-生成SSH-key"><a href="#第一步-生成SSH-key" class="headerlink" title="第一步 生成SSH key"></a>第一步 生成SSH key</h2><blockquote>
+<p>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”  </p>
+</blockquote>
+<h2 id="第二步-查看公钥"><a href="#第二步-查看公钥" class="headerlink" title="第二步 查看公钥"></a>第二步 查看公钥</h2><blockquote>
+<p>cat ~/.ssh/id_rsa.pub<br>复制生成的公钥，到 远程仓库-设置 里添加ssh</p>
+</blockquote>
+<h2 id="第三步-终端检测"><a href="#第三步-终端检测" class="headerlink" title="第三步 终端检测"></a>第三步 终端检测</h2><p>添加公钥后 用下面命令检测，首次使用需要添加主机到本机SSH信任列表</p>
+<blockquote>
+<p>ssh -T git@gitee.com</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/27/GIT/git-仓库添加SSH公钥/" data-id="cjo9tdkl9003loodvqokvw945" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git-SSH/">Git-SSH</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/catLinuxCore" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:56:11.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/">查看Linux发行版核心</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UnixLike/">UnixLike</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="leancloud_visitors" data-flag-title="查看Linux发行版核心">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ubuntu查看系统版本-Linux内核版本"><a href="#Ubuntu查看系统版本-Linux内核版本" class="headerlink" title="Ubuntu查看系统版本-Linux内核版本"></a>Ubuntu查看系统版本-Linux内核版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br><span class="line"></span><br><span class="line">cat /etc/os-release</span><br><span class="line"></span><br><span class="line">cat /etc/redhat-release</span><br><span class="line"></span><br><span class="line">rpm -q centos-release</span><br><span class="line"></span><br><span class="line">uname -a</span><br><span class="line"></span><br><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://blog.csdn.net/haohaibo031113/article/details/70880864" target="_blank" rel="noopener">转自CSDN</a></p>
+<p><a href="https://www.baidu.com/s?wd=ubuntu%2016.04%20%E5%AE%89%E8%A3%85nginx&amp;rsv_spt=1&amp;rsv_iqid=0xe793a65000001553&amp;issp=1&amp;f=3&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=98012088_4_dg&amp;ch=1&amp;rsv_enter=1&amp;oq=linux%25E6%259F%25A5%25E7%259C%258Bubuntu%25E7%2589%2588%25E6%259C%25AC&amp;rsv_t=34e0PL5TYi1wHhbecCDMqieWCC0vKelIGuYW2od1EexG3UzWpfxhsOZUSlHq896i5PxNjA&amp;inputT=11285&amp;rsv_pq=bb5b65e700002916&amp;rsv_sug3=46&amp;rsv_sug1=44&amp;rsv_sug7=101&amp;rsv_sug2=0&amp;prefixsug=ubuntu%252016.04%2520%25E5%25AE%2589%25E8%25A3%2585&amp;rsp=3&amp;rsv_sug4=11985" target="_blank" rel="noopener">ubuntu 16.04 安装nginx</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; apt-get update // 升级集成软件包信息</span><br><span class="line">&gt; apt-get upgrade // 升级 已经安装好的本级软件</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" data-id="cjo9tdkvk00eioodvxg0tzem5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/catLinuxCore/">catLinuxCore</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/组件化设计思路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:41:49.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/">组件化设计思路</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Component-design/">Component-design</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="leancloud_visitors" data-flag-title="组件化设计思路">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>组件化的设计思路</p>
+<p>组件封装有一定的不确定性，更多时候在几方面做个权衡，在最开始并不可能做到完美，在业务的不断变化中，可能还会面临一些调整和重构</p>
+<p>组件化的意义<br>1 组件化是实现分层。更有效的代码组合方式<br>2 组件化是对资源的重组和优化，从而是项目管理更加合理<br>3 有利于单元测试<br>4 对重构友好</p>
+<p>组件的定义<br>1 可复用的模块，完成既定的功能<br>2 有明确的接口规定<br>3 有上下文依赖 外部依赖资源定义<br>4 可以独立发布</p>
+<p>组件设计的原则 主要的是复用性<br>1 使用单一职责原则<br>2 适用开放封闭原则<br>3 追求短小精悍<br>4 避免太多参数<br>5 缩小信赖范围和想稳定方向的信赖<br>6 追求无副作用<br>7 追求透明化<br>8 入口处检查参数的有效性，出口处检查返回的正确性<br>9 充分隔离变化的部分</p>
+<p>自省的几个问题<br>组件是否有必要再分<br>组件划分的依据通常是业务逻辑、功能、要考虑组件之间的关系是否明确<br>划分粒度的大小需要根据实际情况权衡，大小会提升维护成本，太大又不够灵活和高复用性<br>每一个组件都应该有起独特的划分目的，有的是为了复用实现，有的是为了封装的复杂度清晰业务实现</p>
+<p>2 组件的依赖是否可以再缩减<br>3 组件的可复用于其他类似场景中<br>在考虑需要适用的不同场景，在组件接口设计时需要兼容<br>4 组件当别人使用时，会怎么想<br>5 假如业务需要不需要这个功能，是否清楚方便</p>
+<h3 id="敲代码的李二狗"><a href="#敲代码的李二狗" class="headerlink" title="敲代码的李二狗:"></a>敲代码的李二狗:</h3><p><a href="https://kb.cnblogs.com/page/606682/" target="_blank" rel="noopener">为什么说 Java 程序员必须掌握 Spring Boot ？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" data-id="cjo9tdksr00bdoodvcrqgy0db" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Compinent/">Compinent</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-SVN/SVN使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/12/SVN/SVN使用指南/" class="article-date">
+  <time class="post-time" datetime="2018-09-12T03:20:12.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/SVN/SVN使用指南/">SVN使用指南</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SVN/">SVN</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/12/SVN/SVN使用指南/" class="leancloud_visitors" data-flag-title="SVN使用指南">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="几个概念要必须掌握："><a href="#几个概念要必须掌握：" class="headerlink" title="几个概念要必须掌握："></a>几个概念要必须掌握：</h2><p><code>checkout</code>—&gt;将SVN仓库的代码烤到本地，比如你现在参与一个团队项目，项目代码在你之前肯定已经写了很多了，你可以通过checkout项目代码，获得整个项目。</p>
+<p><code>update</code>—&gt;在你写代码的过程中，同事很可能已经提交过代码到SVN服务器，而你本地项目显然没有同事新提交的代码，你可以通过update SVN获得SVN最新的代码。</p>
+<p><code>commit</code>—&gt;当你完成一部分开发后，你可以通过commit提交代码到SVN服务器，这样别人就可以获得你写的代码，记得 <strong>先update再commit</strong>。</p>
+<h2 id="TortoiseSVN图标介绍"><a href="#TortoiseSVN图标介绍" class="headerlink" title="TortoiseSVN图标介绍"></a>TortoiseSVN图标介绍</h2><ul>
+<li>绿色对勾重载，表示Svn状态正常</li>
+<li>红色感叹号，表示文件状态状态变成 已修改</li>
+<li>黄色感叹号，表示提交过程出现冲突 </li>
+<li>蓝色加号，表示 一个 文件/目录 已经被加入到 版本控制中</li>
+</ul>
+<h2 id="SVN-Client-基础操作"><a href="#SVN-Client-基础操作" class="headerlink" title="SVN Client 基础操作"></a>SVN Client 基础操作</h2><ol>
+<li>SVN检出(Checkout)\<br> 输入 url ， 确定本地 代码库 地址</li>
+</ol>
+<p>弹出<code>用户名</code> <code>密码验证</code></p>
+<h3 id="Add-增加"><a href="#Add-增加" class="headerlink" title="Add 增加"></a>Add 增加</h3><ol>
+<li><p>先提交到变更列表，再 <code>commit</code> 到配置库：选择<code>新增文件</code>，右键SVN菜单执行<code>Add</code>， 提交到<code>变更列表</code>，然后右键SVN菜单执行<code>SVN Commit</code>提交到版本库</p>
+</li>
+<li><p>不提交到变更列表，直接commit配置库：直接选择文件，右键SVN菜单执行<code>SVN Commit</code>操作。</p>
+</li>
+</ol>
+<h3 id="Delete-删除"><a href="#Delete-删除" class="headerlink" title="Delete 删除"></a>Delete 删除</h3><p>如果被删文件 未入版本库，可直接使用操作系统删除</p>
+<p>如果被删文件 已入版本库：</p>
+<ol>
+<li>选择被删文件， 右键 SVN菜单 执行<code>delete</code>操作</li>
+<li>选择被删文件父级目录， 右键 SVN菜单 执行<code>SVN Commit</code></li>
+</ol>
+<h3 id="Rename-改名"><a href="#Rename-改名" class="headerlink" title="Rename 改名"></a>Rename 改名</h3><h3 id="SVN-Revert-还原"><a href="#SVN-Revert-还原" class="headerlink" title="SVN Revert 还原"></a>SVN Revert 还原</h3><p>右键SVN菜单 <code>Update to reversion</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/12/SVN/SVN使用指南/" data-id="cjo9tdkpa0084oodvy7xsrqvk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN使用/">SVN使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/React/React学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T09:45:25.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/">React学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="leancloud_visitors" data-flag-title="React学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一步-实现功能模块"><a href="#第一步-实现功能模块" class="headerlink" title="第一步 实现功能模块"></a>第一步 实现功能模块</h2><ol>
+<li>npm install antd –save-dev</li>
+<li>import ‘antd css style sheets’</li>
+<li>创建 模板</li>
+<li>import {Menu, Table, Pagination} from ‘antd’;</li>
+<li>导出模板到 ./index.js</li>
+<li>Router 注册； Nav 里面 添加 路由 link<br>Compelite</li>
+</ol>
+<h2 id="四大部分-props-state-lifecircle-context"><a href="#四大部分-props-state-lifecircle-context" class="headerlink" title="四大部分(props state lifecircle context)"></a>四大部分(<code>props</code> <code>state</code> <code>lifecircle</code> <code>context</code>)</h2><h2 id="组件构建三种方法"><a href="#组件构建三种方法" class="headerlink" title="组件构建三种方法"></a>组件构建三种方法</h2><p>① React.createClass<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Button = React.createClass(&#123;</span><br><span class="line">  // method/lifecircle</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>② ES6class</p>
+<p>③ 无状态函数<br>无状态组件只传入<code>props</code>和<code>context</code>,不存在<code>state</code>.<br><code>propsTyps</code>和<code>defaultProps</code> 可通过 向 方法 设置 静态属性</p>
+<h2 id="组件五种形式"><a href="#组件五种形式" class="headerlink" title="组件五种形式"></a>组件五种形式</h2><p>[<code>容器</code>, <code>业务逻辑</code>, <code>取数据</code>, <code>布局(layout)</code>, <code>无状态组件</code>]</p>
+<h2 id="生命周期-lifecircle"><a href="#生命周期-lifecircle" class="headerlink" title="生命周期(lifecircle)"></a>生命周期(lifecircle)</h2><p><a href="https://segmentfault.com/a/1190000004168886" target="_blank" rel="noopener">参考文档</a><br><strong>初始化:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor</span><br><span class="line">componentWillMount</span><br><span class="line">+ render()</span><br><span class="line">componentDidMount</span><br></pre></td></tr></table></figure></p>
+<p><strong>周期改变:</strong>(<code>props/state</code> 改变时 触发)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">  &lt;!-- 当组件可能接收到`新道具`时调用。即使道具没有改变，你也可以这样称呼它，所以如果你只想处理改变，一定要比较新的和现有的道具。 --&gt;</span><br><span class="line">  &lt;!-- 调用组件setstate通常不会触发这种方法。 --&gt;</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState) </span><br><span class="line">componentWillUpdata() &#123;</span><br><span class="line">  &lt;!-- willUpdata 下 设置 setState 会触发 componentReceiveProps --&gt;</span><br><span class="line">&#125;</span><br><span class="line">+ render()</span><br><span class="line">componentDidUpdata</span><br></pre></td></tr></table></figure></p>
+<p><strong>组件销毁:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDis</span><br></pre></td></tr></table></figure></p>
+<h2 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h2><p>被动接收 =&gt; 数据流逻辑</p>
+<h2 id="无状态组件如何避免重绘-reflow-重排版-repaint"><a href="#无状态组件如何避免重绘-reflow-重排版-repaint" class="headerlink" title="无状态组件如何避免重绘(reflow)/重排版(repaint)"></a>无状态组件如何避免<code>重绘(reflow)</code>/<code>重排版(repaint)</code></h2><h2 id="React-路由跳转"><a href="#React-路由跳转" class="headerlink" title="React 路由跳转"></a>React 路由跳转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.props.history.push(&apos;/login&apos;)</span><br></pre></td></tr></table></figure>
+<h2 id="React-Children-map渲染对象"><a href="#React-Children-map渲染对象" class="headerlink" title="React.Children.map渲染对象"></a>React.Children.map渲染对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    React.Children.map(children, (child) =&gt; &#123;</span><br><span class="line">        return &lt;Fragment&gt;&#123;child&#125;&lt;/Fragment&gt;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" data-id="cjo9tdku400cwoodvljomub0x" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/3/">next &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

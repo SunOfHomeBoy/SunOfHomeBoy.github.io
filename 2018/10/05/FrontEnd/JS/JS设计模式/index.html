@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>JS设计模式 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第一章 灵活语言–JavaScript1.1 全局变量 命名函数 function fnName() {}  1.2 全局变量 函数表达式 var fnName = function() {}  ps：全局变量污染全局作用域，容易被覆盖 1.3 对象收编变量1234var fnObj = &amp;#123;  fn1: function() &amp;#123;&amp;#125;,  fn2: () =&amp;gt; &amp;#">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS设计模式">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/10/05/FrontEnd/JS/JS设计模式/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="第一章 灵活语言–JavaScript1.1 全局变量 命名函数 function fnName() {}  1.2 全局变量 函数表达式 var fnName = function() {}  ps：全局变量污染全局作用域，容易被覆盖 1.3 对象收编变量1234var fnObj = &amp;#123;  fn1: function() &amp;#123;&amp;#125;,  fn2: () =&amp;gt; &amp;#">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-07T13:13:59.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS设计模式">
+<meta name="twitter:description" content="第一章 灵活语言–JavaScript1.1 全局变量 命名函数 function fnName() {}  1.2 全局变量 函数表达式 var fnName = function() {}  ps：全局变量污染全局作用域，容易被覆盖 1.3 对象收编变量1234var fnObj = &amp;#123;  fn1: function() &amp;#123;&amp;#125;,  fn2: () =&amp;gt; &amp;#">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-FrontEnd/JS/JS设计模式" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/05/FrontEnd/JS/JS设计模式/" class="article-date">
+  <time class="post-time" datetime="2018-10-05T10:30:43.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS设计模式
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/10/05/FrontEnd/JS/JS设计模式/" class="leancloud_visitors" data-flag-title="JS设计模式">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一章-灵活语言–JavaScript"><a href="#第一章-灵活语言–JavaScript" class="headerlink" title="第一章 灵活语言–JavaScript"></a><strong>第一章 灵活语言–JavaScript</strong></h1><h2 id="1-1-全局变量-命名函数"><a href="#1-1-全局变量-命名函数" class="headerlink" title="1.1 全局变量 命名函数"></a><strong>1.1 全局变量 命名函数</strong></h2><blockquote>
+<p>function fnName() {}</p>
+</blockquote>
+<h2 id="1-2-全局变量-函数表达式"><a href="#1-2-全局变量-函数表达式" class="headerlink" title="1.2 全局变量 函数表达式"></a><strong>1.2 全局变量 函数表达式</strong></h2><blockquote>
+<p>var fnName = function() {}</p>
+</blockquote>
+<p>ps：全局变量污染全局作用域，容易被覆盖</p>
+<h2 id="1-3-对象收编变量"><a href="#1-3-对象收编变量" class="headerlink" title="1.3 对象收编变量"></a><strong>1.3 对象收编变量</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = &#123;</span><br><span class="line">  fn1: function() &#123;&#125;,</span><br><span class="line">  fn2: () =&gt; &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-对象另一种形式"><a href="#1-4-对象另一种形式" class="headerlink" title="1.4 对象另一种形式"></a><strong>1.4 对象另一种形式</strong></h2><p>JS万事万物皆对象，函数也是对象</p>
+<p>首先声明一个对象, 然后添加方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;&#125;;</span><br><span class="line">fnObj.fn1 = function() &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>ps: 对象不能复制, <code>new</code> 关键字 创建新对象，新对象不能继承方法</p>
+<h2 id="1-5真假对象"><a href="#1-5真假对象" class="headerlink" title="1.5真假对象"></a><strong>1.5真假对象</strong></h2><p>简单复制，将方法放在一个函数对象中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    fn1: function() &#123;&#125;,</span><br><span class="line">    fn2: () =&gt; &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = fnObj();</span><br><span class="line">a.fn1();</span><br></pre></td></tr></table></figure></p>
+<p>ps: 每次调用返回新对象, 状态不会互相干扰 / 新创建对象 和 <code>fnObj</code> 没有任何关系</p>
+<h2 id="1-6-类"><a href="#1-6-类" class="headerlink" title="1.6 类"></a><strong>1.6 类</strong></h2><p><code>1.5假对象</code>新创建对象 和<code>fnObj</code>没有任何关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;</span><br><span class="line">  this.fn1 = function()&#123;&#125;</span><br><span class="line">  this.fn2 = () =&gt; &#123;&#125;</span><br><span class="line">  this.fn3 = arguments =&gt; &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = new fnObj();</span><br><span class="line">a.fn1();</span><br></pre></td></tr></table></figure></p>
+<p>用类创建对象</p>
+<h2 id="1-7-检测类"><a href="#1-7-检测类" class="headerlink" title="1.7 检测类"></a><strong>1.7 检测类</strong></h2><p>所有方法放在 函数内部 通过<code>this</code>定义。\<br>每次通过<code>new</code>关键字创建新对象，<code>新对象</code>对<code>类</code>的<code>this</code>上的<code>属性/方法</code>进行复制。新创建对象 都有自己的一套方法，<strong>但是</strong>造成的消耗很奢侈。</p>
+<p><strong>第一种方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;&#125;;</span><br><span class="line">fnObj.prototype.fn1 = function() &#123;&#125;;</span><br><span class="line">fnObj.prototype.fn2 = () =&gt; &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>实例 共享<code>prototype</code>上<code>属性/方法</code></p>
+<p><strong>第二种方法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">fnObj.prototype = &#123;</span><br><span class="line">  fn1: function() &#123;&#125;,</span><br><span class="line">  fn2: () =&gt; &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>两种方法不能混用，第二种覆盖第一种.</p>
+<h2 id="1-8-方法的链式调用"><a href="#1-8-方法的链式调用" class="headerlink" title="1.8 方法的链式调用"></a><strong>1.8 方法的链式调用</strong></h2><p>在声明的 每个方法末尾 将当前对象返回，JS中<code>this</code>关键字指向当前对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = &#123;</span><br><span class="line">  fn1: function() &#123;</span><br><span class="line">    // DoSomeThing</span><br><span class="line">    return this;</span><br><span class="line">  &#125;,</span><br><span class="line">  fn2: () =&gt; &#123;</span><br><span class="line">    // DoSomeThing </span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 链式调用</span><br><span class="line">&gt; fnObj.fn1().fn2();</span><br></pre></td></tr></table></figure></p>
+<p><strong>构造函数原型链式调用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">fnObj.prototype = &#123;</span><br><span class="line">  fn1: function() &#123;</span><br><span class="line">    // DoSomeThing</span><br><span class="line">    return this;</span><br><span class="line">  &#125;,</span><br><span class="line">  fn2: () =&gt; &#123;</span><br><span class="line">    // DoSomeThing</span><br><span class="line">    return this;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用时需要先创建一下</span><br><span class="line">var a = new fnObj();</span><br><span class="line">a.fn1().fn2();</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-9-函数祖先"><a href="#1-9-函数祖先" class="headerlink" title="1.9 函数祖先"></a>1.9 函数祖先</h2><p><code>prototype.js / lodash.js</code>, <code>js框架</code>;</p>
+<p>在内置对象<code>Function</code>原型上添加方法</p>
+<blockquote>
+<p>Function.prototype.fn1 = fucntion() {}</p>
+</blockquote>
+<p>// 函数形式</p>
+<blockquote>
+<p>var f = function() {};<br>f.fn1();</p>
+</blockquote>
+<p>// 构造函数</p>
+<blockquote>
+<p>var f = new Function();<br>f.fn1();</p>
+</blockquote>
+<p>此种方法不被推荐，污染原生对象<code>Function</code>, 可抽象出一个 统一添加方法的 功能方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 在原型上挂载`addMethod`方法</span><br><span class="line">Function.prototype.addMethod = function(name, fn) &#123;</span><br><span class="line">  this[name] = fn;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 两种生成实例的方法，任选其一</span><br><span class="line">var methods = function() &#123;&#125;;</span><br><span class="line">||</span><br><span class="line">var methods = new Function();</span><br><span class="line"></span><br><span class="line">methods.addMethod(&apos;fn1&apos;, function() &#123;&#125;);</span><br><span class="line">methods.addMethod(&apos;fn2&apos;, function() &#123;&#125;);</span><br><span class="line"></span><br><span class="line">methods.fn1();</span><br><span class="line">methods.fn2();</span><br></pre></td></tr></table></figure>
+<h2 id="1-10链式添加"><a href="#1-10链式添加" class="headerlink" title="1.10链式添加"></a>1.10链式添加</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 在原型上挂载`addMethod`方法</span><br><span class="line">Function.prototype.addMethod = function(name, fn) &#123;</span><br><span class="line">  this[name] = fn;</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 顺便支持`链式调用`</span><br><span class="line">var fn = function() &#123;&#125;;</span><br><span class="line">fn.addMethod(&apos;fn1&apos;, function() &#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;).addMethod(&apos;fn2&apos;, function() &#123;</span><br><span class="line">    return this;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">fn.fn1().fn2();</span><br></pre></td></tr></table></figure>
+<h2 id="1-11-类式调用"><a href="#1-11-类式调用" class="headerlink" title="1.11 类式调用"></a>1.11 类式调用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 在原型上挂载`addMethod`方法</span><br><span class="line">Function.prototype.addMethod = function(name, fn) &#123;</span><br><span class="line">  this.prototype[name] = fn;</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 顺便支持`链式调用`</span><br><span class="line">var fn = function() &#123;&#125;;</span><br><span class="line">fn.addMethod(&apos;fn1&apos;, function() &#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;).addMethod(&apos;fn2&apos;, function() &#123;</span><br><span class="line">    return this;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">// 调用时需要注意</span><br><span class="line">var fns = new fn();</span><br><span class="line">fns.fn1();</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结:"></a><strong>总结:</strong></h2><p>JS是一种<code>灵活</code>的语言, <code>函数</code>扮演一等公民。使用JS可以编写出更多<code>优雅的艺术代码</code>。</p>
+<p><strong>忆之获:</strong> 函数 多样化 创建/使用. <code>灵活性</code>是语言特有气质。团队开发慎重，尽量保证团队代码风格一致。易开发、可维护、代码规范必然要求。</p>
+<p><strong>问答:</strong></p>
+<ul>
+<li><p><strong>问： <a href="#1.5真假对象">1.5真假对象</a> 一节中如何实现方法链式调用?</strong>\<br>答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var fnObj = function() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    fn1: function() &#123;</span><br><span class="line">      return this;</span><br><span class="line">    &#125;,</span><br><span class="line">    fn2: () =&gt; &#123;</span><br><span class="line">      return this;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var fn = fnObj();</span><br><span class="line">fn.fn1().fn2();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>问：试定义一个可为函数添加多方法的<code>addMethod</code>方法。</strong>\<br>答：参考<a href="#1.10链式添加">1.10链式添加</a></p>
+<p><strong>方式一</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 在原型上挂载`addMethod`方法</span><br><span class="line">Function.prototype.addMethod = function(name, fn) &#123;</span><br><span class="line">  this[name] = fn;</span><br><span class="line">  return this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 顺便支持`链式调用`</span><br><span class="line">var fn = function() &#123;&#125;;</span><br><span class="line">fn.addMethod(&apos;fn1&apos;, function() &#123;</span><br><span class="line">  return this;</span><br><span class="line">&#125;).addMethod(&apos;fn2&apos;, function() &#123;</span><br><span class="line">    return this;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">fn.fn1().fn2();</span><br></pre></td></tr></table></figure>
+<p><strong>方式二</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 定义 参数类型 接口</span><br><span class="line">interface opt = &#123;</span><br><span class="line">  fnName: string,</span><br><span class="line">  fn: function</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 支持 一次性 创建多个方法</span><br><span class="line">Function.prototype.addMethod = function(options: opt[]) &#123;</span><br><span class="line">  for(obj of options) &#123;</span><br><span class="line">    this[obj.fnName] = obj.fn;</span><br><span class="line">  &#125;</span><br><span class="line">  trturn this;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var methods = [</span><br><span class="line">  &#123;</span><br><span class="line">    fnName: &apos;fn1&apos;,</span><br><span class="line">    fn: function() &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    fnName: &apos;fn2&apos;,</span><br><span class="line">    fn: () =&gt; &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">var &apos;自定义Fn&apos; = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&apos;自定义Fn&apos;.addMethod(methods);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>问：试定义一个既可为函数添加多方法,又可为原型添加方法的<code>addMethod</code>方法。</strong>\<br>答：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 定义 参数类型 接口</span><br><span class="line">interface opt = &#123;</span><br><span class="line">  fnName: string,</span><br><span class="line">  fn: function</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 支持 一次性 创建多个方法</span><br><span class="line">Function.prototype.addMethod = function(options: opt[], proto: string) &#123;</span><br><span class="line">  if(proto === &quot;prototype&quot;) &#123;</span><br><span class="line">    for(obj of options) &#123;</span><br><span class="line">      this.protype[obj.fnName] = obj.fn;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    for(obj of options) &#123;</span><br><span class="line">      this[obj.fnName] = obj.fn;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  trturn this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="第二章-面向对象编程"><a href="#第二章-面向对象编程" class="headerlink" title="第二章 面向对象编程"></a><strong>第二章 面向对象编程</strong></h1><h2 id="2-1-面向对象-面向过程"><a href="#2-1-面向对象-面向过程" class="headerlink" title="2.1 面向对象 面向过程"></a>2.1 <code>面向对象</code> <code>面向过程</code></h2><p>面向对象编程 就是 将 需求 抽象成一个对象, 针对对象分析 特征(属性) / 动作(方法). 这个对象称为<code>类</code>.</p>
+<p><strong>核心思想：</strong><code>封装</code> <code>继承</code> <code>多继承</code> <code>多态</code></p>
+<h2 id="2-2-包装明星–封装"><a href="#2-2-包装明星–封装" class="headerlink" title="2.2 包装明星–封装"></a>2.2 包装明星–封装</h2><h3 id="2-2-1-创建一个类"><a href="#2-2-1-创建一个类" class="headerlink" title="2.2.1 创建一个类"></a>2.2.1 创建一个类</h3><p>首先声明一个函数，保存在一个变量里. 按编程习惯，将类名首字母大写.<br>然后在函数(类)内部通过对<code>this</code>(函数内部自带变量，用于指向当前对象)变量添加 属性/方法，实现对类添加<code>属性/方法</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var Book = function(id, bookName, price) &#123;</span><br><span class="line">  this.id = id;</span><br><span class="line">  this.bookName = bookName;</span><br><span class="line">  this.price = price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可通过<code>类</code>的原型(类本身也是对象，所以也有原型<code>prototype</code>)上添加<code>属性/方法</code>.\<br>两种方式：</p>
+<p>①为原型对象属性赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Book.prototype.show = function() &#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>②将一个对象赋值给类的原型对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Book.prototype = &#123;</span><br><span class="line">  show: function() &#123;&#125;,</span><br><span class="line">  fn2: function() &#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>两种模式不能混用</p>
+<p>使用时需要<code>new</code>关键字，实例化(创建)新对象.</p>
+<p><strong>关于对实例方法和原型方法解释：</strong><br>通过<code>this</code>添加的<code>方法/属性</code>，是在当前对象上添加的\<br>JS是一种基于<code>prototype</code>原型的语言, 每创建一个对象(函数也是一种对象),都有一个prototype原型用于指向 其继承的 属性/方法. 通过prototype继承方法非对象自身所有，需要通过prototype逐级查找。<br>通过<code>this</code>定义的<code>方法/属性</code>，是对象自身拥有, 每次通过<code>类</code>创建新对象实例时，都会复制<code>类</code>本身方法、属性\<br>prototype上方法/属性是继承来,状态共享, 不会被多次创建。</p>
+<h3 id="2-2-2-属性与方法封装"><a href="#2-2-2-属性与方法封装" class="headerlink" title="2.2.2 属性与方法封装"></a>2.2.2 属性与方法封装</h3><p>理解：</p>
+<ol>
+<li><p>通过JS函数作用域 实现 函数内部创建<br>面向对象思想:</p>
+<p><code>属性/方法</code> 的 隐藏、暴露, <code>私有属性/私有方法、公有属性/公有方法、保护属性/保护方法</code></p>
+</li>
+</ol>
+<p>JS通过<code>函数作用域</code>实现<code>私有属性/私有方法</code>;</p>
+<p><code>this</code>创建<code>公有属性/公有方法</code>, 通过<code>this</code>创建的公有方法，可以访问<code>类(创建时)||对象</code>的<code>私有属性/私有方法</code>, 由于这些方法权利比较大, 又称为<code>特权方法</code>;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 私有属性/私有方法, 特权方法, 对象公有属性/对象公有方法, 构造器</span><br><span class="line">var Book = fucntion(id, name, price) &#123;</span><br><span class="line">  // 私有属性</span><br><span class="line">  var num = 1;</span><br><span class="line">  // 私有方法</span><br><span class="line">  function checkId() &#123;&#125;;</span><br><span class="line">  </span><br><span class="line">  // 特权方法</span><br><span class="line">  this.getName = function() &#123;&#125;;</span><br><span class="line">  this.getPrice = function() &#123;&#125;;</span><br><span class="line">  this.setName = function() &#123;&#125;;</span><br><span class="line">  this.setPrice = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  // 对象公有属性</span><br><span class="line">  this.id = id;</span><br><span class="line">  // 对象公有方法</span><br><span class="line">  this.copy = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  // 构造器</span><br><span class="line">  this.setName(name);</span><br><span class="line">  this.setPrice(price);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>理解：</p>
+<ol>
+<li>通过JS<code>函数作用域</code>特征，来实现 函数内部创建 外部无法访问的<code>私有变量/私有方法</code></li>
+<li>通过<code>new</code>关键字，实例化对象时，会对<code>类</code>执行一次，所以<code>类</code>内部<code>this</code>上定义的<code>属性/方法</code>自然可复制到 新创建对象上，成为 <code>对象公有属性/公有方法</code> </li>
+<li>其中一些方法能访问到 <code>类</code>的<code>私有属性/私有方法</code>, 比外界权利大，得名<code>特权方法</code></li>
+<li>通过<code>new</code>关键字 实例化对象 时，执行了一遍<code>类</code>的函数，里面通过调用<code>特权方法</code>，初始化对象的一些属性。</li>
+<li><code>类</code>外部通过 点语法 定义 属性/方法: 通过<code>new</code>关键字创建新对象时，由于<code>类</code>外面通过 点语法 定义的<code>属性/方法</code>没有执行到，所以 <code>新创建对象中无法获取</code>，但可通过<code>类</code>来使用，因此在类外面通过 点语法 定义的 属性/方法 被称为 <code>类的静态公有属性/静态公有方法</code></li>
+<li><code>类</code>通过<code>prototype</code>创建的<code>属性/方法</code>在<code>类实例对象</code>中可通过this访问(新创建对象<em>proto</em>指向类的原型所指向的对象), 所以将<code>prototype</code>对象中<code>属性/方法</code>称为<code>公有属性/公有方法</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 类静态公有属性(实例对象不能访问)</span><br><span class="line">Book.isChinese = true;</span><br><span class="line">// 类静态公有方法(实例对象不能访问)</span><br><span class="line">Book.fn1 = function()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">  // 公有属性</span><br><span class="line">  isBook: false,</span><br><span class="line">  // 公有方法</span><br><span class="line">  fn2: function() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过<code>new</code>关键字创建的对象 <strong>实质</strong> 是对 新对象<code>this</code>的不断赋值，并将prototype指向 类的prototype 所指向的对象。</p>
+<p>类的构造函数 外，通过点语法定义的属性/方法 是不会添加到 新创建 对象上去的。</p>
+<p>想要在新创建对象中使用静态公有属性，得通过 类本身，不能通过this。</p>
+<p>类的原型上定义的属性在 新对象里 可直接使用，因为 新对象 prototype和 类 的 prototype 指向同一对象</p>
+<p>类私有属性 和 静态方法 在 实例对象中访问不到</p>
+<p>公有属性在实例对象中可通过 点语法 访问到</p>
+<h3 id="2-2-3-闭包实现"><a href="#2-2-3-闭包实现" class="headerlink" title="2.2.3 闭包实现"></a>2.2.3 闭包实现</h3><p>类的静态变量 通过闭包实现</p>
+<h3 id="2-2-4-创建对象的安全模式"><a href="#2-2-4-创建对象的安全模式" class="headerlink" title="2.2.4 创建对象的安全模式"></a>2.2.4 创建对象的安全模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个图书类</span><br><span class="line">var Book = function(title, time, type) &#123;</span><br><span class="line">  this.title = title;</span><br><span class="line">  this.time = time;</span><br><span class="line">  this.type = type;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实例化一本书</span><br><span class="line">var book1 = Book(&apos;js&apos;, &apos;2018&apos;, &apos;js&apos;)</span><br><span class="line"></span><br><span class="line">console.log(book); // undefined</span><br><span class="line"></span><br><span class="line">console.log(window.title);  // js</span><br><span class="line">console.log(window.time);   // 2018</span><br><span class="line">console.log(window.type);   // js</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<ol>
+<li>new关键字作用 可看做 对当前对象 this 不停赋值，例中 没有用new, 直接执行函数在全局作用域，this指向 全局变量window;</li>
+<li>变量book 最终作用 得到Book类(函数)执行结果, 函数没有return语句, 变量book 得不到 Book类 的返回值, 遂为 undefined</li>
+</ol>
+<p><strong>安全模式 || 检察长模式</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var Book = function(title, time, type) &#123;</span><br><span class="line">  // 判断执行过程中 this 是否为 当前对象(为true说明是用 new关键字 创建)</span><br><span class="line">  if(this instanceof Book)&#123;</span><br><span class="line">    this.title = title;</span><br><span class="line">    this.time = time;</span><br><span class="line">    this.type = type;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 否则重新创建对象并返回</span><br><span class="line">    return new Book(title, time, type);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结：<br>每个类有 3部分</p>
+<ol>
+<li>第一部分是构造函数内，供实例化对象复制</li>
+<li>第二部分是构造函数外，直接通过点语法添加，供类直接使用，实例化对象访问不到</li>
+<li>第三部分是类的原型中，实例化对象可通过原型链间接访问，为所有实例化对象共用</li>
+</ol>
+<h2 id="2-3-继承"><a href="#2-3-继承" class="headerlink" title="2.3 继承"></a>2.3 继承</h2><h3 id="2-3-1-子类原型对象–类式继承"><a href="#2-3-1-子类原型对象–类式继承" class="headerlink" title="2.3.1 子类原型对象–类式继承"></a>2.3.1 子类原型对象–类式继承</h3><p><strong>类式继承</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 声明父类</span><br><span class="line">function SuperClass() &#123;</span><br><span class="line">  this.superValue = true;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 为父类添加公有方法</span><br><span class="line">SuperClass.prototype.getSuperValue = function() &#123;</span><br><span class="line">  return this.superValue;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 声明子类</span><br><span class="line">function SubClass() &#123;</span><br><span class="line">  this.subValue = false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 继承父类</span><br><span class="line">SubClass.prototype = new SuperClass();</span><br><span class="line">// 先继承，再为子类添加公有方法</span><br><span class="line">SubClass.prototype.getSubValue = function() &#123;</span><br><span class="line">  return this.subValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 以上 类似`封装`的过程</span><br></pre></td></tr></table></figure></p>
+<p>总结：<br>类式继承 需要将 第一个类的实例 赋值给 第二个 类的原型\<br>类的原型对象 作用是 为类的原型添加公有方法，类不能直接访问原型中的<code>属性/方法</code>，必须通过 原型prototype 来访问。\<br>实例化一个父类时，新创建对象复制了父类构造函数内 属性/方法， 并且将 原型<em>proto</em> 指向父类原型对象， 如此便拥有 父类 原型对象/构造函数 上 属性/方法，</p>
+<p><strong>instanceof判断<code>对象</code>与<code>类</code>继承关系</strong>\<br><code>instanceof</code>通过判断对象<code>prototype链</code>来确定<code>对象</code>是否为<code>某类</code>实例，不关心<code>对象</code>与<code>类</code>自身结构</p>
+<blockquote>
+<p>console.log(obj instanceof Class); // true<br>console.log(SubClass instanceof ParentClass); // false</p>
+</blockquote>
+<p>instanceof 判断 前面对象是否为 后面 类(对象)实例，不表示两者的继承\<br>子类 继承 父类 时通过将 父类实例 赋值给 子类原型prototype, 子类原型 继承 父类 </p>
+<blockquote>
+<p>console.log(SubClass.prototype instanceof ParentClass); // true</p>
+</blockquote>
+<p>所有<code>对象</code>都继承自<code>Object</code>原生对象构造函数</p>
+<blockquote>
+<p>console.log(allObj instanceof Object); // true</p>
+</blockquote>
+<h4 id="类式继承缺点"><a href="#类式继承缺点" class="headerlink" title="类式继承缺点"></a>类式继承缺点</h4><ol>
+<li><code>子类</code>通过<code>原型prototype</code>对<code>父类实例化</code>, 继承父类。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/05/FrontEnd/JS/JS设计模式/" data-id="cjo9tdkr6009hoodvxqvrdh8m" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/22/ECharts学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ECharts学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/03/日常记录/十一学习记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">十一学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>FS模块 | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858">
+<meta name="keywords" content="FileSystem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FS模块">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/07/05/NodeJS/Node-js-FS模块/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-05T06:33:18.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FS模块">
+<meta name="twitter:description" content="Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-NodeJS/Node-js-FS模块" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/05/NodeJS/Node-js-FS模块/" class="article-date">
+  <time class="post-time" datetime="2018-07-05T06:47:46.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FS模块
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node-FS/">Node FS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/07/05/NodeJS/Node-js-FS模块/" class="leancloud_visitors" data-flag-title="FS模块">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node-js-fs模块-文件模块-创建、删除目录-文件-读取写入文件流"><a href="#Node-js-fs模块-文件模块-创建、删除目录-文件-读取写入文件流" class="headerlink" title="Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流"></a><a href="https://blog.csdn.net/houyanhua1/article/details/79443987" target="_blank" rel="noopener">Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">/* </span><br><span class="line"> 1. fs.stat  检测是文件还是目录(目录 文件是否存在) </span><br><span class="line"> 2. fs.mkdir  创建目录 （创建之前先判断是否存在） </span><br><span class="line"> 3. fs.writeFile  写入文件(文件不存在就创建,但不能创建目录) </span><br><span class="line"> 4. fs.appendFile 写入追加文件 </span><br><span class="line"> 5. fs.readFile 读取文件 </span><br><span class="line"> 6. fs.readdir 读取目录 </span><br><span class="line"> 7. fs.rename 重命名 </span><br><span class="line"> 8. fs.rmdir  删除目录 </span><br><span class="line"> 9. fs.unlink 删除文件 </span><br><span class="line"> 10. fs.createReadStream(&apos;&apos;) 从文件流中读取数据</span><br><span class="line"> 11. fs.createWriteStream  写入文件流</span><br><span class="line"> 12. pipe 管道流 </span><br><span class="line"> 13. fs.access 判断目录、文件是否存在(读写权限)</span><br><span class="line">*/</span><br><span class="line"> </span><br><span class="line">var fs=require(&apos;fs&apos;);   //fs是node.js的核心模块，不用下载安装，可以直接引入  </span><br><span class="line"> </span><br><span class="line">//1. fs.stat  检测是文件还是目录  fs.statSync()同步获取stats对象,通过返回值接收。</span><br><span class="line">fs.stat(&apos;html&apos;,function(error,stats)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;文件：&apos;+stats.isFile());</span><br><span class="line">    console.log(&apos;目录：&apos;+stats.isDirectory());</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//2. fs.mkdir  创建目录  </span><br><span class="line">fs.mkdir(&apos;css&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;创建目录成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//3. fs.writeFile  写入文件（会覆盖之前的内容）（文件不存在就创建）  utf8参数可以省略  </span><br><span class="line">fs.writeFile(&apos;123.txt&apos;,&apos;你好nodejs 覆盖&apos;,&apos;utf8&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;写入成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//4. fs.appendFile 追加文件  </span><br><span class="line">fs.appendFile(&apos;123.txt&apos;,&apos;这是写入的内容\n&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;写入成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//5.fs.readFile 读取文件  </span><br><span class="line">fs.readFile(&apos;123.txt&apos;,function(error,data)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    //console.log(data);  //data是读取的十六进制的数据。  也可以在参数中加入编码格式&quot;utf8&quot;来解决十六进制的问题;</span><br><span class="line">    console.log(data.toString());  //读取出所有行的信息  </span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//6.fs.readdir 读取目录下第一级内容  把目录下面的文件和文件夹都获取到。  </span><br><span class="line">fs.readdir(&apos;html&apos;,function(error,data)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(data);  //data是数组类型，包含文件夹以及文件的名字(只有第一级目录内容)。拿到一个文件夹下面的所有目录  </span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//7.fs.rename 重命名  1.改名  2.剪切文件(移动)  </span><br><span class="line">fs.rename(&apos;html/index.html&apos;,&apos;html/news.html&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;修改名字成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//8. fs.rmdir  删除目录   rmdir 这个方法只能删除目录，不能删除文件  </span><br><span class="line">fs.rmdir(&apos;abc目录&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;删除目录成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//9. fs.unlink删除文件  </span><br><span class="line">fs.unlink(&apos;index.txt&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;删除文件成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//10. fs.createReadStream  从文件流中读取数据，读取的文件比较大时建议用流的方式读取，文件比较大会多次读取。  </span><br><span class="line">var fileReadStream = fs.createReadStream( &apos;data1.json&apos;);</span><br><span class="line">var str = &apos;&apos;;</span><br><span class="line">fileReadStream.on(&apos;data&apos;, (data) =&gt; &#123;</span><br><span class="line">    console.log(&quot;接收到&quot; + data.length);   //文件比较大时，会多次读取，多次执行该回调函数  </span><br><span class="line">str += data;</span><br><span class="line">&#125;)</span><br><span class="line">fileReadStream.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">    console.log(&quot; --- 结束 ---&quot;);</span><br><span class="line">console.log( str );</span><br><span class="line">&#125;)</span><br><span class="line">fileReadStream.on(&apos;error&apos;, (error) =&gt; &#123;</span><br><span class="line">    console.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//11. fs.createWriteStream  写入文件流  </span><br><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">var data  = &quot;我是从数据库获取的数据，我要保存起来&quot;;</span><br><span class="line">var writerStream = fs.createWriteStream(&apos;output.txt&apos;);</span><br><span class="line">writerStream.write( data , &apos;UTF8&apos; );</span><br><span class="line">writerStream.end();  //标记文件末尾  结束写入流，释放资源  </span><br><span class="line">writerStream.on( &apos;finish&apos;,  function() &#123;</span><br><span class="line">    console.log(&quot;写入完成。&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">writerStream.on( &apos;error&apos;,  function(error)&#123;</span><br><span class="line">    console.log(error.stack);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(&quot;程序执行完毕&quot;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//12. pipe 管道流  </span><br><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">var readerStream = fs.createReadStream( &apos;input.txt&apos;);</span><br><span class="line">var writerStream = fs.createWriteStream( &apos;output.txt&apos;);</span><br><span class="line">readerStream.pipe( writerStream );</span><br><span class="line">console.log(&quot;程序执行完毕&quot;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//13. fs.access 判断目录、文件是否存在(读写权限)</span><br><span class="line">var  fs = require(&apos;fs&apos;);</span><br><span class="line">fs.access(&apos;package.json&apos;,(err)=&gt;&#123;</span><br><span class="line">    console.log(err ?  &apos;目录/文件不存在&apos;: &apos;文件存在,可以进行读写&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="FS-文件系统"><a href="#FS-文件系统" class="headerlink" title="FS-文件系统"></a><a href="http://nodejs.cn/api/fs.html#fs_file_system" target="_blank" rel="noopener">FS-文件系统</a></h2><p>fs 模块提供了一些 API，用于以一种类似标准 POSIX 函数的方式与文件系统进行交互。</p>
+<p><strong>所有的文件系统操作都有异步和同步两种形式。</strong></p>
+<p><code>异步</code>形式的 <strong>最后一个<code>参数</code>都是完成时<code>回调函数</code></strong>。 传给回调函数的参数取决于具体方法，但<code>回调函数的第一个参数都会保留给异常</code>。 如果操作成功完成，则第一个参数会是 null 或 undefined。</p>
+<p><strong>同步操作</strong></p>
+<p>当使用<code>同步操作</code>时，任何异常都会被立即抛出，可以使用 <code>try/catch</code> 来处理异常，或让异常向上冒泡。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;);</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  fs.unlinkSync(&apos;/tmp/hello&apos;);</span><br><span class="line">  console.log(&apos;successfully deleted /tmp/hello&apos;);</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  // handle the error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>异步操作</strong></p>
+<p>注意，异步的方法不能保证执行顺序。 所以下面的例子可能会出错，因为 fs.stat() 操作可能在 fs.rename() 操作之前完成。</p>
+<p><strong>建议</strong></p>
+<p>在繁忙的进程中，建议使用函数的异步版本。 同步的方法会阻塞整个进程，直到完成（停止所有连接）。</p>
+<h3 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h3><p>大部分 <code>fs</code> 操作接受<code>字符串</code>、<code>Buffer</code>、或使用 <code>file:</code> 协议的 <code>URL</code> 对象作为文件路径。</p>
+<p><code>相对路径</code> 会相对于 <code>process.cwd()</code> 定义的当前工作目录进行处理。</p>
+<p>使用 <code>Buffer</code> 定义的路径主要用于将文件路径处理为 opaque 字节序列的特定 POSIX 操作系统。 在这种系统上，一个文件路径可能包含使用多种字符编码的子序列。 与字符串路径一样，Buffer 路径也可以是相对的或绝对的。</p>
+<p><strong>注意</strong> 在 Windows 上 Node.js 遵循 per-drive 工作目录的理念。 当使用驱动器路径不带反斜杠时可以观察到该特性。 例如，fs.readdirSync(‘c:\‘) 可能会返回与 fs.readdirSync(‘c:’) 不同的结果。 详见 <a href="">MSDN路径文档</a></p>
+<h4 id="支持-URL-对象"><a href="#支持-URL-对象" class="headerlink" title="支持 URL 对象"></a>支持 URL 对象</h4><h3 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a><strong>文件描述符</strong></h3><p>在 <code>POSIX</code> 系统，<code>内核</code>为<code>所有进程</code>维护着一张当前打开着的<code>文件与资源表格</code>。 每个打开的文件都会分配一个名为<code>文件描述符</code>的数值标识。</p>
+<p>在<code>系统层</code>，所有<code>文件系统操作</code>使用这些<code>文件描述符</code>来识别与追踪每个特定的文件。 </p>
+<p>Window 系统使用了一个<code>不同但概念类似</code>的机制来追踪资源。 </p>
+<p>为方便用户，<code>Node.js 抽象了不同操作系统间的差异</code>，为所有打开的文件分配了数值的文件描述符。</p>
+<p><code>fs.open()</code> 方法用于分配一个新的文件描述符。 一旦分配了，文件描述符可用于<code>读取</code>数据、<code>写入</code>数据、或<code>查看</code>文件信息。</p>
+<p><code>大多数操作系统</code>会<code>限制打开的文件描述符的数量</code>，所以当<code>操作完成时需关闭描述符</code>。 如果不这样做会导致<code>内存泄漏</code>，最终造成应用奔溃。</p>
+<h3 id="线程池的使用"><a href="#线程池的使用" class="headerlink" title="线程池的使用"></a>线程池的使用</h3><p>注意，所有文件系统 API 中，除了 <code>fs.FSWatcher()</code> 和那些显式同步的方法之外，都使用了 <code>libuv</code> 的线程池，这对于某些应用程序可能会产生出乎意料问题和负面的性能影响，详见 <a href="http://nodejs.cn/api/cli.html#cli_uv_threadpool_size_size" target="_blank" rel="noopener"><code>UV_THREADPOOL_SIZE</code></a> 文档。</p>
+<h1 id="fs-FSWatcher-类"><a href="#fs-FSWatcher-类" class="headerlink" title="fs.FSWatcher 类"></a>fs.FSWatcher 类</h1><p>成功调用 <code>fs.watch()</code> 方法会返回一个新的 <code>fs.FSWatcher</code> 对象。</p>
+<p>所有 <code>fs.FSWatcher</code> 对象都是 <a href="http://nodejs.cn/api/events.html" target="_blank" rel="noopener"><code>EventEmitter</code></a> 的，每当监视的文件被修改时会触发 <code>&#39;change&#39;</code> 事件。</p>
+<h2 id="‘change’-事件"><a href="#‘change’-事件" class="headerlink" title="‘change’ 事件"></a>‘change’ 事件</h2><ul>
+<li><code>eventType</code> \<string> 发生的变化事件的类型。</string></li>
+<li><code>filename</code> \<string> | \<buffer> 变化的文件名（如果是相关的或有效的）。</buffer></string></li>
+</ul>
+<p>当被监视的目录或文件有变化时触发。 详见 <code>fs.watch()</code></p>
+<h2 id="‘close’-事件"><a href="#‘close’-事件" class="headerlink" title="‘close’ 事件"></a>‘close’ 事件</h2><p>当 <code>watcher</code> 停止监视文件变化时触发。 关闭的 <code>fs.FSWatcher</code> 对象在事件处理函数中不再可用。</p>
+<h2 id="‘error’-事件"><a href="#‘error’-事件" class="headerlink" title="‘error’ 事件"></a>‘error’ 事件</h2><p>当监视文件发生错误时触发。 </p>
+<p>发生错误的 <code>fs.FSWatcher</code> 对象在事件处理函数中<code>不再可用</code>。</p>
+<h2 id="watcher-close"><a href="#watcher-close" class="headerlink" title="watcher.close()"></a>watcher.close()</h2><p><code>fs.FSWatcher</code> <code>停止监视</code>文件的变化。 </p>
+<p>一旦停止，<code>fs.FSWatcher</code> 对象将<code>不再可用</code>。</p>
+<h1 id="fs-ReadStream-类"><a href="#fs-ReadStream-类" class="headerlink" title="fs.ReadStream 类"></a>fs.ReadStream 类</h1><p>成功调用 <code>fs.createReadStream()</code> 会返回一个新的 <code>fs.ReadStream</code> 对象。</p>
+<p><code>fs.ReadStream</code> 对象都是可读流。</p>
+<h2 id="‘close’-事件-1"><a href="#‘close’-事件-1" class="headerlink" title="‘close’ 事件"></a>‘close’ 事件</h2><p>当 <code>fs.ReadStream</code> 底层的文件描述符被关闭时触发。</p>
+<h2 id="‘open’-事件"><a href="#‘open’-事件" class="headerlink" title="‘open’ 事件"></a>‘open’ 事件</h2><h2 id="‘ready’-事件"><a href="#‘ready’-事件" class="headerlink" title="‘ready’ 事件"></a>‘ready’ 事件</h2><h2 id="readStream-bytesRead"><a href="#readStream-bytesRead" class="headerlink" title="readStream.bytesRead"></a>readStream.bytesRead</h2><p>已读取的字节数。</p>
+<h2 id="readStream-path"><a href="#readStream-path" class="headerlink" title="readStream.path"></a>readStream.path</h2><h1 id="fs-Stats-类"><a href="#fs-Stats-类" class="headerlink" title="fs.Stats 类"></a>fs.Stats 类</h1><p><code>fs.Stats</code> 对象提供了一个文件的信息。</p>
+<h2 id="stats-isBlockDevice"><a href="#stats-isBlockDevice" class="headerlink" title="stats.isBlockDevice()"></a>stats.isBlockDevice()</h2><p>如果 <code>fs.Stats</code> 对象表示一个块设备，则返回 true 。</p>
+<h2 id="stats-isCharacterDevice"><a href="#stats-isCharacterDevice" class="headerlink" title="stats.isCharacterDevice()"></a>stats.isCharacterDevice()</h2><p>如果 <code>fs.Stats</code> 对象表示一个字符设备，则返回 true 。</p>
+<h2 id="stats-isDirectory"><a href="#stats-isDirectory" class="headerlink" title="stats.isDirectory()"></a>stats.isDirectory()</h2><p>如果 <code>fs.Stats</code> 对象表示一个文件系统目录，则返回 true 。</p>
+<h2 id="stats-isFIFO"><a href="#stats-isFIFO" class="headerlink" title="stats.isFIFO()"></a>stats.isFIFO()</h2><p>如果 <code>fs.Stats</code> 对象表示一个<code>先进先出 (FIFO) 管道</code>，则返回 true 。</p>
+<p>FIFO( First Input First Output)简单说就是指先进先出。<a href="https://baike.baidu.com/item/FIFO存储器/4530258?fr=aladdin" target="_blank" rel="noopener">百度百科: FIFO存储器</a></p>
+<h2 id="stats-isFile"><a href="#stats-isFile" class="headerlink" title="stats.isFile()"></a>stats.isFile()</h2><p>如果 <code>fs.Stats</code> 对象表示一个普通文件，则返回 <code>true</code> 。</p>
+<h2 id="stats-isSocket"><a href="#stats-isSocket" class="headerlink" title="stats.isSocket()"></a>stats.isSocket()</h2><p>如果 <code>fs.Stats</code> 对象表示一个 <code>socket</code>，则返回 <code>true</code> 。</p>
+<h2 id="stats-isSymbolicLink"><a href="#stats-isSymbolicLink" class="headerlink" title="stats.isSymbolicLink()"></a>stats.isSymbolicLink()</h2><p>如果 <code>fs.Stats</code> 对象表示一个符号链接，则返回 <code>true</code> 。</p>
+<p>该方法只在使用 <code>fs.lstat()</code> 时有效。</p>
+<h2 id="stats属性"><a href="#stats属性" class="headerlink" title="stats属性"></a>stats属性</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">type</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">stats.dev</td>
+<td style="text-align:left">包含文件的设备的数值型标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ino</td>
+<td style="text-align:left">文件系统特定的文件索引节点数值。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mode</td>
+<td style="text-align:left">表示文件类型与模式的位域。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.nlink</td>
+<td style="text-align:left">文件的硬链接数量。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.uid</td>
+<td style="text-align:left">文件拥有者的数值型用户标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.gid</td>
+<td style="text-align:left">拥有文件的群组的数值型群组标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.rdev</td>
+<td style="text-align:left">如果文件是一个特殊文件，则返回数值型的设备标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.size</td>
+<td style="text-align:left">文件的字节大小。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.blksize</td>
+<td style="text-align:left">文件系统用于 I/O 操作的块大小。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.blocks</td>
+<td style="text-align:left">分配给文件的块的数量。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.atimeMs</td>
+<td style="text-align:left">表示文件最后一次被<code>访问</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mtimeMs</td>
+<td style="text-align:left">表示文件最后一次被<code>修改</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ctimeMs</td>
+<td style="text-align:left">表示文件<code>状态最后一次被改变</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.birthtimeMs</td>
+<td style="text-align:left">表示文件的<code>创建时间戳</code>。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.atime</td>
+<td style="text-align:left">表示文件<code>最后一次被访问</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mtime</td>
+<td style="text-align:left">表示文件<code>最后一次被修改</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ctime</td>
+<td style="text-align:left">表示文件<code>状态最后一次被改变</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.birthtime</td>
+<td style="text-align:left">表示文件的<code>创建</code>时间。</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Stat-时间的值"><a href="#Stat-时间的值" class="headerlink" title="Stat 时间的值"></a>Stat 时间的值</h2><p>略</p>
+<h1 id="fs-WriteStream-类"><a href="#fs-WriteStream-类" class="headerlink" title="fs.WriteStream 类"></a>fs.WriteStream 类</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/05/NodeJS/Node-js-FS模块/" data-id="cjo9tdkmf004qoodvz42ywn91" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileSystem/">FileSystem</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/07/Canvas在线签名/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Canvas在线签名
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/04/NodeJS/Node-js图片上传/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Node.js图片上传</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2017 - 2018 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>
