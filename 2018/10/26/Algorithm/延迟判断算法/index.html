@@ -6,18 +6,18 @@
   
   <title>延迟判断算法 | 李仕臣的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件 /** 组件内，函数外 缓存状态 */ this.state = {   cacheValueArr: [] };  /** 核心思想是： * 先缓存一次数据，  * 定时器 2S 后 再缓存一次数据  * 对比判断 值 是否 相等，代表没有改变 */ onChange(e) {   l">
+  <meta name="description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件1234567891011121314151617181920212223242526272829/** 组件内，函数外 缓存状态 */this.state = &amp;#123;  cacheValueArr: []&amp;#125;;/** 核心思想是：* 先缓存一次数据， * 定时器 2S 后">
 <meta name="keywords" content="延迟判断">
 <meta property="og:type" content="article">
 <meta property="og:title" content="延迟判断算法">
 <meta property="og:url" content="http://SunOfHomeBoy.github.io/2018/10/26/Algorithm/延迟判断算法/index.html">
 <meta property="og:site_name" content="李仕臣的博客">
-<meta property="og:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件 /** 组件内，函数外 缓存状态 */ this.state = {   cacheValueArr: [] };  /** 核心思想是： * 先缓存一次数据，  * 定时器 2S 后 再缓存一次数据  * 对比判断 值 是否 相等，代表没有改变 */ onChange(e) {   l">
+<meta property="og:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件1234567891011121314151617181920212223242526272829/** 组件内，函数外 缓存状态 */this.state = &amp;#123;  cacheValueArr: []&amp;#125;;/** 核心思想是：* 先缓存一次数据， * 定时器 2S 后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-26T08:44:40.117Z">
+<meta property="og:updated_time" content="2018-11-21T11:56:27.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="延迟判断算法">
-<meta name="twitter:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件 /** 组件内，函数外 缓存状态 */ this.state = {   cacheValueArr: [] };  /** 核心思想是： * 先缓存一次数据，  * 定时器 2S 后 再缓存一次数据  * 对比判断 值 是否 相等，代表没有改变 */ onChange(e) {   l">
+<meta name="twitter:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件1234567891011121314151617181920212223242526272829/** 组件内，函数外 缓存状态 */this.state = &amp;#123;  cacheValueArr: []&amp;#125;;/** 核心思想是：* 先缓存一次数据， * 定时器 2S 后">
   
     <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
   
@@ -44,9 +44,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -113,38 +113,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="延迟判断算法"><a href="#延迟判断算法" class="headerlink" title="延迟判断算法"></a>延迟判断算法</h1><p>延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件</p>
-<pre><code>/** 组件内，函数外 缓存状态 */
-this.state = {
-  cacheValueArr: []
-};
+        <h1 id="延迟判断算法"><a href="#延迟判断算法" class="headerlink" title="延迟判断算法"></a>延迟判断算法</h1><p>延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/** 组件内，函数外 缓存状态 */</span><br><span class="line">this.state = &#123;</span><br><span class="line">  cacheValueArr: []</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/** 核心思想是：</span><br><span class="line">* 先缓存一次数据， </span><br><span class="line">* 定时器 2S 后 再缓存一次数据 </span><br><span class="line">* 对比判断 值 是否 相等，代表没有改变</span><br><span class="line">*/</span><br><span class="line">onChange(e) &#123;</span><br><span class="line">  let cacheArr = this.state.cacheValueArr; // 先引用缓存的状态</span><br><span class="line">  let len = cacheArr.push(e); // push方法 会返回 长度，改变原数组</span><br><span class="line">  let lastOne = cacheArr.slice(-1); // 数组最后一位的 值</span><br><span class="line"></span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    let lastLen = this.state.cacheValueArr.length; // 2S 后再缓存 长度有无变化</span><br><span class="line">    let lastOnes = this.state.cacheValueArr.slice(-1); // 2S 后再缓存 值有无变化</span><br><span class="line">    if (len === lastLen) &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        curE: e</span><br><span class="line">      &#125;)</span><br><span class="line">      debugger</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 2000);</span><br><span class="line">&#125;</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line"># 函数防抖动</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li><p>Created by hjl on 2017/8/15.<br>*/<br>var throttle = function (func, interval) {<br>var self = func,<br> timer,<br> firstTime = true;</p>
+<p>return function () {<br> var args = arguments,<br>   me = this;<br> if (firstTime) {<br>   self.apply(me, args);<br>   return firstTime = false;<br> }<br> if (timer) {<br>   return false;<br> }</p>
+<p> timer = setTimeout(function () {<br>   clearTimeout(timer);<br>   timer = null;<br>   self.apply(me, args);<br> }, interval || 3000);<br>};<br>};<br>````</p>
+</li>
+</ul>
 
-/** 核心思想是：
-* 先缓存一次数据， 
-* 定时器 2S 后 再缓存一次数据 
-* 对比判断 值 是否 相等，代表没有改变
-*/
-onChange(e) {
-  let cacheArr = this.state.cacheValueArr; // 先引用缓存的状态
-  let len = cacheArr.push(e); // push方法 会返回 长度，改变原数组
-  let lastOne = cacheArr.slice(-1); // 数组最后一位的 值
-
-  setTimeout(() =&gt; {
-    let lastLen = this.state.cacheValueArr.length; // 2S 后再缓存 长度有无变化
-    let lastOnes = this.state.cacheValueArr.slice(-1); // 2S 后再缓存 值有无变化
-    if (len === lastLen) {
-      this.setState({
-        curE: e
-      })
-      debugger
-    }
-  }, 2000);
-}
-</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/Algorithm/延迟判断算法/" data-id="cjo9tdkka002noodvyon8d6vg" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/Algorithm/延迟判断算法/" data-id="cjpbyhi4p002phodvoicwbr65" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/延迟判断/">延迟判断</a></li></ul>
@@ -154,6 +135,15 @@ onChange(e) {
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/11/15/webpack别名以及在scss中的用法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          webpack别名以及在scss中的用法
+        
+      </div>
+    </a>
   
   
     <a href="/2018/10/22/ECharts学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
@@ -212,9 +202,9 @@ onChange(e) {
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
     </div>
 
 

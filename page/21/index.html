@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,10 +70,277 @@
 
         <section id="main">
   
-    <article id="post-FrontEnd/JS/移动检测" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/前端刷新机制" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/12/FrontEnd/JS/移动检测/" class="article-date">
-  <time class="post-time" datetime="2018-05-12T01:53:48.000Z" itemprop="datePublished">
+    <a href="/2018/05/14/FrontEnd/前端刷新机制/" class="article-date">
+  <time class="post-time" datetime="2018-05-14T08:47:41.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/FrontEnd/前端刷新机制/">前端刷新机制</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js-window/">js-window</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/14/FrontEnd/前端刷新机制/" class="leancloud_visitors" data-flag-title="前端刷新机制">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="微信-Android-浏览器刷新有缓存？"><a href="#微信-Android-浏览器刷新有缓存？" class="headerlink" title="微信-Android 浏览器刷新有缓存？"></a>微信-Android 浏览器刷新有缓存？</h2><p>前端刷新网页的方法有很多种：</p>
+<p>1：history.go(0)<br>浏览器的history对象，go 跳转到指定位置的页面。</p>
+<p>2：location.reload(true);<br>重新渲染当前页面，参数为真时是从服务器端重新渲染，并响应页面，参数为假时则优先获取缓存。</p>
+<p>3：location.replace(location);<br>替换当前页面的连接</p>
+<p>4：location.assign(location);<br>导航到一个新的连接</p>
+<p>5：location.href = location.href</p>
+<p>以上几种方法都是比较常见的页面重新加载的方法。<br>但是在安卓微信浏览器中却无计可施。<br>安卓微信浏览器的缓存机制一直都是一个很诡异的问题，好想官方能有一个书面的解释，也不至于让frontender们这么辛苦。</p>
+<p>有效的方法：<br>url?time=123<br>在参数上加一个随机参数，可以使微信不再加载缓存。</p>
+<p>我猜想安卓微信可能将每个渲染的页面都缓存起来了，一定时间内只要url没有变化，都会优先获取缓存的内容。</p>
+<hr>
+<p><a href="https://blog.csdn.net/wmzy1067111110/article/details/73650818" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/前端刷新机制/" data-id="cjpbyhi5e003ehodvbpaux0pp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/刷新机制/">刷新机制</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/Vue/vue-resize" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" class="article-date">
+  <time class="post-time" datetime="2018-05-14T07:59:59.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/">vue-resize</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VUE/">VUE</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" class="leancloud_visitors" data-flag-title="vue-resize">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="主要记录方案二："><a href="#主要记录方案二：" class="headerlink" title="主要记录方案二："></a>主要记录方案二：</h2><p>在vue 2.x 里面的时候，可以在 <code>mounted</code> 钩子中 全局监听 <code>resize</code> 事件，然后绑定的函数再做具体的处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        clientHeight: &apos;600px&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">mounted() &#123;</span><br><span class="line">    // 动态设置背景图的高度为浏览器可视区域高度</span><br><span class="line"></span><br><span class="line">    // 首先在Virtual DOM渲染数据时，设置下背景图的高度．</span><br><span class="line">    &gt; this.clientHeight.height = `$&#123;document.documentElement.clientHeight&#125;px`;</span><br><span class="line">    </span><br><span class="line">    // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．</span><br><span class="line">    &gt; const that = this;</span><br><span class="line">    &gt; window.onresize = function temp() &#123;</span><br><span class="line">    &gt;     that.clientHeight = `$&#123;document.documentElement.clientHeight&#125;px`;</span><br><span class="line">    &gt; &#125;;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://blog.csdn.net/qq_25386583/article/details/77161478" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" data-id="cjpbyhiej00dthodvyuwu8awe" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VueJs-监听-window-resize/">VueJs 监听 window.resize</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/JS-BOM" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/FrontEnd/JS/JS-BOM/" class="article-date">
+  <time class="post-time" datetime="2018-05-14T07:48:51.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/FrontEnd/JS/JS-BOM/">JS-BOM</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/14/FrontEnd/JS/JS-BOM/" class="leancloud_visitors" data-flag-title="JS-BOM">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>document.documentElement.clientWidth // 设备宽度</p>
+<p>window.innerWidth  // 窗口宽度</p>
+<p>document.documentElement.style.fontSize // 根节点 fontSize: string</p>
+<p> let rootFZ = Number(document.documentElement.style.fontSize.split(‘px’)[0]); // 根节点 fontSize: number</p>
+<h3 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h3><p><code>onTransitionEnd</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/JS/JS-BOM/" data-id="cjpbyhi850074hodv5ockwu10" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/">BOM</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/React/react中{if-else}" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/" class="article-date">
+  <time class="post-time" datetime="2018-05-14T02:09:30.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/">react中{if-else}</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/react/">react</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/" class="leancloud_visitors" data-flag-title="react中{if-else}">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##<br>在react中用jsx渲染dom的时候经常会遇到if条件判断，然而在jsx中竟是不允许if条件判断的。以下有几种判断方式，可以根据自己的应用场景，挑选适合的。</p>
+<hr>
+<p><a href="https://blog.csdn.net/wmzy1067111110/article/details/51538241" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/" data-id="cjpbyhido00cyhodvavwzrkui" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-if-else/">react-if-else</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/五大浏览器-四大内核" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/12/FrontEnd/五大浏览器-四大内核/" class="article-date">
+  <time class="post-time" datetime="2018-05-12T02:51:40.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
     <span class="post-day">12</span>
   </time>
@@ -87,21 +354,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/12/FrontEnd/JS/移动检测/">移动检测</a>
+      <a class="article-title" href="/2018/05/12/FrontEnd/五大浏览器-四大内核/">五大浏览器 四大内核</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
+    <a class="article-category-link" href="/categories/Browser/">Browser</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/12/FrontEnd/JS/移动检测/" class="leancloud_visitors" data-flag-title="移动检测">
+    <span id="/2018/05/12/FrontEnd/五大浏览器-四大内核/" class="leancloud_visitors" data-flag-title="五大浏览器 四大内核">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,372 +380,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="转-检测-移动端-PC端-加载不同样式表现"><a href="#转-检测-移动端-PC端-加载不同样式表现" class="headerlink" title="[转]检测 移动端/PC端 加载不同样式表现"></a>[转]检测 移动端/PC端 加载不同样式表现</h2><p>第一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">if (/AppleWebKit.*mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) &#123;</span><br><span class="line">  if (window.location.href.indexOf(&quot;?mobile&quot;) &lt; 0) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) &#123;</span><br><span class="line">        //window.location.href = &quot;手机页面&quot;;</span><br><span class="line">        console.log(&apos;手机页面&apos;)</span><br><span class="line">      &#125; else if (/iPad/i.test(navigator.userAgent)) &#123;</span><br><span class="line">        //window.location.href = &quot;平板页面&quot;;</span><br><span class="line">        console.log(&apos;平板页面&apos;)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        //window.location.href = &quot;其他移动端页面&quot;</span><br><span class="line">        console.log(&apos;其他移动端页面&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; catch (e) &#123;</span><br><span class="line">      console.log(&apos;e:&apos;, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  console.log(&apos;PC页面&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>第二种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">  // 判断是否为移动端运行环境 </span><br><span class="line">  if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (</span><br><span class="line">      /MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/</span><br><span class="line">      .test(navigator.userAgent))) &#123;</span><br><span class="line">    if (window.location.href.indexOf(&quot;?mobile&quot;) &lt; 0) &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) &#123;</span><br><span class="line">          // 判断访问环境是 Android|webOS|iPhone|iPod|BlackBerry 则加载以下样式 </span><br><span class="line">          setActiveStyleSheet(&quot;style_mobile_a.css&quot;);</span><br><span class="line">        &#125; else if (/iPad/i.test(navigator.userAgent)) &#123;</span><br><span class="line">          // 判断访问环境是 iPad 则加载以下样式 </span><br><span class="line">          setActiveStyleSheet(&quot;style_mobile_iPad.css&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          // 判断访问环境是 其他移动设备 则加载以下样式 </span><br><span class="line">          setActiveStyleSheet(&quot;style_mobile_other.css&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; catch (e) &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 如果以上都不是，则加载以下样式 </span><br><span class="line">    setActiveStyleSheet(&quot;style_mobile_no.css&quot;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 判断完毕后加载样式 </span><br><span class="line">  function setActiveStyleSheet(filename) &#123;</span><br><span class="line">    document.write(&quot;&lt;link href=&quot; + filename + &quot; rel=stylesheet&gt;&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="阅读原文"><a href="#阅读原文" class="headerlink" title="阅读原文"></a><a href="https://www.cnblogs.com/yuqingfamily/p/8807978.html" target="_blank" rel="noopener">阅读原文</a></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/JS/移动检测/" data-id="cjo9tdks900aqoodv26dr42lv" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/If-Mobile/">If Mobile</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/HTML CSS/Bootstrap响应式布局" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" class="article-date">
-  <time class="post-time" datetime="2018-05-11T08:24:17.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">11</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/">Bootstrap响应式布局</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" class="leancloud_visitors" data-flag-title="Bootstrap响应式布局">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Bootstrap不同分辨率下隐藏元素"><a href="#Bootstrap不同分辨率下隐藏元素" class="headerlink" title="Bootstrap不同分辨率下隐藏元素"></a>Bootstrap不同分辨率下隐藏元素</h2><p>hidden-xs hidden-sm 等控制隐藏<br>visible-xs-<em> visible-sm-</em> 等控制显示</p>
-<p><a href="http://v3.bootcss.com/css/#responsive-utilities" target="_blank" rel="noopener">说明文档</a></p>
-<hr>
+        <h2 id="下各常用浏览器所使用的内核。"><a href="#下各常用浏览器所使用的内核。" class="headerlink" title="下各常用浏览器所使用的内核。"></a>下各常用浏览器所使用的内核。</h2><p>1、IE浏览器内核：Trident内核，也是俗称的IE内核；</p>
+<p>2、Chrome浏览器内核：统称为Chromium内核或Chrome内核，以前是Webkit内核，现在是Blink内核； </p>
+<p>3、Firefox浏览器内核：Gecko内核，俗称Firefox内核； </p>
+<p>4、Safari浏览器内核：Webkit内核； </p>
+<p>5、Opera浏览器内核：最初是自己的Presto内核，后来是Webkit，现在是Blink内核； </p>
+<p>6、360浏览器、猎豹浏览器内核：IE+Chrome双内核；</p>
+<p>7、搜狗、遨游、QQ浏览器内核：Trident（兼容模式）+Webkit（高速模式）； </p>
+<p>8、百度浏览器、世界之窗内核：IE内核； </p>
+<p>9、2345浏览器内核：以前是IE内核，现在也是IE+Chrome双内核；</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" data-id="cjo9tdkpt008aoodvcu7vjlrf" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/五大浏览器-四大内核/" data-id="cjpbyhi5g003ihodvtnhih4qy" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Editor/VSCode-Update" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/11/Editor/VSCode-Update/" class="article-date">
-  <time class="post-time" datetime="2018-05-11T01:15:17.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">11</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/11/Editor/VSCode-Update/">VSCode Update</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/VSCode/">VSCode</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/11/Editor/VSCode-Update/" class="leancloud_visitors" data-flag-title="VSCode Update">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
-<p>Version: 2.9.2</p>
-<hr>
-<p>GitHub Token: a445a630bcdbb6a32670317533c559de9533d8f3</p>
-<p>GitHub Gist: 12d91e8460e10f3c9083b82a25623363</p>
-<p>GitHub Gist Type: Secret</p>
-<p>Restarting Visual Studio Code may be required to apply color and file icon theme.</p>
-<hr>
-<p>Files Uploaded:</p>
-<p>  javascript.json &gt; snippets | javascript.json</p>
-<p>  Extensions Removed:</p>
-<p>Extensions Added: \<br>  Angular2 v6.0.0 \<br>  background v1.1.17 \<br>  beautify v1.3.0 \<br>  bracket-pair-colorizer v1.0.48 \<br>  code-gnu-global v0.2.2 \<br>  code-settings-sync v2.9.2 \<br>  cpptools v0.17.0 \<br>  ejs-language-support v0.0.1 \<br>  ejs-snippets v0.1.0 \<br>  git-project-manager v1.5.1 \<br>  githistory v0.4.0 \<br>  gitlens v8.2.4 \<br>  html-snippets v0.2.1 \<br>  java v0.24.0 \<br>  javascript-ejs-support v0.3.2 \<br>  JavaScriptSnippets v1.6.0 \<br>  jquerysnippets v0.0.1 \<br>  language-stylus v1.9.2 \<br>  mongoose-os-ide v0.3.0 \<br>  mssql v1.3.1 \<br>  node-module-intellisense v1.5.0 \<br>  npm-intellisense v1.3.0 \<br>  python v2018.4.0 \<br>  tslint v1.0.28 \<br>  vetur v0.11.7 \<br>  view-in-browser v0.0.5 \<br>  vscode-eslint v1.4.8 \<br>  vscode-great-icons v2.1.31 \<br>  vscode-html-css v0.2.0 \<br>  vscode-icons v7.23.0 \<br>  vscode-java-debug v0.9.0 \<br>  vscode-language-babel v0.0.14 \<br>  vscode-language-pack-zh-hans v1.23.4 \<br>  vscode-map-preview v0.4.2 \<br>  vscode-maven v0.7.0 \<br>  vscode-mongodb v0.0.2 \<br>  vscode-npm-script v0.3.4 \<br>  vscode-preview-server v1.0.1 \<br>  vue-vscode-snippets v1.3.0 \<br>  weex v0.4.0 \<br>  xml v1.9.2</p>
-<hr>
-<p>Done.</p>
-<hr>
-<h2 id="2018年5月23日-14-37-12"><a href="#2018年5月23日-14-37-12" class="headerlink" title="2018年5月23日 14:37:12"></a>2018年5月23日 14:37:12</h2><p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
-<p>Version: 2.9.2</p>
-<hr>
-<p>GitHub Token: <strong>c49d7c88a2236d998b043830034a10d1b00ca5df</strong></p>
-<p><strong>GitHub Gist: daeb8021fc8862ba3a1fe162cc301c7c</strong></p>
-<p>GitHub Gist Type: Secret</p>
-<p>Restarting Visual Studio Code may be required to apply color and file icon theme.</p>
-<hr>
-<p>Files Uploaded:</p>
-<p>  javascript.json &gt; snippets|javascript.json</p>
-<p>  Extensions Removed:</p>
-<p>Extensions Added:\<br>  Angular2 v6.1.1\<br>  background v1.1.17\<br>  beautify v1.3.0\<br>  bracket-pair-colorizer v1.0.53\<br>  code-gnu-global v0.2.2\<br>  code-settings-sync v2.9.2\<br>  cpptools v0.17.3\<br>  ejs-language-support v0.0.1\<br>  ejs-snippets v0.1.0\<br>  git-project-manager v1.6.1\<br>  githistory v0.4.1\<br>  gitlens v8.3.2\<br>  html-snippets v0.2.1\<br>  java v0.25.0\<br>  javascript-ejs-support v0.3.2\<br>  JavaScriptSnippets v1.6.0\<br>  jquerysnippets v0.0.1\<br>  language-stylus v1.9.2\<br>  mongoose-os-ide v0.3.0\<br>  mssql v1.3.1\<br>  node-module-intellisense v1.5.0\<br>  npm-intellisense v1.3.0\<br>  python v2018.4.0\<br>  tslint v1.0.29\<br>  vetur v0.12.3\<br>  view-in-browser v0.0.5\<br>  vscode-eslint v1.4.10\<br>  vscode-great-icons v2.1.32\<br>  vscode-html-css v0.2.0\<br>  vscode-icons v7.23.0\<br>  vscode-java-debug v0.9.0\<br>  vscode-language-babel v0.0.14\<br>  vscode-language-pack-zh-hans v1.23.5\<br>  vscode-map-preview v0.4.2\<br>  vscode-maven v0.8.0\<br>  vscode-mongodb v0.0.2\<br>  vscode-npm-script v0.3.4\<br>  vscode-preview-server v1.0.1\<br>  vue-vscode-snippets v1.3.0\<br>  weex v0.4.0\<br>  xml v1.9.2</p>
-<hr>
-<p>Done.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/11/Editor/VSCode-Update/" data-id="cjo9tdkke002soodvd4k0ilvp" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编辑器更新/">编辑器更新</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-NodeJS/Node-js-process模块" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/10/NodeJS/Node-js-process模块/" class="article-date">
-  <time class="post-time" datetime="2018-05-10T01:37:05.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">10</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/10/NodeJS/Node-js-process模块/">Node.js--process模块</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Node/">Node</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/10/NodeJS/Node-js-process模块/" class="leancloud_visitors" data-flag-title="Node.js--process模块">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="转-Node-js的process模块"><a href="#转-Node-js的process模块" class="headerlink" title="[转]Node.js的process模块"></a>[转]<a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">Node.js的process模块</a></h2><p><code>process</code>模块用来与<code>当前进程互动</code>，可以 <code>通过全局变量process</code> 访问，不必使用require命令加载。它是一个<code>EventEmitter</code>对象的实例。</p>
-<h3 id="一、属性"><a href="#一、属性" class="headerlink" title="一、属性"></a>一、属性</h3><p>process对象提供一系列属性，用于返回系统信息。</p>
-<ul>
-<li><p>process.pid：当前进程的进程号。</p>
-</li>
-<li><p>process.version：Node的版本，比如v0.10.18。</p>
-</li>
-<li><p>process.platform：当前系统平台，比如Linux。</p>
-</li>
-<li><p>process.title：默认值为“node”，可以自定义该值。</p>
-</li>
-<li><p>process.argv：当前进程的命令行参数数组。</p>
-</li>
-<li><p>process.env：指向当前<code>shell</code>的环境变量，比如<code>process.env.HOME</code>。</p>
-</li>
-<li><p>process.execPath：运行当前进程的可执行文件的绝对路径。</p>
-</li>
-<li><p>process.stdout：指向标准输出。</p>
-</li>
-<li><p>process.stdin：指向标准输入。</p>
-</li>
-<li><p>process.stderr：指向标准错误。</p>
-</li>
-</ul>
-<h4 id="主要属性介绍"><a href="#主要属性介绍" class="headerlink" title="主要属性介绍"></a>主要属性介绍</h4><p><strong>1. stdout</strong>\<br><code>process.stdout</code>用来控制标准输出，也就是在命令行窗口向用户显示内容。它的write方法等同于console.log。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.log = function() &#123;</span><br><span class="line">    process.stdout.write(format.apply(this, arguments) + &apos;\n&apos;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. argv</strong></p>
-<p><code>process.argv</code> 返回<code>命令行脚本</code>的 各个参数 组成的数组。</p>
-<p>先新建一个脚本文件 argv.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">console.log(&quot;argv: &quot;,process.argv);</span><br><span class="line">console.log(&quot;argc: &quot;,process.argc);</span><br></pre></td></tr></table></figure></p>
-<p>在命令行下调用这个脚本，会得到以下结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node argv.js a b c</span><br><span class="line"></span><br><span class="line"># [ &apos;node&apos;, &apos;/path/to/argv.js&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]</span><br></pre></td></tr></table></figure></p>
-<p>上面代码表示，argv返回数组的成员依次是命令行的各个部分。要得到真正的参数部分，可以把argv.js改写成下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">var myArgs = process.argv.slice(2);</span><br><span class="line">console.log(myArgs);</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h3><p><code>process</code>对象提供以下方法：</p>
-<ul>
-<li><code>process.exit()</code>：退出当前进程。</li>
-<li><code>process.cwd()</code>：返回运行当前脚本的工作目录的路径。_</li>
-<li><code>process.chdir()</code>：改变工作目录。</li>
-<li><code>process.nextTick()</code>：将一个回调函数放在下次事件循环的顶部。</li>
-</ul>
-<p><strong>1. <code>process.chdir()</code> 改变工作目录的例子:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/aaa&apos;</span><br><span class="line"> </span><br><span class="line">process.chdir(&apos;/home/bbb&apos;)</span><br><span class="line"> </span><br><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/bbb&apos;</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. <code>process.nextTick()</code> 指定下次事件循环首先运行的任务:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>上面代码可以用<code>setTimeout</code>改写，但是<code>nextTick</code>的<code>效率</code>更高、<code>描述</code>更准确。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure></p>
-<h3 id="三、事件"><a href="#三、事件" class="headerlink" title="三、事件"></a>三、事件</h3><p><strong>1. exit事件</strong></p>
-<p><code>当前进程退出</code>时，会触发<code>exit事件</code>，可以对该事件指定<code>回调函数</code>。</p>
-<p>这是一个用来 <code>定时检查模块状态</code> 的好<code>钩子(hook)</code>(例如单元测试), 当主事件循环在执行完<code>&#39;exit&#39;</code>的回调函数后将不再执行,所以在<code>exit事件</code>中定义的定时器可能不会被加入事件列表.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;exit&apos;, function () &#123;</span><br><span class="line">    fs.writeFileSync(&apos;/tmp/myfile&apos;, &apos;This MUST be saved on exit.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. uncaughtException事件</strong></p>
-<p>当前<code>进程抛出</code>一个没有被捕捉的意外时，会触发uncaughtException事件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;uncaughtException&apos;, function (err) &#123;</span><br><span class="line">    console.error(&apos;An uncaught error occurred!&apos;);</span><br><span class="line">    console.error(err.stack);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<hr>
-<p><a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">阅读原文</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/10/NodeJS/Node-js-process模块/" data-id="cjo9tdkmu0052oodv5xmjfla2" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/process/">process</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/JS/JS执行机制与异步回调" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="article-date">
-  <time class="post-time" datetime="2018-05-09T06:38:24.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">09</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/">JS执行机制与异步回调</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="leancloud_visitors" data-flag-title="JS执行机制与异步回调">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise"><a href="#转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise" class="headerlink" title="[转]理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)"></a>[转]<a href="https://blog.csdn.net/haoaiqian/article/details/78622651" target="_blank" rel="noopener">理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)</a></h2><p>‘<code>javascript执行机制</code>‘ / ‘<code>代码执行顺序</code>‘ / ‘<code>函数生命周期加载</code>‘ 等类似问题 都与<code>javascript执行机制</code>相关。</p>
-<h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p><code>JavaScript</code> 是一门 <code>单线程语言</code>，在最新的<code>HTML5</code>中提出了<code>Web-Worker</code>，但<code>JS 是单线程</code>这一<code>核心仍未改变</code>。所以一切<code>JS 版的&quot;多线程&quot;都是用单线程模拟出来的</code>，一切 JavaScript <code>多线程</code> 都是<code>纸老虎</code>！</p>
-<h2 id="2-JavaScript事件循环"><a href="#2-JavaScript事件循环" class="headerlink" title="2. JavaScript事件循环"></a>2. JavaScript事件循环</h2><p>既然JS是<code>单线程</code>，排队 办理业务, <code>js任务</code>也要一个一个顺序执行。如 <code>任务耗时过长</code>，后一个任务必须等着。浏览新闻 超清图片加载慢 需要异步加载 任务分为两类：</p>
-<ul>
-<li>同步任务\<br>打开网站，<code>网页渲染</code> 过程 就是 <code>同步任务</code>，比如 <code>页面骨架</code>和 <code>页面元素</code>的<code>渲染</code>。</li>
-<li><p>异步任务\<br>而 <code>加载 图片 音乐</code>之类<code>占用资源大耗时久</code>的任务，就是<code>异步任务</code>。</p>
-<p>关于这部分有严格的文字定义，但本文的目的是用最小的学习成本彻底弄懂执行机制，所以用导图来说明：<br><img src="https://img-blog.csdn.net/20171124105726497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFvYWlxaWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="js事件循环机制"></p>
-<p>导图要表达的内容用文字来表述的话：<br><br><code>同步</code>和<code>异步</code>任务分别进入不同的<code>执行”场所”</code>，<code>同步的进入主线程</code>，<code>异步的进入Event Table并注册函数</code>。当指定的事情<code>完成</code>时，<code>Event Table</code>会将这个<code>函数</code> <code>移入Event Queue</code>。<code>主线程</code>内的任务<code>执行完</code>毕为空，会去<code>Event Queue</code>读取对应的函数，进入主线程执行。</p>
-<p>上述过程会不断重复，也就是所谓的 <code>Event Loop(事件循环)</code>。</p>
-<p>我们不禁要问了，那<code>怎么知道</code>主线程执行栈为空啊？js引擎存在<code>monitoring process</code>进程，会<code>持续不断检查</code>主线程执行栈是否为空，<code>一旦为空</code>，就会去<code>Event Queue</code>那里检查是否有<code>等待被调用的函数</code>。<br>说了这么多文字，不如直接一段代码更直白：略</p>
-</li>
-</ul>
-<h2 id="3-又爱又恨的setTimeout"><a href="#3-又爱又恨的setTimeout" class="headerlink" title="3. 又爱又恨的setTimeout"></a>3. <a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">又爱又恨的setTimeout</a></h2><p>大名鼎鼎的<code>setTimeout</code>无需再多言，大家对他的第一印象就是<code>异步</code>可以<code>延时执行</code>，我们经常这么实现延时3秒执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;延时3秒&apos;);</span><br><span class="line">&#125;,3000)</span><br></pre></td></tr></table></figure></p>
-<p>随着<code>setTimeout</code>使用的增加，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这是为何？</p>
-<p>渐渐的setTimeout用的地方多了，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这又咋回事啊？</p>
-<p>先看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task();</span><br><span class="line">&#125;,3000)</span><br><span class="line">console.log(&apos;执行console&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>根据前面我们的结论，setTimeout是异步的，应该先执行console.log这个同步任务，所以我们的结论是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行console</span><br><span class="line">//task()</span><br></pre></td></tr></table></figure></p>
-<p>去验证一下，结果正确！<br>然后我们修改一下前面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task()</span><br><span class="line">&#125;,3000)</span><br><span class="line"></span><br><span class="line">sleep(10000000)</span><br></pre></td></tr></table></figure></p>
-<p>乍一看其实差不多，但把这段代码在chrome执行一下，却发现控制台执行task()需要的时间远远超过3秒，为何需要这么长时间？</p>
-<p>这时候我们需要重新理解<code>setTimeout的定义</code>。我们先说上述代码是怎么执行的：</p>
-<ul>
-<li><p><code>task()</code>进入Event Table并注册,计时开始。</p>
-</li>
-<li><p>执行<code>sleep</code>函数，很慢，非常慢，计时仍在继续。</p>
-</li>
-<li><p>3秒到了，计时事件<code>timeout</code>完成，<code>task()</code>进入<code>Event Queue</code>，但是<code>sleep</code>也太慢了吧，还没执行完，只好等着。</p>
-</li>
-<li><p><code>sleep</code>终于执行完了，<code>task()</code>终于从Event Queue进入了主线程执行。</p>
-</li>
-</ul>
-<p>上述的流程走完，我们知道<code>setTimeout</code>这个函数，是经过指定时间后，把要执行的任务(本例中为<code>task()</code>)加入到Event Queue中，又因为是单线程任务要一个一个执行，如果前面的任务需要的时间太久，那么只能等着，导致真正的延迟时间远远大于3秒。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" data-id="cjo9tdkrc009ooodv9umha0fw" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS执行机制-异步回调/">JS执行机制 异步回调</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browser/">browser</a></li></ul>
 
     </footer>
   </div>
@@ -492,7 +410,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/20/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="extend next" rel="next" href="/page/22/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/20/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/22/">next &raquo;</a>
   </nav>
 </section>
         
@@ -533,9 +451,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>139</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>75</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>117</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
     </div>
 
 
