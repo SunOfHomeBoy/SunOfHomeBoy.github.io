@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-FrontEnd/JS/JS线程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/遍历DOM" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/09/FrontEnd/JS/JS线程/" class="article-date">
-  <time class="post-time" datetime="2018-05-09T06:32:36.000Z" itemprop="datePublished">
+    <a href="/2018/05/23/FrontEnd/JS/遍历DOM/" class="article-date">
+  <time class="post-time" datetime="2018-05-23T07:10:48.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">09</span>
+    <span class="post-day">23</span>
   </time>
 </a>
    
@@ -87,17 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS线程/">JS线程</a>
+      <a class="article-title" href="/2018/05/23/FrontEnd/JS/遍历DOM/">遍历DOM</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS-DOM/">JS-DOM</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/09/FrontEnd/JS/JS线程/" class="leancloud_visitors" data-flag-title="JS线程">
+    <span id="/2018/05/23/FrontEnd/JS/遍历DOM/" class="leancloud_visitors" data-flag-title="遍历DOM">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -109,18 +113,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="转-从setTimeout-setInterval看JS线程"><a href="#转-从setTimeout-setInterval看JS线程" class="headerlink" title="[转]从setTimeout/setInterval看JS线程"></a>[转]<a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">从setTimeout/setInterval看JS线程</a></h2><p><code>setTimeout</code>和<code>setInterval</code>的<code>延时最小间隔</code>是<code>4ms</code>(W3C在HTML标准中规定)；</p>
-<p>在<code>JavaScript</code>中<code>没有</code>任何代码是<code>立刻执行</code>的，但<code>一旦进程空闲</code>就<code>尽快执行</code>。</p>
-<p>这意味着无论是<code>setTimeout</code>还是<code>setInterval</code>，所设置的时间都只是 <code>n毫秒后被添加到队列中</code>，而<code>不是</code>过<code>n毫秒后立即执行</code>。</p>
+        <h2 id="遍历dom节点"><a href="#遍历dom节点" class="headerlink" title="遍历dom节点"></a>遍历dom节点</h2><h3 id="childNodes-和-children-区别"><a href="#childNodes-和-children-区别" class="headerlink" title="childNodes 和 children 区别"></a><code>childNodes</code> 和 <code>children</code> 区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 这部分为获取元素系列操作重点在 `childNodes` `children` --&gt;</span><br><span class="line">// let ddHight = document.getElementsByClassName(&apos;showdd&apos;)[0];</span><br><span class="line">// let dCh1 = ddHight.childNodes;</span><br><span class="line">// let dCh2 = ddHight.children;</span><br></pre></td></tr></table></figure>
 <hr>
-<p><a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">阅读原文</a></p>
+<p><a href="https://www.baidu.com/s?wd=遍历dom节点&amp;rsv_spt=1&amp;rsv_iqid=0xaf4a3db3000138a2&amp;issp=1&amp;f=3&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=98012088_4_dg&amp;ch=1&amp;rsv_enter=1&amp;oq=%25E5%25A6%2582%25E4%25BD%2595%25E9%2581%258D%25E5%258E%2586element%25E8%258A%2582%25E7%2582%25B9&amp;rsv_t=6622C4udbYHMy%2Fz88Zn2YEqLcdlbOvZsVIngnU74KJya5W8v7BGUVZMdfejA1X93%2Fo2xXg&amp;inputT=4844&amp;rsv_pq=a5934c810006a2c1&amp;rsv_sug3=50&amp;rsv_sug1=40&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;prefixsug=%25E9%2581%258D%25E5%258E%2586dom&amp;rsp=1&amp;rsv_sug4=4844" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS线程/" data-id="cjpbyhi8v007jhodv9i7c1nh0" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/23/FrontEnd/JS/遍历DOM/" data-id="cjt55fwi400c9ucdvwv53g6dz" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/遍历DOM/">遍历DOM</a></li></ul>
+
     </footer>
   </div>
   
@@ -130,12 +134,12 @@
 
 
   
-    <article id="post-墨菲法则" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Editor/EditorSettingsSync" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/08/墨菲法则/" class="article-date">
-  <time class="post-time" datetime="2018-05-08T07:57:57.000Z" itemprop="datePublished">
+    <a href="/2018/05/23/Editor/EditorSettingsSync/" class="article-date">
+  <time class="post-time" datetime="2018-05-23T06:31:10.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">08</span>
+    <span class="post-day">23</span>
   </time>
 </a>
    
@@ -147,21 +151,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/墨菲法则/">墨菲法则</a>
+      <a class="article-title" href="/2018/05/23/Editor/EditorSettingsSync/">EditorSettingsSync</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/日常随笔/">日常随笔</a>
+    <a class="article-category-link" href="/categories/VSCode/">VSCode</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/08/墨菲法则/" class="leancloud_visitors" data-flag-title="墨菲法则">
+    <span id="/2018/05/23/Editor/EditorSettingsSync/" class="leancloud_visitors" data-flag-title="EditorSettingsSync">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -173,14 +177,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="凡是可能会出错的地方，一定会出错！——-墨菲法则"><a href="#凡是可能会出错的地方，一定会出错！——-墨菲法则" class="headerlink" title="凡是可能会出错的地方，一定会出错！—— 墨菲法则"></a>凡是可能会出错的地方，一定会出错！—— 墨菲法则</h2>
+        <p>生成新token：c49d7c88a2236d998b043830034a10d1b00ca5df</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/墨菲法则/" data-id="cjpbyhhzw000nhodvc6znoqa4" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/23/Editor/EditorSettingsSync/" data-id="cjt55fwbs002vucdvzvs46h24" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/座右铭系列/">座右铭系列</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编辑器设置同步/">编辑器设置同步</a></li></ul>
 
     </footer>
   </div>
@@ -191,12 +196,12 @@
 
 
   
-    <article id="post-programmingLanguage/NodeJS/nodejs全局安装路径的位置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-二手房注意点" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="article-date">
-  <time class="post-time" datetime="2018-05-08T03:17:12.000Z" itemprop="datePublished">
+    <a href="/2018/05/21/二手房注意点/" class="article-date">
+  <time class="post-time" datetime="2018-05-21T02:25:38.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">08</span>
+    <span class="post-day">21</span>
   </time>
 </a>
    
@@ -208,21 +213,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/">nodejs全局安装路径的位置</a>
+      <a class="article-title" href="/2018/05/21/二手房注意点/">二手房注意点</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Node/">Node</a>
+    <a class="article-category-link" href="/categories/二手房/">二手房</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="leancloud_visitors" data-flag-title="nodejs全局安装路径的位置">
+    <span id="/2018/05/21/二手房注意点/" class="leancloud_visitors" data-flag-title="二手房注意点">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -234,178 +239,145 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一般nodejs安装在默认的C盘，如果不知道安装在哪里，可以打开控制面板-系统和安全-系统-高级配置中找到</p>
-<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153014909-1350443214.png" alt="变量路径"></p>
-<p>所谓全局安装：</p>
-<p>是指安装在<code>node</code>中<code>node_module</code>的根目录里，可以在电脑的任何位置调用这个方法。</p>
-<p>那么，如何在找到全局安装的位置呢？</p>
-<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a><font color="#f00">方法一：</font></h2><p>设置到自己想要放的位置：</p>
-<font color="#f90" style="font-size:18px"><br>打开：nodejs安装目录/node_modules/npm/.npmrc这个文件，修改里面的路径<br><br>prefix = E:\nodejs\npm_global_modules<br></font>
+        <h2 id="购买二手房需要注意点"><a href="#购买二手房需要注意点" class="headerlink" title="购买二手房需要注意点"></a>购买二手房需要注意点</h2><p>房屋取得年限</p>
+<p>是否唯一住房</p>
+<p>原值</p>
+<h2 id="关注微信公众号-有律在线"><a href="#关注微信公众号-有律在线" class="headerlink" title="关注微信公众号[有律在线]"></a>关注微信公众号[有律在线]</h2><p><a href="https://baike.baidu.com/item/%E4%BA%8C%E6%89%8B%E6%88%BF/341764?secondId=474866" target="_blank" rel="noopener">阅读原文</a></p>
 
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a><font color="#f00">方法二：</font></h2><p>使用快捷键 <code>win+R</code> ,输入cmd打开命令窗口，输入如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm config ls</span><br></pre></td></tr></table></figure>
-<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153727331-2045072377.png" alt="npm配置"></p>
-<p><b style="font-size:18px"><br>其中：prefix=C:\Users\Administrator\AppData\Roaming\npm就是我们全局安装了哪些方法的地方，如图：</b></p>
-<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153926816-474788164.png" alt="安装路径"></p>
-<p>这时可以通过命令来更改路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix E:\</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/21/二手房注意点/" data-id="cjt55fw96000mucdv8h5kgarp" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二手房/">二手房</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-子元素居于父元素底部" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/18/子元素居于父元素底部/" class="article-date">
+  <time class="post-time" datetime="2018-05-18T06:45:26.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">18</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/18/子元素居于父元素底部/">子元素居于父元素底部</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/18/子元素居于父元素底部/" class="leancloud_visitors" data-flag-title="子元素居于父元素底部">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>只要父元素的<code>posiiton</code>设置为<code>relative</code>，子元素的位置就是相对于父元素的，这样设置子元素的<code>bottom</code>为<code>0</code>，即可将子元素置于父元素底部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;  </span><br><span class="line">    position: relative;  </span><br><span class="line">    width:200px;  </span><br><span class="line">    height: 100px;  </span><br><span class="line">    background: dodgerblue;  </span><br><span class="line">&#125;  </span><br><span class="line">.content&#123;  </span><br><span class="line">    position: absolute;  </span><br><span class="line">    width: 200px;  </span><br><span class="line">    height: 30px;  </span><br><span class="line">    background: orange;  </span><br><span class="line">    bottom: 0;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/18/子元素居于父元素底部/" data-id="cjt55fw9j000zucdvab3i4hve" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/绝对定位/">绝对定位</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/ResizeObserver" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/17/FrontEnd/JS/ResizeObserver/" class="article-date">
+  <time class="post-time" datetime="2018-05-17T01:59:17.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/17/FrontEnd/JS/ResizeObserver/">ResizeObserver</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JSApi/">JSApi</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/17/FrontEnd/JS/ResizeObserver/" class="leancloud_visitors" data-flag-title="ResizeObserver">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JS中ResizeObserver"><a href="#JS中ResizeObserver" class="headerlink" title="JS中ResizeObserver"></a>JS中ResizeObserver</h2><p>什么是观察者(Observer)</p>
 <hr>
-<p><a href="https://www.cnblogs.com/niuxiaoling/p/7993032.html" target="_blank" rel="noopener">阅读原文</a></p>
+<p><a href="http://www.w3cplus.com/javascript/ResizeObserver-api.html" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" data-id="cjpbyhic800b8hodvjdxy3drg" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/17/FrontEnd/JS/ResizeObserver/" data-id="cjt55fwgv00a0ucdv10rqvdbv" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node全局路径/">Node全局路径</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ResizeObserver/">ResizeObserver</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-programmingLanguage/NodeJS/NPM/npm-上传包" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/" class="article-date">
-  <time class="post-time" datetime="2018-05-08T02:53:07.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">08</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/">npm 上传包</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/NPM/">NPM</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/" class="leancloud_visitors" data-flag-title="npm 上传包">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="npm上传包，github封装库"><a href="#npm上传包，github封装库" class="headerlink" title="npm上传包，github封装库"></a>npm上传包，github封装库</h1><ol>
-<li><p>github新建项目，上传项目，根据杨清项目配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;absweek&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.2&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;获取从1970.1.1 至今 绝对星期数&quot;,</span><br><span class="line">  &quot;private&quot;: false,</span><br><span class="line">  &quot;author&quot;: &quot;LiSC &lt;903317164@qq.com&gt;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;MIT&quot;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">      &quot;url&quot;: &quot;https://github.com/SunOfHomeBoy/absWeek&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;main&quot;: &quot;./index.js&quot;,</span><br><span class="line">  &quot;typings&quot;: &quot;./index.d.ts&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">      &quot;build&quot;: &quot;tsc --declaration true --noImplicitUseStrict --removeComments ./index.ts&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置好项目 npm login </p>
-</li>
-<li><p>npm publish . 上传项目<br>NOTE: 版本号，项目名称禁止大写，Token,添加github地址，上传包之前编译。TS版，包声明。</p>
-</li>
-<li><p>在其他项目 npm install ‘包名’</p>
-</li>
-<li>引入，调用</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/" data-id="cjpbyhifq00f7hodvb7evgwu3" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-上传包/">npm 上传包</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Operating System/UnixLike/Linux/持续进攻" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="article-date">
-  <time class="post-time" datetime="2018-05-07T08:39:27.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">07</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/">持续进攻</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="leancloud_visitors" data-flag-title="持续进攻">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="转-BOSS开源软件-一-：黑客帝国之持久进攻"><a href="#转-BOSS开源软件-一-：黑客帝国之持久进攻" class="headerlink" title="[转]BOSS开源软件(一)：黑客帝国之持久进攻"></a>[转]<a href="https://user.qzone.qq.com/525150008" target="_blank" rel="noopener">BOSS开源软件(一)：黑客帝国之持久进攻</a></h1><p> <strong>使用说明：</strong>\<br>（1）该软件属于中华人民共和国的法定危险品，请谨慎使用。\<br>（2）该软件的推荐使用范围仅限于：对公司或上级领导不满，且不便于和他们多度交流时，可使公司相关的网站作为个人情绪的发泄对象。切不可伤害无辜。\<br>（3）声明：切不可把该软件作为凌弱之手段，切不可伤害无辜。\<br>（4）如果您多度使用而进了那个地方，这一切都是您刻苦钻研自学成才之结果，皆与本人无关。\<br>（5）该软件目前只支持Linux操作系统和苹果OSX操作系统，若需要Windows版本的，请自行研发。\<br>（6）软件使用者自感为黑客，且不熟悉Linux或OSX的，官方推荐：您还是早点投胎去吧，上帝会原谅您的过错的！</p>
-<p>代码：\<br>(1) 打开Linux终端或OSX终端，新建文件<code>h.sh</code> \<br>(2) 编辑文件<code>h.sh</code>，并保存。代码内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 注释：下面变量DOMAIN可以修改成你需要的网站域名 </span><br><span class="line">DOMAIN=&quot;http://www.yourdomain.com/&quot;</span><br><span class="line">COUNT=1000</span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">    ab -c $COUNT -n  $COUNT $DOMAIN</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>(3) 添加h.sh的执行权限，输入命令：<code>chmod +x h.sh</code>\<br>(4) 执行软件，输入命令：<code>./h.sh</code></p>
-<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ol>
-<li><p>如果系统提示找不到<code>ab</code>命令时，您需要自行安装<code>ApacheWeb</code>服务器。</p>
-<p> （1）在如CentOS/Fedora等Linux操作系统，输入命令：sudo yum install httpd</p>
-<p> （2）在如Ubuntu等Linux操作系统，输入命令：sudo apt-get install httpd</p>
-<p> （3）在苹果OSX，只需在官方下载相应的安装包进行安装即可</p>
-</li>
-<li><p>您修改代码的DOMAIN变量却会不断出现类似于帮助的信息时，请先按Ctrl+C终止当前执行进程，检查DOMAIN格式是否正确。</p>
-<p> 例如：我们设置DOMAIN为百度，我们必需写成<br> <code>http://www.baidu.com/</code>(注意反斜杠)，而不能<code>www.baidu.com</code>或<code>http://www.baidu.com</code></p>
-</li>
-<li><p>如果您已经满足使用该软件的效果，请及时停止使用，按Ctrl+C终止该软件。</p>
-</li>
-</ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>我们欢迎使用该软件在有限范围内用于发泄个人的不良情绪。</p>
-<p>但我们需要再次提示：</p>
-<p>该软件属于中华人民共和国的法定危险品，请谨慎使用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" data-id="cjpbyhif600elhodvmr2ze4in" class="article-share-link">分享</a>
-      
-      
     </footer>
   </div>
   
@@ -418,7 +390,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/22/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/24/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/22/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/24/">next &raquo;</a>
   </nav>
 </section>
         
@@ -459,9 +431,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -497,7 +469,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

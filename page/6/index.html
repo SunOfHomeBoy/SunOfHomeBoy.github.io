@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-FrontEnd/HTML CSS/CSS-元素垂直居中" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-日常记录/十一学习记录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T08:21:31.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
+    <a href="/2018/10/03/日常记录/十一学习记录/" class="article-date">
+  <time class="post-time" datetime="2018-10-03T03:29:11.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">03</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/">元素垂直居中方法</a>
+      <a class="article-title" href="/2018/10/03/日常记录/十一学习记录/">十一学习记录</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    <a class="article-category-link" href="/categories/Date/">Date</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" class="leancloud_visitors" data-flag-title="元素垂直居中方法">
+    <span id="/2018/10/03/日常记录/十一学习记录/" class="leancloud_visitors" data-flag-title="十一学习记录">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,224 +113,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>这个方法把一些 div 的显示方式设置为<code>表格</code>，因此我们可以使用表格的 <code>vertical-align property</code> 属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;wrapper&quot;&gt;</span><br><span class="line">  &lt;div id=&quot;cell&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;Content goes here&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  wrapper &#123;</span><br><span class="line">    display: table;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cell &#123;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br><code>content</code> 可以动态改变高度(不需在 CSS 中定义)。当 wrapper 里没有足够空间时， content 不会被截断</p>
-<p><strong>缺点：</strong><br>Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签(其实没那么糟糕，另一个专题)</p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>这个方法使用<code>绝对定位</code>的 div，把它的 top 设置为 50％，top margin 设置为负的 content 高度。这意味着对象必须在 CSS 中<code>指定固定的高度</code>。</p>
-<p>因为有固定高度，或许你想给 <code>content</code> 指定 <code>overflow:auto</code>，这样如果 content 太多的话，就会出现滚动条，以免content 溢出。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt; Content goes here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  position: absolute; </span><br><span class="line">  top: 50%; </span><br><span class="line">  height: 240px; </span><br><span class="line">  margin-top: -120px; /* negative half of the height(高度的一半) */</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>不需要嵌套标签</p>
-<p><strong>缺点：</strong><br>没有足够空间时，content 会消失(类似div 在 body 内，当用户缩小浏览器窗口，滚动条不出现的情况)</p>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>这种方法，在 <code>content</code> 元素外插入一个 div。设置此 div <code>height:50%; margin-bottom:-contentheight;</code>。<br>content 清除浮动，并显示在中间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;floater&quot;&gt;</span><br><span class="line">  &lt;div id=&quot;content&quot;&gt;Content here&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">floater &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  height: 50%;</span><br><span class="line">  margin-bottom: -120px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  clear: both;</span><br><span class="line">  height: 240px;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>没有足够空间时(例如：窗口缩小) content 不会被截断，滚动条出现</p>
-<p><strong>缺点：</strong><br>唯一我能想到的就是需要额外的空元素了(也没那么糟，又是另外一个话题)</p>
-<h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>这个方法使用了一个 <code>position:absolute</code>，有固定宽度和高度的 div。这个 div 被设置为 top:0; bottom:0;。但是因为它有固定高度，其实并不能和上下都间距为 0，因此 margin:auto; 会使它居中。使用 margin:auto;使块级元素垂直居中是很简单的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;content&quot;&gt; Content here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">  margin: auto;</span><br><span class="line">  height: 240px;</span><br><span class="line">  width: 70%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>简单</p>
-<p><strong>缺点：</strong><br><code>IE(IE8 beta)</code>中无效;<br>无足够空间时，content 被截断，但是不会有滚动条出现</p>
-<h2 id="方法五：文本居中"><a href="#方法五：文本居中" class="headerlink" title="方法五：文本居中"></a>方法五：文本居中</h2><p>这个方法只能将单行文本置中。只需要简单地把 <code>line-height</code> 设置为那个对象的 height 值就可以使文本居中了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;content&quot;&gt; Content here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  height: 100px;</span><br><span class="line">  line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>无足够空间时不会被截断</p>
-<p><strong>缺点：</strong><br>只对文本有效(块级元素无效)<br>多行时，断词比较糟糕</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" data-id="cjpbyhiaj009chodvu9pu9heb" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/元素垂直居中/">元素垂直居中</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-server/服务器部署" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/06/server/服务器部署/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T08:19:33.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/server/服务器部署/">服务器部署</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Server/">Server</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/06/server/服务器部署/" class="leancloud_visitors" data-flag-title="服务器部署">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/server/服务器部署/" data-id="cjpbyhi6t0050hodv3w5ly3v1" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器部署/">服务器部署</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-console用法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/06/console用法/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T05:38:33.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/console用法/">console用法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/06/console用法/" class="leancloud_visitors" data-flag-title="console用法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="控制台的各种语法"><a href="#控制台的各种语法" class="headerlink" title="控制台的各种语法"></a><a href="https://www.imooc.com/article/12425" target="_blank" rel="noopener">控制台的各种语法</a></h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/console用法/" data-id="cjpbyhhz30002hodvxvxv7fls" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console用法/">console用法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-日常记录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/02/日常记录/" class="article-date">
-  <time class="post-time" datetime="2018-08-02T08:46:26.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">02</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/日常记录/">日常记录</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/日常记录/">日常记录</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/02/日常记录/" class="leancloud_visitors" data-flag-title="日常记录">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>## </p>
-<blockquote>
-<p>天高地迥，觉宇宙之无穷。</p>
-<p>兴尽悲来，识盈虚之有数。</p>
-<pre><code>——王勃 
-</code></pre></blockquote>
-<h3 id="CSS-hover-改变高度"><a href="#CSS-hover-改变高度" class="headerlink" title="CSS hover 改变高度"></a>CSS hover 改变高度</h3><ol>
-<li>用百分比固定元素高度</li>
-<li>font-size 设为 0</li>
+        <h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><p>复习昨日下午组长培训内容</p>
+<ol>
+<li>组件中定义两个方法<blockquote>
+<p>mapStateToProps // 函数、方法, 把<code>Redux</code>状态树<code>store</code>对象 中数据 遍历赋值 到 当前挂载组件<code>props</code>中<br>mapDispatchToProps // 派发方法 到 当前挂载组件<code>props</code></p>
+</blockquote>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/02/日常记录/" data-id="cjpbyhi0x0012hodvqi5nqvog" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/03/日常记录/十一学习记录/" data-id="cjt55fwfc007gucdvmmbp0tm1" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
@@ -344,11 +138,11 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/CSS日常" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-关于架构设计" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/02/FrontEnd/HTML CSS/CSS日常/" class="article-date">
-  <time class="post-time" datetime="2018-08-02T06:48:51.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
+    <a href="/2018/10/02/关于架构设计/" class="article-date">
+  <time class="post-time" datetime="2018-10-02T12:26:57.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
     <span class="post-day">02</span>
   </time>
 </a>
@@ -361,21 +155,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/FrontEnd/HTML CSS/CSS日常/">CSS日常</a>
+      <a class="article-title" href="/2018/10/02/关于架构设计/">关于架构设计</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/02/FrontEnd/HTML CSS/CSS日常/" class="leancloud_visitors" data-flag-title="CSS日常">
+    <span id="/2018/10/02/关于架构设计/" class="leancloud_visitors" data-flag-title="关于架构设计">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -387,15 +177,253 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><h3 id="关于-background-size-无效"><a href="#关于-background-size-无效" class="headerlink" title="关于 background-size 无效"></a>关于 <code>background-size</code> 无效</h3><p><code>b-size</code> 必须写在 <code>b:url()</code> 后面，否则不会生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: url() no-repeat center center;  </span><br><span class="line"></span><br><span class="line">background-size: 100% 100%;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><blockquote>
+<p><strong>架构设计的主要目的</strong>：<br>解决复杂度带来的问题</p>
+</blockquote>
+<h3 id="架构复杂度来源"><a href="#架构复杂度来源" class="headerlink" title="架构复杂度来源"></a>架构复杂度来源</h3><ol>
+<li><p>孜孜不倦追求 高性能\<br>所有性能提高的背后，都是<code>方法的优化</code>和<code>系统复杂度的提高</code></p>
+</li>
+<li><p>防止意外的高可用\<br>系统高可用 本质通过<code>冗余</code>，水多加面，面多加水</p>
+</li>
+<li><p>应对变化的可拓展\<br>保障在<code>不重构</code>的情况下，为<code>需求变化</code>提供实现可能</p>
+</li>
+</ol>
+<p>高性能、高可用性、可拓展，是架构师工作着重考虑缓解，三点直接作用于 <strong>架构设计内部</strong></p>
+<p>同样要注意 <strong>外部环境</strong> 对架构设计影响，比如<code>安全性</code>、<code>成本</code>、<code>规模</code></p>
+<h2 id="找出业务场景短板"><a href="#找出业务场景短板" class="headerlink" title="找出业务场景短板"></a>找出业务场景短板</h2><p>面对实际业务场景 </p>
+<h3 id="第一步-分析并确定架构方向"><a href="#第一步-分析并确定架构方向" class="headerlink" title="第一步 分析并确定架构方向"></a>第一步 分析并确定架构方向</h3><p>需要 <code>高可用?</code> <code>高性能?</code> <code>可扩展?</code> <code>安全?</code></p>
+<h3 id="第二步-准备几套备用方案"><a href="#第二步-准备几套备用方案" class="headerlink" title="第二步 准备几套备用方案"></a>第二步 准备几套备用方案</h3><p>与<code>开发</code> <code>运维</code>等部门讨论，选择针对实际情况最优方案</p>
+<h2 id="虚拟场景"><a href="#虚拟场景" class="headerlink" title="虚拟场景"></a>虚拟场景</h2><p>前浪微博 中间件 团队 6人<br>整体熟悉 JAVA，一人 C/C++<br>开发平台 Linux<br>数据库 MySQL<br>业务系统 单机房部署</p>
+<p>p.s: 发展快 系统协作效率低 各子系统 通过接口调用 出现问题 难定位</p>
+<p>架构设计问题根源 在于 各个业务 子系统 强耦合, <code>信息列队系统</code> 可满足 子系统 解耦</p>
+<h2 id="架构难在哪里"><a href="#架构难在哪里" class="headerlink" title="架构难在哪里?"></a>架构难在哪里?</h2><p>难在灵活多变。高性能、高可用、可拓展、安全性、规模 等, 不可能样样兼顾</p>
+<h3 id="判断复杂度"><a href="#判断复杂度" class="headerlink" title="判断复杂度"></a>判断复杂度</h3><p>对关键点 分权重</p>
+<ol>
+<li><p>是否需要高性能？\<br>目前，发展趋势，预留系统容量 应对 未来业务增长。设计目标定为现在峰值4倍 较为合理</p>
+</li>
+<li><p>是否需要高可用？\<br>信息审核、用户服务 是社交媒体 关键业务。信息列队 需要 <code>高可用性</code>，包括 <strong>信息写入、消息储存、消息读取</strong></p>
+</li>
+<li><p>是否需要高扩展？\<br>本虚拟场景 前浪微博 消息列队 功能明确，基本无须拓展</p>
+</li>
+</ol>
+<h3 id="初步设计备选方案，分析优缺点"><a href="#初步设计备选方案，分析优缺点" class="headerlink" title="初步设计备选方案，分析优缺点"></a>初步设计备选方案，分析优缺点</h3><p>综上，前浪微博 信息列队系统 需要 <strong>高性能 消息读取、高可用 消息写入、高可用 消息存储和读取</strong></p>
+<h4 id="3种备选方案"><a href="#3种备选方案" class="headerlink" title="3种备选方案"></a>3种备选方案</h4><ol>
+<li>开源<code>Kafka</code> 本身是 成熟的开源信息列队方案，性能好</li>
+<li><code>集群 + MySQL</code>存储。采用 数据分散集群架构，省略</li>
+<li><code>集群 + 自研存储方案</code></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/02/FrontEnd/HTML CSS/CSS日常/" data-id="cjpbyhiab0096hodvpt1g4s1a" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/02/关于架构设计/" data-id="cjt55fwbk002mucdvxv0mm8d4" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS日常发现/">CSS日常发现</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-GIT/git-仓库添加SSH公钥" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="article-date">
+  <time class="post-time" datetime="2018-09-27T02:06:10.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">27</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/27/GIT/git-仓库添加SSH公钥/">git 仓库添加SSH公钥</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="leancloud_visitors" data-flag-title="git 仓库添加SSH公钥">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git仓库添加SSH公钥"><a href="#Git仓库添加SSH公钥" class="headerlink" title="Git仓库添加SSH公钥"></a>Git仓库添加SSH公钥</h1><h2 id="第一步-生成SSH-key"><a href="#第一步-生成SSH-key" class="headerlink" title="第一步 生成SSH key"></a>第一步 生成SSH key</h2><blockquote>
+<p>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”  </p>
+</blockquote>
+<h2 id="第二步-查看公钥"><a href="#第二步-查看公钥" class="headerlink" title="第二步 查看公钥"></a>第二步 查看公钥</h2><blockquote>
+<p>cat ~/.ssh/id_rsa.pub<br>复制生成的公钥，到 远程仓库-设置 里添加ssh</p>
+</blockquote>
+<h2 id="第三步-终端检测"><a href="#第三步-终端检测" class="headerlink" title="第三步 终端检测"></a>第三步 终端检测</h2><p>添加公钥后 用下面命令检测，首次使用需要添加主机到本机SSH信任列表</p>
+<blockquote>
+<p>ssh -T git@gitee.com</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/27/GIT/git-仓库添加SSH公钥/" data-id="cjt55fwcp0040ucdvmd8sdqoj" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git-SSH/">Git-SSH</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/catLinuxCore" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:56:11.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/">查看Linux发行版核心</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UnixLike/">UnixLike</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="leancloud_visitors" data-flag-title="查看Linux发行版核心">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Ubuntu查看系统版本-Linux内核版本"><a href="#Ubuntu查看系统版本-Linux内核版本" class="headerlink" title="Ubuntu查看系统版本-Linux内核版本"></a>Ubuntu查看系统版本-Linux内核版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br><span class="line"></span><br><span class="line">cat /etc/os-release</span><br><span class="line"></span><br><span class="line">cat /etc/redhat-release</span><br><span class="line"></span><br><span class="line">rpm -q centos-release</span><br><span class="line"></span><br><span class="line">uname -a</span><br><span class="line"></span><br><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://blog.csdn.net/haohaibo031113/article/details/70880864" target="_blank" rel="noopener">转自CSDN</a></p>
+<p><a href="https://www.baidu.com/s?wd=ubuntu%2016.04%20%E5%AE%89%E8%A3%85nginx&amp;rsv_spt=1&amp;rsv_iqid=0xe793a65000001553&amp;issp=1&amp;f=3&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=98012088_4_dg&amp;ch=1&amp;rsv_enter=1&amp;oq=linux%25E6%259F%25A5%25E7%259C%258Bubuntu%25E7%2589%2588%25E6%259C%25AC&amp;rsv_t=34e0PL5TYi1wHhbecCDMqieWCC0vKelIGuYW2od1EexG3UzWpfxhsOZUSlHq896i5PxNjA&amp;inputT=11285&amp;rsv_pq=bb5b65e700002916&amp;rsv_sug3=46&amp;rsv_sug1=44&amp;rsv_sug7=101&amp;rsv_sug2=0&amp;prefixsug=ubuntu%252016.04%2520%25E5%25AE%2589%25E8%25A3%2585&amp;rsp=3&amp;rsv_sug4=11985" target="_blank" rel="noopener">ubuntu 16.04 安装nginx</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; apt-get update // 升级集成软件包信息</span><br><span class="line">&gt; apt-get upgrade // 升级 已经安装好的本级软件</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" data-id="cjt55fwkv00ftucdvwd78fd1c" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/catLinuxCore/">catLinuxCore</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/组件化设计思路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:41:49.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/">组件化设计思路</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Component-design/">Component-design</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="leancloud_visitors" data-flag-title="组件化设计思路">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>组件化的设计思路</p>
+<p>组件封装有一定的不确定性，更多时候在几方面做个权衡，在最开始并不可能做到完美，在业务的不断变化中，可能还会面临一些调整和重构</p>
+<p>组件化的意义<br>1 组件化是实现分层。更有效的代码组合方式<br>2 组件化是对资源的重组和优化，从而是项目管理更加合理<br>3 有利于单元测试<br>4 对重构友好</p>
+<p>组件的定义<br>1 可复用的模块，完成既定的功能<br>2 有明确的接口规定<br>3 有上下文依赖 外部依赖资源定义<br>4 可以独立发布</p>
+<p>组件设计的原则 主要的是复用性<br>1 使用单一职责原则<br>2 适用开放封闭原则<br>3 追求短小精悍<br>4 避免太多参数<br>5 缩小信赖范围和想稳定方向的信赖<br>6 追求无副作用<br>7 追求透明化<br>8 入口处检查参数的有效性，出口处检查返回的正确性<br>9 充分隔离变化的部分</p>
+<p>自省的几个问题<br>组件是否有必要再分<br>组件划分的依据通常是业务逻辑、功能、要考虑组件之间的关系是否明确<br>划分粒度的大小需要根据实际情况权衡，大小会提升维护成本，太大又不够灵活和高复用性<br>每一个组件都应该有起独特的划分目的，有的是为了复用实现，有的是为了封装的复杂度清晰业务实现</p>
+<p>2 组件的依赖是否可以再缩减<br>3 组件的可复用于其他类似场景中<br>在考虑需要适用的不同场景，在组件接口设计时需要兼容<br>4 组件当别人使用时，会怎么想<br>5 假如业务需要不需要这个功能，是否清楚方便</p>
+<h3 id="敲代码的李二狗"><a href="#敲代码的李二狗" class="headerlink" title="敲代码的李二狗:"></a>敲代码的李二狗:</h3><p><a href="https://kb.cnblogs.com/page/606682/" target="_blank" rel="noopener">为什么说 Java 程序员必须掌握 Spring Boot ？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" data-id="cjt55fwi900cfucdvs94r4euc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Compinent/">Compinent</a></li></ul>
 
     </footer>
   </div>
@@ -409,7 +437,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/7/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/7/">next &raquo;</a>
   </nav>
 </section>
         
@@ -450,9 +478,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -488,7 +516,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

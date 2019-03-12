@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-基础编译原理和语言知识" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SVN/SVN使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/02/基础编译原理和语言知识/" class="article-date">
-  <time class="post-time" datetime="2018-08-02T06:20:22.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">02</span>
+    <a href="/2018/09/12/SVN/SVN使用指南/" class="article-date">
+  <time class="post-time" datetime="2018-09-12T03:20:12.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">12</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/基础编译原理和语言知识/">基础编译原理和语言知识</a>
+      <a class="article-title" href="/2018/09/12/SVN/SVN使用指南/">SVN使用指南</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/计算机技术原理/">计算机技术原理</a>
+    <a class="article-category-link" href="/categories/SVN/">SVN</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/02/基础编译原理和语言知识/" class="leancloud_visitors" data-flag-title="基础编译原理和语言知识">
+    <span id="/2018/09/12/SVN/SVN使用指南/" class="leancloud_visitors" data-flag-title="SVN使用指南">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,40 +113,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基础编译原理和语言知识"><a href="#基础编译原理和语言知识" class="headerlink" title="基础编译原理和语言知识"></a>基础编译原理和语言知识</h2><p><code>think deeply</code>  </p>
-<ol>
-<li><p>什么是编译器，它以什么为分界线，分为前端和后端？      </p>
-<p> <a href="https://blog.csdn.net/sunxianghuang/article/details/52094859" target="_blank" rel="noopener">JVM即时编译(JIT)</a></p>
+        <h2 id="几个概念要必须掌握："><a href="#几个概念要必须掌握：" class="headerlink" title="几个概念要必须掌握："></a>几个概念要必须掌握：</h2><p><code>checkout</code>—&gt;将SVN仓库的代码烤到本地，比如你现在参与一个团队项目，项目代码在你之前肯定已经写了很多了，你可以通过checkout项目代码，获得整个项目。</p>
+<p><code>update</code>—&gt;在你写代码的过程中，同事很可能已经提交过代码到SVN服务器，而你本地项目显然没有同事新提交的代码，你可以通过update SVN获得SVN最新的代码。</p>
+<p><code>commit</code>—&gt;当你完成一部分开发后，你可以通过commit提交代码到SVN服务器，这样别人就可以获得你写的代码，记得 <strong>先update再commit</strong>。</p>
+<h2 id="TortoiseSVN图标介绍"><a href="#TortoiseSVN图标介绍" class="headerlink" title="TortoiseSVN图标介绍"></a>TortoiseSVN图标介绍</h2><ul>
+<li>绿色对勾重载，表示Svn状态正常</li>
+<li>红色感叹号，表示文件状态状态变成 已修改</li>
+<li>黄色感叹号，表示提交过程出现冲突 </li>
+<li>蓝色加号，表示 一个 文件/目录 已经被加入到 版本控制中</li>
+</ul>
+<h2 id="SVN-Client-基础操作"><a href="#SVN-Client-基础操作" class="headerlink" title="SVN Client 基础操作"></a>SVN Client 基础操作</h2><ol>
+<li>SVN检出(Checkout)\<br> 输入 url ， 确定本地 代码库 地址</li>
+</ol>
+<p>弹出<code>用户名</code> <code>密码验证</code></p>
+<h3 id="Add-增加"><a href="#Add-增加" class="headerlink" title="Add 增加"></a>Add 增加</h3><ol>
+<li><p>先提交到变更列表，再 <code>commit</code> 到配置库：选择<code>新增文件</code>，右键SVN菜单执行<code>Add</code>， 提交到<code>变更列表</code>，然后右键SVN菜单执行<code>SVN Commit</code>提交到版本库</p>
 </li>
-<li><p><code>Java</code> 是编译型语言还是解释型语言，<code>Python</code> 呢？</p>
-</li>
-<li><p><code>C</code> 语言的编译器也是 <code>C</code> 语言，那它怎么被编译的？</p>
-</li>
-<li><p>目标文件的格式是什么样的，段表、符号表、重定位表有什么作用？</p>
-</li>
-<li><p><code>Swift</code> 是静态语言，为什么还有运行时库？</p>
-</li>
-<li><p>什么是 <code>ABI，ABI</code> 不稳定有什么问题？</p>
-</li>
-<li><p>什么是 <code>WebAssembly</code>，为什么要推出这门技术，用 <code>C++</code> 代替 <code>JavaScript</code> 可行么？</p>
-</li>
-<li><p><code>JavaScript</code> 和 <code>DOM API</code> 是什么关系，<code>JavaScript</code> 可以读写文件么？</p>
-</li>
-<li><p><code>C++</code> 代码可以自动转换成 <code>Java</code> 代码么，任意两种语言是否可以互转？</p>
-</li>
-<li><p>为什么说 <code>Python</code> 是胶水语言，它可以用来开发 <code>iOS/Android</code> 么？  </p>
+<li><p>不提交到变更列表，直接commit配置库：直接选择文件，右键SVN菜单执行<code>SVN Commit</code>操作。</p>
 </li>
 </ol>
-<p><a href="https://www.ctolib.com/topics-119548.html" target="_blank" rel="noopener">阅读原文</a></p>
-<hr>
-<h3 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h3>
+<h3 id="Delete-删除"><a href="#Delete-删除" class="headerlink" title="Delete 删除"></a>Delete 删除</h3><p>如果被删文件 未入版本库，可直接使用操作系统删除</p>
+<p>如果被删文件 已入版本库：</p>
+<ol>
+<li>选择被删文件， 右键 SVN菜单 执行<code>delete</code>操作</li>
+<li>选择被删文件父级目录， 右键 SVN菜单 执行<code>SVN Commit</code></li>
+</ol>
+<h3 id="Rename-改名"><a href="#Rename-改名" class="headerlink" title="Rename 改名"></a>Rename 改名</h3><h3 id="SVN-Revert-还原"><a href="#SVN-Revert-还原" class="headerlink" title="SVN Revert 还原"></a>SVN Revert 还原</h3><p>右键SVN菜单 <code>Update to reversion</code></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/02/基础编译原理和语言知识/" data-id="cjpbyhi0j000phodvpsj0etbe" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/12/SVN/SVN使用指南/" data-id="cjt55fwff007mucdv4gixnhtg" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础原理/">基础原理</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN使用/">SVN使用</a></li></ul>
 
     </footer>
   </div>
@@ -157,12 +157,12 @@
 
 
   
-    <article id="post-programmingLanguage/NodeJS/Node-Cpp" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/React/React学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/02/programmingLanguage/NodeJS/Node-Cpp/" class="article-date">
-  <time class="post-time" datetime="2018-08-02T05:46:03.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">02</span>
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T09:45:25.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -174,21 +174,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/programmingLanguage/NodeJS/Node-Cpp/">Node-C++</a>
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/">React学习笔记</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Node/">Node</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/02/programmingLanguage/NodeJS/Node-Cpp/" class="leancloud_visitors" data-flag-title="Node-C++">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="leancloud_visitors" data-flag-title="React学习笔记">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -200,19 +196,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="《Node-js：来一打-C-扩展》"><a href="#《Node-js：来一打-C-扩展》" class="headerlink" title="《Node.js：来一打 C++ 扩展》"></a>《Node.js：来一打 C++ 扩展》</h2><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br></pre></td><td class="code"><pre><span class="line">1 Node.js 的 C++ 扩展前驱知识储备 1</span><br><span class="line">1.1 Node.js 的模块机制 2</span><br><span class="line">1.1.1 CommonJS 的模块规范 2</span><br><span class="line">1.1.2 Node.js 的模块 4</span><br><span class="line">1.1.3 小结 9</span><br><span class="line">1.1.4 参考资料 9</span><br><span class="line">1.2 Node.js 的包机制 9</span><br><span class="line">1.2.1 CommonJS 的包规范 9</span><br><span class="line">1.2.2 Node.js / NPM 下的包 13</span><br><span class="line">1.2.3 NPM 与 CNPM 16</span><br><span class="line">1.2.4 小结 19</span><br><span class="line">1.2.5 参考资料 19</span><br><span class="line">1.3 Node.js 依赖简介 20</span><br><span class="line">1.3.1 Chrome V8 20</span><br><span class="line">1.3.2 libuv 25</span><br><span class="line">1.3.3 其他依赖 28</span><br><span class="line">1.3.4 小结 30</span><br><span class="line">1.3.5 参考资料 30</span><br><span class="line">1.4 C++ 扩展开发的准备工作 31</span><br><span class="line">1.4.1 编辑器 / IDE 31</span><br><span class="line">1.4.2 node-gyp 36</span><br><span class="line">1.4.3 其他构建工具 54</span><br><span class="line">1.4.4 小结 56</span><br><span class="line">1.4.5 参考资料 56</span><br><span class="line"></span><br><span class="line">2 C++ 模块原理简析 57</span><br><span class="line">2.1 为什么要写 C++ 模块 57</span><br><span class="line">2.1.1 C++ 比 JavaScript 解释器高效 57</span><br><span class="line">2.1.2 已有的 C++ 轮子 72</span><br><span class="line">2.1.3 小结 77</span><br><span class="line">2.1.4 参考资料 77</span><br><span class="line">2.2 什么是 C++ 扩展 78</span><br><span class="line">2.2.1 C++ 模块本质 78</span><br><span class="line">2.2.2 Node.js 模块加载原理 80</span><br><span class="line">2.2.3 小结 102</span><br><span class="line">2.2.4 参考资料 103</span><br><span class="line"></span><br><span class="line">3 Chrome V8 基础 104</span><br><span class="line">3.1 Node.js 与 Chrome V8 104</span><br><span class="line">3.2 基本概念 105</span><br><span class="line">3.2.1 内存机制 105</span><br><span class="line">3.2.2 隔离实例（Isolate） 108</span><br><span class="line">3.2.3 上下文（Context） 109</span><br><span class="line">3.2.4 脚本（Script） 110</span><br><span class="line">3.2.5 小结 110</span><br><span class="line">3.2.6 参考资料 111</span><br><span class="line">3.3 句柄（Handle） 111</span><br><span class="line">3.3.1 本地句柄（Local） 112</span><br><span class="line">3.3.2 持久句柄（Persistent） 115</span><br><span class="line">3.3.3 永生句柄（Eternal） 119</span><br><span class="line">3.3.4 待实本地句柄（Maybe Local） 119</span><br><span class="line">3.3.5 小结 121</span><br><span class="line">3.3.6 参考资料 121</span><br><span class="line">3.4 句柄作用域 121</span><br><span class="line">3.4.1 一般句柄作用域（Handle Scope） 122</span><br><span class="line">3.4.2 可逃句柄作用域（Escapable Handle Scope） 125</span><br><span class="line">3.4.3 小结 129</span><br><span class="line">3.4.4 参考资料 129</span><br><span class="line">3.5 上下文（Context） 129</span><br><span class="line">3.6 模板（Template） 133</span><br><span class="line">3.6.1 函数模板（Function Template） 133</span><br><span class="line">3.6.2 对象模板（Object Template） 138</span><br><span class="line">3.6.3 对象模板的访问器（Accessor）与拦截器（Interceptor） 144</span><br><span class="line">3.6.4 对象模板的内置字段（Internal Field） 175</span><br><span class="line">3.6.5 函数模板的继承（Inherit） 183</span><br><span class="line">3.6.6 小结 188</span><br><span class="line">3.6.7 参考资料 189</span><br><span class="line">3.7 常用数据类型 189</span><br><span class="line">3.7.1 基值（Value） 189</span><br><span class="line">3.7.2 字符串（String） 194</span><br><span class="line">3.7.3 数值类型 196</span><br><span class="line">3.7.4 布尔类型（Boolean） 196</span><br><span class="line">3.7.5 对象（Object） 196</span><br><span class="line">3.7.6 函数（Function） 200</span><br><span class="line">3.7.7 数组（Array） 202</span><br><span class="line">3.7.8 JSON 解析器 203</span><br><span class="line">3.7.9 函数回调信息（Function Callback Info） 203</span><br><span class="line">3.7.10 函数返回值（Return Value） 204</span><br><span class="line">3.7.11 隔离实例（Isolate） 204</span><br><span class="line">3.7.12 小结 205</span><br><span class="line">3.7.13 参考资料 206</span><br><span class="line">3.8 异常机制 206</span><br><span class="line">3.8.1 try-catch 206</span><br><span class="line">3.8.2 抛出异常 209</span><br><span class="line">3.8.3 异常生成类（Exception） 211</span><br><span class="line">3.8.4 小结 211</span><br><span class="line">3.8.5 参考资料 211</span><br><span class="line"></span><br><span class="line">4 C++ 扩展实战初探 212</span><br><span class="line">4.1 binding.gyp 212</span><br><span class="line">4.1.1 惊鸿一瞥 213</span><br><span class="line">4.1.2 binding.gyp 基础结构 213</span><br><span class="line">4.1.3 GYP 文件 214</span><br><span class="line">4.1.4 常用字段 221</span><br><span class="line">4.1.5 小结 228</span><br><span class="line">4.1.6 参考资料 228</span><br><span class="line">4.2 牛刀小试 229</span><br><span class="line">4.2.1 又是 Hello World 229</span><br><span class="line">4.2.2 函数参数 232</span><br><span class="line">4.2.3 回调函数 234</span><br><span class="line">4.2.4 函数返回 238</span><br><span class="line">4.2.5 小结 239</span><br><span class="line">4.2.6 参考资料 240</span><br><span class="line">4.3 循序渐进 240</span><br><span class="line">4.3.1 C++ 与 JavaScript 类封装 240</span><br><span class="line">4.3.2 实例化 C++ 类封装对象的函数 250</span><br><span class="line">4.3.3 将 C++ 类封装对象传来传去 253</span><br><span class="line">4.3.4 进程退出钩子 255</span><br><span class="line">4.3.5 小结 259</span><br><span class="line">4.3.6 参考资料 259</span><br><span class="line"></span><br><span class="line">5 Node.js 原生抽象——NAN 260</span><br><span class="line">5.1 Node.js 原生模块开发方式的变迁 260</span><br><span class="line">5.1.1 以不变应万变 260</span><br><span class="line">5.1.2 时代在召唤 261</span><br><span class="line">5.1.3 小结 267</span><br><span class="line">5.1.4 参考资料 267</span><br><span class="line">5.2 基础开发 267</span><br><span class="line">5.2.1 什么是 NAN 267</span><br><span class="line">5.2.2 安装和配置 269</span><br><span class="line">5.2.3 先睹为快——搭上NAN 的快车 270</span><br><span class="line">5.2.4 基础帮助函数和宏 276</span><br><span class="line">5.2.5 忽略 node_modules 279</span><br><span class="line">5.2.6 小结 279</span><br><span class="line">5.2.7 参考资料 280</span><br><span class="line">5.3 JavaScript 函数 280</span><br><span class="line">5.3.1 函数参数类型 280</span><br><span class="line">5.3.2 函数声明 282</span><br><span class="line">5.3.3 函数设置 288</span><br><span class="line">5.3.4 小结 296</span><br><span class="line">5.3.5 参考资料 296</span><br><span class="line">5.4 常用帮助类与函数 296</span><br><span class="line">5.4.1 句柄相关 296</span><br><span class="line">5.4.2 创建数据对象 298</span><br><span class="line">5.4.3 与数据对象“玩耍” 300</span><br><span class="line">5.4.4 封装一个类 314</span><br><span class="line">5.4.5 异常处理 315</span><br><span class="line">5.4.6 小结 315</span><br><span class="line">5.4.7 参考资料 316</span><br><span class="line">5.5 NAN 中的异步机制 316</span><br><span class="line">5.5.1 Nan::AsyncQueueWorker 316</span><br><span class="line">5.5.2 Nan::Callback 317</span><br><span class="line">5.5.3 Nan::AsyncWorker 317</span><br><span class="line">5.5.4 Nan::AsyncProgressWorker 323</span><br><span class="line">5.5.5 小结 327</span><br><span class="line">5.5.6 参考资料 327</span><br><span class="line"></span><br><span class="line">6 异步之旅——libuv 328</span><br><span class="line">6.1 基础概念 329</span><br><span class="line">6.1.1 事件循环 330</span><br><span class="line">6.1.2 句柄（Handle）与请求（Request） 333</span><br><span class="line">6.1.3 尝尝甜头 335</span><br><span class="line">6.1.4 小结 340</span><br><span class="line">6.1.5 参考资料 340</span><br><span class="line">6.2 libuv 的跨线程编程基础 341</span><br><span class="line">6.2.1 libuv 的线程 342</span><br><span class="line">6.2.2 同步原语（Synchronization Primitive） 347</span><br><span class="line">6.2.3 工作队列 355</span><br><span class="line">6.2.4 小结 356</span><br><span class="line">6.2.5 参考资料 357</span><br><span class="line">6.3 跨线程通信 357</span><br><span class="line">6.3.1 uv_async_t 句柄 357</span><br><span class="line">6.3.2 Watchdog 半成品实战解析 358</span><br><span class="line">6.3.3 Watchdog 试运行 367</span><br><span class="line">6.3.4 小结 368</span><br><span class="line">6.3.5 参考资料 369</span><br><span class="line"></span><br><span class="line">7 实战——文件监视器 370</span><br><span class="line">7.1 准备工作 370</span><br><span class="line">7.1.1 功能规划 370</span><br><span class="line">7.1.2 文件系统监听库——efsw 373</span><br><span class="line">7.1.3 小结 376</span><br><span class="line">7.1.4 参考资料 376</span><br><span class="line">7.2 核心设计 376</span><br><span class="line">7.2.1 API 设计 377</span><br><span class="line">7.2.2 EFSWCore 的血肉之躯 377</span><br><span class="line">7.2.3 EFSWCore 的灵魂 381</span><br><span class="line">7.2.4 小结 385</span><br><span class="line">7.3 编写JavaScript 类 386</span><br><span class="line">7.3.1 类的设计 386</span><br><span class="line">7.3.2 核心逻辑 388</span><br><span class="line">7.3.3 简单容错 391</span><br><span class="line">7.3.4 小结 393</span><br><span class="line">7.4 进一步完善 393</span><br><span class="line">7.4.1 C++ 代码的完善 393</span><br><span class="line">7.4.2 JavaScript 代码的完善 398</span><br><span class="line">7.4.3 小结 400</span><br><span class="line"></span><br><span class="line">8 实战——现有包剖析 401</span><br><span class="line">8.1 字符串哈希模块——Bling Hashes 401</span><br><span class="line">8.1.1 文件设定 402</span><br><span class="line">8.1.2 C++ 源码剖析 403</span><br><span class="line">8.1.3 JavaScript 源码剖析 408</span><br><span class="line">8.1.4 小结 409</span><br><span class="line">8.1.5 参考资料 410</span><br><span class="line">8.2 类 Proxy 包——Auto Object 410</span><br><span class="line">8.2.1 Proxy 410</span><br><span class="line">8.2.2 Auto Object 使用范例 412</span><br><span class="line">8.2.3 代码剖析 415</span><br><span class="line">8.2.4 小结 424</span><br><span class="line">8.2.5 参考资料 424</span><br><span class="line"></span><br><span class="line">9 N-API——下一代 Node.js C++ 扩展开发方式 425</span><br><span class="line">9.1 浅尝辄止 426</span><br><span class="line">9.1.1 实现一个 Echo 函数 426</span><br><span class="line">9.1.2 尝试运行 N-API 扩展 430</span><br><span class="line">9.1.3 向下兼容 431</span><br><span class="line">9.1.4 N-API Package——C++ 封装 433</span><br><span class="line">9.1.5 小结 433</span><br><span class="line">9.1.6 参考资料 433</span><br><span class="line">9.2 基本数据类型与错误处理 433</span><br><span class="line">9.2.1 基本数据类型 433</span><br><span class="line">9.2.2 与作用域及生命周期相关的数据类型 435</span><br><span class="line">9.2.3 回调数据类型 438</span><br><span class="line">9.2.4 错误处理 439</span><br><span class="line">9.2.5 模块注册 441</span><br><span class="line">9.2.6 小结 442</span><br><span class="line">9.2.7 参考资料 442</span><br><span class="line">9.3 对象与函数 442</span><br><span class="line">9.3.1 对象 442</span><br><span class="line">9.3.2 函数 448</span><br><span class="line">9.3.3 类的封装 453</span><br><span class="line">9.3.4 小结 455</span><br><span class="line">9.3.5 参考资料 455</span><br></pre></td></tr></table></figure>
-<p><a href="https://cnodejs.org/topic/5b223c1d5cd02be640901490" target="_blank" rel="noopener">阅读原文</a></p>
-<hr>
-<p><a href="https://www.npmjs.com/package/node-gyp" target="_blank" rel="noopener">GYP介绍: Node.js本机插件构建工具</a><br><a href="https://blog.csdn.net/p13503959390/article/details/72793448" target="_blank" rel="noopener">使用技巧</a></p>
+        <h2 id="第一步-实现功能模块"><a href="#第一步-实现功能模块" class="headerlink" title="第一步 实现功能模块"></a>第一步 实现功能模块</h2><ol>
+<li>npm install antd –save-dev</li>
+<li>import ‘antd css style sheets’</li>
+<li>创建 模板</li>
+<li>import {Menu, Table, Pagination} from ‘antd’;</li>
+<li>导出模板到 ./index.js</li>
+<li>Router 注册； Nav 里面 添加 路由 link<br>Compelite</li>
+</ol>
+<h2 id="四大部分-props-state-lifecircle-context"><a href="#四大部分-props-state-lifecircle-context" class="headerlink" title="四大部分(props state lifecircle context)"></a>四大部分(<code>props</code> <code>state</code> <code>lifecircle</code> <code>context</code>)</h2><h2 id="组件构建三种方法"><a href="#组件构建三种方法" class="headerlink" title="组件构建三种方法"></a>组件构建三种方法</h2><p>① React.createClass<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Button = React.createClass(&#123;</span><br><span class="line">  // method/lifecircle</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>② ES6class</p>
+<p>③ 无状态函数<br>无状态组件只传入<code>props</code>和<code>context</code>,不存在<code>state</code>.<br><code>propsTyps</code>和<code>defaultProps</code> 可通过 向 方法 设置 静态属性</p>
+<h2 id="组件五种形式"><a href="#组件五种形式" class="headerlink" title="组件五种形式"></a>组件五种形式</h2><p>[<code>容器</code>, <code>业务逻辑</code>, <code>取数据</code>, <code>布局(layout)</code>, <code>无状态组件</code>]</p>
+<h2 id="生命周期-lifecircle"><a href="#生命周期-lifecircle" class="headerlink" title="生命周期(lifecircle)"></a>生命周期(lifecircle)</h2><p><a href="https://segmentfault.com/a/1190000004168886" target="_blank" rel="noopener">参考文档</a><br><strong>初始化:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor</span><br><span class="line">componentWillMount</span><br><span class="line">+ render()</span><br><span class="line">componentDidMount</span><br></pre></td></tr></table></figure></p>
+<p><strong>周期改变:</strong>(<code>props/state</code> 改变时 触发)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">  &lt;!-- 当组件可能接收到`新道具`时调用。即使道具没有改变，你也可以这样称呼它，所以如果你只想处理改变，一定要比较新的和现有的道具。 --&gt;</span><br><span class="line">  &lt;!-- 调用组件setstate通常不会触发这种方法。 --&gt;</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState) </span><br><span class="line">componentWillUpdata() &#123;</span><br><span class="line">  &lt;!-- willUpdata 下 设置 setState 会触发 componentReceiveProps --&gt;</span><br><span class="line">&#125;</span><br><span class="line">+ render()</span><br><span class="line">componentDidUpdata</span><br></pre></td></tr></table></figure></p>
+<p><strong>组件销毁:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDis</span><br></pre></td></tr></table></figure></p>
+<h2 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h2><p>被动接收 =&gt; 数据流逻辑</p>
+<h2 id="无状态组件如何避免重绘-reflow-重排版-repaint"><a href="#无状态组件如何避免重绘-reflow-重排版-repaint" class="headerlink" title="无状态组件如何避免重绘(reflow)/重排版(repaint)"></a>无状态组件如何避免<code>重绘(reflow)</code>/<code>重排版(repaint)</code></h2><h2 id="React-路由跳转"><a href="#React-路由跳转" class="headerlink" title="React 路由跳转"></a>React 路由跳转</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.history.push(<span class="string">'/login'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="React路由-与-浏览器历史回退"><a href="#React路由-与-浏览器历史回退" class="headerlink" title="React路由 与 浏览器历史回退"></a>React路由 与 浏览器历史回退</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 初始化 获取 window.location.href</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">constructor</span>(props, context) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props, context)</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 页面、路由变动时，再次 获取当前路由 */</span></span><br><span class="line">componentWillReceiveProps() &#123;</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Children-map渲染对象"><a href="#React-Children-map渲染对象" class="headerlink" title="React.Children.map渲染对象"></a>React.Children.map渲染对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    React.Children.map(children, (child) =&gt; &#123;</span><br><span class="line">        return &lt;Fragment&gt;&#123;child&#125;&lt;/Fragment&gt;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-router-去掉url上的"><a href="#React-router-去掉url上的" class="headerlink" title="React-router 去掉url上的"></a>React-router 去掉url上的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;browserHistory&#125; from &apos;react-router&apos;</span><br><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Context应用"><a href="#React-Context应用" class="headerlink" title="React-Context应用"></a>React-Context应用</h2><p><strong>父组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/** 先定义 类似 ts中 interface  */</span><br><span class="line">export const Context = React.createContext(&#123;</span><br><span class="line">  updateHomeState: () =&gt; &#123; &#125;,</span><br><span class="line">  homeState: &#123;&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  // debugger</span><br><span class="line">  return (</span><br><span class="line">    &lt;Context.Provider value=&#123;&#123;</span><br><span class="line">      updateHomeState: this.updateHomeState,</span><br><span class="line">      homeState: this.state</span><br><span class="line">    &#125;&#125;&gt;</span><br><span class="line">      &lt;div className=&quot;main&quot;&gt;</span><br><span class="line">        &lt;div className=&quot;center&quot;&gt;</span><br><span class="line">          &#123;/* 中间地图 */&#125;</span><br><span class="line">          &lt;CenterMap /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/Context.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>子组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Context &#125; from &quot;src/views/Home/Home&quot;; // 先引入</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  return (</span><br><span class="line">    /* 引用 祖先组件的 context */</span><br><span class="line">    &lt;Context.Consumer&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        (&#123; updateHomeState, homeState &#125;) =&gt; (</span><br><span class="line">          &lt;div className=&quot;CenterMap&quot;&gt;</span><br><span class="line">            &lt;MapTopMenu</span><br><span class="line">              tableListSize=&#123;homeState.tableListSize&#125;</span><br><span class="line">              updateHomeState=&#123;updateHomeState&#125;</span><br><span class="line">              onChange=&#123;this.onChange&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/Context.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/02/programmingLanguage/NodeJS/Node-Cpp/" data-id="cjpbyhibo00alhodv5nqabjoc" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" data-id="cjt55fwjh00e2ucdvjldiy9my" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-Deep/">Node Deep</a></li></ul>
-
     </footer>
   </div>
   
@@ -222,12 +234,12 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/CSS样式线性过渡" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/01/FrontEnd/HTML CSS/CSS样式线性过渡/" class="article-date">
-  <time class="post-time" datetime="2018-08-01T09:49:20.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">01</span>
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -239,21 +251,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/FrontEnd/HTML CSS/CSS样式线性过渡/">CSS样式线性过渡</a>
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    <a class="article-category-link" href="/categories/Redux/">Redux</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/01/FrontEnd/HTML CSS/CSS样式线性过渡/" class="leancloud_visitors" data-flag-title="CSS样式线性过渡">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -265,17 +277,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="CSS背景色线性过渡"><a href="#CSS背景色线性过渡" class="headerlink" title="CSS背景色线性过渡"></a>CSS背景色线性过渡</h2><blockquote>
-<p>background: linear-gradient(top,#434345,#2f3032);</p>
+        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
+<ol>
+<li></li>
+<li>定义</li>
+<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
+<p>export const APP_REDUX = “APP_REDUX”;</p>
 </blockquote>
+</li>
+<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
+<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
+</blockquote>
+</li>
+<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
+<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/01/FrontEnd/HTML CSS/CSS样式线性过渡/" data-id="cjpbyhiac0098hodvwlio90ss" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjt55fwlp00gpucdvg58dcwmw" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性过渡/">线性过渡</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
 
     </footer>
   </div>
@@ -286,12 +312,12 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/元素换行间距-font-size" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Editor/编辑器配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/01/FrontEnd/HTML CSS/元素换行间距-font-size/" class="article-date">
-  <time class="post-time" datetime="2018-08-01T08:57:13.000Z" itemprop="datePublished">
+    <a href="/2018/08/15/Editor/编辑器配置/" class="article-date">
+  <time class="post-time" datetime="2018-08-15T01:53:26.000Z" itemprop="datePublished">
     <span class="post-month">8月</span><br/>
-    <span class="post-day">01</span>
+    <span class="post-day">15</span>
   </time>
 </a>
    
@@ -303,21 +329,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/FrontEnd/HTML CSS/元素换行间距-font-size/">元素换行间隙-font-size</a>
+      <a class="article-title" href="/2018/08/15/Editor/编辑器配置/">编辑器配置</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/HTML/">HTML</a>
+    <a class="article-category-link" href="/categories/edit/">edit</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/01/FrontEnd/HTML CSS/元素换行间距-font-size/" class="leancloud_visitors" data-flag-title="元素换行间隙-font-size">
+    <span id="/2018/08/15/Editor/编辑器配置/" class="leancloud_visitors" data-flag-title="编辑器配置">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -329,20 +355,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="元素换行间距-font-size"><a href="#元素换行间距-font-size" class="headerlink" title="元素换行间距-font-size"></a>元素换行间距-font-size</h2><p>因为 <code>元素换行</code> 以及 继承 <code>font-size</code> 导致 元素之间产生间隙。</p>
-<p>解决办法：</p>
-<blockquote>
-<p>font-size: 0;</p>
-</blockquote>
+        <p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
+<h2 id="Version-3-0-0"><a href="#Version-3-0-0" class="headerlink" title="Version: 3.0.0"></a>Version: 3.0.0</h2><p>GitHub Token: c875cc3b573265d55bdbe57a23d554ce9e83cde2<br>GitHub Gist: daeb8021fc8862ba3a1fe162cc301c7c<br>GitHub Gist Type: Secret</p>
+<h2 id="Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme"><a href="#Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme" class="headerlink" title="Restarting Visual Studio Code may be required to apply color and file icon theme."></a>Restarting Visual Studio Code may be required to apply color and file icon theme.</h2><p>Files Uploaded:<br>  javascript.json &gt; snippets|javascript.json</p>
+<p>Extensions Ignored:<br>  No extensions ignored.</p>
+<p>Extensions Removed:<br>  No extensions removed.</p>
+<p>Extensions Added:<br>  Angular2 v6.1.5<br>  background v1.1.19<br>  beautify v1.3.2<br>  bracket-pair-colorizer v1.0.59<br>  code-gnu-global v0.2.2<br>  code-settings-sync v3.0.0<br>  cpptools v0.17.7<br>  ejs-language-support v0.0.1<br>  ejs-snippets v0.1.0<br>  git-project-manager v1.6.1<br>  githistory v0.4.2<br>  gitlens v8.5.4<br>  html-snippets v0.2.1<br>  java v0.29.0<br>  javascript-ejs-support v0.3.2<br>  JavaScriptSnippets v1.7.0<br>  jquerysnippets v0.0.1<br>  language-stylus v1.9.2<br>  markdown-all-in-one v1.6.0<br>  mongoose-os-ide v0.3.0<br>  mssql v1.4.0<br>  node-module-intellisense v1.5.0<br>  npm-intellisense v1.3.0<br>  python v2018.7.1<br>  Theme-MarkdownKit v0.1.4<br>  tslint v1.0.34<br>  vetur v0.12.6<br>  view-in-browser v0.0.5<br>  vscode-eslint v1.4.12<br>  vscode-great-icons v2.1.41<br>  vscode-html-css v0.2.0<br>  vscode-icons v7.25.0<br>  vscode-java-debug v0.11.0<br>  vscode-language-babel v0.0.20<br>  vscode-language-pack-zh-hans v1.25.3<br>  vscode-map-preview v0.4.2<br>  vscode-maven v0.10.0<br>  vscode-mongodb v0.0.2<br>  vscode-npm-script v0.3.5<br>  vscode-preview-server v1.0.1<br>  vue-vscode-snippets v1.3.0<br>  weex v0.4.0</p>
+<h2 id="xml-v2-3-1"><a href="#xml-v2-3-1" class="headerlink" title="  xml v2.3.1"></a>  xml v2.3.1</h2><p>Done.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/01/FrontEnd/HTML CSS/元素换行间距-font-size/" data-id="cjpbyhiay009rhodvqup8c5uq" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjt55fwbw0030ucdvu5lvtk12" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/font-size/">font-size</a></li></ul>
-
     </footer>
   </div>
   
@@ -352,12 +378,12 @@
 
 
   
-    <article id="post-三伏天计算" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/01/三伏天计算/" class="article-date">
-  <time class="post-time" datetime="2018-08-01T03:11:37.000Z" itemprop="datePublished">
+    <a href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="article-date">
+  <time class="post-time" datetime="2018-08-14T06:11:24.000Z" itemprop="datePublished">
     <span class="post-month">8月</span><br/>
-    <span class="post-day">01</span>
+    <span class="post-day">14</span>
   </time>
 </a>
    
@@ -369,17 +395,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/三伏天计算/">三伏天计算</a>
+      <a class="article-title" href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/">修改.npmrc</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/npm/">npm</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/01/三伏天计算/" class="leancloud_visitors" data-flag-title="三伏天计算">
+    <span id="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="leancloud_visitors" data-flag-title="修改.npmrc">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -391,13 +421,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Windows修改-npmrc"><a href="#Windows修改-npmrc" class="headerlink" title="Windows修改.npmrc"></a>Windows修改.npmrc</h2><blockquote>
+<p>vim /mnt/c/Users/Administrator/.npmrc</p>
+</blockquote>
+<h2 id="node-sass-安装失败解决"><a href="#node-sass-安装失败解决" class="headerlink" title="node-sass 安装失败解决"></a><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">node-sass 安装失败解决</a></h2><p>@4.8.3 postinstall: <code>node scripts/build.js</code></p>
+<h3 id="解决方法一：创建-npmrc文件"><a href="#解决方法一：创建-npmrc文件" class="headerlink" title="解决方法一：创建.npmrc文件"></a>解决方法一：创建.npmrc文件</h3><p>在项目根目录创建.npmrc文件，复制下面代码到该文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phantomjs_cdnurl=http://cnpmjs.org/downloads</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
+<h3 id="解决方法二：使用淘宝镜像源"><a href="#解决方法二：使用淘宝镜像源" class="headerlink" title="解决方法二：使用淘宝镜像源"></a>解决方法二：使用淘宝镜像源</h3><blockquote>
+<p>npm uninstall node-sass // 如果出现安装失败，<strong>须先卸载</strong>  </p>
+<p>npm i node-sass –sass_binary_site=<a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a> // 亲测有效</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 也可以设置系统环境变量的方式。示例</span><br><span class="line">// linux、mac 下</span><br><span class="line">SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass</span><br><span class="line"></span><br><span class="line">// window 下</span><br><span class="line">set SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ &amp;&amp; npm install node-sass</span><br></pre></td></tr></table></figure>
+<h3 id="设置全局淘宝镜像"><a href="#设置全局淘宝镜像" class="headerlink" title="设置全局淘宝镜像"></a>设置全局淘宝镜像</h3><blockquote>
+<p>npm config set sass_binary_site <a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a></p>
+</blockquote>
+<p>## </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/01/三伏天计算/" data-id="cjpbyhhzj000dhodvki0dnfbu" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjt55fwlr00grucdvqhbe1swa" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npmrc/">.npmrc</a></li></ul>
+
     </footer>
   </div>
   
@@ -410,7 +456,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/8/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/8/">next &raquo;</a>
   </nav>
 </section>
         
@@ -451,9 +497,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -489,7 +535,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

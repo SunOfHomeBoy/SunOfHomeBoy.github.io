@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-SQL/数据库范式介绍" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-programmingLanguage/NodeJS/Node-js-process模块" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/02/SQL/数据库范式介绍/" class="article-date">
-  <time class="post-time" datetime="2018-05-02T05:50:37.000Z" itemprop="datePublished">
+    <a href="/2018/05/10/programmingLanguage/NodeJS/Node-js-process模块/" class="article-date">
+  <time class="post-time" datetime="2018-05-10T01:37:05.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">02</span>
+    <span class="post-day">10</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/SQL/数据库范式介绍/">数据库范式介绍</a>
+      <a class="article-title" href="/2018/05/10/programmingLanguage/NodeJS/Node-js-process模块/">Node.js--process模块</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    <a class="article-category-link" href="/categories/Node/">Node</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/02/SQL/数据库范式介绍/" class="leancloud_visitors" data-flag-title="数据库范式介绍">
+    <span id="/2018/05/10/programmingLanguage/NodeJS/Node-js-process模块/" class="leancloud_visitors" data-flag-title="Node.js--process模块">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,42 +113,62 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关系数据库·范式介绍"><a href="#关系数据库·范式介绍" class="headerlink" title="关系数据库·范式介绍"></a><a href="http://josh-persistence.iteye.com/blog/2200644" target="_blank" rel="noopener">关系数据库·范式介绍</a></h1><h2 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h2><p>设计<code>关系数据库</code>时,遵从不同的规范要求,设计出合理的关系型数据库,这些不同的<code>规范</code>要求被称为不同的<code>范式</code>,各种范式<code>呈 递次规范</code>,越<code>高</code>的 范式 数据库<code>冗余越小</code>。</p>
-<p>目前关系数据库有<code>六种</code>范式:第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)和第五范式(5NF,又称完美范式)。满足最低要求的范式是第一范式(1NF)。在第一范式的基础上进一步满足更多规范要求的称为第二范式(2NF),其余范式以次类推。一般说来,数据库<code>只需满足第三范式(3NF)就行</code>了。</p>
-<p>范式的<code>包含关系</code>。一个数据库设计如果符合第二范式,一定也符合第一范式。如果符合第三范式,一定也符合第二范式…</p>
-<h3 id="数据库基本概念"><a href="#数据库基本概念" class="headerlink" title="数据库基本概念"></a><strong>数据库基本概念</strong></h3><p> 要理解范式,首先必须对知道什么是<code>关系数据库</code>,简单的说:关系数据库就是用<code>二维表</code>来保存数据。表和表之间可以……(省略10W字),如果对数据库很熟悉,可以不用理会下面的概念。</p>
-<p><strong>实体</strong>: 现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。</p>
-<p><strong>属性</strong>: 教科书上解释为:“<code>实体所具有的某一特性</code>”，由此可见，属性一开始是个<code>逻辑概念</code>，比如说，“性别”是“人”的一个属性。在<code>关系数据库</code>中，属性又是个<code>物理概念</code>，属性可以看作是“<code>表的一列</code>”。</p>
-<p><strong>元组</strong>：表中的一行就是一个元组。</p>
-<p><strong>分量</strong>：<code>元组</code>的某个 <code>属性值</code>。在一个关系数据库中，它是一个<code>操作原子</code>，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。</p>
-<p><strong>码(键)</strong>：表中可以唯一确定一个元组的某个 属性(或者属性组)，如果这样的码有不止一个，那么大家都叫 <code>候选码</code>，我们从候选码中挑一个出来做老大，它就叫<code>主码(主键)</code>。</p>
-<p><strong>全码</strong>：如果一个码包含了所有的属性，这个码就是全码。</p>
-<p><strong>主属性</strong>：一个属性只要在任何一个候选码中出现过，这个属性就是主属性。</p>
-<p><strong>非主属性</strong>：与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。</p>
-<p><strong>外码</strong>：一个属性(或属性组)，它不是码，但是它别的表的码，它就是外码。</p>
-<p><strong>候选码</strong>： 若关系中的某一属性或属性组的值能唯一的标识一个元组，而其任何真子集都不能再标识，则称该属性组为(超级码)候选码。</p>
-<h4 id="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"><a href="#数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别" class="headerlink" title="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"></a><a href="https://blog.csdn.net/rl529014/article/details/48391465" target="_blank" rel="noopener">数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别</a></h4><p><strong>函数依赖</strong>: 设X,Y是关系R的两个属性集合,存在X→Y;则称Y 函数依赖于X。</p>
-<p><strong>部分函数依赖</strong>：设X,Y是关系R的两个属性集合，存在X→Y; 若X’是X的<code>真子集</code>，存在X’→Y，则称Y 部分函数依赖于X。</p>
-<p><strong>完全函数依赖</strong>：设X,Y是关系R的两个属性集合，X’是X的真子集，存在X→Y; X’是X的<code>真子集</code>，但对每一个X’都有X’!→Y，则称Y完全函数依赖于X。(个人理解为 只能通过 X确定 Y，并且每个X’ 都不能确定Y 的关系 就是完全函数依赖)</p>
-<p><strong>传递函数依赖</strong>：设X,Y,Z是关系R中互不相同的属性集合，存在X→Y(Y !→X),Y→Z(Z !→Y)，则称Z传递函数依赖于X。</p>
-<p>假如 Z 函数依赖于 Y，且 Y 函数依赖于 X （『Y 不包含于 X，且 X 不函数依赖于 Y』这个前提），那么我们就称 Z 传递函数依赖于 X ，记作 X T→ Z，如图3。</p>
-<h2 id="二、6种范式"><a href="#二、6种范式" class="headerlink" title="二、6种范式"></a>二、6种范式</h2><p>前面说到，<code>范式越高</code>，数据的<code>冗余</code>度<code>越小</code>。其实<code>没有冗余</code>的数据库设计是<code>可以做到</code>的。但是，<code>没有冗余</code>的数据库<code>未必是最好的</code>数据库，有时为了提高运行效率，就必须降低范式标准，适当保留冗余数据。具体做法是：在概念数据模型设计时遵守第三范式，降低范式标准的工作放到物理数据模型设计时考虑。降低范式就是增加字段，允许冗余。(最典型的就是在一些数据表中不仅存作为外键的user_id,同样存user_name,这样虽然违反数据库范式增加了user_name字段，但是却提高了效率，减少了获取user_id后再去user表中获取user name的操作)</p>
-<p>所以实际中，我们只需要考虑数据库满足第三范式就可以了,下面以最通俗的方式来解释数据库的范式。</p>
-<p><strong>第一范式(1NF)：属性不可分</strong></p>
-<p>(1NF是对属性的原子性约束，要求属性具有原子性，不可再分解)</p>
-<p>不满足第一范式的数据库，不是关系数据库！</p>
-<p><strong>第二范式（2NF）：符合1NF，并且非主属性完全依赖于码。</strong></p>
-<p>第二范式要求非主属性依赖于主关键字。</p>
-<p>（2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性，更通俗说有主键ID）</p>
-<p><strong>第三范式（3NF）：符合2NF，并且，消除传递依赖。</strong><br>（3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余）</p>
+        <h2 id="转-Node-js的process模块"><a href="#转-Node-js的process模块" class="headerlink" title="[转]Node.js的process模块"></a>[转]<a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">Node.js的process模块</a></h2><p><code>process</code>模块用来与<code>当前进程互动</code>，可以 <code>通过全局变量process</code> 访问，不必使用require命令加载。它是一个<code>EventEmitter</code>对象的实例。</p>
+<h3 id="一、属性"><a href="#一、属性" class="headerlink" title="一、属性"></a>一、属性</h3><p>process对象提供一系列属性，用于返回系统信息。</p>
+<ul>
+<li><p>process.pid：当前进程的进程号。</p>
+</li>
+<li><p>process.version：Node的版本，比如v0.10.18。</p>
+</li>
+<li><p>process.platform：当前系统平台，比如Linux。</p>
+</li>
+<li><p>process.title：默认值为“node”，可以自定义该值。</p>
+</li>
+<li><p>process.argv：当前进程的命令行参数数组。</p>
+</li>
+<li><p>process.env：指向当前<code>shell</code>的环境变量，比如<code>process.env.HOME</code>。</p>
+</li>
+<li><p>process.execPath：运行当前进程的可执行文件的绝对路径。</p>
+</li>
+<li><p>process.stdout：指向标准输出。</p>
+</li>
+<li><p>process.stdin：指向标准输入。</p>
+</li>
+<li><p>process.stderr：指向标准错误。</p>
+</li>
+</ul>
+<h4 id="主要属性介绍"><a href="#主要属性介绍" class="headerlink" title="主要属性介绍"></a>主要属性介绍</h4><p><strong>1. stdout</strong>\<br><code>process.stdout</code>用来控制标准输出，也就是在命令行窗口向用户显示内容。它的write方法等同于console.log。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.log = function() &#123;</span><br><span class="line">    process.stdout.write(format.apply(this, arguments) + &apos;\n&apos;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. argv</strong></p>
+<p><code>process.argv</code> 返回<code>命令行脚本</code>的 各个参数 组成的数组。</p>
+<p>先新建一个脚本文件 argv.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">console.log(&quot;argv: &quot;,process.argv);</span><br><span class="line">console.log(&quot;argc: &quot;,process.argc);</span><br></pre></td></tr></table></figure></p>
+<p>在命令行下调用这个脚本，会得到以下结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node argv.js a b c</span><br><span class="line"></span><br><span class="line"># [ &apos;node&apos;, &apos;/path/to/argv.js&apos;, &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ]</span><br></pre></td></tr></table></figure></p>
+<p>上面代码表示，argv返回数组的成员依次是命令行的各个部分。要得到真正的参数部分，可以把argv.js改写成下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// argv.js</span><br><span class="line"> </span><br><span class="line">var myArgs = process.argv.slice(2);</span><br><span class="line">console.log(myArgs);</span><br></pre></td></tr></table></figure></p>
+<h3 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h3><p><code>process</code>对象提供以下方法：</p>
+<ul>
+<li><code>process.exit()</code>：退出当前进程。</li>
+<li><code>process.cwd()</code>：返回运行当前脚本的工作目录的路径。_</li>
+<li><code>process.chdir()</code>：改变工作目录。</li>
+<li><code>process.nextTick()</code>：将一个回调函数放在下次事件循环的顶部。</li>
+</ul>
+<p><strong>1. <code>process.chdir()</code> 改变工作目录的例子:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/aaa&apos;</span><br><span class="line"> </span><br><span class="line">process.chdir(&apos;/home/bbb&apos;)</span><br><span class="line"> </span><br><span class="line">process.cwd()</span><br><span class="line"># &apos;/home/bbb&apos;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. <code>process.nextTick()</code> 指定下次事件循环首先运行的任务:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.nextTick(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码可以用<code>setTimeout</code>改写，但是<code>nextTick</code>的<code>效率</code>更高、<code>描述</code>更准确。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">    console.log(&apos;Next event loop!&apos;);</span><br><span class="line">&#125;, 0)</span><br></pre></td></tr></table></figure></p>
+<h3 id="三、事件"><a href="#三、事件" class="headerlink" title="三、事件"></a>三、事件</h3><p><strong>1. exit事件</strong></p>
+<p><code>当前进程退出</code>时，会触发<code>exit事件</code>，可以对该事件指定<code>回调函数</code>。</p>
+<p>这是一个用来 <code>定时检查模块状态</code> 的好<code>钩子(hook)</code>(例如单元测试), 当主事件循环在执行完<code>&#39;exit&#39;</code>的回调函数后将不再执行,所以在<code>exit事件</code>中定义的定时器可能不会被加入事件列表.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;exit&apos;, function () &#123;</span><br><span class="line">    fs.writeFileSync(&apos;/tmp/myfile&apos;, &apos;This MUST be saved on exit.&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>2. uncaughtException事件</strong></p>
+<p>当前<code>进程抛出</code>一个没有被捕捉的意外时，会触发uncaughtException事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.on(&apos;uncaughtException&apos;, function (err) &#123;</span><br><span class="line">    console.error(&apos;An uncaught error occurred!&apos;);</span><br><span class="line">    console.error(err.stack);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="http://www.css88.com/archives/4548" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/02/SQL/数据库范式介绍/" data-id="cjpbyhi76005ihodv5ahsdynp" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/10/programmingLanguage/NodeJS/Node-js-process模块/" data-id="cjt55fwii00crucdvhjmmjx9e" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL范式/">SQL范式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/process/">process</a></li></ul>
 
     </footer>
   </div>
@@ -159,12 +179,12 @@
 
 
   
-    <article id="post-Operating System/UnixLike/Linux/linux 删除" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/JS执行机制与异步回调" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:32:00.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="article-date">
+  <time class="post-time" datetime="2018-05-09T06:38:24.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
   </time>
 </a>
    
@@ -176,21 +196,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/">Linux 删除文件夹和文件的命令</a>
+      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/">JS执行机制与异步回调</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/categories/JS/">JS</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="leancloud_visitors" data-flag-title="Linux 删除文件夹和文件的命令">
+    <span id="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="leancloud_visitors" data-flag-title="JS执行机制与异步回调">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -202,22 +222,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux-删除文件夹和文件的命令"><a href="#Linux-删除文件夹和文件的命令" class="headerlink" title="Linux 删除文件夹和文件的命令"></a>Linux 删除文件夹和文件的命令</h1><ul>
-<li>-r 就是向下递归，不管有多少级目录，一并删除</li>
-<li>-f 就是直接强行删除，不作任何提示的意思</li>
+        <h2 id="转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise"><a href="#转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise" class="headerlink" title="[转]理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)"></a>[转]<a href="https://blog.csdn.net/haoaiqian/article/details/78622651" target="_blank" rel="noopener">理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)</a></h2><p>‘<code>javascript执行机制</code>‘ / ‘<code>代码执行顺序</code>‘ / ‘<code>函数生命周期加载</code>‘ 等类似问题 都与<code>javascript执行机制</code>相关。</p>
+<h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p><code>JavaScript</code> 是一门 <code>单线程语言</code>，在最新的<code>HTML5</code>中提出了<code>Web-Worker</code>，但<code>JS 是单线程</code>这一<code>核心仍未改变</code>。所以一切<code>JS 版的&quot;多线程&quot;都是用单线程模拟出来的</code>，一切 JavaScript <code>多线程</code> 都是<code>纸老虎</code>！</p>
+<h2 id="2-JavaScript事件循环"><a href="#2-JavaScript事件循环" class="headerlink" title="2. JavaScript事件循环"></a>2. JavaScript事件循环</h2><p>既然JS是<code>单线程</code>，排队 办理业务, <code>js任务</code>也要一个一个顺序执行。如 <code>任务耗时过长</code>，后一个任务必须等着。浏览新闻 超清图片加载慢 需要异步加载 任务分为两类：</p>
+<ul>
+<li>同步任务\<br>打开网站，<code>网页渲染</code> 过程 就是 <code>同步任务</code>，比如 <code>页面骨架</code>和 <code>页面元素</code>的<code>渲染</code>。</li>
+<li><p>异步任务\<br>而 <code>加载 图片 音乐</code>之类<code>占用资源大耗时久</code>的任务，就是<code>异步任务</code>。</p>
+<p>关于这部分有严格的文字定义，但本文的目的是用最小的学习成本彻底弄懂执行机制，所以用导图来说明：<br><img src="https://img-blog.csdn.net/20171124105726497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFvYWlxaWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="js事件循环机制"></p>
+<p>导图要表达的内容用文字来表述的话：<br><br><code>同步</code>和<code>异步</code>任务分别进入不同的<code>执行”场所”</code>，<code>同步的进入主线程</code>，<code>异步的进入Event Table并注册函数</code>。当指定的事情<code>完成</code>时，<code>Event Table</code>会将这个<code>函数</code> <code>移入Event Queue</code>。<code>主线程</code>内的任务<code>执行完</code>毕为空，会去<code>Event Queue</code>读取对应的函数，进入主线程执行。</p>
+<p>上述过程会不断重复，也就是所谓的 <code>Event Loop(事件循环)</code>。</p>
+<p>我们不禁要问了，那<code>怎么知道</code>主线程执行栈为空啊？js引擎存在<code>monitoring process</code>进程，会<code>持续不断检查</code>主线程执行栈是否为空，<code>一旦为空</code>，就会去<code>Event Queue</code>那里检查是否有<code>等待被调用的函数</code>。<br>说了这么多文字，不如直接一段代码更直白：略</p>
+</li>
 </ul>
-<h2 id="删除文件夹实例："><a href="#删除文件夹实例：" class="headerlink" title="删除文件夹实例："></a>删除文件夹实例：</h2><pre><code>rm -rf /var/log/httpd/access
-</code></pre><p>将会删除<code>/var/log/httpd/access</code>目录以及其下所有文件、文件夹</p>
-<h2 id="删除文件使用实例："><a href="#删除文件使用实例：" class="headerlink" title="删除文件使用实例："></a>删除文件使用实例：</h2><pre><code>rm -f /var/log/httpd/access.log
-</code></pre><p>将会强制删除<code>/var/log/httpd/access.log</code>这个文件</p>
+<h2 id="3-又爱又恨的setTimeout"><a href="#3-又爱又恨的setTimeout" class="headerlink" title="3. 又爱又恨的setTimeout"></a>3. <a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">又爱又恨的setTimeout</a></h2><p>大名鼎鼎的<code>setTimeout</code>无需再多言，大家对他的第一印象就是<code>异步</code>可以<code>延时执行</code>，我们经常这么实现延时3秒执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;延时3秒&apos;);</span><br><span class="line">&#125;,3000)</span><br></pre></td></tr></table></figure></p>
+<p>随着<code>setTimeout</code>使用的增加，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这是为何？</p>
+<p>渐渐的setTimeout用的地方多了，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这又咋回事啊？</p>
+<p>先看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task();</span><br><span class="line">&#125;,3000)</span><br><span class="line">console.log(&apos;执行console&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>根据前面我们的结论，setTimeout是异步的，应该先执行console.log这个同步任务，所以我们的结论是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行console</span><br><span class="line">//task()</span><br></pre></td></tr></table></figure></p>
+<p>去验证一下，结果正确！<br>然后我们修改一下前面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task()</span><br><span class="line">&#125;,3000)</span><br><span class="line"></span><br><span class="line">sleep(10000000)</span><br></pre></td></tr></table></figure></p>
+<p>乍一看其实差不多，但把这段代码在chrome执行一下，却发现控制台执行task()需要的时间远远超过3秒，为何需要这么长时间？</p>
+<p>这时候我们需要重新理解<code>setTimeout的定义</code>。我们先说上述代码是怎么执行的：</p>
+<ul>
+<li><p><code>task()</code>进入Event Table并注册,计时开始。</p>
+</li>
+<li><p>执行<code>sleep</code>函数，很慢，非常慢，计时仍在继续。</p>
+</li>
+<li><p>3秒到了，计时事件<code>timeout</code>完成，<code>task()</code>进入<code>Event Queue</code>，但是<code>sleep</code>也太慢了吧，还没执行完，只好等着。</p>
+</li>
+<li><p><code>sleep</code>终于执行完了，<code>task()</code>终于从Event Queue进入了主线程执行。</p>
+</li>
+</ul>
+<p>上述的流程走完，我们知道<code>setTimeout</code>这个函数，是经过指定时间后，把要执行的任务(本例中为<code>task()</code>)加入到Event Queue中，又因为是单线程任务要一个一个执行，如果前面的任务需要的时间太久，那么只能等着，导致真正的延迟时间远远大于3秒。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" data-id="cjpbyhiew00e9hodv77tcexy7" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" data-id="cjt55fwgq009qucdvewq29hdb" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-删除命令/">Linux 删除命令</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS执行机制-异步回调/">JS执行机制 异步回调</a></li></ul>
 
     </footer>
   </div>
@@ -228,12 +271,12 @@
 
 
   
-    <article id="post-GIT/git-删除远程文件-目录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/JS线程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/GIT/git-删除远程文件-目录/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:27:48.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/09/FrontEnd/JS/JS线程/" class="article-date">
+  <time class="post-time" datetime="2018-05-09T06:32:36.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
   </time>
 </a>
    
@@ -245,21 +288,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git-删除远程文件-目录/">git 删除远程文件/目录</a>
+      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS线程/">JS线程</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/28/GIT/git-删除远程文件-目录/" class="leancloud_visitors" data-flag-title="git 删除远程文件/目录">
+    <span id="/2018/05/09/FrontEnd/JS/JS线程/" class="leancloud_visitors" data-flag-title="JS线程">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -271,22 +310,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="git删除远程仓库的文件或目录"><a href="#git删除远程仓库的文件或目录" class="headerlink" title="git删除远程仓库的文件或目录"></a>git删除远程仓库的文件或目录</h1><p>删除a目录下的2.txt文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached a/2.txt</span><br></pre></td></tr></table></figure></p>
-<p>删除a目录</p>
-<pre><code>git rm -r --cached a
-
-git commit -m &quot;删除a目录下的2.txt文件&quot; 
-git push
-</code></pre><p><strong>Note:</strong></p>
-<p>用<code>-r</code>参数删除目录, <code>git rm --cached a.txt</code> 删除的是本地仓库中的文件，且<code>本地工作区</code>的文件会<code>保留</code>且<code>不再与远程仓库发生跟踪关系</code>，如果本地仓库中的文件也要删除则用<code>git rm a.txt</code></p>
+        <h2 id="转-从setTimeout-setInterval看JS线程"><a href="#转-从setTimeout-setInterval看JS线程" class="headerlink" title="[转]从setTimeout/setInterval看JS线程"></a>[转]<a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">从setTimeout/setInterval看JS线程</a></h2><p><code>setTimeout</code>和<code>setInterval</code>的<code>延时最小间隔</code>是<code>4ms</code>(W3C在HTML标准中规定)；</p>
+<p>在<code>JavaScript</code>中<code>没有</code>任何代码是<code>立刻执行</code>的，但<code>一旦进程空闲</code>就<code>尽快执行</code>。</p>
+<p>这意味着无论是<code>setTimeout</code>还是<code>setInterval</code>，所设置的时间都只是 <code>n毫秒后被添加到队列中</code>，而<code>不是</code>过<code>n毫秒后立即执行</code>。</p>
+<hr>
+<p><a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-删除远程文件-目录/" data-id="cjpbyhi630049hodv10knhklv" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS线程/" data-id="cjt55fwgn009mucdvgu0zc4ds" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-删除/">git 删除</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-墨菲法则" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/墨菲法则/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T07:57:57.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/墨菲法则/">墨菲法则</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日常随笔/">日常随笔</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/08/墨菲法则/" class="leancloud_visitors" data-flag-title="墨菲法则">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="凡是可能会出错的地方，一定会出错！——-墨菲法则"><a href="#凡是可能会出错的地方，一定会出错！——-墨菲法则" class="headerlink" title="凡是可能会出错的地方，一定会出错！—— 墨菲法则"></a>凡是可能会出错的地方，一定会出错！—— 墨菲法则</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/墨菲法则/" data-id="cjt55fw9h000wucdvetpxgbv5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/座右铭系列/">座右铭系列</a></li></ul>
 
     </footer>
   </div>
@@ -297,12 +392,12 @@ git push
 
 
   
-    <article id="post-GIT/git-操作规范" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-programmingLanguage/NodeJS/nodejs全局安装路径的位置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/GIT/git-操作规范/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T07:25:23.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T03:17:12.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">08</span>
   </time>
 </a>
    
@@ -314,21 +409,21 @@ git push
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git-操作规范/">git 操作规范</a>
+      <a class="article-title" href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/">nodejs全局安装路径的位置</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/Node/">Node</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/28/GIT/git-操作规范/" class="leancloud_visitors" data-flag-title="git 操作规范">
+    <span id="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="leancloud_visitors" data-flag-title="nodejs全局安装路径的位置">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -340,241 +435,31 @@ git push
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、-创建与合并分支"><a href="#一、-创建与合并分支" class="headerlink" title="一、 创建与合并分支"></a>一、 创建与合并分支</h2><ol>
-<li>从master分支创建dev分支并切换到dev分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master    </span><br><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><p><code>git checkout -b dev</code> 等价于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev    </span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看<code>本地当前分支</code>，分支前面带<code>&quot;*&quot;</code>表示当前分支，剩下的分支表示本地有的分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看<code>远程全部分支</code>，白色的表示本地有的，红色的表示本地没有，仅在远程存在：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>修改代码、提交代码(当前的操作是在dev分支上进行)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add a.html</span><br><span class="line">git commit -m &quot;提交文件a.html&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分支合并(将dev合并到master)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master     </span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并完成后，删除dev分支.(删除dev分支时，注意我们当前所在的分支不能是dev分支)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除后，查看分支(此时看不到dev分支了)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>总结 ：工作中经常从<code>master</code>创建新分支，具体操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout master   </span><br><span class="line">git checkout -b  issues1234   </span><br><span class="line">git push origin issues1234   </span><br><span class="line">git add ..  </span><br><span class="line">git commit -m &quot;***&quot;</span><br><span class="line">git push origin issues1234</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>注意：将本地分支branch1推到远端的branch2操作步骤：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin branch1:branch2</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>删除分支</p>
-<p>git branch -D issues1234 // 本地强制删除分支 issues1234    </p>
-<p>git push origin  :issues1234  //推到远程</p>
-</li>
-</ol>
+        <p>一般nodejs安装在默认的C盘，如果不知道安装在哪里，可以打开控制面板-系统和安全-系统-高级配置中找到</p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153014909-1350443214.png" alt="变量路径"></p>
+<p>所谓全局安装：</p>
+<p>是指安装在<code>node</code>中<code>node_module</code>的根目录里，可以在电脑的任何位置调用这个方法。</p>
+<p>那么，如何在找到全局安装的位置呢？</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a><font color="#f00">方法一：</font></h2><p>设置到自己想要放的位置：</p>
+<font color="#f90" style="font-size:18px"><br>打开：nodejs安装目录/node_modules/npm/.npmrc这个文件，修改里面的路径<br><br>prefix = E:\nodejs\npm_global_modules<br></font>
+
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a><font color="#f00">方法二：</font></h2><p>使用快捷键 <code>win+R</code> ,输入cmd打开命令窗口，输入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm config ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153727331-2045072377.png" alt="npm配置"></p>
+<p><b style="font-size:18px"><br>其中：prefix=C:\Users\Administrator\AppData\Roaming\npm就是我们全局安装了哪些方法的地方，如图：</b></p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153926816-474788164.png" alt="安装路径"></p>
+<p>这时可以通过命令来更改路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix E:\</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://www.cnblogs.com/niuxiaoling/p/7993032.html" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-操作规范/" data-id="cjpbyhi6h004khodvagsyrvba" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" data-id="cjt55fwio00d1ucdvls4n6zxm" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-操作规范/">git 操作规范</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-GIT/git使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/GIT/git使用指南/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T02:18:52.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git使用指南/">git使用指南</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/28/GIT/git使用指南/" class="leancloud_visitors" data-flag-title="git使用指南">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><h2 id="第一步-安装-全局配置"><a href="#第一步-安装-全局配置" class="headerlink" title="第一步(安装/全局配置)"></a>第一步(安装/全局配置)</h2><p><strong>安装</strong></p>
-<ul>
-<li>百度 git 然后下载安装</li>
-</ul>
-<p><strong>配置</strong></p>
-<p>一次性配置,设置<code>username</code>和<code>email</code>，因为github每次<code>commit</code>都会记录他们</p>
-<ul>
-<li>$ git config –global user.name “自定义名字” (注册时填写的名字)</li>
-<li>$ git config –global user.email “email@地址.com”(注册的地址)</li>
-</ul>
-<p><strong>检验配置是否成功</strong></p>
-<ul>
-<li>使用 <code>git config -l</code> 查看里面的 <code>user.name</code> 和 <code>email</code> 的值</li>
-</ul>
-<p><strong>查看git版本</strong></p>
-<ul>
-<li>git –version</li>
-</ul>
-<p><strong>创建公钥</strong></p>
-<ul>
-<li>第一步 : 创建 <code>ssh-keygen -t rsa -C &#39;[email地址]&#39;</code></li>
-<li>第二步 : 查看公钥 根据git命令行提示走 然后 打开路径下的<code>id_rsa.pub</code><ul>
-<li>进入c盘的<code>C:\Users\标准用户\.ssh</code>（一般都是在这个文加下）生成了两个文件，用记事本打开<code>id_rsa.pub</code>，全选然后复制。</li>
-</ul>
-</li>
-<li>第三步 : 登录 github 设置公钥<ul>
-<li>进入github官网，选择<code>setting</code> -&gt; <code>ssh and GPG keys</code> -&gt; <code>new ssh key</code> 然后title随便写一个，在下面面的内容处粘贴刚复制的内容。</li>
-</ul>
-</li>
-<li>选择则保存，然后进入git客户端输入：<code>ssh -T git@github.com</code></li>
-<li>如果<code>ssh key</code>配置成功的话，会看到以下效果<ul>
-<li>$ ssh -T git@github.com</li>
-<li>Hi SunOfHomeBoy! You’ve successfully authenticated, but GitHub does not provide shell access.</li>
-<li>您已经成功地进行了身份验证，但是GitHub不提供shell访问。</li>
-</ul>
-</li>
-</ul>
-<h2 id="第二步-初始化项目-本地配置"><a href="#第二步-初始化项目-本地配置" class="headerlink" title="第二步(初始化项目/本地配置)"></a>第二步(初始化项目/本地配置)</h2><p><strong>git初始化</strong></p>
-<ul>
-<li>在项目目录下 输入 “git init”</li>
-</ul>
-<p><strong>git简单命令</strong></p>
-<ul>
-<li><p>“ls -a” 查看项目目录</p>
-</li>
-<li><p>“git status” 查看git状态 // 重要</p>
-</li>
-<li><p>“git add &lt;文件名&gt;” 向git仓库提交一个文件 // 重要</p>
-</li>
-<li><p>“$ git add .” #把前目录下的所有文件全部添加到暂存区</p>
-</li>
-<li><p>“git rm –cached &lt;文件名&gt;” 从git中移除文件</p>
-</li>
-<li><p>“git log” 查看日志</p>
-</li>
-</ul>
-<h2 id="第三步-开始建立远程仓库连接"><a href="#第三步-开始建立远程仓库连接" class="headerlink" title="第三步(开始建立远程仓库连接)"></a>第三步(开始建立远程仓库连接)</h2><ul>
-<li><p><code>git remote add origin git@github.com:yourName/yourRepo.git</code></p>
-<p><code>yourName</code>和<code>yourRepo</code>表示你在<code>github的用户名</code>和<code>新建仓库</code>，加完之后进入.git</p>
-<p>git remote add origin git@github.com:SunOfHomeBoy/SunOfHomeBoy.github.io.git</p>
-<p>$ git push<br>fatal: The current branch dev has no upstream branch.<br>To push the current branch and set the remote as upstream, use</p>
-<p>  <code>git push --set-upstream origin dev</code></p>
-</li>
-</ul>
-<h2 id="第四步-工作区与暂存区-版本库"><a href="#第四步-工作区与暂存区-版本库" class="headerlink" title="第四步(工作区与暂存区[版本库])"></a>第四步(工作区与暂存区[版本库])</h2><ul>
-<li><p>在git add 提交文件后 使用 “git commit -m ‘一句话描述’” 命令</p>
-</li>
-<li><p>“git push origin master” 推送到远程服务器</p>
-</li>
-<li><p>“git pull origin master” 从远程服务器拉取到本地</p>
-</li>
-<li><p>“git checkout – &lt;文件名&gt;”  放弃更改</p>
-</li>
-<li><p>“git reset ‘git log 打印出来的 commit 后面的字符串’ –hard”  //回退到某个版本</p>
-</li>
-</ul>
-<h2 id="第五步-版本库管理"><a href="#第五步-版本库管理" class="headerlink" title="第五步(版本库管理)"></a>第五步(版本库管理)</h2><p><strong>git 删除本地分支</strong></p>
-<ul>
-<li>git branch -D br</li>
-</ul>
-<p><strong>git 删除远程分支</strong></p>
-<ul>
-<li>git push origin :br  (origin 后面有空格)</li>
-<li>git push origin 【空格】【冒号】【你的分支名字】</li>
-<li>git push 【你的远程仓库在本地的别名】【空格】【冒号】【你的分支名字】</li>
-</ul>
-<p><strong>git代码库回滚</strong> (指将代码库某分支退回到以前的某个”commit id”)<br>本地代码库回滚</p>
-<ul>
-<li>git reset –hard commit-id :回滚到commit-id，将commit-id之后提交的commit都去除</li>
-<li>git reset –hard HEAD~3：将最近3次的提交回滚</li>
-</ul>
-<h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><p><strong>Git 常用命令大全</strong><br>(<a href="http://blog.csdn.net/dengsilinming/article/details/8000622" target="_blank" rel="noopener">http://blog.csdn.net/dengsilinming/article/details/8000622</a>)</p>
-<p><strong>如何使用git上传代码到github</strong><br>(<a href="https://jingyan.baidu.com/article/e5c39bf5c8c4d039d76033b2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/e5c39bf5c8c4d039d76033b2.html</a>)</p>
-<p>常用命令,仅供参考。</p>
-<h2 id="单位，win10电脑"><a href="#单位，win10电脑" class="headerlink" title="单位，win10电脑"></a>单位，win10电脑</h2><p>  2017年12月29日 09:15:05<br>  Ubuntu SSH:</p>
-<p>  $ ssh-keygen -t rsa -C ‘903317164@qq.com’</p>
-<p>Generating public/private rsa key pair.</p>
-<p>Enter file in which to save the key (/home/LiSC/.ssh/id_rsa):<br>Created directory ‘/home/LiSC/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/LiSC/.ssh/id_rsa.<br>Your public key has been saved in /home/LiSC/.ssh/id_rsa.pub.</p>
-<p>The key fingerprint is:</p>
-<p>SHA256:SIyNEhF5sQX8YgjxEFjPBQnCFexfrL9fYLPX+L05QO0 903317164@qq.com</p>
-<p>The key’s randomart image is:</p>
-<p>+—[RSA 2048]—-+<br>|B+OO==o          |<br>|o=.=+O           |<br>| .+o*.=       .  |<br>|  .oo..+     . . |<br>|   …+ S+  . .  |<br>|     o  . + o. E |<br>|      .  . + ..  |<br>|       .  o . …|<br>|       .o.   . +o|</p>
-<h2 id="—-SHA256-—–"><a href="#—-SHA256-—–" class="headerlink" title="+—-[SHA256]—–+"></a>+—-[SHA256]—–+</h2><p>~$ ssh-keygen -t rsa - c ‘903317164@qq.com<br>生成公共/私有的rsa密钥对。<br>输入保存密钥的文件(/ home/LiSC/.ssh/id_rsa):<br>创建目录/ home / LiSC / . ssh。<br>输入passphrase(没有密码):<br>再次输入相同的密码:<br>您的身份已经保存在/ home/ lisc/. ssh/id_rsa。</p>
-<p>您的公钥已保存在/ home/ lisc/.ssh/id_rsa.pub中。</p>
-<p>指纹的关键是:<br>SHA256:SIyNEhF5sQX8YgjxEFjPBQnCFexfrL9fYLPX + L05QO0 903317164 @qq.com</p>
-<p>关键的随机图像是:</p>
-<ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>-[RSA 2048]- - - - - +<br>| | B + OO = = o<br>| o =。= + O |<br>| + o *。=。|<br>|。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git使用指南/" data-id="cjpbyhi6f004ihodvjrhgr9a5" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node全局路径/">Node全局路径</a></li></ul>
 
     </footer>
   </div>
@@ -588,7 +473,7 @@ git push
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/25/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/27/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/25/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/27/">next &raquo;</a>
   </nav>
 </section>
         
@@ -629,9 +514,9 @@ git push
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -667,7 +552,7 @@ git push
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

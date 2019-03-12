@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,135 +70,12 @@
 
         <section id="main">
   
-    <article id="post-Editor/VSCode使用笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/16/Editor/VSCode使用笔记/" class="article-date">
-  <time class="post-time" datetime="2017-01-16T07:29:53.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">16</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/16/Editor/VSCode使用笔记/">VSCode使用笔记</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/VSCode/">VSCode</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2017/01/16/Editor/VSCode使用笔记/" class="leancloud_visitors" data-flag-title="VSCode使用笔记">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="发现"><a href="#发现" class="headerlink" title="发现"></a><strong>发现</strong></h2><blockquote>
-<h3 id="新建终端"><a href="#新建终端" class="headerlink" title="新建终端"></a>新建终端</h3><p><code>ctrl</code>+<code>shift</code>+<code>~</code></p>
-<h3 id="选择使用空格缩进并配置"><a href="#选择使用空格缩进并配置" class="headerlink" title="选择使用空格缩进并配置"></a>选择使用空格缩进并配置</h3><p><code>ctrl</code>+<code>k</code> <code>j</code></p>
-<h3 id="跳转行"><a href="#跳转行" class="headerlink" title="跳转行"></a>跳转行</h3><p><code>ctrl</code>+<code>g</code></p>
-</blockquote>
-<h2 id="演练场"><a href="#演练场" class="headerlink" title="演练场"></a><strong>演练场</strong><br></h2><ul>
-<li><p><strong>Multi-Cursor Editing(多光标编辑)</strong><br></p>
-<ol>
-<li>框选择-按下<code>Ctrl+Shift+Alt+下箭头键</code>,<code>Ctrl+Shift+Alt+右转</code>,<code>Ctrl+Shift+Alt+UpArrow</code>,<code>Ctrl+Shift+Alt+LeftArrow</code>选择一个文本块,你也可以按住<code>Shift+Alt</code>,选择鼠标文本。</li>
-<li>添加一个光标-按<code>Ctrl+Alt+UpArrow</code>或<code>Ctrl+Alt+向下箭头</code>,在上面或下面添加一个新的游标,你也可以用Ctrl+Click来在任何地方添加光标。</li>
-<li>创建游标上出现的所有字符串的字符串-选择一个实例例如背景颜色和媒体未绑定。现在您可以通过简单地输入来替换所有实例。<br></li>
-</ol>
-</li>
-<li><p><strong>IntelliSense(智能提示)</strong><br></p>
-<ul>
-<li>Alt+Z/Alt+X</li>
-</ul>
-</li>
-<li><p><strong>Line Actions(行操作)</strong></p>
-<ol>
-<li>复制一条线,并将其插入到当前位置的上方或下方,分别使用Shift+Alt+向下箭头或Shift+Alt+UpArrow。</li>
-<li>用Alt+UpArrow和Alt+向下箭头移动整行或选择行。</li>
-<li>用Ctrl+Shift+K删除整个行。<br><br></li>
-</ol>
-<ul>
-<li>提示:另一个非常常见的任务是注释掉一个代码块——您可以通过按<code>Ctrl+/</code>来切换注释。</li>
-</ul>
-</li>
-<li><p><strong>Rename Refactoring(更名重构)</strong><br></p>
-<ul>
-<li>可以很容易地重命名一个符号,例如<code>函数名</code>或<code>变量名</code>。在<code>符号</code>“Book(例子)”中按<code>F2</code>重命名所有实例——这将发生在项目中的所有文件中。您还可以在右键单击上下文菜单中看到重构。</li>
-<li><code>JSDoc</code>提示:上面的示例还展示了通过使用<code>JSDoc</code>注释获得智能感知提示的另一种方法。您可以通过调用Book函数并查看功能和参数的智能感知体验中增强的上下文来尝试这一点。</li>
-</ul>
-</li>
-<li><p><strong>Refactoring via Extraction(!通过提取重构)</strong></p>
-<ul>
-<li>有时候,您希望将已经<code>编写好的代码</code>添加到一个<code>单独的函数</code>中,或者稍后再使用它。选择要提取的行并按<code>Ctrl+.</code>或者点击这个小灯泡,选择其中的一个提取到……选项。通过在第3行或任何其他您想要提出的通用代码中选择if-子句中的代码来尝试它。</li>
-</ul>
-</li>
-<li><p><strong>Formatting(格式化)</strong></p>
-<ul>
-<li>如果没有良好的格式化程序,让代码看起来很棒是很困难的。幸运的是,使用<code>Shift+Alt+F</code>或格式化的整个文档可以用<code>Ctrl+K Ctrl+F</code>来应用当前的选择。这两个选项都可以通过右键单击上下文菜单获得。</li>
-<li><code>Tip</code>: 可在扩展库中提供其他格式化程序。格式化支持也可以通过设置来配置,例如启用编辑器。</li>
-</ul>
-</li>
-<li><p><strong>Code folding(代码折叠)</strong></p>
-<ul>
-<li>在一个大的文件中,它通常可以用来折叠代码段以增加可读性。要做到这一点,你只需按<code>Ctrl+Shift+[</code>折叠代码-按<code>Ctrl+Shift+]</code>即可展开。折叠也可以用左边沟中的<code>+/-</code>图标来完成。按<code>Ctrl+Shift+Alt+[</code>或按<code>Ctrl+Shift+Alt+]</code>折叠所有部分。</li>
-<li>提示:折叠是基于缩进的,因此可以应用于所有语言。简单地缩进你的代码来创建一个可折叠的部分,你可以用Ctrl+K Ctrl+1和Ctrl+K Ctrl+5这样的快捷方式折叠一定数量的级别。</li>
-</ul>
-</li>
-<li><p><strong>Errors and Warnings(错误和警告)</strong></p>
-<ul>
-<li>在编辑代码时,会高亮显示错误和警告。在下面的示例中,您可以看到许多语法错误。按下<code>F8</code>,你可以按顺序浏览它们,并看到详细的错误信息。当您纠正它们时,弯角和滚动条指示器将会更新。</li>
-</ul>
-</li>
-<li><p><strong>Snippets(片段)</strong></p>
-<ul>
-<li>您可以通过使用片段大大加快编辑速度。简单地开始键入尝试,从<code>建议列表</code>和按<code>Tab</code>中选择<code>trycatch</code>来创建一个<code>try-&gt;catch块</code>。您的光标将被放置在文本错误,以方便编辑。如果有多个参数存在,则按Tab键跳到它。</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2017/01/16/Editor/VSCode使用笔记/" data-id="cjpbyhi4r002qhodvzfji6fva" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-日常随笔" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/01/日常随笔/" class="article-date">
-  <time class="post-time" datetime="2015-05-01T02:31:27.000Z" itemprop="datePublished">
+    <a href="/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/" class="article-date">
+  <time class="post-time" datetime="2018-05-04T01:50:00.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">01</span>
+    <span class="post-day">04</span>
   </time>
 </a>
    
@@ -210,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/01/日常随笔/">日常随笔</a>
+      <a class="article-title" href="/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/">linux下docker部署gogs git仓库</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/日记/">日记</a>
+    <a class="article-category-link" href="/categories/git/">git</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2015/05/01/日常随笔/" class="leancloud_visitors" data-flag-title="日常随笔">
+    <span id="/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/" class="leancloud_visitors" data-flag-title="linux下docker部署gogs git仓库">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -236,28 +113,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关于写blog的意义"><a href="#关于写blog的意义" class="headerlink" title="关于写blog的意义"></a>关于写blog的意义</h1><p>博客日志相当于一个日常记事本，可以理解为日记，学习笔记。</p>
-<p>工作的状态也是属于不停学习的状态，在我们遇到问题的时候，大脑进行思考，以及运用互联网解决问题的过程，都会收获 想法 与 知识。</p>
-<p>俗话说：好记性不如烂笔头。在保持勤思考的同时，也应该及时做记录。</p>
-<p>罗辑思维《如何成为一个高手》里讲到: 钱钟书虽然是响当当的文学家，但是家里是没有多少藏书的 ( 相对而言，不可片面认知 ) ，更多的是记笔记的笔记本。</p>
-<p>这就说明我们不应该以 <code>收集知识的总量</code> 来衡量 一个人的学识，而是应该判断 一个人 <code>掌握知识的总量</code> 来确定他的学识。</p>
-<p>判断掌握知识的标准，在《罗辑思维》里被界定为，知道、理解知识的运用方法及手段。\<br>或者说可以理解为，遇到问题，在大脑里有解决问题的思路与方法。相当于数据库的索引，可以快速调取知识，如果是庞杂的知识体量可以用静态资源目录的方式储存（类似于遇到问题用百度，但是要知道查询什么知识点）。</p>
-<p>所以我认为，blog的过程就是，大脑对 问题 和 知识点 进行<code>思考</code> 并 <code>建立索引</code>的过称。</p>
-<hr>
-<h2 id="权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。"><a href="#权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。" class="headerlink" title="权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。"></a>权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。</h2><p>2018年7月24日 16:27:27</p>
-<hr>
-<h2 id="我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》"><a href="#我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》" class="headerlink" title="我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》"></a>我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》</h2><p>2018年7月25日 16:27:35</p>
-<blockquote>
-<p>“洋人又能制物为裸妇人，肌肤骸骨耳目齿舌，阴窍无一不具，初折迭如衣物，以气吹之，则柔软温暖如美人，可拥以交接如人道，其巧而丧心如此。”</p>
-</blockquote>
+        <h1 id="linux下docker部署gogs-git仓库"><a href="#linux下docker部署gogs-git仓库" class="headerlink" title="linux下docker部署gogs git仓库"></a>linux下docker部署gogs git仓库</h1><h2 id="1-远程登录Linux服务器"><a href="#1-远程登录Linux服务器" class="headerlink" title="1. 远程登录Linux服务器"></a>1. 远程登录Linux服务器</h2><p>首先，linux 命令行使用 root ssh ( <a href="https://blog.csdn.net/ccfxue/article/details/52608829" target="_blank" rel="noopener">ssh远程登录命令简单实例</a> )</p>
+<p>例如: [公司内网服务器]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh root@192.168.0.196</span><br><span class="line"></span><br><span class="line">psd: Jdyx[5个8]</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-拉取docker下gogs"><a href="#2-拉取docker下gogs" class="headerlink" title="2. 拉取docker下gogs"></a>2. 拉取docker下gogs</h2><p>进入<a href="https://hub.docker.com/r/gogs/gogs/" target="_blank" rel="noopener">gogs官网</a>，在官网左侧找到 拉取命令</p>
+<p>命令行输入 拉取命令 <code>docker pull gogs/gogs</code></p>
+<p>拉取完成后 有提示，接着输入查看状态的<code>docker</code>命令 <code>docker ps</code></p>
+<p>“<code>docker ps</code>“: 属于Linux命令 是查看 <code>docker</code>状态的命令</p>
+<p>“<code>ls</code>“: 查看当前目录文件</p>
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><p>“<code>vim gogs.docker</code>“: 进入并编辑 gogs.docker 配置文件</p>
+<p><a href="https://github.com/gogits/gogs/tree/master/docker" target="_blank" rel="noopener">gogs-git官网 配置</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Pull image from Docker Hub.</span><br><span class="line">$ docker pull gogs/gogs</span><br><span class="line"></span><br><span class="line"># Create local directory for volume.</span><br><span class="line">$ mkdir -p /var/gogs</span><br><span class="line"></span><br><span class="line"># Use `docker run` for the first time.</span><br><span class="line">$ docker run --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs</span><br><span class="line"></span><br><span class="line"># Use `docker start` if you have stopped it.</span><br><span class="line">$ docker start gogs</span><br></pre></td></tr></table></figure>
+<p>配置文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">docker run --restart=always --name=gogs -p 3000:3000 -v /var/gogs:/data gogs/gogs</span><br></pre></td></tr></table></figure></p>
+<h2 id="4-运行"><a href="#4-运行" class="headerlink" title="4. 运行"></a>4. 运行</h2><p>“<code>chmod +x gogs.docker</code>“: </p>
+<p>“<code>echo $PATH</code>“: 打印 环境变量</p>
+<p>“<code>./gogs.docker</code>“：启动服务</p>
+<h2 id="5-重启服务"><a href="#5-重启服务" class="headerlink" title="5. 重启服务"></a>5. 重启服务</h2><p><code>docker ps</code>获取<code>CONTAINER ID</code></p>
+<p><code>docker restart [19d724ea6ec9(ID)]</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2015/05/01/日常随笔/" data-id="cjpbyhi110016hodvdzatdhig" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/" data-id="cjt55fwlt00gvucdvhraf8aw5" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/感悟/">感悟</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gogs-docker/">gogs docker</a></li></ul>
 
     </footer>
   </div>
@@ -268,12 +147,165 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/CSS-潜藏着的BFC" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SPDY：Google开发的下一代HTTP协议" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" class="article-date">
-  <time class="post-time" datetime="2015-04-16T07:54:04.000Z" itemprop="datePublished">
+    <a href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="article-date">
+  <time class="post-time" datetime="2018-05-03T06:46:47.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/">SPDY：Google开发的下一代HTTP协议</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/HTTP/">HTTP</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="leancloud_visitors" data-flag-title="SPDY：Google开发的下一代HTTP协议">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SPDY-发音同”speedy”-：Google开发的下一代HTTP协议"><a href="#SPDY-发音同”speedy”-：Google开发的下一代HTTP协议" class="headerlink" title="SPDY(发音同”speedy”)：Google开发的下一代HTTP协议"></a><a href="http://josh-persistence.iteye.com/blog/2200727" target="_blank" rel="noopener">SPDY(发音同”speedy”)：Google开发的下一代HTTP协议</a></h1><p>（解决HTTP协议的缺点,Wrapper模式）</p>
+<p>概述</p>
+<p>SPDY是Google宣布正在开发的下一代网络协议，SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强。HTTP自上世纪90年代问世以来，已有二十年的历史，期间互联网本身发生了很大的变化，也使得HTTP的许多不足暴露了出来，现在它已经不能满足许多web app的要求。Google表示，引入SPDY协议后，在实验室测试中页面加载速度比原先快64%，并且目前已经在Gmail等应用中使用。目前业界支持SPDY的服务器有Netty和Nginx(将要支持)。Nginx 官方发布下一个版本 1.3.0 的路线图，该版本将支持 Google SPDY。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/03/SPDY：Google开发的下一代HTTP协议/" data-id="cjt55fw9a000nucdv8shkb8lm" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPDY/">SPDY</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-SQL/数据库范式介绍" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/02/SQL/数据库范式介绍/" class="article-date">
+  <time class="post-time" datetime="2018-05-02T05:50:37.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/02/SQL/数据库范式介绍/">数据库范式介绍</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/02/SQL/数据库范式介绍/" class="leancloud_visitors" data-flag-title="数据库范式介绍">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关系数据库·范式介绍"><a href="#关系数据库·范式介绍" class="headerlink" title="关系数据库·范式介绍"></a><a href="http://josh-persistence.iteye.com/blog/2200644" target="_blank" rel="noopener">关系数据库·范式介绍</a></h1><h2 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h2><p>设计<code>关系数据库</code>时,遵从不同的规范要求,设计出合理的关系型数据库,这些不同的<code>规范</code>要求被称为不同的<code>范式</code>,各种范式<code>呈 递次规范</code>,越<code>高</code>的 范式 数据库<code>冗余越小</code>。</p>
+<p>目前关系数据库有<code>六种</code>范式:第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)和第五范式(5NF,又称完美范式)。满足最低要求的范式是第一范式(1NF)。在第一范式的基础上进一步满足更多规范要求的称为第二范式(2NF),其余范式以次类推。一般说来,数据库<code>只需满足第三范式(3NF)就行</code>了。</p>
+<p>范式的<code>包含关系</code>。一个数据库设计如果符合第二范式,一定也符合第一范式。如果符合第三范式,一定也符合第二范式…</p>
+<h3 id="数据库基本概念"><a href="#数据库基本概念" class="headerlink" title="数据库基本概念"></a><strong>数据库基本概念</strong></h3><p> 要理解范式,首先必须对知道什么是<code>关系数据库</code>,简单的说:关系数据库就是用<code>二维表</code>来保存数据。表和表之间可以……(省略10W字),如果对数据库很熟悉,可以不用理会下面的概念。</p>
+<p><strong>实体</strong>: 现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。</p>
+<p><strong>属性</strong>: 教科书上解释为:“<code>实体所具有的某一特性</code>”，由此可见，属性一开始是个<code>逻辑概念</code>，比如说，“性别”是“人”的一个属性。在<code>关系数据库</code>中，属性又是个<code>物理概念</code>，属性可以看作是“<code>表的一列</code>”。</p>
+<p><strong>元组</strong>：表中的一行就是一个元组。</p>
+<p><strong>分量</strong>：<code>元组</code>的某个 <code>属性值</code>。在一个关系数据库中，它是一个<code>操作原子</code>，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。</p>
+<p><strong>码(键)</strong>：表中可以唯一确定一个元组的某个 属性(或者属性组)，如果这样的码有不止一个，那么大家都叫 <code>候选码</code>，我们从候选码中挑一个出来做老大，它就叫<code>主码(主键)</code>。</p>
+<p><strong>全码</strong>：如果一个码包含了所有的属性，这个码就是全码。</p>
+<p><strong>主属性</strong>：一个属性只要在任何一个候选码中出现过，这个属性就是主属性。</p>
+<p><strong>非主属性</strong>：与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。</p>
+<p><strong>外码</strong>：一个属性(或属性组)，它不是码，但是它别的表的码，它就是外码。</p>
+<p><strong>候选码</strong>： 若关系中的某一属性或属性组的值能唯一的标识一个元组，而其任何真子集都不能再标识，则称该属性组为(超级码)候选码。</p>
+<h4 id="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"><a href="#数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别" class="headerlink" title="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"></a><a href="https://blog.csdn.net/rl529014/article/details/48391465" target="_blank" rel="noopener">数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别</a></h4><p><strong>函数依赖</strong>: 设X,Y是关系R的两个属性集合,存在X→Y;则称Y 函数依赖于X。</p>
+<p><strong>部分函数依赖</strong>：设X,Y是关系R的两个属性集合，存在X→Y; 若X’是X的<code>真子集</code>，存在X’→Y，则称Y 部分函数依赖于X。</p>
+<p><strong>完全函数依赖</strong>：设X,Y是关系R的两个属性集合，X’是X的真子集，存在X→Y; X’是X的<code>真子集</code>，但对每一个X’都有X’!→Y，则称Y完全函数依赖于X。(个人理解为 只能通过 X确定 Y，并且每个X’ 都不能确定Y 的关系 就是完全函数依赖)</p>
+<p><strong>传递函数依赖</strong>：设X,Y,Z是关系R中互不相同的属性集合，存在X→Y(Y !→X),Y→Z(Z !→Y)，则称Z传递函数依赖于X。</p>
+<p>假如 Z 函数依赖于 Y，且 Y 函数依赖于 X （『Y 不包含于 X，且 X 不函数依赖于 Y』这个前提），那么我们就称 Z 传递函数依赖于 X ，记作 X T→ Z，如图3。</p>
+<h2 id="二、6种范式"><a href="#二、6种范式" class="headerlink" title="二、6种范式"></a>二、6种范式</h2><p>前面说到，<code>范式越高</code>，数据的<code>冗余</code>度<code>越小</code>。其实<code>没有冗余</code>的数据库设计是<code>可以做到</code>的。但是，<code>没有冗余</code>的数据库<code>未必是最好的</code>数据库，有时为了提高运行效率，就必须降低范式标准，适当保留冗余数据。具体做法是：在概念数据模型设计时遵守第三范式，降低范式标准的工作放到物理数据模型设计时考虑。降低范式就是增加字段，允许冗余。(最典型的就是在一些数据表中不仅存作为外键的user_id,同样存user_name,这样虽然违反数据库范式增加了user_name字段，但是却提高了效率，减少了获取user_id后再去user表中获取user name的操作)</p>
+<p>所以实际中，我们只需要考虑数据库满足第三范式就可以了,下面以最通俗的方式来解释数据库的范式。</p>
+<p><strong>第一范式(1NF)：属性不可分</strong></p>
+<p>(1NF是对属性的原子性约束，要求属性具有原子性，不可再分解)</p>
+<p>不满足第一范式的数据库，不是关系数据库！</p>
+<p><strong>第二范式（2NF）：符合1NF，并且非主属性完全依赖于码。</strong></p>
+<p>第二范式要求非主属性依赖于主关键字。</p>
+<p>（2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性，更通俗说有主键ID）</p>
+<p><strong>第三范式（3NF）：符合2NF，并且，消除传递依赖。</strong><br>（3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/02/SQL/数据库范式介绍/" data-id="cjt55fwdj0050ucdv42vbm6it" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL范式/">SQL范式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/linux 删除" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="article-date">
+  <time class="post-time" datetime="2018-04-28T08:32:00.000Z" itemprop="datePublished">
     <span class="post-month">4月</span><br/>
-    <span class="post-day">16</span>
+    <span class="post-day">28</span>
   </time>
 </a>
    
@@ -285,21 +317,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/">CSS-潜藏着的BFC</a>
+      <a class="article-title" href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/">Linux 删除文件夹和文件的命令</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" class="leancloud_visitors" data-flag-title="CSS-潜藏着的BFC">
+    <span id="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="leancloud_visitors" data-flag-title="Linux 删除文件夹和文件的命令">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -311,27 +343,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、什么是BFC-Block-Formatting-Context"><a href="#一、什么是BFC-Block-Formatting-Context" class="headerlink" title="一、什么是BFC(Block Formatting Context)"></a>一、什么是BFC(Block Formatting Context)</h3><p>   写<code>CSS</code>样式时，对一个<code>元素</code>设置css,我们首先要知道这个元素是<code>块级元素</code>还是<code>行内元素</code>，而<code>BFC</code>就是用来<strong><code>格式化块级盒子</code></strong>的。<br><br>  <code>Formatting Context</code>：指页面中一个渲染区域，并且拥有一套渲染规则，它决定了其子元素如何定位，以及与其他元素的相互关系和作用。<br><br>  <code>BFC定义</code>：块级格式化上下文  它是指一个独立的块级渲染区域，只有<code>Block-level Box</code>参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。<br></p>
-<h3 id="二、BFC的生成"><a href="#二、BFC的生成" class="headerlink" title="二、BFC的生成"></a>二、BFC的生成</h3><p>  说到BFC是一块渲染区域，那么这块渲染区域到底在哪里呢，具体大小又是多少？这些都是由生成BFC的元素来决定的。<br><br>  满足下列CSS声明<code>之一</code>的元素便会生成BFC：</p>
-<ul>
-<li>1.根元素或其它包含它的元素</li>
-<li>2.float的值不为none；</li>
-<li>3.overflow的值不为visible；</li>
-<li>4.position的值不为static；</li>
-<li>5.display的值为inline-block、table-cell、table-caption；</li>
-<li><p>6.flex boxes (元素的display: flex或inline-flex)；</p>
-<p>注：也有人认为<code>display: table</code>能生成BFC，我认为最主要原因是table会默认生成一个匿名的table-cell，正是这个匿名的table-cell生成了BFC。</p>
-<h3 id="三、BFC的布局规则"><a href="#三、BFC的布局规则" class="headerlink" title="三、BFC的布局规则"></a>三、BFC的布局规则</h3><p>菜鸟教程待续</p>
-</li>
+        <h1 id="Linux-删除文件夹和文件的命令"><a href="#Linux-删除文件夹和文件的命令" class="headerlink" title="Linux 删除文件夹和文件的命令"></a>Linux 删除文件夹和文件的命令</h1><ul>
+<li>-r 就是向下递归，不管有多少级目录，一并删除</li>
+<li>-f 就是直接强行删除，不作任何提示的意思</li>
 </ul>
+<h2 id="删除文件夹实例："><a href="#删除文件夹实例：" class="headerlink" title="删除文件夹实例："></a>删除文件夹实例：</h2><pre><code>rm -rf /var/log/httpd/access
+</code></pre><p>将会删除<code>/var/log/httpd/access</code>目录以及其下所有文件、文件夹</p>
+<h2 id="删除文件使用实例："><a href="#删除文件使用实例：" class="headerlink" title="删除文件使用实例："></a>删除文件使用实例：</h2><pre><code>rm -f /var/log/httpd/access.log
+</code></pre><p>将会强制删除<code>/var/log/httpd/access.log</code>这个文件</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" data-id="cjpbyhiap009ihodvycwm2w8p" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" data-id="cjt55fwkt00fpucdvgtjl3cke" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFC/">BFC</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-删除命令/">Linux 删除命令</a></li></ul>
 
     </footer>
   </div>
@@ -342,12 +369,12 @@
 
 
   
-    <article id="post-hello-world" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-GIT/git-删除远程文件-目录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/10/01/hello-world/" class="article-date">
-  <time class="post-time" datetime="2014-10-01T07:21:11.000Z" itemprop="datePublished">
-    <span class="post-month">10月</span><br/>
-    <span class="post-day">01</span>
+    <a href="/2018/04/28/GIT/git-删除远程文件-目录/" class="article-date">
+  <time class="post-time" datetime="2018-04-28T08:27:48.000Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br/>
+    <span class="post-day">28</span>
   </time>
 </a>
    
@@ -359,17 +386,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/01/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/04/28/GIT/git-删除远程文件-目录/">git 删除远程文件/目录</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2014/10/01/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+    <span id="/2018/04/28/GIT/git-删除远程文件-目录/" class="leancloud_visitors" data-flag-title="git 删除远程文件/目录">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -381,22 +412,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="git删除远程仓库的文件或目录"><a href="#git删除远程仓库的文件或目录" class="headerlink" title="git删除远程仓库的文件或目录"></a>git删除远程仓库的文件或目录</h1><p>删除a目录下的2.txt文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached a/2.txt</span><br></pre></td></tr></table></figure></p>
+<p>删除a目录</p>
+<pre><code>git rm -r --cached a
+
+git commit -m &quot;删除a目录下的2.txt文件&quot; 
+git push
+</code></pre><p><strong>Note:</strong></p>
+<p>用<code>-r</code>参数删除目录, <code>git rm --cached a.txt</code> 删除的是本地仓库中的文件，且<code>本地工作区</code>的文件会<code>保留</code>且<code>不再与远程仓库发生跟踪关系</code>，如果本地仓库中的文件也要删除则用<code>git rm a.txt</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2014/10/01/hello-world/" data-id="cjpbyhhze0008hodvvyzh2a2a" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-删除远程文件-目录/" data-id="cjt55fwcr0043ucdv9ud6k88o" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-删除/">git 删除</a></li></ul>
+
     </footer>
   </div>
   
@@ -409,7 +441,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/28/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span>
+    <a class="extend prev" rel="prev" href="/page/28/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/30/">next &raquo;</a>
   </nav>
 </section>
         
@@ -450,9 +482,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -488,7 +520,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

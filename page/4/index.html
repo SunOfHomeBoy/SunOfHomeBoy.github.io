@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS特效实现/react-无缝滚动动画" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
-  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br/>
-    <span class="post-day">05</span>
+    <a href="/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/" class="article-date">
+  <time class="post-time" datetime="2018-12-18T01:22:18.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">18</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
+      <a class="article-title" href="/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/">react-无缝滚动动画</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Redux/">Redux</a>
+    <a class="article-category-link" href="/categories/Effects/">Effects</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
+    <span id="/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/" class="leancloud_visitors" data-flag-title="react-无缝滚动动画">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,252 +113,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
-<ol>
-<li></li>
-<li>定义</li>
-<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
-<p>export const APP_REDUX = “APP_REDUX”;</p>
-</blockquote>
+        <h2 id="无缝滚动"><a href="#无缝滚动" class="headerlink" title="无缝滚动"></a>无缝滚动</h2><h3 id="第一步-定义-Dom结构"><a href="#第一步-定义-Dom结构" class="headerlink" title="第一步 定义 Dom结构"></a>第一步 定义 Dom结构</h3><ul>
+<li>第一层<code>div</code>最外侧 负责 1️⃣鼠标 交互，2️⃣超出隐藏</li>
+<li>第二层<code>div</code>负责整体动画，通过<code>marginTop</code>属性实现动画效果<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">className</span>=<span class="string">"contetn"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">ref</span>=<span class="string">"content"</span> // <span class="attr">react</span>中 通过 <span class="attr">this.refs.content</span> 获取 <span class="attr">Dom</span>元素</span></span><br><span class="line"><span class="tag">  <span class="attr">onMouseEnter</span>=<span class="string">&#123;this.removeAnimationInterval&#125;</span> // 鼠标移入 清除定时器</span></span><br><span class="line"><span class="tag">  <span class="attr">onMouseLeave</span>=<span class="string">&#123;this.animationInterval&#125;</span> // 鼠标移出 设置定时器</span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&#123;&#123;overflow:</span> "<span class="attr">hidden</span>"&#125;&#125; // 超出隐藏 多余内容</span></span><br><span class="line"><span class="tag">  // <span class="attr">onWheel</span>=<span class="string">&#123;&#125;</span> // 鼠标滚轴 事件</span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">marginTop:</span> <span class="attr">scrollData</span> + "<span class="attr">px</span>" &#125;&#125;&gt;</span> // 通过`marginTop`属性实现动画效果</span><br><span class="line">    &#123;</span><br><span class="line">      dutyList.map((item, index) =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"card"</span> <span class="attr">key</span>=<span class="string">&#123;</span>`$&#123;<span class="attr">item.title</span>&#125;<span class="attr">:</span>$&#123;<span class="attr">item.name</span>&#125;$&#123;<span class="attr">index</span>&#125;`&#125;&gt;</span></span><br><span class="line">            内部元素 非 动画效果 关键，可自定义内容</span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        )</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
-<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
-</blockquote>
-</li>
-<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
-<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjpbyhify00fghodvwyj3awag" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Editor/编辑器配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/15/Editor/编辑器配置/" class="article-date">
-  <time class="post-time" datetime="2018-08-15T01:53:26.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">15</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/15/Editor/编辑器配置/">编辑器配置</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/edit/">edit</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/15/Editor/编辑器配置/" class="leancloud_visitors" data-flag-title="编辑器配置">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
-<h2 id="Version-3-0-0"><a href="#Version-3-0-0" class="headerlink" title="Version: 3.0.0"></a>Version: 3.0.0</h2><p>GitHub Token: c875cc3b573265d55bdbe57a23d554ce9e83cde2<br>GitHub Gist: daeb8021fc8862ba3a1fe162cc301c7c<br>GitHub Gist Type: Secret</p>
-<h2 id="Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme"><a href="#Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme" class="headerlink" title="Restarting Visual Studio Code may be required to apply color and file icon theme."></a>Restarting Visual Studio Code may be required to apply color and file icon theme.</h2><p>Files Uploaded:<br>  javascript.json &gt; snippets|javascript.json</p>
-<p>Extensions Ignored:<br>  No extensions ignored.</p>
-<p>Extensions Removed:<br>  No extensions removed.</p>
-<p>Extensions Added:<br>  Angular2 v6.1.5<br>  background v1.1.19<br>  beautify v1.3.2<br>  bracket-pair-colorizer v1.0.59<br>  code-gnu-global v0.2.2<br>  code-settings-sync v3.0.0<br>  cpptools v0.17.7<br>  ejs-language-support v0.0.1<br>  ejs-snippets v0.1.0<br>  git-project-manager v1.6.1<br>  githistory v0.4.2<br>  gitlens v8.5.4<br>  html-snippets v0.2.1<br>  java v0.29.0<br>  javascript-ejs-support v0.3.2<br>  JavaScriptSnippets v1.7.0<br>  jquerysnippets v0.0.1<br>  language-stylus v1.9.2<br>  markdown-all-in-one v1.6.0<br>  mongoose-os-ide v0.3.0<br>  mssql v1.4.0<br>  node-module-intellisense v1.5.0<br>  npm-intellisense v1.3.0<br>  python v2018.7.1<br>  Theme-MarkdownKit v0.1.4<br>  tslint v1.0.34<br>  vetur v0.12.6<br>  view-in-browser v0.0.5<br>  vscode-eslint v1.4.12<br>  vscode-great-icons v2.1.41<br>  vscode-html-css v0.2.0<br>  vscode-icons v7.25.0<br>  vscode-java-debug v0.11.0<br>  vscode-language-babel v0.0.20<br>  vscode-language-pack-zh-hans v1.25.3<br>  vscode-map-preview v0.4.2<br>  vscode-maven v0.10.0<br>  vscode-mongodb v0.0.2<br>  vscode-npm-script v0.3.5<br>  vscode-preview-server v1.0.1<br>  vue-vscode-snippets v1.3.0<br>  weex v0.4.0</p>
-<h2 id="xml-v2-3-1"><a href="#xml-v2-3-1" class="headerlink" title="  xml v2.3.1"></a>  xml v2.3.1</h2><p>Done.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjpbyhi4w002uhodvsjnc6h4i" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="article-date">
-  <time class="post-time" datetime="2018-08-14T06:11:24.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">14</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/">修改.npmrc</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/npm/">npm</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="leancloud_visitors" data-flag-title="修改.npmrc">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Windows修改-npmrc"><a href="#Windows修改-npmrc" class="headerlink" title="Windows修改.npmrc"></a>Windows修改.npmrc</h2><blockquote>
-<p>vim /mnt/c/Users/Administrator/.npmrc</p>
-</blockquote>
-<h2 id="node-sass-安装失败解决"><a href="#node-sass-安装失败解决" class="headerlink" title="node-sass 安装失败解决"></a><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">node-sass 安装失败解决</a></h2><p>@4.8.3 postinstall: <code>node scripts/build.js</code></p>
-<h3 id="解决方法一：创建-npmrc文件"><a href="#解决方法一：创建-npmrc文件" class="headerlink" title="解决方法一：创建.npmrc文件"></a>解决方法一：创建.npmrc文件</h3><p>在项目根目录创建.npmrc文件，复制下面代码到该文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phantomjs_cdnurl=http://cnpmjs.org/downloads</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
-<h3 id="解决方法二：使用淘宝镜像源"><a href="#解决方法二：使用淘宝镜像源" class="headerlink" title="解决方法二：使用淘宝镜像源"></a>解决方法二：使用淘宝镜像源</h3><blockquote>
-<p>npm uninstall node-sass // 如果出现安装失败，<strong>须先卸载</strong>  </p>
-<p>npm i node-sass –sass_binary_site=<a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a> // 亲测有效</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 也可以设置系统环境变量的方式。示例</span><br><span class="line">// linux、mac 下</span><br><span class="line">SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass</span><br><span class="line"></span><br><span class="line">// window 下</span><br><span class="line">set SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ &amp;&amp; npm install node-sass</span><br></pre></td></tr></table></figure>
-<h3 id="设置全局淘宝镜像"><a href="#设置全局淘宝镜像" class="headerlink" title="设置全局淘宝镜像"></a>设置全局淘宝镜像</h3><blockquote>
-<p>npm config set sass_binary_site <a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a></p>
-</blockquote>
-<p>## </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjpbyhift00fahodvn4lru6l5" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npmrc/">.npmrc</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" class="article-date">
-  <time class="post-time" datetime="2018-08-13T01:47:40.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">13</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/">FreeBSD部署开发环境</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/FreeBSD/">FreeBSD</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" class="leancloud_visitors" data-flag-title="FreeBSD部署开发环境">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="pkg安装bash"><a href="#pkg安装bash" class="headerlink" title="pkg安装bash"></a>pkg安装bash</h2><blockquote>
-<p>pkg install bash<br>BSD 使用方便，简洁。安装依赖更容易。</p>
-</blockquote>
-<h2 id="FreeBSD-df"><a href="#FreeBSD-df" class="headerlink" title="FreeBSD df"></a>FreeBSD <code>df</code></h2><p>查看 系统硬盘</p>
-<blockquote>
-<p>cd /mnt/www</p>
-<p>vim /usr/local/etc/mongodb.conf // 修改mongodb配置文件<br>/mnt/www/STORAGE/MONGO // 自定义 data 目录<br>/var/db/mongodb // 默认 data 目录<br>ls -ld /var/db/mongodb // -l 详细信息 -d 目录本身，如不加d，显示第一层文件 -r 递归显示<br>chmod<br>/usr/local/etc/rc.d // 服务的 配置文件 目录</p>
-<p>service mongod onestart<br>rmdir // 删除无效空文件夹，非空有提示 删除错误</p>
-</blockquote>
-<p><strong>项目目录规范</strong><br>前端页面叫 <code>www</code><br>后台管理 <code>administrator</code><br>接口服务 <code>service</code><br>后台上传公共资源 <code>public</code><br>接口 log日志 <code>/tmp/xxx/</code></p>
-<p>p.s :<br>修改配置文件，须先stop服务<br>如无法stop(新配置文件，无法关闭之前的配置)，可用<code>kill -KILL [进程ID]</code></p>
-<p>npm 淘宝镜像</p>
-<ul>
-<li>–registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></li>
 </ul>
-<h2 id="linux修改文件所有者和文件所在组"><a href="#linux修改文件所有者和文件所在组" class="headerlink" title="linux修改文件所有者和文件所在组"></a><a href="https://www.cnblogs.com/DawaTech/p/7249734.html" target="_blank" rel="noopener">linux修改文件所有者和文件所在组</a></h2><blockquote>
-<p>chown 用户名:组 文件名  -R // -R表示递归目录下所有文件<br>chown [-R] 账号名称:组群  文件/目录<br>ega: chown mongodb:mongodb 文件名</p>
-</blockquote>
+<h3 id="第二步-获取数据-利用周期执行动画"><a href="#第二步-获取数据-利用周期执行动画" class="headerlink" title="第二步 获取数据 利用周期执行动画"></a>第二步 获取数据 利用周期执行动画</h3><p>在请求数据的回调函数 中 设置state, 利用回调 执行 动画方法<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getOnDutyListData() &#123;</span><br><span class="line">  axios(&#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">    url: <span class="string">`/OnDutyList`</span>,</span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      dutyList: res.data.result</span><br><span class="line">    &#125;, <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.animationInterval()) <span class="comment">// 在这里，利用 回调 执行 动画方法。可以避免 在其他 周期里面获取不到 异步数据的情况</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第三步-动画实现效果"><a href="#第三步-动画实现效果" class="headerlink" title="第三步 动画实现效果"></a>第三步 动画实现效果</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">animationInterval() &#123;</span><br><span class="line">  <span class="comment">/** 获取滚动系数, 数据矩阵 */</span></span><br><span class="line">  <span class="keyword">let</span> &#123; scrollData, dutyList &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">  <span class="comment">/** 非空判断 */</span></span><br><span class="line">  <span class="keyword">if</span> (!dutyList.length) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** 设置定时器，挂载到 当前类下的 state */</span></span><br><span class="line">  <span class="keyword">this</span>.state.animationInterval = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/** setState触发render，实现实时动画效果 */</span></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      scrollData: scrollData--</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 初始化判断 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.state.inital &amp;&amp; scrollData === <span class="number">-1</span>) &#123;</span><br><span class="line">      dutyList.push(dutyList[<span class="number">0</span>]); <span class="comment">// 第一次多加载 一个 数据第一项，实现首尾无缝滚动 </span></span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        inital: <span class="literal">false</span> <span class="comment">// 关闭 初始化</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** 判断 滚动位置 128为当前效果 中 itemCard 高度, 一但card全部高度 超出视图 执行内部语句 */</span></span><br><span class="line">    <span class="keyword">if</span> (scrollData % <span class="number">128</span> === <span class="number">0</span>) &#123;</span><br><span class="line">      dutyList.shift(); <span class="comment">// 删除第一项</span></span><br><span class="line">      dutyList.push(dutyList[<span class="number">0</span>]); <span class="comment">// 把当前 数据 第一项，加入 矩阵尾部</span></span><br><span class="line">      scrollData = <span class="number">0</span>; <span class="comment">// 并把 高度 重置</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// if (scrollData &gt; -113) &#123;</span></span><br><span class="line">    <span class="comment">//   let firstItem = dutyList[0];</span></span><br><span class="line">    <span class="comment">//   // dutyList.shift();</span></span><br><span class="line">    <span class="comment">//   // dutyList.push(firstItem);</span></span><br><span class="line">    <span class="comment">//   this.setState(&#123;</span></span><br><span class="line">    <span class="comment">//     scrollData: scrollData--</span></span><br><span class="line">    <span class="comment">//   &#125;)</span></span><br><span class="line">    <span class="comment">// &#125; else &#123;</span></span><br><span class="line">    <span class="comment">//   scrollData = 0;</span></span><br><span class="line">    <span class="comment">//   let firstItem = dutyList[0];</span></span><br><span class="line">    <span class="comment">//   dutyList.shift();</span></span><br><span class="line">    <span class="comment">//   dutyList.push(firstItem);</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">  &#125;, <span class="number">50</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>操作重点</strong></p>
+<ul>
+<li>数组操作: 1️⃣<code>shift()</code>, 2️⃣<code>push(dutyList[0])</code></li>
+<li>react: <code>setState</code></li>
+</ul>
+<h3 id="第四步-鼠标移入移出-组件卸载-清除定时器"><a href="#第四步-鼠标移入移出-组件卸载-清除定时器" class="headerlink" title="第四步 鼠标移入移出/ 组件卸载 清除定时器"></a>第四步 <code>鼠标移入移出/ 组件卸载</code> 清除定时器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">removeAnimationInterval() &#123;</span><br><span class="line">  this.state.animationInterval &amp;&amp; clearInterval(this.state.animationInterval);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componenWillUnmount() &#123;</span><br><span class="line">  this.removeAnimationInterval();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="附录-完整代码"><a href="#附录-完整代码" class="headerlink" title="附录 完整代码"></a>附录 完整代码</h2><p><strong>CarouselList.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">export default class CarouselList extends Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            data: this.props.data,</span><br><span class="line">            scrollData: 0</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount = () =&gt; &#123;</span><br><span class="line">        this.addHandleTimer();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount = () =&gt; &#123;</span><br><span class="line">        this.removeHandleTimer();</span><br><span class="line">    &#125;</span><br><span class="line">    //timers</span><br><span class="line">    addHandleTimer = () =&gt; &#123;</span><br><span class="line">        let &#123; data, scrollData &#125; = this.state;</span><br><span class="line">        if (!data || !data.length) return null;</span><br><span class="line">        // 定时器</span><br><span class="line">        this.timer = setInterval(() =&gt; &#123;</span><br><span class="line">            if (scrollData &gt; -27) &#123;</span><br><span class="line">                scrollData--;</span><br><span class="line">                this.setState(&#123;</span><br><span class="line">                    scrollData: scrollData</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                scrollData = 0;</span><br><span class="line">                let firstData = data[0];</span><br><span class="line">                data.shift();</span><br><span class="line">                data.push(firstData);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 70);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    removeHandleTimer = () =&gt; &#123;</span><br><span class="line">        this.timer &amp;&amp; clearInterval(this.timer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleScroll = e =&gt; &#123;</span><br><span class="line">        const ev = e || window.event;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        const conDom = this.refs[&quot;content&quot;];</span><br><span class="line">        const speed = 5; // scroll speed</span><br><span class="line">        if (ev.deltaY &gt; 0) &#123;</span><br><span class="line">            conDom.scrollTop += speed;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            conDom.scrollTop -= speed;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; data, scrollData &#125; = this.state;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div</span><br><span class="line">                ref=&quot;content&quot;</span><br><span class="line">                onMouseEnter=&#123;this.removeHandleTimer&#125;</span><br><span class="line">                onMouseLeave=&#123;this.addHandleTimer&#125;</span><br><span class="line">                onWheel=&#123;this.handleScroll&#125;</span><br><span class="line">            &gt;</span><br><span class="line">                &lt;ul style=&#123;&#123; marginTop: scrollData + &quot;px&quot; &#125;&#125;&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        data.length &gt; 0 &amp;&amp; data.map((item, index) =&gt; &#123;</span><br><span class="line">                            return (</span><br><span class="line">                                this.props.type === &apos;simple&apos; ?</span><br><span class="line">                                    &lt;li key=&#123;index&#125;&gt;&lt;p title=&#123;item.value&#125;&gt;&#123;item.value&#125;&lt;/p&gt;&lt;/li&gt;</span><br><span class="line">                                    : &lt;li key=&#123;index&#125;&gt;&lt;span&gt;&#123;item.id&#125;&lt;/span&gt;&lt;p title=&#123;item.intelligence&#125;&gt;&#123;item.intelligence&#125;&lt;/p&gt;&lt;/li&gt;</span><br><span class="line">                            )</span><br><span class="line">                            // 默认：complex</span><br><span class="line">                            &#123;/*&lt;li key=&#123;index&#125;&gt;&lt;span&gt;&#123;item.id&#125;&lt;/span&gt;&lt;p title=&#123;item.intelligence&#125;&gt;&#123;item.intelligence&#125;&lt;/p&gt;&lt;/li&gt;*/ &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        )</span><br><span class="line">                    &#125;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>CarouselList2.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">export default class CarouselList2 extends Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        console.log(&apos;是大法官&apos;,this.props.data)</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            data: this.props.data,</span><br><span class="line">            scrollData: 0</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    componentDidMount = () =&gt; &#123;</span><br><span class="line">        this.addHandleTimer();</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    componentWillUnmount = () =&gt; &#123;</span><br><span class="line">        this.removeHandleTimer();</span><br><span class="line">    &#125;;</span><br><span class="line">    //timers</span><br><span class="line">    addHandleTimer = () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        let &#123;data, scrollData&#125; = this.state;</span><br><span class="line">        if (!data || !data.length) return null;</span><br><span class="line">        if(data.length &lt; 5 ) return false;</span><br><span class="line">        this.timer = setInterval(() =&gt; &#123;</span><br><span class="line">            if (scrollData &gt; -52) &#123;</span><br><span class="line">                scrollData--;</span><br><span class="line">                this.setState(&#123;</span><br><span class="line">                    scrollData: scrollData</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                scrollData = 0;</span><br><span class="line">                let firstData = data[0];</span><br><span class="line">                data.shift();</span><br><span class="line">                data.push(firstData);</span><br><span class="line"></span><br><span class="line">                let firstData1 = data[0];</span><br><span class="line">                data.shift();</span><br><span class="line">                data.push(firstData1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 70);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    removeHandleTimer = () =&gt; &#123;</span><br><span class="line">        this.timer &amp;&amp; clearInterval(this.timer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    handleScroll = e =&gt; &#123;</span><br><span class="line">        const ev = e || window.event;</span><br><span class="line">        e.preventDefault();</span><br><span class="line">        const conDom = this.refs[&quot;content&quot;];</span><br><span class="line">        const speed = 6; // scroll speed</span><br><span class="line">        if (ev.deltaY &gt; 0) &#123;</span><br><span class="line">            conDom.scrollTop += speed;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            conDom.scrollTop -= speed;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123;data, scrollData&#125; = this.state;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div</span><br><span class="line">                ref=&quot;content&quot;</span><br><span class="line">                onMouseEnter=&#123;this.removeHandleTimer&#125;</span><br><span class="line">                onMouseLeave=&#123;this.addHandleTimer&#125;</span><br><span class="line">                onWheel=&#123;this.handleScroll&#125;</span><br><span class="line">            &gt;</span><br><span class="line">                &lt;ul style=&#123;&#123;marginTop: scrollData + &quot;px&quot;&#125;&#125;&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        data.length &gt; 0 &amp;&amp; data.map((item, index) =&gt; &#123;</span><br><span class="line">                                return (</span><br><span class="line">                                    this.props.type === &apos;superior&apos; ?</span><br><span class="line">                                        &lt;li key=&#123;item.id&#125;&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.name&#125;&gt;&#123;item.name&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.card&#125;&gt;&#123;item.card&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.show&#125;&gt;&#123;item.show&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.feedback&#125;&gt;&#123;item.feedback&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.state&#125;&gt;&#123;item.state&#125;&lt;/p&gt;</span><br><span class="line">                                        &lt;/li&gt;</span><br><span class="line">                                        : &lt;li key=&#123;item.id&#125;&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.name&#125;&gt;&#123;item.name&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.card&#125;&gt;&#123;item.card&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.time&#125;&gt;&#123;item.time&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.origin&#125;&gt;&#123;item.origin&#125;&lt;/p&gt;</span><br><span class="line">                                            &lt;p title=&#123;item.destination&#125;&gt;&#123;item.destination&#125;&lt;/p&gt;</span><br><span class="line">                                        &lt;/li&gt;</span><br><span class="line">                                )</span><br><span class="line">                            &#125;</span><br><span class="line">                        )</span><br><span class="line">                    &#125;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>InformationOnDuty.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">import &quot;./InformationOnDuty.scss&quot;</span><br><span class="line">import &#123; hidden &#125; from &quot;ansi-colors&quot;;</span><br><span class="line"></span><br><span class="line">class InformationOnDuty extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      dutyList: [],</span><br><span class="line">      scrollData: 0,</span><br><span class="line">      inital: true</span><br><span class="line">    &#125;;</span><br><span class="line">    this.getOnDutyListData = this.getOnDutyListData.bind(this);</span><br><span class="line">    this.animationInterval = this.animationInterval.bind(this);</span><br><span class="line">    this.removeAnimationInterval = this.removeAnimationInterval.bind(this);</span><br><span class="line">    this.getOnDutyListData();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getOnDutyListData() &#123;</span><br><span class="line">    axios(&#123;</span><br><span class="line">      method: &apos;GET&apos;,</span><br><span class="line">      url: `/OnDutyList`,</span><br><span class="line">    &#125;).then(res =&gt; &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        dutyList: res.data.result</span><br><span class="line">      &#125;, () =&gt; this.animationInterval())</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  animationInterval() &#123;</span><br><span class="line">    let &#123; scrollData, dutyList &#125; = this.state;</span><br><span class="line">    if (!dutyList.length) return;</span><br><span class="line">    this.state.animationInterval = setInterval(() =&gt; &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        scrollData: scrollData--</span><br><span class="line">      &#125;);</span><br><span class="line">      </span><br><span class="line">      let firstItem = dutyList[1];</span><br><span class="line"></span><br><span class="line">      if (scrollData &lt; 0 &amp;&amp; scrollData &gt; -2) &#123;</span><br><span class="line">        if (this.state.inital) &#123;</span><br><span class="line">          dutyList.push(dutyList[0]);</span><br><span class="line">          this.setState(&#123;</span><br><span class="line">            inital: false</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      // dutyList.push(firstItem);</span><br><span class="line">      if (scrollData % 128 === 0) &#123;</span><br><span class="line">        // debugger</span><br><span class="line">        dutyList.shift();</span><br><span class="line">        dutyList.push(firstItem);</span><br><span class="line">        scrollData = 0;</span><br><span class="line">        // debugger</span><br><span class="line">      &#125;</span><br><span class="line">      // if (scrollData &gt; -113) &#123;</span><br><span class="line">      //   let firstItem = dutyList[0];</span><br><span class="line">      //   // dutyList.shift();</span><br><span class="line">      //   // dutyList.push(firstItem);</span><br><span class="line">      //   this.setState(&#123;</span><br><span class="line">      //     scrollData: scrollData--</span><br><span class="line">      //   &#125;)</span><br><span class="line">      // &#125; else &#123;</span><br><span class="line">      //   scrollData = 0;</span><br><span class="line">      //   let firstItem = dutyList[0];</span><br><span class="line">      //   dutyList.shift();</span><br><span class="line">      //   dutyList.push(firstItem);</span><br><span class="line">      // &#125;</span><br><span class="line">    &#125;, 60)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  removeAnimationInterval() &#123;</span><br><span class="line">    this.state.animationInterval &amp;&amp; clearInterval(this.state.animationInterval);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillReceiveProps() &#123;</span><br><span class="line">    debugger</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componenWillUnmount() &#123;</span><br><span class="line">    this.removeAnimationInterval();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    let &#123; dutyList, scrollData &#125; = this.state;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div className=&quot;InformationOnDuty&quot;&gt;</span><br><span class="line">        &lt;div className=&quot;title&quot;&gt;</span><br><span class="line">          &lt;div className=&quot;tit1&quot;&gt;&lt;span&gt;值班信息&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">          &lt;div className=&quot;tit2&quot;&gt;&lt;span&gt;查看值班表&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          className=&quot;contetn&quot;</span><br><span class="line">          ref=&quot;content&quot;</span><br><span class="line">          onMouseEnter=&#123;this.removeAnimationInterval&#125;</span><br><span class="line">          onMouseLeave=&#123;this.animationInterval&#125;</span><br><span class="line">          style=&#123;&#123;overflow: &quot;hidden&quot;&#125;&#125;</span><br><span class="line">        // onWheel=&#123;&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;div style=&#123;&#123; marginTop: scrollData + &quot;px&quot; &#125;&#125;&gt;</span><br><span class="line">            &#123;</span><br><span class="line">              dutyList.map((item, index) =&gt; &#123;</span><br><span class="line">                return (</span><br><span class="line">                  &lt;div className=&quot;card&quot; key=&#123;`$&#123;item.title&#125;:$&#123;item.name&#125;$&#123;index&#125;`&#125;&gt;</span><br><span class="line">                    &lt;div className=&quot;row1&quot;&gt;</span><br><span class="line">                      &lt;span&gt;&#123;item.title&#125;&amp;nbsp;&lt;/span&gt;&lt;b&gt;&amp;nbsp;|&amp;nbsp;&lt;/b&gt;&lt;span&gt;&#123;item.name&#125;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div className=&quot;row2&quot;&gt;</span><br><span class="line">                      &lt;span className=&#123;item.title.length &gt; 3 ? &apos;nbsp4&apos; : &apos;nbsp3&apos;&#125;&gt;电话&amp;nbsp;&lt;/span&gt;&lt;b&gt;&amp;nbsp;|&amp;nbsp;&lt;/b&gt;&lt;span&gt;&#123;item.phone&#125;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                  &lt;/div&gt;</span><br><span class="line">                )</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default InformationOnDuty;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" data-id="cjpbyhigj00gmhodv7v3ac1pg" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/" data-id="cjt55fwhd00auucdva4zlc40a" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BSD部署/">BSD部署</a></li></ul>
-
     </footer>
   </div>
   
@@ -368,11 +145,11 @@
 
 
   
-    <article id="post-Operating System/UnixLike/Linux/linux查看端口占用情况" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/React/React中key的必要性与使用" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" class="article-date">
-  <time class="post-time" datetime="2018-08-10T04:25:49.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
+    <a href="/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/" class="article-date">
+  <time class="post-time" datetime="2018-12-10T06:48:00.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
     <span class="post-day">10</span>
   </time>
 </a>
@@ -385,17 +162,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/">linux查看端口占用情况</a>
+      <a class="article-title" href="/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/">React中key的必要性与使用</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/React/">React</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" class="leancloud_visitors" data-flag-title="linux查看端口占用情况">
+    <span id="/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/" class="leancloud_visitors" data-flag-title="React中key的必要性与使用">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -407,11 +188,260 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="React中key的必要性与使用"><a href="#React中key的必要性与使用" class="headerlink" title="React中key的必要性与使用"></a>React中key的必要性与使用</h1><p>关键词：<code>diff算法</code> <code>唯一标识</code> </p>
+<p>当React作<code>diff</code>时，只要子元素有<code>key</code>属性，便会去原<code>v-dom</code>树中相应位置（<code>当前横向比较的层级</code>）寻找是否有<code>同key元素</code>，比较它们<code>是否完全相同</code>，<code>若是则复用</code>该元素，免去不必要的操作。</p>
+<p>key必须是<code>字符串</code>类型，它的取值可以用数据对象的某个唯一属性，或是对数据进行<code>hash</code>来生成key。</p>
+<p><strong>强烈 不推荐 用数组index来作为key</strong>。如果数据更新仅仅是数组重新排序或在其中间位置插入新元素，那么视图元素都将重新渲染。来看下例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;&#123;list.map((v,idx)=&gt;&lt;li key=&#123;idx&#125;&gt;&#123;v&#125;&lt;/li&gt;)&#125;&lt;/ul&gt;</span><br><span class="line">// [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]=&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;a&lt;/li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;b&lt;/li&gt;</span><br><span class="line">    &lt;li key=&quot;2&quot;&gt;c&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">// 数组重排 -&gt; [&apos;c&apos;,&apos;a&apos;,&apos;b&apos;] =&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    &lt;li key=&quot;0&quot;&gt;c&lt;/li&gt;</span><br><span class="line">    &lt;li key=&quot;1&quot;&gt;a&lt;/li&gt;</span><br><span class="line">    &lt;li key=&quot;2&quot;&gt;b&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>React发现key为0,1,2的元素的text都变了，将会<code>修改</code>三者的html，而不是<code>移动</code>它们。</p>
+<h2 id="渲染同类型元素不带key只会产生性能问题-如果渲染的是不同类型的状态性组件，组件将会被替换，状态丢失。"><a href="#渲染同类型元素不带key只会产生性能问题-如果渲染的是不同类型的状态性组件，组件将会被替换，状态丢失。" class="headerlink" title="渲染同类型元素不带key只会产生性能问题; 如果渲染的是不同类型的状态性组件，组件将会被替换，状态丢失。"></a>渲染同类型元素不带key只会产生性能问题; 如果渲染的是不同类型的状态性组件，组件将会被替换，状态丢失。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;this.state.type ? </span><br><span class="line">  (&lt;div&gt;&lt;Son_1 /&gt;&lt;Son_2 /&gt;&lt;/div&gt;)</span><br><span class="line">  : (&lt;div&gt;&lt;Son_2 /&gt;&lt;Son_1 /&gt;&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上述代码，每次按下按钮，原 Son_1与Son_2 <code>组件的实例都将被销毁</code>，<code>并创建新的Son_1与Son_2实例</code>，<code>不能继承原来的状态</code>；而它们实际上只是调换了位置。给它们<code>加上key可避免</code>问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;this.state.type ? </span><br><span class="line">    (&lt;div&gt;&lt;Son_1 key=&quot;1&quot;/&gt;&lt;Son_2 key=&quot;2&quot;/&gt;&lt;/div&gt;)</span><br><span class="line">    : (&lt;div&gt;&lt;Son_2 key=&quot;2&quot;/&gt;&lt;Son_1 key=&quot;1&quot;/&gt;&lt;/div&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>结论：</strong></p>
+<ol>
+<li>使用唯一<code>id</code>作为<code>key</code>比使用 <code>index</code> 作为 <code>key</code> 性能更好</li>
+<li>移动节点比修改节点的html 性能更好</li>
+</ol>
+<p><strong>分析补充：</strong>\<br>使用 index 作为 key 某些情况下影响性能。\<br>举个例子:<br>一个数组[a,b]，渲染成两个不同类型的节点，key用index。然后数组变成[b,a]，\<br>再次渲染时，react<code>先判断变化前后同key的虚拟节点</code>是否相等，发现节点类型就不同，接下来的操作就是新建两个dom节点去替换原来的节点。这种情况下key等于没用。而如果用唯一id，react会知道同key节点没有变化，只是换了位置，只要打个移动节点的patch到dom上，而不是新建替换。<br>另外修改节点可能修改量无限大啊</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" data-id="cjpbyhif300ehhodvj6z6vikc" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/" data-id="cjt55fwkr00fnucdvo7lfzaz8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-key/">react-key</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/JS中删除对象属性" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/06/FrontEnd/JS/JS中删除对象属性/" class="article-date">
+  <time class="post-time" datetime="2018-12-06T01:51:14.000Z" itemprop="datePublished">
+    <span class="post-month">12月</span><br/>
+    <span class="post-day">06</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/06/FrontEnd/JS/JS中删除对象属性/">JS中删除对象属性</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/12/06/FrontEnd/JS/JS中删除对象属性/" class="leancloud_visitors" data-flag-title="JS中删除对象属性">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS中删除对象的属性"><a href="#JS中删除对象的属性" class="headerlink" title="JS中删除对象的属性"></a>JS中删除对象的属性</h1><p>通过 <code>delete</code> 关键字实现</p>
+<blockquote>
+<p>delete xobj[‘anyKey’] </p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/06/FrontEnd/JS/JS中删除对象属性/" data-id="cjt55fwgb0092ucdvwdjmjar5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Delete/">Delete</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-programmingLanguage/位运算符" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/28/programmingLanguage/位运算符/" class="article-date">
+  <time class="post-time" datetime="2018-11-28T02:32:55.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">28</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/28/programmingLanguage/位运算符/">位运算符</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/11/28/programmingLanguage/位运算符/" class="leancloud_visitors" data-flag-title="位运算符">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ECMAScript-位运算符"><a href="#ECMAScript-位运算符" class="headerlink" title="ECMAScript 位运算符"></a><a href="http://www.w3school.com.cn/js/pro_js_operators_bitwise.asp" target="_blank" rel="noopener">ECMAScript 位运算符</a></h2><h3 id="位运算符是在数字底层（即表示数字的-32-个数位）进行操作的。"><a href="#位运算符是在数字底层（即表示数字的-32-个数位）进行操作的。" class="headerlink" title="位运算符是在数字底层（即表示数字的 32 个数位）进行操作的。"></a>位运算符是在数字底层（即表示数字的 32 个数位）进行操作的。</h3><hr>
+<h3 id="重温整数"><a href="#重温整数" class="headerlink" title="重温整数"></a>重温整数</h3><p><code>ECMAScript</code> 整数有<code>两种类型</code>，即<code>有符号整数</code>（允许用正数和负数）和<code>无符号整数</code>（只允许用正数）。<br>在 <code>ECMAScript</code> 中，所有<code>整数字面量</code>默认都是<code>有符号整数</code>，这意味着什么呢？</p>
+<p><code>有符号整数</code>使用 <code>31</code> 位表示整数的<code>数值</code>，用第 <code>32</code> 位表示整数的<code>符号</code>，<code>0 表示正数</code>，<code>1 表示负数</code>。数值范围从 <code>-2147483648</code> 到 <code>2147483647</code>。</p>
+<p>可以以<code>两种不同的方式</code>存储 <code>二进制形式的有符号整数</code>，一种用于存储<code>正数</code>，一种用于存储<code>负数</code>。</p>
+<p>正数是以真二进制形式存储的，前 31 位中的每一位都表示 2 的幂，从第 1 位（位 0）开始，表示 20，第 2 位（位 1）表示 21。没用到的位用 0 填充，即忽略不计。例如，下图展示的是数 18 的表示法。</p>
+<p>18 的二进制版本只用了前 5 位，它们是这个数字的有效位。把数字转换成二进制字符串，就能看到有效位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var iNum = 18;</span><br><span class="line">alert(iNum.toString(2));  //输出 &quot;10010&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码只输出 <code>&quot;10010&quot;</code>，而不是 18 的 32 位表示。其他的数位并不重要，因为仅使用前 5 位即可确定这个十进制数值。如下图所示：</p>
+<blockquote>
+<p>(2^4 <em> 1) + (2^3 </em> 0) + (2^2 <em> 0) + (2^1 </em> 1) + (2^0 * 0)</p>
+</blockquote>
+<p>负数也存储为二进制代码，不过采用的形式<code>是二进制补码</code>。计算数字二进制补码的步骤有三步：</p>
+<ol>
+<li>确定该数字的非负版本的二进制表示（例如，要计算 -18的二进制补码，首先要确定 18 的二进制表示）</li>
+</ol>
+<p>要确定 -18 的二进制表示，首先必须得到 18 的二进制表示，如下所示：</p>
+<blockquote>
+<p>0000 0000 0000 0000 0000 0000 0001 0010</p>
+</blockquote>
+<ol>
+<li>求得二进制反码，即要把 0 替换为 1，把 1 替换为 0</li>
+</ol>
+<p>接下来，计算二进制反码，如下所示：</p>
+<blockquote>
+<p>1111 1111 1111 1111 1111 1111 1110 1101</p>
+</blockquote>
+<ol>
+<li>在二进制反码上加 1</li>
+</ol>
+<p>最后，在二进制反码上加 1，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1111 1111 1111 1111 1111 1111 1110 1101</span><br><span class="line">                                      1</span><br><span class="line">---------------------------------------</span><br><span class="line">1111 1111 1111 1111 1111 1111 1110 1110</span><br></pre></td></tr></table></figure></p>
+<p>因此，-18 的二进制表示即 <code>1111 1111 1111 1111 1111 1111 1110 1110</code>。记住，在处理<code>有符号整数</code>时，开发者不能访问 <code>31</code> 位。</p>
+<p>有趣的是，把<code>负整数</code>转换成<code>二进制字符串</code>后，<code>ECMAScript</code> 并不以<code>二进制补码</code>的形式显示，而是用<code>数字绝对值</code>的<code>标准二进制代码</code>前面加<code>负号</code>的形式输出。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var iNum = -18;</span><br><span class="line">alert(iNum.toString(2));	//输出 &quot;-10010&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码输出的是 <code>&quot;-10010&quot;</code>，而<code>非二进制补码</code>，这是为<code>避免访问位 31</code>。为了简便，ECMAScript 用一种简单的方式处理整数，使得开发者不必关心它们的用法。</p>
+<p>另一方面，<code>无符号整数</code>把 最后一位 作为 另一个 数位 处理。</p>
+<p>在这种模式中，第 <code>32</code> 位不表示<code>数字的符号</code>，而是<code>值 2^31</code>。由于这个<code>额外的位</code>，无符号整数的数值范围为 0 到 4294967295。对于小于 2147483647 的整数来说，无符号整数看来与有符号整数一样，而大于 2147483647 的整数则要使用位 31（在有符号整数中，这一位总是 0）。</p>
+<p>把无符号整数转换成字符串后，只返回它们的有效位。</p>
+<p>注意：所有整数字面量都默认存储为有符号整数。只有 ECMAScript 的位运算符才能创建无符号整数。</p>
+<hr>
+<h3 id="位运算-NOT"><a href="#位运算-NOT" class="headerlink" title="位运算 NOT(~)"></a>位运算 NOT(~)</h3><p>位运算 <code>NOT</code> 由否定号（<code>~</code>）表示，它是 <code>ECMAScript</code> 中为数不多的与<code>二进制算术</code>有关的运算符之一。</p>
+<p>位运算 NOT 是三步的处理过程：</p>
+<ol>
+<li>把运算数转换成 32 位数字</li>
+<li>把二进制数转换成它的二进制反码</li>
+<li>把二进制数转换成浮点数</li>
+</ol>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var iNum1 = 25;		//25 等于 00000000000000000000000000011001</span><br><span class="line">var iNum2 = ~iNum1;	//转换为 11111111111111111111111111100110</span><br><span class="line">alert(iNum2);		//输出 &quot;-26&quot;</span><br></pre></td></tr></table></figure></p>
+<p>位运算 NOT 实质上是对数字求负，然后减 1，因此 25 变 -26。用下面的方法也可以得到同样的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var iNum1 = 25;</span><br><span class="line">var iNum2 = -iNum1 -1;</span><br><span class="line">alert(iNum2);	//输出 -26</span><br></pre></td></tr></table></figure>
+<h3 id="位运算-AND-amp"><a href="#位运算-AND-amp" class="headerlink" title="位运算 AND(&amp;)"></a>位运算 AND(&amp;)</h3><p>位运算 <code>AND</code> 由和号（<code>&amp;</code>）表示，直接对数字的二进制形式进行运算。它把每个<code>数字中的数位对齐</code>，然后用下面的规则对同一位置上的两个数位进行 AND 运算：</p>
+<h3 id="位运算-OR"><a href="#位运算-OR" class="headerlink" title="位运算 OR(|)"></a>位运算 OR(|)</h3><p>位运算 OR 由符号（|）表示，也是直接对数字的二进制形式进行运算。在计算每位时，OR 运算符采用下列规则：</p>
+<h3 id="位运算-XOR"><a href="#位运算-XOR" class="headerlink" title="位运算 XOR(^)"></a>位运算 XOR(^)</h3><h3 id="左移运算-lt-lt"><a href="#左移运算-lt-lt" class="headerlink" title="左移运算(&lt;&lt;)"></a>左移运算(&lt;&lt;)</h3><h3 id="有符号右移运算-gt-gt"><a href="#有符号右移运算-gt-gt" class="headerlink" title="有符号右移运算(&gt;&gt;)"></a>有符号右移运算(&gt;&gt;)</h3><h3 id="无符号右移运算-gt-gt-gt"><a href="#无符号右移运算-gt-gt-gt" class="headerlink" title="无符号右移运算(&gt;&gt;&gt;)"></a>无符号右移运算(&gt;&gt;&gt;)</h3><p>正数 与 有符号右移运算 相同;<br>负数 不同</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/28/programmingLanguage/位运算符/" data-id="cjt55fwfd007iucdvd5c9mqus" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logical-operation/">logical operation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-programmingLanguage/语法逻辑判断" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/23/programmingLanguage/语法逻辑判断/" class="article-date">
+  <time class="post-time" datetime="2018-11-23T02:34:43.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/programmingLanguage/语法逻辑判断/">语法逻辑判断</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/ProgrammingLang/">ProgrammingLang</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/11/23/programmingLanguage/语法逻辑判断/" class="leancloud_visitors" data-flag-title="语法逻辑判断">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="if语法的简单判断-以下语句等价"><a href="#if语法的简单判断-以下语句等价" class="headerlink" title="if语法的简单判断(以下语句等价)"></a>if语法的简单判断(以下语句等价)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (this.state.interval) &#123; window.clearInterval(this.state.interval) &#125;</span><br><span class="line">!!this.state.interval &amp;&amp; window.clearInterval(this.state.interval)</span><br><span class="line">demo: !!this.state.interval &amp;&amp; console.log(&apos;%c 123&apos;,&apos;color:red;font-size:30px&apos;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/23/programmingLanguage/语法逻辑判断/" data-id="cjt55fwf10070ucdvgx8s6xo4" class="article-share-link">分享</a>
       
       
     </footer>
@@ -426,7 +456,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" href="/page/5/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/5/">next &raquo;</a>
   </nav>
 </section>
         
@@ -467,9 +497,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -505,7 +535,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

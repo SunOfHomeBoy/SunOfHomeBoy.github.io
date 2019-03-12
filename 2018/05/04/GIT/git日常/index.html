@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="李仕臣的博客">
 <meta property="og:description" content="git使用日常一、拉取项目添加 “用户名：密码” git clone http://`lsc:sc123456@`192.168.0.196:3000/jdyx/shrs2006.com.git  克隆时可以 添加 用户名：密码@ uri/url  二、“git commit -m“ 与 “git commit -am“ 的区别123git commit -am &amp;quot;str&amp;quot;#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-30T08:15:21.824Z">
+<meta property="og:updated_time" content="2019-03-04T08:59:30.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git日常">
 <meta name="twitter:description" content="git使用日常一、拉取项目添加 “用户名：密码” git clone http://`lsc:sc123456@`192.168.0.196:3000/jdyx/shrs2006.com.git  克隆时可以 添加 用户名：密码@ uri/url  二、“git commit -m“ 与 “git commit -am“ 的区别123git commit -am &amp;quot;str&amp;quot;#">
@@ -44,9 +44,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -136,11 +136,45 @@
 <blockquote>
 <p>git remote rm origin // 删除现有远程仓库<br>git remote add origin url // 添加新远程仓库</p>
 </blockquote>
-<h2 id="git添加、查看、删除远程仓库地址"><a href="#git添加、查看、删除远程仓库地址" class="headerlink" title="git添加、查看、删除远程仓库地址"></a>git添加、查看、删除远程仓库地址</h2>
+<h2 id="git添加、查看、删除远程仓库地址"><a href="#git添加、查看、删除远程仓库地址" class="headerlink" title="git添加、查看、删除远程仓库地址"></a>git添加、查看、删除远程仓库地址</h2><h1 id="git命令大全"><a href="#git命令大全" class="headerlink" title="git命令大全"></a><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTEwMTAwNg==&amp;mid=2650215856&amp;idx=1&amp;sn=24add7911ff2d7c3b83d9f9e654ade82&amp;chksm=befe159189899c875688f1fb4b645990377520564c7d00ce4980409a23cb5597845878c4331d&amp;scene=0&amp;key=f0f5d77c9cac328dff3174d965f9a688bc94e2f538873022b7e67fe8129570d86aca4513dea437cba9b504f4fd91a85a66036af1526da9ab951bfcb953cc768300f6d2a045a1b5bd0855166d83ab5c85&amp;ascene=1&amp;uin=NDc0MjYzNDU1&amp;devicetype=Windows+10&amp;version=62060728&amp;lang=zh_CN&amp;pass_ticket=Te3F3fjJvEE2Ktl6HdLDEl7tf30T%2FaPZRcijm2kAZQrqmAF%2BKcIY18vg71h%2FqF59" target="_blank" rel="noopener">git命令大全</a></h1><h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><ol>
+<li>git branch：创建分支</li>
+<li>git branch -b：创建并切换到新建的分支上</li>
+<li>git checkout：切换分支</li>
+<li>git branch：查看分支列表</li>
+<li>git branch -v：查看所有分支的最后一次操作</li>
+<li>git branch -vv：查看当前分支</li>
+<li>git brabch -b [分支名] origin/分支名：创建远程分支到本地</li>
+<li>git branch –merged：查看别的分支和当前分支合并过的分支</li>
+<li>git branch –no-merged：查看未与当前分支合并的分支</li>
+<li>git branch -d 分支名：删除本地分支</li>
+<li>git branch -D 分支名：强行删除分支</li>
+<li>git branch origin 分支名：删除远处仓库分支</li>
+<li>git merge 分支名：合并分支到当前分支上</li>
+</ol>
+<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><ol>
+<li>git stash：暂存当前修改</li>
+<li>git stash apply：回复最近的一次暂存</li>
+<li>git stash pop：恢复暂存 并删除暂存记录</li>
+<li>git stash list：查看暂存列表</li>
+<li>git stash drop 暂存名(例：stash@{0})：移除某次暂存</li>
+<li>git stash clear：清除暂存</li>
+</ol>
+<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><ol>
+<li>git reset –hard HEAD^：回退到上一个版本</li>
+<li>git reset –hard ahdhs1(commit_id)：回退到某个版本</li>
+<li>git checkout –file：撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到 版本库，则还原至加入版本库之后的状态)</li>
+<li>git reset HEAD file：撤回暂存区的文件修改到工作区</li>
+</ol>
+<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><ol>
+<li>git tag 标签名：添加标签(默认对当前版本)</li>
+<li>git tag 标签名 commit_id：对某一提交记录打标签</li>
+<li>git tag -a 标签名 -m ‘描述’：创建新标签并增加备注</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/GIT/git日常/" data-id="cjpbyhi5y0044hodv4ko2ghnz" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/GIT/git日常/" data-id="cjt55fwcv0049ucdv6cdgzvyi" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
@@ -217,9 +251,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -255,7 +289,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       

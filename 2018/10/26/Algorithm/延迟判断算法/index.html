@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="李仕臣的博客">
 <meta property="og:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件1234567891011121314151617181920212223242526272829/** 组件内，函数外 缓存状态 */this.state = &amp;#123;  cacheValueArr: []&amp;#125;;/** 核心思想是：* 先缓存一次数据， * 定时器 2S 后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-21T11:56:27.133Z">
+<meta property="og:updated_time" content="2019-01-04T02:14:22.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="延迟判断算法">
 <meta name="twitter:description" content="延迟判断算法延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件1234567891011121314151617181920212223242526272829/** 组件内，函数外 缓存状态 */this.state = &amp;#123;  cacheValueArr: []&amp;#125;;/** 核心思想是：* 先缓存一次数据， * 定时器 2S 后">
@@ -44,9 +44,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -118,14 +118,20 @@
 <ul>
 <li><p>Created by hjl on 2017/8/15.<br>*/<br>var throttle = function (func, interval) {<br>var self = func,<br> timer,<br> firstTime = true;</p>
 <p>return function () {<br> var args = arguments,<br>   me = this;<br> if (firstTime) {<br>   self.apply(me, args);<br>   return firstTime = false;<br> }<br> if (timer) {<br>   return false;<br> }</p>
-<p> timer = setTimeout(function () {<br>   clearTimeout(timer);<br>   timer = null;<br>   self.apply(me, args);<br> }, interval || 3000);<br>};<br>};<br>````</p>
+<p> timer = setTimeout(function () {<br>   clearTimeout(timer);<br>   timer = null;<br>   self.apply(me, args);<br> }, interval || 3000);<br>};<br>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**借鉴方法**</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>函数防抖<br>*</li>
+<li>@param {any} method 方法名<br>*/<br>function debounce(method) {<br>clearTimeout(method.tId);<br>method.tId = setTimeout(function() {<br>method.call();<br>}, 200);<br>}<br>````</li>
+</ul>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/Algorithm/延迟判断算法/" data-id="cjpbyhi4p002phodvoicwbr65" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/Algorithm/延迟判断算法/" data-id="cjt55fwc6003cucdvnziox0mr" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/延迟判断/">延迟判断</a></li></ul>
@@ -146,7 +152,7 @@
     </a>
   
   
-    <a href="/2018/10/22/ECharts学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/10/22/FrontEnd/ECharts学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">ECharts学习笔记</div>
     </a>
@@ -202,9 +208,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>144</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>76</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>120</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
     </div>
 
 
@@ -240,7 +246,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy;2017 - 2018 李仕臣<br>
+      &copy;2018 - 2019 李仕臣<br>
       由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
       主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
       
