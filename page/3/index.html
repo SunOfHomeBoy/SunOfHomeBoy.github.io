@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-Algorithm/函数防抖" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Npm-查看所有依赖" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/18/Algorithm/函数防抖/" class="article-date">
-  <time class="post-time" datetime="2019-01-18T08:41:13.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">18</span>
+    <a href="/2019/02/26/Npm-查看所有依赖/" class="article-date">
+  <time class="post-time" datetime="2019-02-26T03:08:23.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">26</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/18/Algorithm/函数防抖/">函数防抖</a>
+      <a class="article-title" href="/2019/02/26/Npm-查看所有依赖/">Npm-查看所有依赖</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    <a class="article-category-link" href="/categories/Npm/">Npm</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/01/18/Algorithm/函数防抖/" class="leancloud_visitors" data-flag-title="函数防抖">
+    <span id="/2019/02/26/Npm-查看所有依赖/" class="leancloud_visitors" data-flag-title="Npm-查看所有依赖">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,16 +113,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="函数防抖动"><a href="#函数防抖动" class="headerlink" title="函数防抖动"></a>函数防抖动</h1><p>鼠标移入事件的函数防抖方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/** HTML */</span><br><span class="line">&lt;div</span><br><span class="line">  class=&quot;getTitle&quot;</span><br><span class="line">  @mouseover=&quot;getTitleReq(scope)&quot;</span><br><span class="line">  @mouseout=&quot;clearTitleReq&quot;</span><br><span class="line">&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">/** 指标完成率 获取数据行说明 */</span><br><span class="line">getTitleReq(scope) &#123;</span><br><span class="line">  // console.log(&apos;getTitleTimeout&apos;);</span><br><span class="line">  clearTimeout(this.getTitleTimeout)</span><br><span class="line">  this.getTitleTimeout = setTimeout(() =&gt; &#123;</span><br><span class="line">    // debugger</span><br><span class="line">    // 请求接口 doSomething...</span><br><span class="line">  &#125;, 500)</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">/** 指标完成率 清除获取数据行说明 */</span><br><span class="line">clearTitleReq() &#123;</span><br><span class="line">  // console.log(&apos;clearTimeout&apos;);</span><br><span class="line">  clearTimeout(this.getTitleTimeout)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-
+        <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># global 代表全局</span></span><br><span class="line">npm list --depth=0 -global</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/01/18/Algorithm/函数防抖/" data-id="cjt55fwbn002pucdv37gv1tqp" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/Npm-查看所有依赖/" data-id="cjuxepwer000058dv51dqt6u6" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数防抖/">函数防抖</a></li></ul>
-
     </footer>
   </div>
   
@@ -132,12 +129,12 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/CSS-动态计算" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/HTML CSS/CSS-行内元素-消除边距" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/07/FrontEnd/HTML CSS/CSS-动态计算/" class="article-date">
-  <time class="post-time" datetime="2019-01-07T09:08:00.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">07</span>
+    <a href="/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/" class="article-date">
+  <time class="post-time" datetime="2019-02-26T03:07:58.000Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">26</span>
   </time>
 </a>
    
@@ -149,7 +146,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/07/FrontEnd/HTML CSS/CSS-动态计算/">动态计算</a>
+      <a class="article-title" href="/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/">CSS-行内元素 消除边距</a>
     </h1>
   
 
@@ -163,7 +160,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/01/07/FrontEnd/HTML CSS/CSS-动态计算/" class="leancloud_visitors" data-flag-title="动态计算">
+    <span id="/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/" class="leancloud_visitors" data-flag-title="CSS-行内元素 消除边距">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -175,15 +172,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计算值"><a href="#计算值" class="headerlink" title="计算值"></a>计算值</h2><p>可跨单位计算 </p>
-<blockquote>
-<p>width : calc(~”100% - 240px”);</p>
-</blockquote>
-
+        <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>美女如云<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">　　<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span>高山流水<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">*&#123;</span></span><br><span class="line"><span class="undefined">　　margin:0 auto;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">/* 父元素 font-size 设为0; text-size-adjust: none */</span></span><br><span class="line"><span class="undefined">.parent &#123;</span></span><br><span class="line"><span class="undefined">　　font-size: 0;</span></span><br><span class="line"><span class="undefined">　　-webkit-text-size-adjust: none</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">/* 设置字体大小，不然可能看不到字 */</span></span><br><span class="line"><span class="undefined">.child &#123;</span></span><br><span class="line"><span class="undefined">    display:inline-block; </span></span><br><span class="line"><span class="undefined">    width:100px; height:100px; </span></span><br><span class="line"><span class="undefined">    color: #000;</span></span><br><span class="line"><span class="undefined">    font-size: 15px;</span></span><br><span class="line"><span class="undefined">    background:green;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/01/07/FrontEnd/HTML CSS/CSS-动态计算/" data-id="cjt55fwfn007xucdvcj0p1811" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/" data-id="cjuxepwp0008858dvschn30w2" class="article-share-link">分享</a>
       
       
     </footer>
@@ -195,12 +188,12 @@
 
 
   
-    <article id="post-FrontEnd/JS/IFrame/js之iframe父子页面通信" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-server/Ubuntu-安装-mySQL" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" class="article-date">
-  <time class="post-time" datetime="2019-01-02T07:48:26.000Z" itemprop="datePublished">
+    <a href="/2019/01/31/server/Ubuntu-安装-mySQL/" class="article-date">
+  <time class="post-time" datetime="2019-01-31T10:41:31.000Z" itemprop="datePublished">
     <span class="post-month">1月</span><br/>
-    <span class="post-day">02</span>
+    <span class="post-day">31</span>
   </time>
 </a>
    
@@ -212,21 +205,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/">js之iframe父子页面通信</a>
+      <a class="article-title" href="/2019/01/31/server/Ubuntu-安装-mySQL/">Ubuntu 安装 mySQL</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" class="leancloud_visitors" data-flag-title="js之iframe父子页面通信">
+    <span id="/2019/01/31/server/Ubuntu-安装-mySQL/" class="leancloud_visitors" data-flag-title="Ubuntu 安装 mySQL">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -238,83 +227,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="js之iframe父子页面通信"><a href="#js之iframe父子页面通信" class="headerlink" title="js之iframe父子页面通信"></a><a href="https://www.cnblogs.com/sydeveloper/p/3712863.html" target="_blank" rel="noopener">js之iframe父子页面通信</a></h1><p>父页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/** 父页面需要在 window对象上 挂载一个 方法，供子页面调用 */</span><br><span class="line">iframeHandle() &#123;</span><br><span class="line">  window.clickSet = () =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      showReturn: true</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    this.iframeHandle()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>子页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function clickSet() &#123;</span><br><span class="line">    parent.window.clickSet(); // 子页面方法内部 调用父级window对象 下挂载的方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(function()&#123;</span><br><span class="line">    $(&apos;.iframeReturn&apos;).on(&apos;click&apos;,clickSet) // 调用方法</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+        <p>教程：<a href="https://blog.csdn.net/weixx3/article/details/80782479" target="_blank" rel="noopener">https://blog.csdn.net/weixx3/article/details/80782479</a></p>
 <hr>
-<h1 id="iframe在更改了src之后对应的网页并未刷新"><a href="#iframe在更改了src之后对应的网页并未刷新" class="headerlink" title="iframe在更改了src之后对应的网页并未刷新"></a><a href="https://blog.csdn.net/jin80506/article/details/83271401" target="_blank" rel="noopener">iframe在更改了src之后对应的网页并未刷新</a></h1><p>在更改src之前加上这一句即可。</p>
 <blockquote>
-<p>document.getElementById(iframe的id).contentWindow.location.reload(true);</p>
-</blockquote>
-<h1 id="Iframe监听ulr"><a href="#Iframe监听ulr" class="headerlink" title="Iframe监听ulr"></a>Iframe监听ulr</h1><blockquote>
-<p>onload标签属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe</span><br><span class="line">  id=&quot;AirportBusiness&quot;</span><br><span class="line">  src=&#123;ifSrc&#125; frameBorder=&quot;0&quot;</span><br><span class="line">  onLoad=&#123;this.handleButton&#125;</span><br><span class="line">  style=&#123;&#123; border: 0, width: clientWidth, height: clientHeight, marginTop: -70 &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">handleButton() &#123;</span><br><span class="line">  let ifra = document.getElementById(&apos;AirportBusiness&apos;).contentWindow.location.href;</span><br><span class="line">  let urlTest = /index/;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    showReturn: !urlTest.test(ifra)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO root@localhost IDENTIFIED BY “123456”;</p>
+<h2 id="GRANT-ALL-PRIVILEGES-ON-TO-root-”-”-IDENTIFIED-BY-“123456”-允许-root-远程连接"><a href="#GRANT-ALL-PRIVILEGES-ON-TO-root-”-”-IDENTIFIED-BY-“123456”-允许-root-远程连接" class="headerlink" title="GRANT ALL PRIVILEGES ON . TO root@”%” IDENTIFIED BY “123456”; // 允许 root 远程连接"></a>GRANT ALL PRIVILEGES ON <em>.</em> TO root@”%” IDENTIFIED BY “123456”; // 允许 root 远程连接</h2></blockquote>
+<p>重启 服务</p>
+<blockquote>
+<p>service ‘服务名’ restart</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" data-id="cjt55fwjn00e8ucdvzbo8hycr" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFrame/">IFrame</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Algorithm/echarts轴最大数分割算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/29/Algorithm/echarts轴最大数分割算法/" class="article-date">
-  <time class="post-time" datetime="2018-12-29T03:45:00.000Z" itemprop="datePublished">
-    <span class="post-month">12月</span><br/>
-    <span class="post-day">29</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/29/Algorithm/echarts轴最大数分割算法/">echarts轴最大数分割算法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/12/29/Algorithm/echarts轴最大数分割算法/" class="leancloud_visitors" data-flag-title="echarts轴最大数分割算法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="最大值-以及-分割数-计算"><a href="#最大值-以及-分割数-计算" class="headerlink" title="最大值 以及 分割数 计算"></a>最大值 以及 分割数 计算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// echarts 支持callback函数</span><br><span class="line">max: (&#123; max, min &#125;) =&gt; &#123;</span><br><span class="line">  /** 判断最大值的长度 减一是因为 两位数只用 除10 即可，即保留十位上的为整数，以此类推 */</span><br><span class="line">  let maxLen = max.toString().length - 1;</span><br><span class="line"></span><br><span class="line">  /** 取平方 */</span><br><span class="line">  let pow = Math.pow(10, maxLen)</span><br><span class="line">  let pow2 = Number(`10e$&#123;max.toString().length - 1&#125;`)</span><br><span class="line"></span><br><span class="line">  // 取整</span><br><span class="line">  let ceilMax = Math.ceil(max / pow) * pow;</span><br><span class="line">  this.state.max = ceilMax;</span><br><span class="line">  this.state.min = min;</span><br><span class="line">  return ceilMax</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">// 不支持 callback，可以 通过 state缓存 max 函数 中最大值计算</span><br><span class="line">interval: (() =&gt; this.state.max / 5)(),</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/29/Algorithm/echarts轴最大数分割算法/" data-id="cjt55fwci003qucdvr163ba1q" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/01/31/server/Ubuntu-安装-mySQL/" data-id="cjuxepwmg005v58dvnedw1way" class="article-share-link">分享</a>
       
       
     </footer>
@@ -326,12 +252,12 @@
 
 
   
-    <article id="post-FrontEnd/前端文件上传" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/HTML CSS/C3-选择器" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/19/FrontEnd/前端文件上传/" class="article-date">
-  <time class="post-time" datetime="2018-12-19T03:05:05.000Z" itemprop="datePublished">
-    <span class="post-month">12月</span><br/>
-    <span class="post-day">19</span>
+    <a href="/2019/01/26/FrontEnd/HTML CSS/C3-选择器/" class="article-date">
+  <time class="post-time" datetime="2019-01-26T07:04:49.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">26</span>
   </time>
 </a>
    
@@ -343,21 +269,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/19/FrontEnd/前端文件上传/">前端文件上传</a>
+      <a class="article-title" href="/2019/01/26/FrontEnd/HTML CSS/C3-选择器/">C3 选择器</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Upload/">Upload</a>
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/12/19/FrontEnd/前端文件上传/" class="leancloud_visitors" data-flag-title="前端文件上传">
+    <span id="/2019/01/26/FrontEnd/HTML CSS/C3-选择器/" class="leancloud_visitors" data-flag-title="C3 选择器">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -369,15 +295,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前端-文件上传"><a href="#前端-文件上传" class="headerlink" title="前端 文件上传"></a>前端 文件上传</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const &#123; fileList &#125; = this.state; // 取得文件列表</span><br><span class="line">const formData = new FormData(); // 新增实例</span><br><span class="line">fileList.forEach((file) =&gt; &#123;</span><br><span class="line">    formData.append(&apos;file&apos;, file); // 遍历添加数据，append 第一个参数 为 `name` 属性</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">axios(&#123;</span><br><span class="line">    url: `$&#123;realAddress&#125;/yuhuaqu/$&#123;list&#125;/import`,</span><br><span class="line">    method: &apos;post&apos;,</span><br><span class="line">    processData: false,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        &apos;Authorization&apos;: SessionStorage.get(&apos;token&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    data: formData,</span><br><span class="line">&#125;).then((res) =&gt; &#123; // do something...&#125;);</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  &amp;:not(.itemCard0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">calc(~&quot;100% - 19px&quot;)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/19/FrontEnd/前端文件上传/" data-id="cjt55fwch003oucdvirzn89pe" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/01/26/FrontEnd/HTML CSS/C3-选择器/" data-id="cjuxepwou008258dv8gwdlhj1" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-upload/">file-upload</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
 
+
+
+
+  
+    <article id="post-FrontEnd/HTML CSS/CSS-文字超出隐藏" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/18/FrontEnd/HTML CSS/CSS-文字超出隐藏/" class="article-date">
+  <time class="post-time" datetime="2019-01-18T08:46:31.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">18</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/18/FrontEnd/HTML CSS/CSS-文字超出隐藏/">CSS-文字超出隐藏</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/01/18/FrontEnd/HTML CSS/CSS-文字超出隐藏/" class="leancloud_visitors" data-flag-title="CSS-文字超出隐藏">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="文字超出隐藏"><a href="#文字超出隐藏" class="headerlink" title="文字超出隐藏"></a>文字超出隐藏</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.textOverflow &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  white-space: nowrap;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2019/01/18/FrontEnd/HTML CSS/CSS-文字超出隐藏/" data-id="cjuxepwoq007y58dv96k11rsy" class="article-share-link">分享</a>
+      
+      
     </footer>
   </div>
   
@@ -390,7 +375,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/4/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; pre</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/4/">next &raquo;</a>
   </nav>
 </section>
         
@@ -431,9 +416,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
 
 

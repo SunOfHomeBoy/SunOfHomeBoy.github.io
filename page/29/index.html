@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,338 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/JS/JS常见陷阱" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/FrontEnd/JS/JS常见陷阱/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T02:36:51.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/05/FrontEnd/JS/JS常见陷阱/">JS常见陷阱</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/05/FrontEnd/JS/JS常见陷阱/" class="leancloud_visitors" data-flag-title="JS常见陷阱">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript中8个常见的陷阱"><a href="#JavaScript中8个常见的陷阱" class="headerlink" title="JavaScript中8个常见的陷阱"></a>JavaScript中8个常见的陷阱</h1><h2 id="1-数组元素排序"><a href="#1-数组元素排序" class="headerlink" title="1. 数组元素排序"></a>1. 数组元素排序</h2><p>JavaScript默认使用<code>字典序(alphanumeric)</code>来排序。因此，<code>[1,2,5,10].sort()</code>的结果是<code>[1, 10, 2, 5]</code>。</p>
+<p>如果你想正确的排序，应该这样做：<code>[1,2,5,10].sort((a, b) =&gt; a - b)</code></p>
+<h2 id="2-new-Date"><a href="#2-new-Date" class="headerlink" title="2. new Date()"></a>2. new Date()</h2><p><code>new Date()</code>的使用方法有：</p>
+<ul>
+<li>不接收任何参数：返回当前时间；</li>
+<li>接收一个参数x: 返回1970年1月1日 + x毫秒的值。</li>
+<li>new Date(1, 1, 1)返回1901年2月1号。</li>
+<li>new Date(2016, 1, 1)不会在1900年的基础上加2016，而只是表示2016年。</li>
+</ul>
+<h2 id="3-替换函数-replace"><a href="#3-替换函数-replace" class="headerlink" title="3. 替换函数(replace)"></a>3. 替换函数(replace)</h2><pre><code>let s = &quot;bob&quot;
+const replaced = s.replace(&apos;b&apos;, &apos;l&apos;)
+replaced === &quot;lob&quot; // 只会替换掉第一个b
+s === &quot;bob&quot; // 并且s的值不会变  
+</code></pre><p>如果想把所有<code>b</code>都替换掉，要使用正则：</p>
+<pre><code>&quot;bob&quot;.replace(/b/g, &apos;l&apos;) === &apos;lol&apos;
+</code></pre><h2 id="4-谨慎对待比较运算"><a href="#4-谨慎对待比较运算" class="headerlink" title="4. 谨慎对待比较运算"></a>4. 谨慎对待比较运算</h2><p>  // 这些可以<br>  ‘abc’ === ‘abc’ // true<br>  1 === 1         // true<br>  // 然而这些不行<br>  [1,2,3] === [1,2,3] // false<br>  {a: 1} === {a: 1}   // false<br>  {} === {}           // false</p>
+<p>  因为<code>[1,2,3]</code>和[1,2,3]是两个不同的数组，只是它们的元素碰巧相同。因此，不能简单的通过===来判断。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/JS常见陷阱/" data-id="cjuxepwq0009r58dvj22xms25" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS常见坑/">JS常见坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/Windows/Windows-系统快捷键" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/Operating System/Windows/Windows-系统快捷键/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T01:46:01.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/05/Operating System/Windows/Windows-系统快捷键/">Windows/系统快捷键</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Windows/">Windows</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/05/Operating System/Windows/Windows-系统快捷键/" class="leancloud_visitors" data-flag-title="Windows/系统快捷键">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows-系统快捷键"><a href="#Windows-系统快捷键" class="headerlink" title="Windows/系统快捷键"></a>Windows/系统快捷键</h1><h2 id="Win10"><a href="#Win10" class="headerlink" title="Win10"></a>Win10</h2><blockquote>
+<p>Win + G  // XBOX录屏软件</p>
+<p>Win + shift + 1~9  // 快速建立新窗口/多窗口</p>
+<p>Win + <code>&quot;+&quot;</code> // 屏幕放大镜</p>
+<p>Win + Esc  // 关闭屏幕放大镜</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/Operating System/Windows/Windows-系统快捷键/" data-id="cjuxepwr500bh58dvl6xhx6tz" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-系统快捷键/">Windows/系统快捷键</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/添加自定义shell" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" class="article-date">
+  <time class="post-time" datetime="2018-05-04T03:34:46.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/">添加自定义shell</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/shell/">shell</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" class="leancloud_visitors" data-flag-title="添加自定义shell">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="添加自定义github-shell"><a href="#添加自定义github-shell" class="headerlink" title="添加自定义github.shell"></a>添加自定义github.shell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ echo $PATH  // 打印 路径</span><br><span class="line">$ cd /home/LiSC/bin  // 转到第一个路径</span><br><span class="line">$ mkdir /home/LiSC/bin  // 创建文件夹</span><br><span class="line">$ vim github.shell  // 创建文件[把shell脚本复制粘贴]</span><br><span class="line">$ chmod +x github.shell  // 文件权限属性设置 =&gt; 用来变更文件或目录的权限</span><br></pre></td></tr></table></figure>
+<p>附：shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">## Coptyright 2016 The HongJiang Library Authors. All rights reserved.</span><br><span class="line">## Use of this source code is governed by a Apache-style</span><br><span class="line">## license that can be found in the LICNESE file.</span><br><span class="line">##</span><br><span class="line">## Git(Github.com) Common Client Commands.</span><br><span class="line">##</span><br><span class="line">## @authors hjboss &lt;hongjiangproject@gmail.com&gt; 2018-04 $$</span><br><span class="line">## @version 1.0.0</span><br><span class="line">GIT=`/usr/bin/which git`</span><br><span class="line">HOST=&apos;git@github.com&apos;</span><br><span class="line">NAME=&apos;hlibs&apos;</span><br><span class="line">SCRIPT=`basename $0`</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">	&quot;add&quot;)</span><br><span class="line">		if [ $# -lt 2 ] || [ &quot;$2&quot; == &quot;*&quot; ]; then</span><br><span class="line">			$GIT add --all</span><br><span class="line">		else</span><br><span class="line">			$GIT add &quot;$2&quot;</span><br><span class="line">		fi</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;ci&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			$GIT commit -a -m &quot;Initial commit&quot;</span><br><span class="line">		else</span><br><span class="line">			$GIT commit -a -m &quot;$2&quot;</span><br><span class="line">		fi</span><br><span class="line">		$GIT push -u origin master</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;co&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			echo &quot;版本庫名稱不能空值&quot;</span><br><span class="line">		elif [ $# -eq 2 ]; then</span><br><span class="line">			$GIT clone &quot;$HOST:$NAME/$2.git&quot;</span><br><span class="line">		else</span><br><span class="line">			$GIT clone &quot;$HOST:$2/$3.git&quot;</span><br><span class="line">		fi</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;rm&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			echo &quot;刪除文件名不能空值&quot;</span><br><span class="line">			exit</span><br><span class="line">		fi</span><br><span class="line">		$GIT rm &quot;$2&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;up&quot;)</span><br><span class="line">		$GIT pull</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;st&quot;)</span><br><span class="line">		$GIT status</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;help&quot;)</span><br><span class="line">		echo &quot;用法: $SCRIPT &lt;subcommand&gt; [args]&quot;</span><br><span class="line">		echo &quot;版本: 1.0.0&quot;</span><br><span class="line">		echo &quot;最常用的子命令:&quot;</span><br><span class="line">		echo &quot;  add 添加文件内容至索引&quot;</span><br><span class="line">		echo &quot;  ci 记录变更到版本库并且更新至github.com&quot;</span><br><span class="line">		echo &quot;  co 将给定名称的版本库克隆到一个新目录&quot;</span><br><span class="line">		echo &quot;  rm 从工作区和索引中删除文件&quot;</span><br><span class="line">		echo &quot;  up 本地分支更新到最新版本&quot;</span><br><span class="line">		echo &quot;  st 显示工作区状态&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;version&quot;)</span><br><span class="line">		echo &quot;$SCRIPT version 1.0.0&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	*)</span><br><span class="line">		echo &quot;使用$SCRIPT help得到用法&quot;</span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></p>
+<h1 id="自定义NPM脚本"><a href="#自定义NPM脚本" class="headerlink" title="自定义NPM脚本"></a>自定义NPM脚本</h1><p><code>sbin &amp; bin 区别</code> root可以访问 <code>sbin</code> 下的脚本</p>
+<blockquote>
+<p>/usr/local/sbin/npm.shell</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">npm --registry=https://registry.npm.taobao.org $*</span><br></pre></td></tr></table></figure>
+<p><strong><code>$*</code></strong>: 属于 process 环境变量</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" data-id="cjuxepwua00fz58dvo36bmx5x" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义shell/">自定义shell</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-GIT/git日常" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/04/GIT/git日常/" class="article-date">
+  <time class="post-time" datetime="2018-05-04T03:07:12.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/04/GIT/git日常/">git日常</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/04/GIT/git日常/" class="leancloud_visitors" data-flag-title="git日常">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="git使用日常"><a href="#git使用日常" class="headerlink" title="git使用日常"></a>git使用日常</h1><h2 id="一、拉取项目添加-“用户名：密码”"><a href="#一、拉取项目添加-“用户名：密码”" class="headerlink" title="一、拉取项目添加 “用户名：密码”"></a>一、拉取项目添加 “用户名：密码”</h2><p> git clone <a href="http://`lsc:sc123456@`192.168.0.196:3000/jdyx/shrs2006.com.git" target="_blank" rel="noopener">http://`lsc:sc123456@`192.168.0.196:3000/jdyx/shrs2006.com.git</a></p>
+<p> 克隆时可以 添加 <code>用户名：密码@</code> uri/url</p>
+<p><br></p>
+<h2 id="二、“git-commit-m“-与-“git-commit-am“-的区别"><a href="#二、“git-commit-m“-与-“git-commit-am“-的区别" class="headerlink" title="二、“git commit -m“ 与 “git commit -am“ 的区别"></a>二、<a href="https://segmentfault.com/q/1010000005900988" target="_blank" rel="noopener">“<code>git commit -m</code>“ 与 “<code>git commit -am</code>“ 的区别</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit -am &quot;str&quot;</span><br><span class="line"># 等同于</span><br><span class="line">git commit -a -m &quot;str&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><p>通常我们提交git的时候都是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;some str&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>这三大步，而实际上，你只需要两条命令就够了，除非有新的文件要被添加进去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -am &quot;some str&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<p>但是，<code>git commit -m</code> 和 <code>git commit -am</code>的区别在哪里？在于<code>a.txt</code>文件修改之后的处理</p>
+<p>下面，向<code>a.txt</code>添加内容’a’</p>
+<p>文件a.txt处于已跟踪，但未暂存状态。这时，如果使用<code>git commit -m</code>是无法提交最新版本的a.txt的，提交的只是最开始空内容的旧版本a.txt</p>
+<p>文件a.txt处于已跟踪，但未暂存状态。这时，如果使用<code>git commit -m</code>是无法提交最新版本的a.txt的，提交的只是最开始空内容的旧版本a.txt</p>
+<p>而如果使用<code>git commit -am</code>，则可以省略<code>git add a.txt</code>这一步，因为<code>git commit -am</code>可以提交跟踪过的文件，而<code>a.txt</code>一开始已经被跟踪过了</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a><strong>总结:</strong></h3><p>使用这两个命令区别的<code>关键</code>就是<code>git add</code>命令</p>
+<p><code>git add</code>命令是个多功能命令，根据目标<code>文件状态</code>不同，此命令的效果也不同：可以用它<code>开始跟踪新文件</code>，或者<code>把已跟踪的文件放到暂存区</code>，还能用于<code>合并时把有冲突的文件标记为已解决状态</code>等</p>
+<p>我们需要用<code>git add</code>命令来跟踪新文件，但如果使用<code>git commit -am</code>可以省略使用<code>git add</code>命令将已跟踪文件放到暂存区的功能</p>
+<h2 id="git查看远程仓库信息"><a href="#git查看远程仓库信息" class="headerlink" title="git查看远程仓库信息"></a>git查看远程仓库信息</h2><blockquote>
+<p>git remote -v</p>
+<p>git remote show origin</p>
+</blockquote>
+<h2 id="git切换远程仓库地址"><a href="#git切换远程仓库地址" class="headerlink" title="git切换远程仓库地址"></a>git切换远程仓库地址</h2><p>方式一：修改远程仓库地址</p>
+<blockquote>
+<p>git remote set-url origin URL  // 更换远程仓库地址，URL为新地址。</p>
+</blockquote>
+<p>方式二：先删除远程仓库地址，然后再添加</p>
+<blockquote>
+<p>git remote rm origin // 删除现有远程仓库<br>git remote add origin url // 添加新远程仓库</p>
+</blockquote>
+<h2 id="git添加、查看、删除远程仓库地址"><a href="#git添加、查看、删除远程仓库地址" class="headerlink" title="git添加、查看、删除远程仓库地址"></a>git添加、查看、删除远程仓库地址</h2><h1 id="git命令大全"><a href="#git命令大全" class="headerlink" title="git命令大全"></a><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTEwMTAwNg==&amp;mid=2650215856&amp;idx=1&amp;sn=24add7911ff2d7c3b83d9f9e654ade82&amp;chksm=befe159189899c875688f1fb4b645990377520564c7d00ce4980409a23cb5597845878c4331d&amp;scene=0&amp;key=f0f5d77c9cac328dff3174d965f9a688bc94e2f538873022b7e67fe8129570d86aca4513dea437cba9b504f4fd91a85a66036af1526da9ab951bfcb953cc768300f6d2a045a1b5bd0855166d83ab5c85&amp;ascene=1&amp;uin=NDc0MjYzNDU1&amp;devicetype=Windows+10&amp;version=62060728&amp;lang=zh_CN&amp;pass_ticket=Te3F3fjJvEE2Ktl6HdLDEl7tf30T%2FaPZRcijm2kAZQrqmAF%2BKcIY18vg71h%2FqF59" target="_blank" rel="noopener">git命令大全</a></h1><h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><ol>
+<li>git branch：创建分支</li>
+<li>git branch -b：创建并切换到新建的分支上</li>
+<li>git checkout：切换分支</li>
+<li>git branch：查看分支列表</li>
+<li>git branch -v：查看所有分支的最后一次操作</li>
+<li>git branch -vv：查看当前分支</li>
+<li>git brabch -b [分支名] origin/分支名：创建远程分支到本地</li>
+<li>git branch –merged：查看别的分支和当前分支合并过的分支</li>
+<li>git branch –no-merged：查看未与当前分支合并的分支</li>
+<li>git branch -d 分支名：删除本地分支</li>
+<li>git branch -D 分支名：强行删除分支</li>
+<li>git branch origin 分支名：删除远处仓库分支</li>
+<li>git merge 分支名：合并分支到当前分支上</li>
+</ol>
+<h2 id="暂存操作"><a href="#暂存操作" class="headerlink" title="暂存操作"></a>暂存操作</h2><ol>
+<li>git stash：暂存当前修改</li>
+<li>git stash apply：回复最近的一次暂存</li>
+<li>git stash pop：恢复暂存 并删除暂存记录</li>
+<li>git stash list：查看暂存列表</li>
+<li>git stash drop 暂存名(例：stash@{0})：移除某次暂存</li>
+<li>git stash clear：清除暂存</li>
+</ol>
+<h2 id="回退操作"><a href="#回退操作" class="headerlink" title="回退操作"></a>回退操作</h2><ol>
+<li>git reset –hard HEAD^：回退到上一个版本</li>
+<li>git reset –hard ahdhs1(commit_id)：回退到某个版本</li>
+<li>git checkout –file：撤销修改的文件(如果文件加入到了暂存区，则回退到暂存区的，如果文件加入到 版本库，则还原至加入版本库之后的状态)</li>
+<li>git reset HEAD file：撤回暂存区的文件修改到工作区</li>
+</ol>
+<h2 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h2><ol>
+<li>git tag 标签名：添加标签(默认对当前版本)</li>
+<li>git tag 标签名 commit_id：对某一提交记录打标签</li>
+<li>git tag -a 标签名 -m ‘描述’：创建新标签并增加备注</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/GIT/git日常/" data-id="cjuxepwl4004b58dv76gmem8h" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -133,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/" data-id="cjt55fwlt00gvucdvhraf8aw5" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/Operating System/UnixLike/Linux/linux下docker部署gogs-git仓库/" data-id="cjuxepwu800fw58dvm16ziell" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gogs-docker/">gogs docker</a></li></ul>
@@ -147,301 +479,10 @@
 
 
   
-    <article id="post-SPDY：Google开发的下一代HTTP协议" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="article-date">
-  <time class="post-time" datetime="2018-05-03T06:46:47.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">03</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/">SPDY：Google开发的下一代HTTP协议</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/HTTP/">HTTP</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="leancloud_visitors" data-flag-title="SPDY：Google开发的下一代HTTP协议">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SPDY-发音同”speedy”-：Google开发的下一代HTTP协议"><a href="#SPDY-发音同”speedy”-：Google开发的下一代HTTP协议" class="headerlink" title="SPDY(发音同”speedy”)：Google开发的下一代HTTP协议"></a><a href="http://josh-persistence.iteye.com/blog/2200727" target="_blank" rel="noopener">SPDY(发音同”speedy”)：Google开发的下一代HTTP协议</a></h1><p>（解决HTTP协议的缺点,Wrapper模式）</p>
-<p>概述</p>
-<p>SPDY是Google宣布正在开发的下一代网络协议，SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强。HTTP自上世纪90年代问世以来，已有二十年的历史，期间互联网本身发生了很大的变化，也使得HTTP的许多不足暴露了出来，现在它已经不能满足许多web app的要求。Google表示，引入SPDY协议后，在实验室测试中页面加载速度比原先快64%，并且目前已经在Gmail等应用中使用。目前业界支持SPDY的服务器有Netty和Nginx(将要支持)。Nginx 官方发布下一个版本 1.3.0 的路线图，该版本将支持 Google SPDY。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/03/SPDY：Google开发的下一代HTTP协议/" data-id="cjt55fw9a000nucdv8shkb8lm" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPDY/">SPDY</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-SQL/数据库范式介绍" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/02/SQL/数据库范式介绍/" class="article-date">
-  <time class="post-time" datetime="2018-05-02T05:50:37.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">02</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/SQL/数据库范式介绍/">数据库范式介绍</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/02/SQL/数据库范式介绍/" class="leancloud_visitors" data-flag-title="数据库范式介绍">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关系数据库·范式介绍"><a href="#关系数据库·范式介绍" class="headerlink" title="关系数据库·范式介绍"></a><a href="http://josh-persistence.iteye.com/blog/2200644" target="_blank" rel="noopener">关系数据库·范式介绍</a></h1><h2 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h2><p>设计<code>关系数据库</code>时,遵从不同的规范要求,设计出合理的关系型数据库,这些不同的<code>规范</code>要求被称为不同的<code>范式</code>,各种范式<code>呈 递次规范</code>,越<code>高</code>的 范式 数据库<code>冗余越小</code>。</p>
-<p>目前关系数据库有<code>六种</code>范式:第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)和第五范式(5NF,又称完美范式)。满足最低要求的范式是第一范式(1NF)。在第一范式的基础上进一步满足更多规范要求的称为第二范式(2NF),其余范式以次类推。一般说来,数据库<code>只需满足第三范式(3NF)就行</code>了。</p>
-<p>范式的<code>包含关系</code>。一个数据库设计如果符合第二范式,一定也符合第一范式。如果符合第三范式,一定也符合第二范式…</p>
-<h3 id="数据库基本概念"><a href="#数据库基本概念" class="headerlink" title="数据库基本概念"></a><strong>数据库基本概念</strong></h3><p> 要理解范式,首先必须对知道什么是<code>关系数据库</code>,简单的说:关系数据库就是用<code>二维表</code>来保存数据。表和表之间可以……(省略10W字),如果对数据库很熟悉,可以不用理会下面的概念。</p>
-<p><strong>实体</strong>: 现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。</p>
-<p><strong>属性</strong>: 教科书上解释为:“<code>实体所具有的某一特性</code>”，由此可见，属性一开始是个<code>逻辑概念</code>，比如说，“性别”是“人”的一个属性。在<code>关系数据库</code>中，属性又是个<code>物理概念</code>，属性可以看作是“<code>表的一列</code>”。</p>
-<p><strong>元组</strong>：表中的一行就是一个元组。</p>
-<p><strong>分量</strong>：<code>元组</code>的某个 <code>属性值</code>。在一个关系数据库中，它是一个<code>操作原子</code>，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。</p>
-<p><strong>码(键)</strong>：表中可以唯一确定一个元组的某个 属性(或者属性组)，如果这样的码有不止一个，那么大家都叫 <code>候选码</code>，我们从候选码中挑一个出来做老大，它就叫<code>主码(主键)</code>。</p>
-<p><strong>全码</strong>：如果一个码包含了所有的属性，这个码就是全码。</p>
-<p><strong>主属性</strong>：一个属性只要在任何一个候选码中出现过，这个属性就是主属性。</p>
-<p><strong>非主属性</strong>：与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。</p>
-<p><strong>外码</strong>：一个属性(或属性组)，它不是码，但是它别的表的码，它就是外码。</p>
-<p><strong>候选码</strong>： 若关系中的某一属性或属性组的值能唯一的标识一个元组，而其任何真子集都不能再标识，则称该属性组为(超级码)候选码。</p>
-<h4 id="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"><a href="#数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别" class="headerlink" title="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"></a><a href="https://blog.csdn.net/rl529014/article/details/48391465" target="_blank" rel="noopener">数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别</a></h4><p><strong>函数依赖</strong>: 设X,Y是关系R的两个属性集合,存在X→Y;则称Y 函数依赖于X。</p>
-<p><strong>部分函数依赖</strong>：设X,Y是关系R的两个属性集合，存在X→Y; 若X’是X的<code>真子集</code>，存在X’→Y，则称Y 部分函数依赖于X。</p>
-<p><strong>完全函数依赖</strong>：设X,Y是关系R的两个属性集合，X’是X的真子集，存在X→Y; X’是X的<code>真子集</code>，但对每一个X’都有X’!→Y，则称Y完全函数依赖于X。(个人理解为 只能通过 X确定 Y，并且每个X’ 都不能确定Y 的关系 就是完全函数依赖)</p>
-<p><strong>传递函数依赖</strong>：设X,Y,Z是关系R中互不相同的属性集合，存在X→Y(Y !→X),Y→Z(Z !→Y)，则称Z传递函数依赖于X。</p>
-<p>假如 Z 函数依赖于 Y，且 Y 函数依赖于 X （『Y 不包含于 X，且 X 不函数依赖于 Y』这个前提），那么我们就称 Z 传递函数依赖于 X ，记作 X T→ Z，如图3。</p>
-<h2 id="二、6种范式"><a href="#二、6种范式" class="headerlink" title="二、6种范式"></a>二、6种范式</h2><p>前面说到，<code>范式越高</code>，数据的<code>冗余</code>度<code>越小</code>。其实<code>没有冗余</code>的数据库设计是<code>可以做到</code>的。但是，<code>没有冗余</code>的数据库<code>未必是最好的</code>数据库，有时为了提高运行效率，就必须降低范式标准，适当保留冗余数据。具体做法是：在概念数据模型设计时遵守第三范式，降低范式标准的工作放到物理数据模型设计时考虑。降低范式就是增加字段，允许冗余。(最典型的就是在一些数据表中不仅存作为外键的user_id,同样存user_name,这样虽然违反数据库范式增加了user_name字段，但是却提高了效率，减少了获取user_id后再去user表中获取user name的操作)</p>
-<p>所以实际中，我们只需要考虑数据库满足第三范式就可以了,下面以最通俗的方式来解释数据库的范式。</p>
-<p><strong>第一范式(1NF)：属性不可分</strong></p>
-<p>(1NF是对属性的原子性约束，要求属性具有原子性，不可再分解)</p>
-<p>不满足第一范式的数据库，不是关系数据库！</p>
-<p><strong>第二范式（2NF）：符合1NF，并且非主属性完全依赖于码。</strong></p>
-<p>第二范式要求非主属性依赖于主关键字。</p>
-<p>（2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性，更通俗说有主键ID）</p>
-<p><strong>第三范式（3NF）：符合2NF，并且，消除传递依赖。</strong><br>（3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/02/SQL/数据库范式介绍/" data-id="cjt55fwdj0050ucdv42vbm6it" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL范式/">SQL范式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Operating System/UnixLike/Linux/linux 删除" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:32:00.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/">Linux 删除文件夹和文件的命令</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="leancloud_visitors" data-flag-title="Linux 删除文件夹和文件的命令">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux-删除文件夹和文件的命令"><a href="#Linux-删除文件夹和文件的命令" class="headerlink" title="Linux 删除文件夹和文件的命令"></a>Linux 删除文件夹和文件的命令</h1><ul>
-<li>-r 就是向下递归，不管有多少级目录，一并删除</li>
-<li>-f 就是直接强行删除，不作任何提示的意思</li>
-</ul>
-<h2 id="删除文件夹实例："><a href="#删除文件夹实例：" class="headerlink" title="删除文件夹实例："></a>删除文件夹实例：</h2><pre><code>rm -rf /var/log/httpd/access
-</code></pre><p>将会删除<code>/var/log/httpd/access</code>目录以及其下所有文件、文件夹</p>
-<h2 id="删除文件使用实例："><a href="#删除文件使用实例：" class="headerlink" title="删除文件使用实例："></a>删除文件使用实例：</h2><pre><code>rm -f /var/log/httpd/access.log
-</code></pre><p>将会强制删除<code>/var/log/httpd/access.log</code>这个文件</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" data-id="cjt55fwkt00fpucdvgtjl3cke" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-删除命令/">Linux 删除命令</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-GIT/git-删除远程文件-目录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/GIT/git-删除远程文件-目录/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:27:48.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git-删除远程文件-目录/">git 删除远程文件/目录</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/28/GIT/git-删除远程文件-目录/" class="leancloud_visitors" data-flag-title="git 删除远程文件/目录">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git删除远程仓库的文件或目录"><a href="#git删除远程仓库的文件或目录" class="headerlink" title="git删除远程仓库的文件或目录"></a>git删除远程仓库的文件或目录</h1><p>删除a目录下的2.txt文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached a/2.txt</span><br></pre></td></tr></table></figure></p>
-<p>删除a目录</p>
-<pre><code>git rm -r --cached a
-
-git commit -m &quot;删除a目录下的2.txt文件&quot; 
-git push
-</code></pre><p><strong>Note:</strong></p>
-<p>用<code>-r</code>参数删除目录, <code>git rm --cached a.txt</code> 删除的是本地仓库中的文件，且<code>本地工作区</code>的文件会<code>保留</code>且<code>不再与远程仓库发生跟踪关系</code>，如果本地仓库中的文件也要删除则用<code>git rm a.txt</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-删除远程文件-目录/" data-id="cjt55fwcr0043ucdv9ud6k88o" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-删除/">git 删除</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/28/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/30/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/28/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/30/">next &raquo;</a>
   </nav>
 </section>
         
@@ -482,9 +523,9 @@ git push
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
 
 

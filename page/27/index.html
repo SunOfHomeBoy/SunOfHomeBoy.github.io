@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,297 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/JS/JS执行机制与异步回调" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="article-date">
+  <time class="post-time" datetime="2018-05-09T06:38:24.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/">JS执行机制与异步回调</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" class="leancloud_visitors" data-flag-title="JS执行机制与异步回调">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise"><a href="#转-理解JavaScript-执行机制及异步回调-setTimeout-setInterval-Promise" class="headerlink" title="[转]理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)"></a>[转]<a href="https://blog.csdn.net/haoaiqian/article/details/78622651" target="_blank" rel="noopener">理解JavaScript 执行机制及异步回调(setTimeout/setInterval/Promise)</a></h2><p>‘<code>javascript执行机制</code>‘ / ‘<code>代码执行顺序</code>‘ / ‘<code>函数生命周期加载</code>‘ 等类似问题 都与<code>javascript执行机制</code>相关。</p>
+<h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p><code>JavaScript</code> 是一门 <code>单线程语言</code>，在最新的<code>HTML5</code>中提出了<code>Web-Worker</code>，但<code>JS 是单线程</code>这一<code>核心仍未改变</code>。所以一切<code>JS 版的&quot;多线程&quot;都是用单线程模拟出来的</code>，一切 JavaScript <code>多线程</code> 都是<code>纸老虎</code>！</p>
+<h2 id="2-JavaScript事件循环"><a href="#2-JavaScript事件循环" class="headerlink" title="2. JavaScript事件循环"></a>2. JavaScript事件循环</h2><p>既然JS是<code>单线程</code>，排队 办理业务, <code>js任务</code>也要一个一个顺序执行。如 <code>任务耗时过长</code>，后一个任务必须等着。浏览新闻 超清图片加载慢 需要异步加载 任务分为两类：</p>
+<ul>
+<li>同步任务\<br>打开网站，<code>网页渲染</code> 过程 就是 <code>同步任务</code>，比如 <code>页面骨架</code>和 <code>页面元素</code>的<code>渲染</code>。</li>
+<li><p>异步任务\<br>而 <code>加载 图片 音乐</code>之类<code>占用资源大耗时久</code>的任务，就是<code>异步任务</code>。</p>
+<p>关于这部分有严格的文字定义，但本文的目的是用最小的学习成本彻底弄懂执行机制，所以用导图来说明：<br><img src="https://img-blog.csdn.net/20171124105726497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaGFvYWlxaWFu/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="js事件循环机制"></p>
+<p>导图要表达的内容用文字来表述的话：<br><br><code>同步</code>和<code>异步</code>任务分别进入不同的<code>执行”场所”</code>，<code>同步的进入主线程</code>，<code>异步的进入Event Table并注册函数</code>。当指定的事情<code>完成</code>时，<code>Event Table</code>会将这个<code>函数</code> <code>移入Event Queue</code>。<code>主线程</code>内的任务<code>执行完</code>毕为空，会去<code>Event Queue</code>读取对应的函数，进入主线程执行。</p>
+<p>上述过程会不断重复，也就是所谓的 <code>Event Loop(事件循环)</code>。</p>
+<p>我们不禁要问了，那<code>怎么知道</code>主线程执行栈为空啊？js引擎存在<code>monitoring process</code>进程，会<code>持续不断检查</code>主线程执行栈是否为空，<code>一旦为空</code>，就会去<code>Event Queue</code>那里检查是否有<code>等待被调用的函数</code>。<br>说了这么多文字，不如直接一段代码更直白：略</p>
+</li>
+</ul>
+<h2 id="3-又爱又恨的setTimeout"><a href="#3-又爱又恨的setTimeout" class="headerlink" title="3. 又爱又恨的setTimeout"></a>3. <a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">又爱又恨的setTimeout</a></h2><p>大名鼎鼎的<code>setTimeout</code>无需再多言，大家对他的第一印象就是<code>异步</code>可以<code>延时执行</code>，我们经常这么实现延时3秒执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    console.log(&apos;延时3秒&apos;);</span><br><span class="line">&#125;,3000)</span><br></pre></td></tr></table></figure></p>
+<p>随着<code>setTimeout</code>使用的增加，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这是为何？</p>
+<p>渐渐的setTimeout用的地方多了，问题也出现了，有时候明明写的延时3秒，实际却5，6秒才执行函数，这又咋回事啊？</p>
+<p>先看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task();</span><br><span class="line">&#125;,3000)</span><br><span class="line">console.log(&apos;执行console&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>根据前面我们的结论，setTimeout是异步的，应该先执行console.log这个同步任务，所以我们的结论是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//执行console</span><br><span class="line">//task()</span><br></pre></td></tr></table></figure></p>
+<p>去验证一下，结果正确！<br>然后我们修改一下前面的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    task()</span><br><span class="line">&#125;,3000)</span><br><span class="line"></span><br><span class="line">sleep(10000000)</span><br></pre></td></tr></table></figure></p>
+<p>乍一看其实差不多，但把这段代码在chrome执行一下，却发现控制台执行task()需要的时间远远超过3秒，为何需要这么长时间？</p>
+<p>这时候我们需要重新理解<code>setTimeout的定义</code>。我们先说上述代码是怎么执行的：</p>
+<ul>
+<li><p><code>task()</code>进入Event Table并注册,计时开始。</p>
+</li>
+<li><p>执行<code>sleep</code>函数，很慢，非常慢，计时仍在继续。</p>
+</li>
+<li><p>3秒到了，计时事件<code>timeout</code>完成，<code>task()</code>进入<code>Event Queue</code>，但是<code>sleep</code>也太慢了吧，还没执行完，只好等着。</p>
+</li>
+<li><p><code>sleep</code>终于执行完了，<code>task()</code>终于从Event Queue进入了主线程执行。</p>
+</li>
+</ul>
+<p>上述的流程走完，我们知道<code>setTimeout</code>这个函数，是经过指定时间后，把要执行的任务(本例中为<code>task()</code>)加入到Event Queue中，又因为是单线程任务要一个一个执行，如果前面的任务需要的时间太久，那么只能等着，导致真正的延迟时间远远大于3秒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS执行机制与异步回调/" data-id="cjuxepwq800a158dvo46z53ov" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS执行机制-异步回调/">JS执行机制 异步回调</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/JS线程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/09/FrontEnd/JS/JS线程/" class="article-date">
+  <time class="post-time" datetime="2018-05-09T06:32:36.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/09/FrontEnd/JS/JS线程/">JS线程</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/09/FrontEnd/JS/JS线程/" class="leancloud_visitors" data-flag-title="JS线程">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="转-从setTimeout-setInterval看JS线程"><a href="#转-从setTimeout-setInterval看JS线程" class="headerlink" title="[转]从setTimeout/setInterval看JS线程"></a>[转]<a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">从setTimeout/setInterval看JS线程</a></h2><p><code>setTimeout</code>和<code>setInterval</code>的<code>延时最小间隔</code>是<code>4ms</code>(W3C在HTML标准中规定)；</p>
+<p>在<code>JavaScript</code>中<code>没有</code>任何代码是<code>立刻执行</code>的，但<code>一旦进程空闲</code>就<code>尽快执行</code>。</p>
+<p>这意味着无论是<code>setTimeout</code>还是<code>setInterval</code>，所设置的时间都只是 <code>n毫秒后被添加到队列中</code>，而<code>不是</code>过<code>n毫秒后立即执行</code>。</p>
+<hr>
+<p><a href="https://mp.weixin.qq.com/s/FCy68lhFhEcm8o26f7970A" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/09/FrontEnd/JS/JS线程/" data-id="cjuxepwq5009w58dvda2okvte" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-墨菲法则" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/墨菲法则/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T07:57:57.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/墨菲法则/">墨菲法则</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日常随笔/">日常随笔</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/08/墨菲法则/" class="leancloud_visitors" data-flag-title="墨菲法则">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="凡是可能会出错的地方，一定会出错！——-墨菲法则"><a href="#凡是可能会出错的地方，一定会出错！——-墨菲法则" class="headerlink" title="凡是可能会出错的地方，一定会出错！—— 墨菲法则"></a>凡是可能会出错的地方，一定会出错！—— 墨菲法则</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/墨菲法则/" data-id="cjuxepwfv000p58dvtn0b5zj1" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/座右铭系列/">座右铭系列</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-programmingLanguage/NodeJS/nodejs全局安装路径的位置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T03:17:12.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/">nodejs全局安装路径的位置</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" class="leancloud_visitors" data-flag-title="nodejs全局安装路径的位置">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一般nodejs安装在默认的C盘，如果不知道安装在哪里，可以打开控制面板-系统和安全-系统-高级配置中找到</p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153014909-1350443214.png" alt="变量路径"></p>
+<p>所谓全局安装：</p>
+<p>是指安装在<code>node</code>中<code>node_module</code>的根目录里，可以在电脑的任何位置调用这个方法。</p>
+<p>那么，如何在找到全局安装的位置呢？</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a><font color="#f00">方法一：</font></h2><p>设置到自己想要放的位置：</p>
+<font color="#f90" style="font-size:18px"><br>打开：nodejs安装目录/node_modules/npm/.npmrc这个文件，修改里面的路径<br><br>prefix = E:\nodejs\npm_global_modules<br></font>
+
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a><font color="#f00">方法二：</font></h2><p>使用快捷键 <code>win+R</code> ,输入cmd打开命令窗口，输入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm config ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153727331-2045072377.png" alt="npm配置"></p>
+<p><b style="font-size:18px"><br>其中：prefix=C:\Users\Administrator\AppData\Roaming\npm就是我们全局安装了哪些方法的地方，如图：</b></p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153926816-474788164.png" alt="安装路径"></p>
+<p>这时可以通过命令来更改路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix E:\</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://www.cnblogs.com/niuxiaoling/p/7993032.html" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/nodejs全局安装路径的位置/" data-id="cjuxepws000ch58dv9gihjbs5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node全局路径/">Node全局路径</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-programmingLanguage/NodeJS/NPM/npm-上传包" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -129,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/" data-id="cjt55fwln00glucdv2zz8mmy1" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/programmingLanguage/NodeJS/NPM/npm-上传包/" data-id="cjuxepwuv00gm58dv2rxnoy29" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-上传包/">npm 上传包</a></li></ul>
@@ -143,331 +434,10 @@
 
 
   
-    <article id="post-Operating System/UnixLike/Linux/持续进攻" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="article-date">
-  <time class="post-time" datetime="2018-05-07T08:39:27.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">07</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/">持续进攻</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="leancloud_visitors" data-flag-title="持续进攻">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="转-BOSS开源软件-一-：黑客帝国之持久进攻"><a href="#转-BOSS开源软件-一-：黑客帝国之持久进攻" class="headerlink" title="[转]BOSS开源软件(一)：黑客帝国之持久进攻"></a>[转]<a href="https://user.qzone.qq.com/525150008" target="_blank" rel="noopener">BOSS开源软件(一)：黑客帝国之持久进攻</a></h1><p> <strong>使用说明：</strong>\<br>（1）该软件属于中华人民共和国的法定危险品，请谨慎使用。\<br>（2）该软件的推荐使用范围仅限于：对公司或上级领导不满，且不便于和他们多度交流时，可使公司相关的网站作为个人情绪的发泄对象。切不可伤害无辜。\<br>（3）声明：切不可把该软件作为凌弱之手段，切不可伤害无辜。\<br>（4）如果您多度使用而进了那个地方，这一切都是您刻苦钻研自学成才之结果，皆与本人无关。\<br>（5）该软件目前只支持Linux操作系统和苹果OSX操作系统，若需要Windows版本的，请自行研发。\<br>（6）软件使用者自感为黑客，且不熟悉Linux或OSX的，官方推荐：您还是早点投胎去吧，上帝会原谅您的过错的！</p>
-<p>代码：\<br>(1) 打开Linux终端或OSX终端，新建文件<code>h.sh</code> \<br>(2) 编辑文件<code>h.sh</code>，并保存。代码内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 注释：下面变量DOMAIN可以修改成你需要的网站域名 </span><br><span class="line">DOMAIN=&quot;http://www.yourdomain.com/&quot;</span><br><span class="line">COUNT=1000</span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">    ab -c $COUNT -n  $COUNT $DOMAIN</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
-<p>(3) 添加h.sh的执行权限，输入命令：<code>chmod +x h.sh</code>\<br>(4) 执行软件，输入命令：<code>./h.sh</code></p>
-<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ol>
-<li><p>如果系统提示找不到<code>ab</code>命令时，您需要自行安装<code>ApacheWeb</code>服务器。</p>
-<p> （1）在如CentOS/Fedora等Linux操作系统，输入命令：sudo yum install httpd</p>
-<p> （2）在如Ubuntu等Linux操作系统，输入命令：sudo apt-get install httpd</p>
-<p> （3）在苹果OSX，只需在官方下载相应的安装包进行安装即可</p>
-</li>
-<li><p>您修改代码的DOMAIN变量却会不断出现类似于帮助的信息时，请先按Ctrl+C终止当前执行进程，检查DOMAIN格式是否正确。</p>
-<p> 例如：我们设置DOMAIN为百度，我们必需写成<br> <code>http://www.baidu.com/</code>(注意反斜杠)，而不能<code>www.baidu.com</code>或<code>http://www.baidu.com</code></p>
-</li>
-<li><p>如果您已经满足使用该软件的效果，请及时停止使用，按Ctrl+C终止该软件。</p>
-</li>
-</ol>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>我们欢迎使用该软件在有限范围内用于发泄个人的不良情绪。</p>
-<p>但我们需要再次提示：</p>
-<p>该软件属于中华人民共和国的法定危险品，请谨慎使用。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" data-id="cjt55fwl400fzucdvyey3wz7p" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-撩妹套路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/07/撩妹套路/" class="article-date">
-  <time class="post-time" datetime="2018-05-07T05:46:33.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">07</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/撩妹套路/">撩妹套路</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/感情/">感情</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/07/撩妹套路/" class="leancloud_visitors" data-flag-title="撩妹套路">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="转载知乎聊天套路"><a href="#转载知乎聊天套路" class="headerlink" title="转载知乎聊天套路"></a>转载知乎<a href="https://www.zhihu.com/question/47029505/answer/256114477" target="_blank" rel="noopener">聊天套路</a></h2><h2 id="写在前面的话："><a href="#写在前面的话：" class="headerlink" title="写在前面的话："></a>写在前面的话：</h2><p>聊天的确有套路，但套路也只是一套标准化的说法、技巧。应该学习套路的思想，拒绝照搬套路。只有真诚的付出，加上合理的聊天方式才是社交求偶的不二法门。</p>
-<p>从这篇我们能学到 寻找话题、把握交谈的节奏和时机，还有尊重女性。</p>
-<p>但这并不是一切，</p>
-<h2 id="1-寻找切入话题"><a href="#1-寻找切入话题" class="headerlink" title="1.寻找切入话题"></a>1.寻找切入话题</h2><p>通过头像、昵称、签名、空间动态、朋友圈、留言板等公开信息找到她的兴趣爱好、特别讨厌的事物、一些个人的小习惯。</p>
-<p>例一：你发现\<br>①：她喜欢听周杰伦。\<br>②：她喜欢听万青。\<br>③：她喜欢打羽毛球。\<br>④：她喜欢美剧。\<br>⑤：她讨厌鹿晗。\<br>⑥：她讨厌不清不楚的男女暧昧关系。\<br>⑦：她特别不喜欢吃菠萝。\<br>⑧：她有每天起床后喝一杯热水的习惯。\<br>⑨：她有每天晚上跑步的习惯。</p>
-<p>你会选择哪个话题切入呢？\<br>正确答案是②、④、⑥、⑧。\<br>前期话题切入优先选择小众或深度类、并形成“他乡遇故知”和“同仇敌忾”的局面。</p>
-<p>当然其它选项也不要忘了、在后期仍然有很大的用处。</p>
-<h2 id="2-负起带节奏的重担"><a href="#2-负起带节奏的重担" class="headerlink" title="2.负起带节奏的重担"></a>2.负起带节奏的重担</h2><p>①：<code>知识面</code>要广、不必什么都懂、但什么你都能说上两句。\<br>②：<code>有趣机智</code>、<code>脑回路清奇</code>以求<code>脱颖而出</code>、这里考验的是<code>段子储备</code>量和<code>临场反应</code>。烂大街的梗就不要用了、只会让你显得更加无趣。<code>前期</code>幽默的形式以自黑为主、<code>中后期</code>以黑她为主、当然是不伤大雅的那种黑。\<br>③：<code>前期</code>做一个合格的<code>捧哏</code>，不要喧宾夺主。当一个话题结束时，立刻从她的近几条消息中找到开始下一个话题的关键词，过渡要自然。<code>中后期</code>做一个合格的<code>逗哏</code>、不要冷场。可以开始分享自己有趣的故事了、但要注意观察对面的反应随时调整。\<br>④：拒绝<code>尬聊</code>。在发现话题进行不下去的时候、请找个<code>借口赶紧溜</code>了、再多说一句都可能会死。\<br>⑤：<code>换位思考</code>。你打出一行字后或准备说出一句话时、先把自己<code>带入</code>到她的位置、如果你发现这行字给人一种“不知道回复什么才好”的感觉、那么删了这行字、再打一行字并重复步骤。相信我、行云流水的聊天体验是每个人都喜欢的。\<br>⑥：<code>先人一步</code>。这个难度系数较高、首先要合理预测她对某事物的看法、在她没开口前、你先把这个看法说了。这个做法会形成“三观合、默契、偶遇知音”的假象。\<br>⑦：可以给她一个<code>专属代称</code>、就是只有你才会那么叫她的那种。\<br>⑧：从以前的聊天记录或面谈中找到几个<code>有趣的梗</code>、这些梗这么有意思千万不能浪费、放心重复吧、不会烂的。\<br>⑨：无论如何、一定要<code>尊重</code>她、开玩笑要懂得<code>分寸</code>、这是<code>底线</code>。</p>
-<h2 id="3-控场"><a href="#3-控场" class="headerlink" title="3.控场"></a>3.控场</h2><p>①：表白不是冲锋的号角、而是胜利时的鸣金收兵。毕竟自古<code>表白多白表</code>、从来<code>姻缘少原因</code>。上来就说“我龙傲天从今天开始追你了”、你怕不是个傻子。\<br>②：<code>前期</code>你可以每天主动聊天、但到<code>中后期</code>一定要克制住自己冲动、等她来找你、如果她不主动、那就是你前面做的不够好。千万不能让她觉得你整天什么事没有、就知道和她扯淡。\<br>③：制造<code>完全可控</code>的小冲突小矛盾小冷战、把握好度、这个玩好了可以很快的提高感情基础。\<br>④：制造强烈反差对比、不是忽冷忽热、而是常态热偶尔冷。</p>
-<p><strong>例二</strong>：\<br>一起出去玩，要<code>买水果</code>。路过菠萝的时候你可以不经意的说一句“我也不喜欢吃菠萝、不知道这反人类的东西为什么存在”。路过操场的时候你就可以说一句“真搞不懂这些人大晚上跑什么步、这明明是清晨做的事”。</p>
-<p><code>心理距离</code>很重要、太冒进会容易让女生起戒备心。</p>
-<p>你只要一下走<code>进</code>了太多就一定要在合适的时候后<code>退</code>一点、一直走进会形成跪舔的局面、一直后退会让她觉得你是个傻逼。在来回踱步的过程中、你会惊奇的发现你们已经可以无话不说了、甚至距离近到只要一伸手、就可以抱到她。</p>
-<h2 id="4-鸣金收兵"><a href="#4-鸣金收兵" class="headerlink" title="4.鸣金收兵"></a>4.鸣金收兵</h2><p>女生以情绪为导向做出决定。</p>
-<p>一些小事往往是最能影响情绪的、别整天只顾着说情话、多做一点、她不瞎、都能看到的。</p>
-<p>直到有一天、她嘴里哼着“明明你也很爱我、没理由爱不到结果”、她其实还是不明白为什么爱不到结果。</p>
-<p>但这并不妨碍她在接下来的某个瞬间就变成了你的女朋友。她什么也没想、反正、跟着心情走、这就是女生。</p>
-<h2 id="写在后面的话"><a href="#写在后面的话" class="headerlink" title="写在后面的话"></a>写在后面的话</h2><p>如果你已经追上心爱的女孩了。</p>
-<p>可你的噩梦才刚刚开始</p>
-<p>追女生容易, 经营、运行一段恋情走下去才是最难的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/撩妹套路/" data-id="cjt55fwa3001pucdv1ryuj8kd" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/感情/">感情</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Algorithm/电梯调度算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/07/Algorithm/电梯调度算法/" class="article-date">
-  <time class="post-time" datetime="2018-05-07T02:08:18.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">07</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/07/Algorithm/电梯调度算法/">电梯调度算法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/算法/">算法</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/07/Algorithm/电梯调度算法/" class="leancloud_visitors" data-flag-title="电梯调度算法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="电梯调度算法"><a href="#电梯调度算法" class="headerlink" title="电梯调度算法"></a><a href="https://mp.weixin.qq.com/s?__biz=MzIyMjYyMzg3MA%3D%3D&amp;mid=2247485724&amp;idx=1&amp;sn=dafa64c031677b7c46b56e34d32c04ed&amp;chksm=e82be80ddf5c611b153984068d34a24a77b470c0f0736cb6be162a4370f97e44613f371ca97b&amp;mpshare=1&amp;scene=23&amp;srcid=05047xnZPzaJk0mK8Mo2G8jo%23rd" target="_blank" rel="noopener">电梯调度算法</a></h1><h2 id="—传统电梯调度算法—"><a href="#—传统电梯调度算法—" class="headerlink" title="—传统电梯调度算法—"></a>—传统电梯调度算法—</h2><h3 id="1-1-先来先服务算法（FCFS）"><a href="#1-1-先来先服务算法（FCFS）" class="headerlink" title="1.1 先来先服务算法（FCFS）"></a>1.1 先来先服务算法（FCFS）</h3><p>  先来先服务（FCFS-First Come First Serve）算法</p>
-<h3 id="1-2-最短寻找楼层时间优先算法（SSTF）"><a href="#1-2-最短寻找楼层时间优先算法（SSTF）" class="headerlink" title="1.2 最短寻找楼层时间优先算法（SSTF）"></a>1.2 最短寻找楼层时间优先算法（SSTF）</h3><h3 id="1-3-扫描算法（SCAN）"><a href="#1-3-扫描算法（SCAN）" class="headerlink" title="1.3 扫描算法（SCAN）"></a>1.3 扫描算法（SCAN）</h3><h3 id="1-4-LOOK-算法"><a href="#1-4-LOOK-算法" class="headerlink" title="1.4 LOOK 算法"></a>1.4 LOOK 算法</h3><h3 id="1-5-SATF-算法"><a href="#1-5-SATF-算法" class="headerlink" title="1.5 SATF 算法"></a>1.5 SATF 算法</h3><h2 id="—实时电梯调度算法—"><a href="#—实时电梯调度算法—" class="headerlink" title="—实时电梯调度算法—"></a>—实时电梯调度算法—</h2><h3 id="2-1-最早截止期优先调度算法"><a href="#2-1-最早截止期优先调度算法" class="headerlink" title="2.1 最早截止期优先调度算法"></a>2.1 最早截止期优先调度算法</h3><h3 id="2-2-SCAN-EDF-算法"><a href="#2-2-SCAN-EDF-算法" class="headerlink" title="2.2 SCAN-EDF 算法"></a>2.2 SCAN-EDF 算法</h3><h3 id="2-3-PI-算法"><a href="#2-3-PI-算法" class="headerlink" title="2.3 PI 算法"></a>2.3 PI 算法</h3><h3 id="2-4-FD-SCAN-算法"><a href="#2-4-FD-SCAN-算法" class="headerlink" title="2.4 FD-SCAN 算法"></a>2.4 FD-SCAN 算法</h3><h2 id="—电梯调度高水平研究—"><a href="#—电梯调度高水平研究—" class="headerlink" title="—电梯调度高水平研究—"></a>—电梯调度高水平研究—</h2><p>以上两节介绍了几种简单的电梯调度算法。</p>
-<p>但是并不是说目前电梯调度只发展到这个层次。目前电梯的控制技术已经进入了电梯<code>群控</code>的时代。</p>
-<p>随着微机在电梯系统中的应用和人工智能技术的发展，智能群控技术得以迅速发展起来。</p>
-<p>由此，电梯的<code>群控</code>方面陆续发展出了一批新方法，包括：<br>基于<code>专家系统</code>的电梯群控方法、<br>基于<code>模糊逻辑</code>的电梯群控方法、<br>基于<code>遗产算法</code>的电梯群控方法、<br>基于<code>神经网络</code>的电梯群控方法、<br>基于<code>模糊神经网络</code>的电梯群控方法。</p>
-<h2 id="—电梯问题的需求分析—"><a href="#—电梯问题的需求分析—" class="headerlink" title="—电梯问题的需求分析—"></a>—电梯问题的需求分析—</h2><h3 id="4-1-电梯的初始状态"><a href="#4-1-电梯的初始状态" class="headerlink" title="4.1 电梯的初始状态"></a>4.1 电梯的初始状态</h3><h3 id="4-2-电梯基本功能"><a href="#4-2-电梯基本功能" class="headerlink" title="4.2 电梯基本功能"></a>4.2 电梯基本功能</h3><h3 id="4-3-电梯按钮功能"><a href="#4-3-电梯按钮功能" class="headerlink" title="4.3 电梯按钮功能"></a>4.3 电梯按钮功能</h3><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>可能这些算法都不是一个最佳方案，只是它确实解决了一定情况的问题。</p>
-<p>但是，对一个优秀的程序员而言，研究各种算法是无比快乐的。</p>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzIyMjYyMzg3MA%3D%3D&amp;mid=2247485724&amp;idx=1&amp;sn=dafa64c031677b7c46b56e34d32c04ed&amp;chksm=e82be80ddf5c611b153984068d34a24a77b470c0f0736cb6be162a4370f97e44613f371ca97b&amp;mpshare=1&amp;scene=23&amp;srcid=05047xnZPzaJk0mK8Mo2G8jo%23rd" target="_blank" rel="noopener">查看原文</a></p>
-<p>另：<br><a href="https://www.zhihu.com/question/24964987" target="_blank" rel="noopener">【知名互联网公司面试中常见的算法题】</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/Algorithm/电梯调度算法/" data-id="cjt55fwbp002rucdv2y1auq18" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调度算法/">调度算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/JS/怪异的JS" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/05/FrontEnd/JS/怪异的JS/" class="article-date">
-  <time class="post-time" datetime="2018-05-05T09:50:36.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">05</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/05/FrontEnd/JS/怪异的JS/">怪异的JS系列</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/05/FrontEnd/JS/怪异的JS/" class="leancloud_visitors" data-flag-title="怪异的JS系列">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="怪异的JavaScript系列-一"><a href="#怪异的JavaScript系列-一" class="headerlink" title="怪异的JavaScript系列(一)"></a><a href="https://juejin.im/post/5ade89db6fb9a07aab297b15" target="_blank" rel="noopener">怪异的JavaScript系列(一)</a></h1><h2 id="等于"><a href="#等于" class="headerlink" title="[ ]等于![ ]"></a>[ ]等于![ ]</h2><pre><code>[] == ![] // -&gt; true
-</code></pre><p><strong>相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。</strong></p>
-<p>因为<code>[]</code>和<code>![]</code>都会转换为<code>0</code>。我们可以理解<code>[]</code>是一个<code>数组</code>，只不过<code>为空</code>而已，那么为<code>true</code>。右侧<code>![]</code>则为<code>false</code>。<code>false</code>然后转换为数字<code>0</code>。<code>左侧[]</code>直接<code>转</code>换为<code>数字</code>，因为<code>空数组</code>会转换<code>为0</code>，所以尽管我们认为[]为true，这里却变成了0。<br>简算过程:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+[] == +![]</span><br><span class="line">0 == +false</span><br><span class="line">0 == 0</span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
-<h2 id="true-是-false"><a href="#true-是-false" class="headerlink" title="true 是 false"></a>true 是 false</h2><pre><code>!!&apos;false&apos; ==  !!&apos;true&apos;  // -&gt; true
-!!&apos;false&apos; === !!&apos;true&apos; // -&gt; true
-</code></pre><p><strong>true是一个真值，用1表示；<code>字符串的“true”则为NaN</code>。</strong></p>
-<pre><code>true == &apos;true&apos;    // -&gt; false
-false == &apos;false&apos;  // -&gt; false
-</code></pre><p><strong>‘false’是一个有意义的字符串。</strong></p>
-<h2 id="baNaNa"><a href="#baNaNa" class="headerlink" title="baNaNa"></a>baNaNa</h2><pre><code>&apos;b&apos; + &apos;a&apos; ++ &apos;a&apos; + &apos;a&apos; // -&gt; baNaNa
-</code></pre><p><strong>这是一个旧笑话，不过改进过的。原始的长这样：</strong></p>
-<pre><code>&apos;foo&apos; ++ &apos;bar&apos; // -&gt; &apos;fooNaN&apos;
-</code></pre><p>该表达式以<code>&#39;foo&#39; + (+&#39;bar&#39;)</code>的形式计算，因为<code>bar不是数字</code>，所以转换为<code>NaN</code>。    </p>
-<h2 id="NaN不等于NaN"><a href="#NaN不等于NaN" class="headerlink" title="NaN不等于NaN"></a>NaN不等于NaN</h2><pre><code>NaN === NaN // -&gt; false
-</code></pre><p>根据 === 的算法，我们可以容易理解为什么为false。</p>
-<h2 id="fail"><a href="#fail" class="headerlink" title="fail"></a>fail</h2><pre><code>(![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]] // -&gt; fail
-</code></pre><p>如果我们仔细观察序列的规律，会发现下面的模式出现很多次：</p>
-<pre><code>(![]+[]) // -&gt; &apos;false&apos;
-![]      // -&gt; false    
-</code></pre><p>因此，我们尝试将<code>[]</code>和<code>false</code>相加。但是根据内部一些列函数的计算(binary + Operator -&gt; ToPrimitive -&gt; [[DefaultValue]])，右侧的[]最终转换为string：</p>
-<pre><code>(![]+[].toString()) // &apos;false&apos;
-</code></pre><p>对于一个字符串，我们就可以通过下标来获取对应的字符：</p>
-<pre><code>&apos;false&apos;[0] // -&gt; &apos;f&apos;        
-</code></pre><p>剩下的都很直观，除了<code>i</code>很取巧。<code>fail</code>中的<code>i</code>是通过在<code>falseundefined</code>中获取第十个下标对应的字符而得到。    </p>
-<h2 id="包含值，但不是true"><a href="#包含值，但不是true" class="headerlink" title="[ ]包含值，但不是true"></a>[ ]包含值，但不是true</h2><h2 id="null不等于false"><a href="#null不等于false" class="headerlink" title="null不等于false"></a>null不等于false</h2><h2 id="document-all是一个对象，不过是-undefined"><a href="#document-all是一个对象，不过是-undefined" class="headerlink" title="document.all是一个对象，不过是 undefined"></a><code>document.all</code>是一个对象，不过是 undefined</h2><p><strong>⚠️这个是前端浏览器API，在Nodejs环境无法使用。</strong></p>
-<p>尽管<code>document.all</code>可以返回一个像<code>数组一样的对象</code>，可以用来<code>访问DOM节点</code>。但是呢，通过<code>typeof</code>查看<code>document.all</code>，你会惊讶地发现类型是<code>undefined</code>。</p>
-<pre><code>document.all instanceof Object // -&gt; true
-typeof document.all // -&gt; &apos;undefined&apos;
-</code></pre><p>而且，<code>document.all</code>并不等于<code>undefined</code>。</p>
-<pre><code>document.all === undefined // -&gt; false
-document.all === null // -&gt; false
-</code></pre><p>而且，更惊讶的是：</p>
-<pre><code>document.all == null // -&gt; true
-</code></pre><p><code>document.all</code>是一个过去常用的<code>获取DOM元素</code>的方法，特别是老版本的IE。但是<code>从未进入标准</code>，尽管广泛使用在过去的JS代码中。当<code>新的API</code>突出来(比如<code>document.getElementById</code>)后，<code>document.all</code>就被<code>淘汰</code>了。标准委员会不知道怎么处理它。可是因为它已经被广泛使用，所以委员会觉得保留它，但是违背了<code>JavaScript</code>的规范。</p>
-<h2 id="最小值比0还大"><a href="#最小值比0还大" class="headerlink" title="最小值比0还大"></a>最小值比0还大</h2><p><code>Number.MIN_VALUE</code>是最小的数，但是它比<code>0</code>还大。</p>
-<pre><code>Number.MIN_VALUE &gt; 0 // -&gt; true
-</code></pre><p>因为<code>Number.MIN_VALUE</code>是<code>5e-324</code>。也就是说即使<code>最小的值</code>也可以用<code>浮点数</code>表示出来，虽然<code>离0很接近</code>，但是<code>依然比0大</code>。其实最小的数是<code>Number.NEGATIVE_INFINITY</code>，尽管它<code>不是一个实际存在</code>的数。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/怪异的JS/" data-id="cjt55fwh900anucdv2481ko04" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS特殊情况判断/">JS特殊情况判断</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/26/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/28/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/26/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/28/">next &raquo;</a>
   </nav>
 </section>
         
@@ -508,9 +478,9 @@ document.all === null // -&gt; false
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
 
 

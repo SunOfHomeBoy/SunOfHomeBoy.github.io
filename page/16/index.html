@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-programmingLanguage/NodeJS/Node-js图片上传" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/Vue/Vue-$nextTick()作用" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/04/programmingLanguage/NodeJS/Node-js图片上传/" class="article-date">
-  <time class="post-time" datetime="2018-07-04T10:24:59.000Z" itemprop="datePublished">
+    <a href="/2018/07/14/FrontEnd/WebFrameWork/Vue/Vue-$nextTick()作用/" class="article-date">
+  <time class="post-time" datetime="2018-07-14T01:44:23.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">04</span>
+    <span class="post-day">14</span>
   </time>
 </a>
    
@@ -87,17 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/programmingLanguage/NodeJS/Node-js图片上传/">Node.js图片上传</a>
+      <a class="article-title" href="/2018/07/14/FrontEnd/WebFrameWork/Vue/Vue-$nextTick()作用/">Vue-$nextTick()作用</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/07/04/programmingLanguage/NodeJS/Node-js图片上传/" class="leancloud_visitors" data-flag-title="Node.js图片上传">
+    <span id="/2018/07/14/FrontEnd/WebFrameWork/Vue/Vue-$nextTick()作用/" class="leancloud_visitors" data-flag-title="Vue-$nextTick()作用">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -109,35 +113,146 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="转-node-js-实现图片上传服务"><a href="#转-node-js-实现图片上传服务" class="headerlink" title="[转]node.js 实现图片上传服务"></a>[转]<a href="https://blog.csdn.net/ziyetian666/article/details/79737495" target="_blank" rel="noopener">node.js 实现图片上传服务</a></h2><h2 id="使用multiparty插件实现上传"><a href="#使用multiparty插件实现上传" class="headerlink" title="使用multiparty插件实现上传"></a>使用multiparty插件实现上传</h2><h3 id="安装multiparty"><a href="#安装multiparty" class="headerlink" title="安装multiparty"></a>安装multiparty</h3><blockquote>
-<p>npm i –save multiparty</p>
+        <h2 id="Vue中-nextTick-作用"><a href="#Vue中-nextTick-作用" class="headerlink" title="Vue中$nextTick()作用"></a><a href="https://blog.csdn.net/shuidinaozhongyan/article/details/72630573" target="_blank" rel="noopener">Vue中<code>$nextTick()</code>作用</a></h2><p>官方文档解释如下：</p>
+<p>在下次 DOM <code>更新循环结束之后</code>执行延迟回调。在修改数据之后立即使用这个方法，获取<code>更新后的 DOM</code>。</p>
+<p>所以就衍生出了这个获取更新后的DOM的Vue方法。所以放在Vue.nextTick()回调函数中的执行的应该是会<code>对DOM进行操作的 js代码</code>.</p>
+<h3 id="什么时候需要用的Vue-nextTick"><a href="#什么时候需要用的Vue-nextTick" class="headerlink" title="什么时候需要用的Vue.nextTick() ?"></a>什么时候需要用的<code>Vue.nextTick()</code> ?</h3><p>在Vue生命周期 <code>created()</code>钩子函数进行的<code>DOM操作</code>一定要放在<code>Vue.nextTick()</code>的回调函数中。</p>
+<p>原因是 <code>created()</code>钩子函数执行时, DOM 并未进行任何渲染，此时进行DOM操作无异于徒劳，所以此处一定要将DOM操作的js代码放进<code>Vue.nextTick()的回调函数中</code>。</p>
+<p>与之对应的就是<code>mounted()</code>钩子函数，因为该钩子函数执行时所有的DOM挂载已完成。</p>
+<p>使用时机：el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子函数，此时页面并未全部渲染。</p>
+<p>在某个动作有可能<code>改变DOM元素结构</code>的时候，对<code>DOM一系列的js操作</code>都要放进<code>Vue.nextTick()的回调函数</code>中.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/14/FrontEnd/WebFrameWork/Vue/Vue-$nextTick()作用/" data-id="cjuxepwti00ez58dvvd5tre8q" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nextTick-作用/">$nextTick()作用</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-programmingLanguage/NodeJS/Express-session" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/13/programmingLanguage/NodeJS/Express-session/" class="article-date">
+  <time class="post-time" datetime="2018-07-13T08:41:14.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/programmingLanguage/NodeJS/Express-session/">Express-session</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node-Express-session/">Node Express-session</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/07/13/programmingLanguage/NodeJS/Express-session/" class="leancloud_visitors" data-flag-title="Express-session">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Express-session"><a href="#Express-session" class="headerlink" title="Express-session"></a><a href="https://blog.csdn.net/hsany330/article/details/51968594" target="_blank" rel="noopener">Express-session</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app.use(cookieParser());</span><br><span class="line">app.use(session(&#123;</span><br><span class="line">  secret: &apos;12345&apos;,</span><br><span class="line">  name: &apos;name&apos;,</span><br><span class="line">  cookie: &#123;maxAge: 60000&#125;,</span><br><span class="line">  resave: false,</span><br><span class="line">  saveUninitialized: true,</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>各参数意义：</p>
+<p><code>secret</code>：用来对session数据进行加密的字符串.这个属性值为必须指定的属性。</p>
+<p><code>name</code>：表示cookie的name，默认cookie的name是：connect.sid。</p>
+<p><code>maxAge</code>：cookie过期时间，毫秒。<br><code>resave</code>：是指每次请求都重新设置session cookie，假设你的cookie是6000毫秒过期，每次请求都会再设置6000毫秒。</p>
+<p><code>saveUninitialized</code>：是指无论有没有session cookie，每次请求都设置个session cookie ，默认给个标示为 connect.sid。</p>
+<p>之后在处理请求时直接通过以下方式对session进行读写：</p>
+<hr>
+<h2 id="Cookie的特性"><a href="#Cookie的特性" class="headerlink" title="Cookie的特性"></a><a href="http://zhou.jie.ge.blog.163.com/blog/static/118519146201043131050363/" target="_blank" rel="noopener">Cookie的特性</a></h2><p>  每个Cookie包含有6个元素,常用的有:name、value、expires、d<br>omain和secure。这些元素存放了这个Cookie的作用范围及实际的数<br>据。</p>
+<hr>
+<h2 id="理解cookie的path和domain属性"><a href="#理解cookie的path和domain属性" class="headerlink" title="理解cookie的path和domain属性"></a><a href="http://www.cnblogs.com/fsjohnhuang/archive/2011/11/22/2258999.html" target="_blank" rel="noopener">理解cookie的path和domain属性</a></h2><hr>
+<h2 id="Cookie作用域"><a href="#Cookie作用域" class="headerlink" title="Cookie作用域"></a><a href="https://blog.csdn.net/kky2010_110/article/details/4743796" target="_blank" rel="noopener">Cookie作用域</a></h2><hr>
+<h2 id="NPM-express-session"><a href="#NPM-express-session" class="headerlink" title="NPM express-session"></a><a href="https://www.npmjs.com/package/express-session" target="_blank" rel="noopener">NPM express-session</a></h2><h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><p>express-session 在options对象中接受这些属性。</p>
+<h4 id="cookie-为-session-ID-cookie的设置对象。默认值为"><a href="#cookie-为-session-ID-cookie的设置对象。默认值为" class="headerlink" title="cookie 为 session ID cookie的设置对象。默认值为"></a><code>cookie</code> 为 session ID cookie的设置对象。默认值为</h4><blockquote>
+<p>{ path: ‘/‘, httpOnly: true, secure: false, maxAge: null }。</p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const multiparty = require(&apos;multiparty&apos;);</span><br><span class="line"></span><br><span class="line">let form = new multiparty.Form(&#123;uploadDir: upload.path&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="构造参数说明"><a href="#构造参数说明" class="headerlink" title="构造参数说明"></a>构造参数说明</h3><p><code>encoding</code> 设置接收数据编码，默认是utf-8</p>
-<p><code>maxFieldsSize</code> 限制字段可以分配的内存量,默认2M</p>
-<p><code>maxFields</code> 限制在发出错误事件之前将要解析的字段数,默认1000</p>
-<p><code>maxFilesSize</code> 限制总文件大小，默认无穷大</p>
-<p><code>autoFields</code> 启用字段事件并禁用字段的部分事件。如果添加字段侦听器，则自动将其设置为true。</p>
-<p><code>autoFiles</code> 启用文件事件并禁用文件的部分事件。如果添加了一个文件侦听器，则自动将其设置为true。</p>
-<p><code>uploadDir</code> 文件上传的目录</p>
-<p><strong>如果回调提供，<code>autofields</code>和<code>autofiles</code>被设置为<code>true</code>，所有字段和文件的收集和传递给回调，不再需要听任何形式的事件。</strong></p>
-<h3 id="事件说明"><a href="#事件说明" class="headerlink" title="事件说明"></a>事件说明</h3><ul>
-<li>part 请求文件数据时触发，回调函数是一个实现可读流的实例对象<ul>
-<li>headers：头部文件</li>
-<li>name：字段名称</li>
-<li>filename：文件名称</li>
-<li>byteFffset：主体数据的字节偏移量</li>
-<li>byteCount：数据总的字节长度</li>
+<ul>
+<li><p>cookie.domain<br>指定Domain Set-Cookie属性的值。默认情况下，未设置任何域，并且大多数客户端会将cookie视为仅应用于当前域。</p>
+</li>
+<li><p>cookie.expires<br>指定Date要作为Expires Set-Cookie属性值的对象。默认情况下，没有设置过期，并且大多数客户端会将此视为“非持久性cookie”，并在退出Web浏览器应用程序的条件下将其删除。</p>
+<p><strong>注意</strong> 如果在选项中设置了<code>expires</code>和<code>maxAge</code>，则在对象中定义的最后一个是生效的。  </p>
+<p><strong>注意</strong> <code>expires</code>不应直接设置该选项; 而只是使用该 <code>maxAge</code> 选项。</p>
+</li>
+<li><p>cookie.httpOnly<br>指定属性的<code>boolean值``HttpOnly Set-Cookie</code>。为true时，设置HttpOnly属性，否则不设置。默认情况下，该HttpOnly 属性已设置。  </p>
+<p><strong>注意</strong> 在将其设置为true时要小心，因为兼容客户端 不允许 客户端JavaScript在<code>document.cookie</code>中看到<code>cookie</code>。</p>
+</li>
+<li><p>cookie.maxAge<br>指定计算<code>Expires Set-Cookie</code>属性时 要使用 数字(以毫秒为单位)。这是通过 获取当前服务器时间 并向<code>值</code>添加<code>maxAge</code>毫秒来计算过期日期时间来完成的。默认情况下，没有设置<code>maxAge</code>。</p>
+<p><strong>注意</strong> 如果在选项中同时设置了<code>expires</code>和<code>maxAge</code>，那么对象中定义的<code>最后一个</code>就是所使用的。</p>
+</li>
+<li><p>cookie.path<br>指定的值<code>Path</code> <code>Set-Cookie</code>。默认情况下，将其设置为<code>&#39;/&#39;</code>，即域的根路径。</p>
+</li>
+<li><p>cookie.sameSite<br>指定<code>布尔值</code>或<code>字符串</code>作为<code>SameSite Set-Cookie</code>属性的值。  </p>
+<ul>
+<li>true会将 SameSite 属性设置为严格执行相同的站点。||<br>  true将 SameSite 属性设置Strict为严格相同的站点实施。</li>
+<li>false不会设置 SameSite 属性。</li>
+<li>‘lax’将 SameSite 属性设置Lax为<code>松散</code>相同的网站实施。</li>
+<li>‘strict’将 SameSite 属性设置为<code>严格</code>Strict以便严格执行相同的站点。</li>
 </ul>
+<p><a href="https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1.1" target="_blank" rel="noopener">更多关于不同执行级别的信息可以在规范中找到</a></p>
+<p><strong>注意</strong> 这是一个尚未完全标准化的属性，将来可能会改变。这也意味着许多客户可能会忽略这个属性，直到他们理解认可它。</p>
+</li>
+<li><p>cookie.secure<br>指定<code>安全</code> <code>设置cookie</code>属性的布尔值。当truthy时，设置了Secure属性，否则不设置。默认情况下，未设置Secure属性。<br>指定属性的boolean值Secure Set-Cookie。当真实时，设置Secure属性，否则不设置。默认情况下，Secure 未设置该属性。</p>
+<p><strong>注意</strong> 在设置为true时要小心，因为如果浏览器没有<code>HTTPS</code>连接，符合规范(兼容的) 客户端 将来不会将cookie发送回服务器。  </p>
+<p><strong>请注意!</strong> <code>secure: true</code>是 <strong>推荐的</strong> 选项。但是，它需要启用(支持)https的网站，即<code>secure cookies</code>需要HTTPS(HTTPS对于安全cookie是必要的)。如果<code>secure</code> 已设置，并且您通过HTTP访问您的站点，则不会设置cookie(不生效)。如果你的node.js在代理后面并且正在使用secure: true，你需要在express中设置“trust proxy”：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var app = express()</span><br><span class="line"></span><br><span class="line">app.set(&apos;trust proxy&apos;, 1) // trust first proxy</span><br><span class="line"></span><br><span class="line">app.use(session(&#123;</span><br><span class="line">  secret: &apos;keyboard cat&apos;,</span><br><span class="line">  resave: false,</span><br><span class="line">  saveUninitialized: true,</span><br><span class="line">  cookie: &#123; secure: true &#125;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+<p>对于在生产中使用 <code>secure cookies</code>，但允许在开发中进行测试，下面是一个例子，说明如何在express中基于<code>NODE_ENV</code>启用此设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var app = express()</span><br><span class="line">var sess = &#123;</span><br><span class="line">  secret: &apos;keyboard cat&apos;,</span><br><span class="line">  cookie: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (app.get(&apos;env&apos;) === &apos;production&apos;) &#123;</span><br><span class="line">  app.set(&apos;trust proxy&apos;, 1) // trust first proxy</span><br><span class="line">  sess.cookie.secure = true // serve secure cookies</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(session(sess))</span><br></pre></td></tr></table></figure>
+<p>The <code>cookie</code>。安全选项也可以设置为特殊值’auto’，使该设置自动匹配连接的确定安全性。如果站点同时作为HTTP和HTTPS可用，那么在使用此设置时要小心，因为一旦在HTTPS上设置了cookie，它将不再在HTTP上可见。当正确设置Express”trust proxy”(“信任代理”)设置以简化开发与生产配置时，这是很有用的。</p>
+</li>
+<li><p>genid 配置<br>函数调用以生成一个新的会话ID。提供一个函数，该函数返回一个将用作会话ID的字符串。<br>默认值是使用<code>uid-safe</code>库来生成id的函数。</p>
+<p><strong>注意请</strong> 注意生成惟一的id，这样会话就不会发生冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.use(session(&#123;</span><br><span class="line">  genid: function(req) &#123;</span><br><span class="line">    return genuuid() // use UUIDs for session IDs</span><br><span class="line">  &#125;,</span><br><span class="line">  secret: &apos;keyboard cat&apos;</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-
+<ul>
+<li><p>name<br>在响应中设置的会话ID cookie的名称(并从请求中读取)。<br>The default value is ‘connect.sid’.</p>
+<p><strong>注意</strong> 如果在相同的主机名上运行多个应用程序(这只是名称，即localhost或127.0.0.1;不同的方案和端口不会命名不同的主机名)，然后需要将session cookie彼此分开。最简单的方法是为每个应用设置不同的名称。</p>
+</li>
+<li><p>proxy<br>Trust the reverse proxy when setting secure cookies (via the “X-Forwarded-Proto” header).  </p>
+<p>在设置安全cookie时（通过 <code>X-Forwarded-Proto</code> 标头）信任反向代理。<br>默认值为undefined。</p>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title="## "></a>## </h2><h2 id="node-js-中间件express-session使用详解"><a href="#node-js-中间件express-session使用详解" class="headerlink" title="node.js 中间件express-session使用详解"></a><a href="https://www.jb51.net/article/114232.htm" target="_blank" rel="noopener">node.js 中间件express-session使用详解</a></h2><h2 id="同源策略以及cookie安全策略"><a href="#同源策略以及cookie安全策略" class="headerlink" title="同源策略以及cookie安全策略"></a><a href="https://blog.csdn.net/turkeyzhou/article/details/8818173" target="_blank" rel="noopener">同源策略以及cookie安全策略</a></h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/07/04/programmingLanguage/NodeJS/Node-js图片上传/" data-id="cjt55fwil00cvucdv1v08cbwq" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/13/programmingLanguage/NodeJS/Express-session/" data-id="cjuxepwrg00bv58dvup2tqep7" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/session/">session</a></li></ul>
+
     </footer>
   </div>
   
@@ -147,12 +262,12 @@
 
 
   
-    <article id="post-FrontEnd/前端图片上传" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SQL/NoSql/MongoDB/MongoDB学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/04/FrontEnd/前端图片上传/" class="article-date">
-  <time class="post-time" datetime="2018-07-04T10:24:20.000Z" itemprop="datePublished">
+    <a href="/2018/07/07/SQL/NoSql/MongoDB/MongoDB学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-07-07T08:31:09.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">04</span>
+    <span class="post-day">07</span>
   </time>
 </a>
    
@@ -164,21 +279,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/FrontEnd/前端图片上传/">前端图片上传</a>
+      <a class="article-title" href="/2018/07/07/SQL/NoSql/MongoDB/MongoDB学习笔记/">MongoDB学习笔记</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Node-multiparty/">Node-multiparty</a>
+    <a class="article-category-link" href="/categories/MongoDB/">MongoDB</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/07/04/FrontEnd/前端图片上传/" class="leancloud_visitors" data-flag-title="前端图片上传">
+    <span id="/2018/07/07/SQL/NoSql/MongoDB/MongoDB学习笔记/" class="leancloud_visitors" data-flag-title="MongoDB学习笔记">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -190,15 +305,205 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h2><p>主要介绍 WEB 浏览器 上传示例</p>
+        <h1 id="MongoDB学习笔记-JS胖"><a href="#MongoDB学习笔记-JS胖" class="headerlink" title="MongoDB学习笔记(JS胖)"></a><a href="http://jspang.com/2017/12/16/mongdb/" target="_blank" rel="noopener">MongoDB学习笔记(JS胖)</a></h1><p>(2018年1月26日 13:53:11)</p>
+<h2 id="第01节：认识和安装MongoDB"><a href="#第01节：认识和安装MongoDB" class="headerlink" title="第01节：认识和安装MongoDB"></a>第01节：认识和安装MongoDB</h2><blockquote>
+<p>MongoDB是<code>非关系型数据库</code><br>   关系数据库,是建立在关系模型基础上的数据库。<br>   安装步骤：<br>    1.去官网下载MongoDB,<a href="https://www.mongodb.com/,在网站中找到Download按钮。下载会有点忙,国外的服务器,你懂的。" target="_blank" rel="noopener">https://www.mongodb.com/,在网站中找到Download按钮。下载会有点忙,国外的服务器,你懂的。</a><br>    2.下载后进行安装,安装没什么难度,但是对于新手建议选择默认安装,而不选择自己配置。等我们完全熟悉后再定制式配置。<br>    3.安装时如果有安全软件,会报一些拦截,一律允许就好,不允许会安装失败的。<br>    4.安装完成后,需要配置“环境变量”,目的是再命令行中直接使用,而不需要输入很长的路径了。（此步骤观看视频）</p>
+</blockquote>
+<p>   查看存在数据库命令：<code>show dbs</code><br>   查看数据库版本命令：<code>db.version()</code> </p>
+<h2 id="第02节：Mongo基本命令-1-show-dbs-use-xxdb-show-collections-db-MongoDB的存储结构"><a href="#第02节：Mongo基本命令-1-show-dbs-use-xxdb-show-collections-db-MongoDB的存储结构" class="headerlink" title="第02节：Mongo基本命令-1(show dbs use xxdb show collections db MongoDB的存储结构)"></a>第02节：Mongo基本命令-1(<code>show dbs</code> <code>use xxdb</code> <code>show collections</code> <code>db</code> <code>MongoDB的存储结构</code>)</h2><p>   接下来的几节直接上手<code>Mongo命令</code>,<code>MSSQL</code>和<code>MYsql</code>用的都是<code>Sql命令</code>。<br>   MongoDB的操作命令就是前端最熟悉的JavaScript命令。<br>   先来一个常用的赋值和输出命令,熟悉一下。（操作前你需要打开Mongo服务器和链接到服务器-也就是我们上节讲的<code>mongod</code>命令和<code>mongo</code>命令）在命令行中输入以下代码。<br>   需要注意的是这里的输出不再使用<code>console.log</code>(‘巴拉巴拉’),而是使用<code>print</code>(‘巴拉巴拉’),这个稍有区别。</p>
+<p>   <strong>MongoDB的存储结构</strong><br>    以前我们的关系型数据库的数据结构都是顶层是库,库下面是表,表下面是数据。但是MongoDB有所不同,库下面是集合,集合下面是文件,可以看下面这张图进行了解一下。</p>
+<pre><code>**存储解构不同**
+  关系型数据库
+    --数据库
+    --数据表
+    --数据行
+  非关系型数据库(MongoDB)
+    --数据库
+    --集合
+    --文件
+
+ 在学习中我们可以对比记忆,这样才能更好的了解这些名词,其实数据表就是集合,数据行就是文件,当然这只是为了记忆,实质还是有区别的。
+</code></pre><p>   <strong>基础Shell命令</strong><br>    了解<code>存储结构</code>后,就可学习基础<code>Shell</code>命令,因 命令 较基础,以 列表形式展现,具体使用方法可到视频观看。<br>    <code>show dbs</code>:显示已有数据库. 如果你刚安装好,会默认有local、admin(config),这是MongoDB的默认数据库,我们在新建库时是不允许起这些名称的。<br>    <code>use admin</code>： 进入数据,也可以理解成为使用数据库。成功会显示：<code>switched to db admin</code>。<br>    <code>show collections</code>: 显示数据库中的<code>集合</code>（关系型中叫<code>表</code>,我们要逐渐熟悉）。<br>    <code>db</code>:显示当前位置. 也就是你当前使用的数据库名称,这个命令算是最常用的,因为你在作任何操作的时候都要先查看一下自己所在的库,以免造成操作错误。</p>
+<p>   <code>总结</code>：这节 学习已经 进入 <code>MongoDB</code> 世界,使用 比较简单,都是 基本命令, 敲回车就可使用,但还要多进行 练习。<code>重点</code> 要转变 以前<code>数据库存储结构的思想</code>,<code>掌握MongoDB的存储结构</code>。 </p>
+<h2 id="第03节：Mongo基本命令-2-“基本数据增删改查“-use-db-insert-find-findOne-update-remove-drop-dropDatabase-count"><a href="#第03节：Mongo基本命令-2-“基本数据增删改查“-use-db-insert-find-findOne-update-remove-drop-dropDatabase-count" class="headerlink" title="第03节：Mongo基本命令-2(“基本数据增删改查“ use db insert find findOne update remove drop dropDatabase count)"></a>第03节：Mongo基本命令-2(“基本数据<code>增删改查</code>“ <code>use db</code> <code>insert</code> <code>find</code> <code>findOne</code> <code>update</code> <code>remove</code> <code>drop</code> <code>dropDatabase</code> <code>count</code>)</h2><p>   学会基本的 数据 <code>增删改查</code><br>   数据操作基础命令：<br>    <code>use db</code>(建立数据库)：use不仅可以进入一个数据库,如果你敲入的库不存在,它还可以帮你建立一个库。但是在没有集合前,它还是默认为空。<br>    <code>db.集合.insert({&quot;&quot;:&quot;&quot;,&quot;&quot;:&quot;&quot;})</code>:新建数据集合和插入文件（数据）,<strong>当集合没有时,这时候就可以新建一个集合,并向里边插入数据。</strong> <code>Demo：db.user.insert({“name”:”jspang”})</code><br>    <code>db.集合.find( )</code>:查询所有数据,这条命令会列出集合下的所有数据,可以看到MongoDB是自动给我们加入了索引值的。<code>Demo：db.user.find()</code><br>    <code>db.集合.findOne( )</code>:查询第一个文件数据,这里需要注意的,所有MongoDB的组合单词都使用首字母小写的驼峰式写法。<br>    <code>db.集合.update({查询},{修改})</code>:修改文件数据,第一个是查询条件,第二个是要修改成的值。这里注意的是可以多加文件数据项的,比如下面的例子。<br>    <code>db.集合.remove(条件)</code>：删除文件数据,注意的是要跟一个条件。<code>Demo</code>:<code>db.user.remove({“name”:”jspang”})</code><br>    <strong>以下基本不用</strong><br>    <code>db.集合.drop( )</code>:删除整个集合,这个在实际工作中一定要谨慎使用,如果是程序,一定要二次确认。<br>    <code>db.dropDatabase( )</code>:删除整个数据库,在删除库时,一定要先进入数据库,然后再删除。实际工作中这个基本不用,实际工作可定需要保留数据和痕迹的。<br>    <code>db.collections.count({rule})</code></p>
+<h2 id="第04节：用js文件写mongo命令-var-db-connect-quot-dbName-quot"><a href="#第04节：用js文件写mongo命令-var-db-connect-quot-dbName-quot" class="headerlink" title="第04节：用js文件写mongo命令(var db = connect(&quot;dbName&quot;) )"></a>第04节：用js文件写mongo命令(<code>var db = connect(&quot;dbName&quot;)</code> )</h2><p>   命令行写<code>mongo</code>命令（shell）实在麻烦(无法忍受windows系统 命令行),这节学习用<code>JS</code>文件来写<code>shell命令</code>和<code>执行</code>。<code>JS</code>写<code>mongo</code>的<code>Shell</code>命令大部分是相同的,只有小部分不一样。<br>  <strong>把命令写入JS中</strong><br>    现模拟一个用户登录日志表 信息,用JS进行编写。在一个新建目录下,比如D:/mongoShell/,新建一个goTask.js文件。文件内容如下：</p>
+<blockquote>
+<p>goTask.js文件<br>var userName=”jspang”;    //声明一个登录名<br>var timeStamp=Date.parse(new Date());     //声明登录时的时间戳<br>var jsonDdatabase={“loginUnser”:userName,”loginTime”:timeStamp}; //组成JSON字符串<br>var db = connect(‘log’);   //链接数据库<br>db.login.insert(jsonDdatabase);  //插入数据</p>
+<p>print(‘[demo]log  print success’);  //没有错误显示成功<br>var userName=”jspang”;    //声明一个登录名<br>var timeStamp=Date.parse(new Date());     //声明登录时的时间戳<br>var jsonDdatabase={“loginUnser”:userName,”loginTime”:timeStamp}; //组成JSON字符串<br>var db = connect(‘log’);   //链接数据库<br>db.login.insert(jsonDdatabase);  //插入数据</p>
+<p>print(‘[demo]log  print success’);  //没有错误显示成功</p>
+</blockquote>
+<p>  <strong>执行JS文件</strong></p>
+<blockquote>
+<p>mongo goTask.js</p>
+</blockquote>
+<p>  总结：这节很好的解决 在终端写 命令行 的难题,虽然大部分Shell和在命令行中写法一样,但是也稍有不同,希望小伙伴们可以轻松掌握。 </p>
+<h2 id="第05节：批量插入的正确方法-“批量数据插入-以数组方式”-老版本MongoDB-batchInsert-一次插入不要超-48M-静态存储-批量插入性能测试-批量-gt-循环-数据库性能"><a href="#第05节：批量插入的正确方法-“批量数据插入-以数组方式”-老版本MongoDB-batchInsert-一次插入不要超-48M-静态存储-批量插入性能测试-批量-gt-循环-数据库性能" class="headerlink" title="第05节：批量插入的正确方法(“批量数据插入 以数组方式” 老版本MongoDB batchInsert 一次插入不要超 48M 静态存储 批量插入性能测试 批量&gt;循环 数据库性能)"></a>第05节：批量插入的正确方法(“批量数据插入 以<code>数组</code>方式” <code>老版本MongoDB batchInsert</code> <code>一次插入不要超 48M</code> <code>静态存储</code> <code>批量插入性能测试 批量&gt;循环</code> <code>数据库性能</code>)</h2><p>   在操作数据库时要注意两个能力：<br>    第一个是<code>快速存储能力</code>。<br>    第二个是<code>方便迅速查询能力</code>。</p>
+<p>   <strong>批量插入</strong><br>    批量数据插入是以<strong>数组</strong>的方式进行的（如果写错,可以3个回车可以切出来）。我们现在命令行中敲入下面的代码,我们可以看到数据顺利插入了。<br>    老版本MongoDB（3.2以前的版本基本都需要）是需要在<code>Insert</code>前加一个<code>batch</code>单词的,如下代码。<br>    <code>db.test.batchInsert()</code><br>    <strong>注意</strong>一次插入不要超过48M,<code>.zip</code>和<code>大图片</code>之类尽量用<code>静态存储</code>,MongoDB存储<code>静态路径</code>就好,这也算是一个规则。</p>
+<p>   <strong>批量插入性能测试</strong><br>    刚学了批量插入,那是循环插入快？还是批量插入快那？在一般人的认知里肯定是批量插入更快（其实这毋庸置疑）,但我们要拿出极客精神,探个究竟,试着写一个小Shell,来验证一下结果。<br>    先写一个<code>循环插入</code>方法：</p>
+<pre><code>`批量插入`代码:
+</code></pre><p>   <strong>总结</strong>：在工作中<code>一定</code>要<code>照顾数据库性能</code>,这也是你<code>水平的体现</code>,一个技术会了很简单,但是要精通不那么简单。学完这节,记得在工作中如果在循环插入和批量插入举棋不定,那就选批量插入吧,它会给我们更优的性能体验。 </p>
+<h2 id="第06节：修改：Update常见错误-只update修改项"><a href="#第06节：修改：Update常见错误-只update修改项" class="headerlink" title="第06节：修改：Update常见错误(只update修改项)"></a>第06节：修改：Update常见错误(<code>只update修改项</code>)</h2><p>   这节开始说一说<code>Update</code> 详细操作,先来看下常见错误,知道 困难 或者说 问题在哪里,再提出解决方案。这节会先演示一些错误的 <code>Update</code> 方法,然后再说正确的方法。希望不要误导小伙伴。<br>   <strong>错误：只update修改项</strong><br>    <code>Update</code>的使用方法需要注意<br>    db.xxxset.update({“”:””},<code>{&quot;&quot;:&quot;&quot;} || [] || variable</code>)(此方法属于整条数据修改,替换项需要整条数据)</p>
+<p>   <strong>正确修改方法</strong><br>    可以声明一个变量,然后把要改变数据的全部信息放入变量,最后执行修改操作。</p>
+<p>   现在这种方法才是正确的,数据修改正常了,但是你会发现写起来非常麻烦,而且特别容易写错。下节我们会介绍<code>update修改器</code>,可以很好的解决这个问题。 </p>
+<h2 id="第07节：修改：初识update修改器-set-set嵌套内容-unset-inc-multi-upsert"><a href="#第07节：修改：初识update修改器-set-set嵌套内容-unset-inc-multi-upsert" class="headerlink" title="第07节：修改：初识update修改器($set/$set嵌套内容 $unset $inc multi upsert)"></a>第07节：修改：初识update修改器(<code>$set/$set嵌套内容</code> <code>$unset</code> <code>$inc</code> <code>multi</code> <code>upsert</code>)</h2><p>   上节的<code>修改</code>用起来实在是<code>不够优雅</code>,这是我们一个伟大的前端不能接受的,所以我们要学习<code>update修改器</code>,来解决这个问题。<code>update修改器</code>可以帮助我们<code>快速</code>和<code>简单</code>的修改数据,让我们的操作更简单方便。<br>  <strong>$set修改器</strong><br>    用来修改一个指定的键值(key),这时候我们要修改上节的sex和age就非常方便了,只要一句话就可以搞定。</p>
+<blockquote>
+<p>db.workmate.update({“name”:”MinJie”},{“$set”:{sex:2,age:21}})<br>    修改好后,我们可以用db.workmate.find()来进行查看,你会发现数据已经被修改。<br>   <strong>修改嵌套内容(内嵌文档)</strong><br>db.workmate.update({“name”:”MinJie”},{“$set”:{“skill.skillThree”:’word’}})</p>
+</blockquote>
+<p>  <strong>$unset用于将key删除</strong></p>
+<blockquote>
+<p>db.workmate.update({“name”:”MinJie”},{$unset:{“age”:’’}})</p>
+</blockquote>
+<p>  <strong>$inc对数字进行计算</strong><br>   它是对<code>value值</code>的修改,但是修改的<code>必须是数字</code>,<code>字符串</code>是<code>不起效果</code>的。</p>
+<blockquote>
+<p>db.workmate.update({“name”:”MinJie”},{$inc:{“age”:-2}})</p>
+</blockquote>
+<p>  <strong>multi选项</strong><br>   <code>multi</code>是有<code>ture</code>和<code>false</code>两个值,<code>true代表全部修改</code>,<code>false代表只修改一个(默认值)</code>。</p>
+<p>  <strong>upsert选项</strong><br>   <code>upsert</code>也有<code>ture</code>和<code>false</code>两个值：<code>true代表没有就添加</code>,<code>false代表没有不添加(默认值)</code>。</p>
+<p>  <strong>总结</strong>：这节的内容非常多,主要学习了<code>update修改器</code>有关的一些东西。一定要多练习几遍,否则很快就会忘记的。</p>
+<h2 id="第08节：修改：update数组修改器-push-ne-addToSet-each-pop"><a href="#第08节：修改：update数组修改器-push-ne-addToSet-each-pop" class="headerlink" title="第08节：修改：update数组修改器($push $ne $addToSet $each $pop)"></a>第08节：修改：update<code>数组</code>修改器(<code>$push</code> <code>$ne</code> <code>$addToSet</code> <code>$each</code> <code>$pop</code>)</h2><p>  已学会一些<code>基础修改器</code>,这节主要学习<code>数组修改器的操作</code>,也可<code>修改内嵌文档</code>,也就是<code>对象形式的数据</code>。<br>  <strong>$push追加数组/内嵌文档值</strong><br>   <code>$push</code>的功能是<code>追加数组中的值</code>,但我们也经常用它操作<code>内嵌文档</code>,就是{}对象型的值。<br>    先看一个追加数组值的方式,比如我们要给小王加上一个爱好(interset)为画画（draw）：</p>
+<blockquote>
+<p>db.workmate.update({name:’xiaoWang’},{$push:{interest:’draw’}})<br>   当然<code>$push</code>修饰符还可以为<code>内嵌文档增加值</code>.<br>    比如我们现在要给我们的UI,增加一项新的技能skillFour为draw,这时候我们可以操作为：<br>db.workmate.update({name:’MinJie’},{$push:{“skill.skillFour”:’draw’}})<br>   <code>$push修饰符</code>在工作中是最常用的,因为 <code>数据</code>一般都会涉及<code>数组</code>和<code>内嵌文档</code>的操作,一定要掌握。</p>
+</blockquote>
+<p>  <strong>$ne查找是否存在</strong>(类似 <code>if(xxx === undefined || !xxx)/else</code> 判断)<br>    它主要的作用是,<code>检查一个值是否存在</code>,如<code>不存在</code>再 执行操作,<code>存在</code>就不执行,这个很<code>容易弄反</code>,记得我刚学的时候就经常弄反这个修改器的作用,给自己增加了很多坑。</p>
+<blockquote>
+<p>db.workmate.update({name:’xiaoWang’,”interest”:{$ne:’playGame’}},{$push:{interest:’Game’}})<br>   <strong>总结</strong>：没有则修改,有则不修改。</p>
+</blockquote>
+<p>  <strong>$addToSet 升级版的$ne</strong><br>    它是$ne的升级版本（查找是否存在,不存在就push上去）,操作起来更直观和方便,所以再工作中这个要比$en用的多。</p>
+<blockquote>
+<p>db.workmate.update({name:”xiaoWang”},{$addToSet:{interest:”readBook”}})</p>
+</blockquote>
+<p>  <strong>$each 批量追加</strong><br>    它可以传入一个<code>数组</code>,一次增加<code>多个值</code>进去,相当于<code>批量操作</code>,性能同样比循环操作要好很多,这个是需要我们注意的,工作中也要先组合成数组,然后用批量的形式进行操作。</p>
+<blockquote>
+<p>var newInterset=[“Sing”,”Dance”,”Code”];<br>db.workmate.update({name:”xiaoWang”},{$addToSet:{interest:{$each:newInterset}}})</p>
+</blockquote>
+<p>  <strong>$pop 删除数组值</strong><br>    <code>$pop</code>只删除一次,并不是删除所有数组中的值。而且它有<code>两个选项</code>,<code>1</code>和<code>-1</code>。<br>    1：从数组末端进行删除<br>    -1：从数组开端进行删除</p>
+<blockquote>
+<p>db.workmate.update({name:’xiaoWang’},{$pop:{interest:1}})</p>
+</blockquote>
+<p>  <strong>数组定位修改</strong><br>    有时候只知道修改数组的第几位,但并不知道是什么,这时候我们可以使用<code>interest.int</code>的形式。<br>    <code>例子</code> 比如我们现在要修改xiaoWang的第三个兴趣为编码（Code）,注意这里的计数是从0开始的。</p>
+<blockquote>
+<p>db.workmate.update({name:’xiaoWang’},{$set:{“interest.2”:”Code”}})</p>
+</blockquote>
+<p>  <strong>总结</strong>：这节主讲<code>数组</code>和<code>内嵌文档</code>有关的<code>update</code>修改器,内容很多,都需要不断熟练记忆。当然如果你记不住,你至少记住这个博客网址,因为技术胖把笔记已经给你整理好了。</p>
+<h2 id="第09节：修改：状态返回与安全-应答式-非应答式-db-runCommand-findAndModify"><a href="#第09节：修改：状态返回与安全-应答式-非应答式-db-runCommand-findAndModify" class="headerlink" title="第09节：修改：状态返回与安全(应答式/非应答式 db.runCommand() findAndModify())"></a>第09节：修改：状态返回与安全(<code>应答式/非应答式</code> <code>db.runCommand()</code> <code>findAndModify()</code>)</h2><p>  在操作数据库时,对<code>数据的修改</code>需要<code>足够的安全措施</code>,实际工作中,用<code>db.collections.update</code>不多,修改时都用<code>findAndModify</code>,它<code>返回</code>来一些必要的<code>参数</code>,让我们对<code>修改</code>多了很多<code>控制</code>力,<code>控制力的加强</code>也就是对<code>安全的强化能力加强</code>。</p>
+<p>  <strong>应答式写入</strong><br>   先了解一个概念：<code>应答式写入</code>。在<code>以前</code>的文章中,我们的操作都是<code>非应答式写入</code>,就是在<code>操作完</code>数据库后,它并没有给我们任何的<code>回应</code>和<code>返回值</code>,而是我们自己安慰自己写了一句话（print(‘[update]:The data was updated successfully’);）。这在<code>工作中 不允许</code>,因为根本<code>不能提现</code>我们<code>修改的结果</code>。<br>   <strong>应答式</strong>写入就会给我们<code>直接返回结果</code>(报表),结果里边的包含项会很多,这样我们就可以很好的进行程序的控制和安全机制的处理。有点像<code>前端</code>调用<code>后端接口</code>,无论作什么,后端都要给我一些<code>状态字节</code>一样。</p>
+<p>  <strong>db.runCommand()</strong><br>   是数据库运行命令的<code>执行器</code>,执行命令<code>首选</code>就要使用它,因为它在<code>Shell</code>和<code>驱动程序</code>间提供了一致的接口。（几乎操作数据库的所有操作,都可以使用<code>runCommand</code>来执行）现在我们试着用<code>runCommand</code>来修改数据库,看看结果和直接用<code>db.collections.update</code>有什么<code>不同</code>。</p>
+<blockquote>
+<p>db.workmate.update({sex:1},{$set:{money:1000}},false,true)<br>var resultMessage=db.runCommand({getLastError:1})<br>printjson(resultMessage);</p>
+</blockquote>
+<p>   上边代码 修改所有男士 每人增加1000元钱(money),然后用<code>db.runCommand()</code>执行,可看到执行结果在控制台返回。<br>    {<br>      “connectionId” : 1,<br>      “updatedExisting” : true,<br>      “n” : 2,<br>      “syncMillis” : 0,<br>      “writtenTo” : null,<br>      “err” : null,<br>      “ok” : 1<br>    }<br>    <code>false</code>：第一句末尾的false是upsert的简写,代表没有此条数据时不增加;<br>    <code>true</code>：true是multi的简写,代表修改所有,这两个前边已学过。<br>    <code>getLastError:1</code> :表示返回功能错误,这里的参数很多,如果有兴趣请自行查找学习,这里不作过多介绍。<br>    <code>printjson</code>：表示以json对象的格式输出到控制台。<br>    <code>db.listCommands( )</code>:查看所有的Commad命令, 内容很多, 本课程只讲解<code>工作中经常使用</code>的内容。</p>
+<p>   比如我们要查看是否和数据库链接成功了,就可以使用Command命令。<br>   <code>db.runCommand({ping:1})</code><br>   返回<code>ok:1</code>就代表链接正常。</p>
+<p>  <strong>findAndModify</strong><br>   从名字看,<code>findAndModify</code>是<code>查找并修改</code>的意思。配置它可以在修改后给我们返回修改的结果。看下面代码：</p>
+<blockquote>
+<p>var myModify={<br> findAndModify:”workmate”,<br> query:{name:’JSPang’},<br> update:{$set:{age:18}},<br> new:true    //更新完成,需要查看结果,如果为false不进行查看结果<br>}<br>var ResultMessage=db.runCommand(myModify);</p>
+<p>printjson(ResultMessage)<br>   <code>findAndModify</code>的<code>性能</code>是不如<code>db.collections.update</code>的性能好,但实际工作中都使用它,毕竟要<code>商用程序</code>安全性还是比较重要的。<br>   <code>findAndModify属性值</code>:<br>    <code>query</code>:需要查询的条件/文档<br>    <code>sort</code>: 排序<br>    <code>remove</code>:[boolean]是否删除查找到的文档,值填写true,可以删除。<br>    <code>new</code>:[boolean]返回更新前的文档还是更新后的文档。<br>    <code>fields</code>:需要返回的字段<br>    <code>upsert</code>:没有这个值是否增加。<br>   <strong>总结</strong>：这节讲了一些跟<code>安全有关的操作</code>,但这<code>不是全部</code>,我们随着课程的深入还会继续学习更多的知识。工作中尽量使用<code>findAndModify</code>来进行更新数据,这样会更安全和直观,这点性能的损失是值得的。</p>
+</blockquote>
+<h2 id="第10节：查询：find的不等修饰符-简单查找-quot-x-x-quot-转字符串-筛选字段-第二对象参数-boolean-0-1-不等修饰符"><a href="#第10节：查询：find的不等修饰符-简单查找-quot-x-x-quot-转字符串-筛选字段-第二对象参数-boolean-0-1-不等修饰符" class="headerlink" title="第10节：查询：find的不等修饰符(简单查找(&quot;x.x&quot;)转字符串 筛选字段(第二对象参数 boolean || 0/1) 不等修饰符)"></a>第10节：查询：find的不等修饰符(<code>简单查找(&quot;x.x&quot;)转字符串</code> <code>筛选字段(第二对象参数 boolean || 0/1)</code> <code>不等修饰符</code>)</h2><p>  <code>MongoDB</code>的<code>查找操作</code> 分几节课来讲,因为内容比较多, <code>开发中</code> 查找 是应用最多的操作,几乎每个模块都会用到,所以<code>查找部分</code>将是本套课的<code>重中之重</code>。这节课我们先来看看简单的查询条件,也了解一下find基础用法。<br>  如果你以前操作过<code>关系型数据库</code>比如<code>MySql</code> 你会对&gt;(大于),&lt;(小于),=(等于)这些东西很熟悉,但是<code>非关系型数据库</code>不能直接使用这些符号,稍有区别。<br>  <strong>构造数据</strong><br>   我们需要构造更多的数据到集合中,这样我们才能很好的讲解查询条件,下面代码你可以直接复制进行添加。当然你也可以自己随意加一些数据到集合中,只要方便我们学习就可以了。<br>   “D:\工具\工作学习\monggoShell\demo10.js”</p>
+<p>  <strong>简单查找</strong><br>   比如 现在要查找数据中 技能一 会HTML+CSS 的所有人。直接进行查找加条件就可以。</p>
+<blockquote>
+<p>db.workmate.find({“skill.skillOne”:”HTML+CSS”})<br>   这时不能使用load来载入,以后会给大家讲使用方法,先用比较笨的方法,使用粘贴复制的方法 在命令行执行。</p>
+</blockquote>
+<p>  <strong>筛选字段</strong><br>   <code>返回数据项</code>太多,太乱,有时 程序并不需要 这么多选项。比如 只需要<code>姓名</code>和<code>技能</code>就可以了。这时候需要写第二个参数,看以下代码。<br>   db.workmate.find(<br>      {“skill.skillOne”:”HTML+CSS”},<br>      {name:true,”skill.skillOne”:true}<br>   )<br>   终端中看到如下结果：<br>    略……<br>   细心的小伙伴会发现还不够完美,多了一个<code>ID字段</code>,这个也不是我们想要的,这时候只要把<code>_id:false</code>就可以了。当然这里的<code>false</code>和<code>true</code>,<strong>也可以用<code>0</code>和<code>1</code>表示。</strong><br>   db.workmate.find(<br>     {“skill.skillOne”:”HTML+CSS”},<br>     {name:1,”skill.skillOne”:1,_id:0}<br>   )<br>   <strong>不过</strong>这些查找操作,都是在作<code>等于</code>的阶段,但是不光只有等于查询,我们需要更多的查询条件。</p>
+<p>  <strong>不等修饰符</strong></p>
+<ul>
+<li>小于($lt):英文全称<code>less-than</code></li>
+<li>小于等于($lte)：英文全称<code>less-than-equal</code></li>
+<li>大于($gt):英文全称<code>greater-than</code></li>
+<li>大于等于($gte):英文全称<code>greater-than-equal</code></li>
+<li><p>不等于($ne):英文全称<code>not-equal</code><br>现在要查找,公司内年龄<code>小于30</code>&amp;<code>大于25岁</code>的人员。看下面的代码。<br>db.workmate.find(<br>{age:{$lte:30,$gte:25}},<br>{name:true,age:true,”skill.skillOne”:true,_id:false}<br>)</p>
+<p><strong>日期查找</strong><br>MongoDB也提供了方便的日期查找方法,现在我们要查找注册日期大于2018年1月10日的数据,我们可以这样写代码。<br>“D:\工具\工作学习\monggoShell\batch10.js”<br>先声明一个日期变量,然后使用<code>大于符</code>($gt)进行筛选。</p>
+<p><strong>总结</strong>：这节课内容并不多,但如果你是个<code>DBA</code>(数据库管理员) 查找命令工作中每天都会用到,所以这节课的内容练习是必须的,如果你懒得动手,那接下来的课程你可能无法学会。</p>
+</li>
+</ul>
+<h2 id="第11节：查询：find的多条件查询-in-nin-有-无-or-and-not-或-与-非"><a href="#第11节：查询：find的多条件查询-in-nin-有-无-or-and-not-或-与-非" class="headerlink" title="第11节：查询：find的多条件查询($in/$nin(有/无) $or / $and / $not(或/与/非))"></a>第11节：查询：find的多条件查询(<code>$in/$nin</code>(有/无) <code>$or / $and / $not</code>(或/与/非))</h2><p>  很多时候我们需要查询的值<code>不只是有一个简单的条件</code>,比如我们现在要查询一下同事中是<code>33岁</code>和<code>25岁</code>的,还比如我们要查询同事中<code>大于30岁</code>并且<code>会PHP技能</code>的。MongoDB在这方面也支持的很好,我们来学习一下。</p>
+<p>  <strong>$in修饰符</strong><br>   <code>in修饰符</code>可以轻松解决<code>一键多值</code>的查询情况。<br>   就如上面我们讲的例子,现在要查询同事中年龄是25岁和33岁的信息。</p>
+<blockquote>
+<p>db.workmate.find(<br>  {age:{$in:[25,33]}},<br>  {name:1,”skill.skillOne”:1,age:1,_id:0}<br>)<br>   <code>$in</code>相对的修饰符是<code>$nin</code>,就是查询<code>除了$in条件</code>以外的值,小伙伴们可以自己进行练习一下,这里我就不作过多的演示了。</p>
+</blockquote>
+<p>  <strong>$or修饰符</strong><br>   <code>$or修饰符</code>用来查询<code>多个键值</code>的情况,比如查询同事中大于30岁或者会做PHP的信息。<br>   <code>$or修饰符</code>与<code>$in/$nin</code>主要区别 <code>$or</code>修饰符是两个Key值 <code>$in/$nin</code>修饰符是一个Key值 需比较记忆。</p>
+<p>  <strong>总结</strong>：这节知识比较简单,但要<code>区分记忆</code>,很<code>容易搞混</code>。幸运的是这里已经为你准备好学习笔记。当你忘记的时候过来看看吧。</p>
+<h2 id="第12节：查询：find的数组查询-all-in-size-slice-显示选项"><a href="#第12节：查询：find的数组查询-all-in-size-slice-显示选项" class="headerlink" title="第12节：查询：find的数组查询($all $in $size $slice(显示选项))"></a>第12节：查询：find的数组查询(<code>$all</code> <code>$in</code> <code>$size</code> <code>$slice(显示选项)</code>)</h2><p>  这节主要学习数组的查询,在学习update时就花了重墨去讲数组的操作,可见数组的操作在MongoDB中很受重视,因为稍微大型一点的项目,设计的数据集合都复杂一些,都会涉及数组的操作。</p>
+<p>  <strong>完善数据</strong><br>   以前我们的<code>workmate集合</code>对数组涉及还很少,现在在数据中加入了<code>兴趣（interest）</code>,并且给每个人加入了一些兴趣,比如有写代码,做饭,看电影…<br>   当然这些数据你可以自己随意构建,但是如果你不想自己费事费脑,这里也为你准备好了数据,你只要把以前的表删除（drop）掉,重新载入(load)就可以了。</p>
+<p>  <strong>基本数组查询</strong><br>   比如现在我们知道了一个人的爱好是’画画’,’聚会’,’看电影’,但我们不知道是谁,这时候我们就可以使用最简单的数组查询（实际工作中,这种情况基本不常用,所以这种查询只作知识点储备就可以了）。</p>
+<p>   在终端中运行后,我们得到了数据。这时候我们说,想查出看兴趣中有看电影的员工信息。按照正常逻辑,应该使用下面的代码。</p>
+<p>  <strong>$all-数组<code>多项</code>查询(类似 &amp;&amp;)</strong><br>   现在我们的条件升级了,要查询出既喜欢<code>看电影</code>又<code>看书</code>的人员信息,也就是对数组中的对象进行查询,这时候要用到一个新的查询修饰符$all。看下面的例子：</p>
+<p>  <strong>$in-数组的<code>或者</code>查询</strong><br>   <code>$all</code>修饰符,需要<code>满足所有条件</code>; <code>$in</code>主要<code>满足数组中任意的一项</code>就可以被查出来(有时候会跟<code>$or</code>弄混)。比如现在要查询爱好中有看电影的或者看书的员工信息。</p>
+<p>  <strong>$size-数组<code>个数</code>查询</strong></p>
+<p>  <strong>$slice-<code>显示选项</code></strong><br>    展示数据时的判断条件,显示前几项或后几项。<br>    db.workmate.find(<br>      {},<br>      {name:1,interest:{$slice:2},age:1,_id:0}<br>    )</p>
+<p>  <strong>总结</strong>：如果你只看视频一定学不会,程序这东西必须要动手练习,我在所有的视频中都反复强调,目的没有别的就是想让你们真的学会,并应用到工作中去。</p>
+<h2 id="第13节：查询：find的参数使用方法-find参数-query-fields-limit-skip-sort-分页Demo-where"><a href="#第13节：查询：find的参数使用方法-find参数-query-fields-limit-skip-sort-分页Demo-where" class="headerlink" title="第13节：查询：find的参数使用方法(find参数[query,fields,limit,skip,sort] 分页Demo $where)"></a>第13节：查询：find的参数使用方法(<code>find参数[query,fields,limit,skip,sort]</code> <code>分页Demo</code> <code>$where</code>)</h2><p>  前边已讲3节查询,都是在操作<code>find</code>方法的<code>第一个参数(query)</code>和<code>第二个参数(fields)</code>。<code>find</code>还有几个常用的参数,这些参数多用在<code>分页</code>和<code>排序</code>上。这节我们就把这些常用的选项说一说,理解后我们演示一个分页的效果。</p>
+<p>  <strong>find参数</strong><br>    <code>query</code>：这个就是查询条件,<code>MongoDB默认</code>的第一个参数。<br>    <code>fields</code>：（返回内容）查询出来后显示的结果样式,可以用<code>true(1)</code>和<code>false(0)</code>控制是否显示。<br>    <code>limit</code>：返回的数量,后边跟<code>数字(number)</code>,控制<code>每次查询返回</code>的结果数量。<br>    <code>skip</code>:跳过多少个显示,和<code>limit</code>结合可以实现分页。(number)<br>    <code>sort</code>：排序方式,从小到大排序使用<code>1</code>,从大到小排序使用<code>-1</code>。</p>
+<p>  <strong>分页Demo</strong></p>
+<blockquote>
+<p>db.workmate.find({},{name:true,age:true,_id:false}).limit(0).skip(2).sort({age:1});</p>
+</blockquote>
+<p>  <strong>$where修饰符</strong><br>   db.workmate.find(<br>     {$where:”this.age&gt;30”},<br>     {name:true,age:true,_id:false}<br>   )<br>   这里的<code>this</code>指向的是<code>workmate(查询集合)</code>本身。这样我们就可以在程序中随意调用。虽然强大和灵活,但是这种查询对于<code>数据库压力</code>和<code>安全性</code>都会变重,所以在工作中<code>尽量减少</code>$where修饰符的使用。</p>
+<h2 id="第14节：查询：find如何在js文本中使用-hasNext-forEach-基础部分完结"><a href="#第14节：查询：find如何在js文本中使用-hasNext-forEach-基础部分完结" class="headerlink" title="第14节：查询：find如何在js文本中使用(hasNext forEach)[基础部分完结]"></a>第14节：查询：find如何在js文本中使用(<code>hasNext</code> <code>forEach</code>)[基础部分完结]</h2><p>  前边使用<code>find</code>都是<code>JS</code>在文本中写完,然后复制到终端中执行,这样非常麻烦。在讲的过程中已经有很多小伙伴在问我如何像写<code>update</code>语句一样,在文本中直接运行。这节课我们就学习一下如何直接在文本中执行。</p>
+<p>  <strong>hasNext循环结果</strong><br>   想在文本中执行我们的<code>find</code>语句要用到<code>游标</code>和<code>循环</code>的操作,先看一下代码,代码中我已经对每一句进行了注释。</p>
+<blockquote>
+<p>var db = connect(“company”)  //进行链接对应的集合collections<br>var result = db.workmate.find() //声明变量result,并把查询结果赋值给result<br>//利用游标的hasNext()进行循环输出结果。<br>while(result.hasNext()){<br>    printjson(result.next())  //用json格式打印结果<br>}<br>   写完后,现在你只需要在终端中进行<code>load()</code>就可以执行了,再也不用麻烦的复制粘贴了。</p>
+</blockquote>
+<p>  <strong>forEach循环</strong><br>   利用<code>hasNext循环</code>结果,需要借助<code>while</code>的帮助,MongoDB也为我们提供了<code>forEach循环</code>,现在修改上边的代码,使用forEach循环来输出结果。</p>
+<blockquote>
+<p>var db = connect(“company”)  //进行链接对应的集合collections<br>var result = db.workmate.find() //声明变量result,并把查询结果赋值给result<br>//利用游标的hasNext()进行循环输出结果。<br>result.forEach(function(result){<br>    printjson(result)<br>})<br>   <code>作者</code>觉的<code>forEach循环</code>更为<code>优雅</code>。这两种方法都是非常不错的,凭借自己爱好进行选择吧。</p>
+</blockquote>
+<p>  <strong>总结</strong>：那我们MongoDB的<code>基础部分</code>就全部讲完了,我们学会了它的<code>增、删、改、查</code>,你也可以使用MongoDB进行一些操作了。需要注意的是,只是这篇文章的完结,下篇文章我们进行讲解MongoDB,开始讲解MongoDB的<code>索引</code>。</p>
+<h2 id="第15节：索引-构造百万级数据-db-randomInfo-stats"><a href="#第15节：索引-构造百万级数据-db-randomInfo-stats" class="headerlink" title="第15节：索引:构造百万级数据(db.randomInfo.stats())"></a>第15节：索引:构造百万级数据(<code>db.randomInfo.stats()</code>)</h2><p>  索引的<code>性能</code>体现必须要有<code>大量数据</code>才能看出来,你说你有10条20条数据,这是根本看不出来效果的,这节课就通过随机数的方法,创造出一个百万级数据的数据库出来。(随机插入数据,见mongoshell demo15.js)<br>  <strong>PS</strong>:<code>索引</code>是什么？把数据当成一个字典,<code>索引</code>即<code>目录</code>。消耗<code>内存</code>和<code>硬盘</code>。</p>
+<p>  <strong>制作随机数方法</strong></p>
+<p>  <strong>制作随机用户名</strong></p>
+<p>  插入完成后,我们可以使用<code>db.randomInfo.stats()</code>命令查看数据中的数据条数。</p>
+<p>  <strong>总结</strong>:这节课主要是为讲解MongoDB的<code>索引</code>作准备,我们用<code>随机数</code>的方法构建了一个<code>百万级</code>的数据表,如果你有兴趣继续往下学习 练习,这节课必须动手做一下。以后这篇文章的学习全是基于这个代码。</p>
+<h2 id="第16节：索引：索引入门-ensureIndex-getIndexes"><a href="#第16节：索引：索引入门-ensureIndex-getIndexes" class="headerlink" title="第16节：索引：索引入门(ensureIndex getIndexes)"></a>第16节：索引：索引入门(<code>ensureIndex</code> <code>getIndexes</code>)</h2><p>  集合中已建立 200万条数据,可以进行<code>索引</code>的操作了。我们先来建立一个索引,然后看看它的<code>查询性能</code>到底提升了多少倍。这节课的内容不会很难,主要掌握<code>索引的建立方法</code>即可。</p>
+<h3 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a>建立索引</h3><pre><code>db.randomInfo.ensureIndex({username:1})
+</code></pre><h3 id="查看现有索引"><a href="#查看现有索引" class="headerlink" title="查看现有索引"></a>查看现有索引</h3><pre><code>db.randomInfo.getIndexes()   
+</code></pre><h2 id="第17节：索引：复合索引-复合索引的坑-ensureIndex-hint"><a href="#第17节：索引：复合索引-复合索引的坑-ensureIndex-hint" class="headerlink" title="第17节：索引：复合索引(复合索引的坑 ensureIndex hint)"></a>第17节：索引：复合索引(<code>复合索引的坑</code> <code>ensureIndex</code> <code>hint</code>)</h2><p>什么样的数据使用索引会变慢？<br><code>复合索引</code>的<code>使用</code>和<code>语法</code><br>通过这节 需要对<code>索引</code>使用的<code>时机</code>有所了解，避免画蛇添足，产生不必的麻烦。</p>
+<h3 id="索引中的小坑"><a href="#索引中的小坑" class="headerlink" title="索引中的小坑"></a>索引中的小坑</h3><ul>
+<li>数据<code>不超万条</code>时，不需要使用索引。性能的提升并不明显，大大<code>增加了内存、硬盘 消耗</code>。</li>
+<li>查询数据<code>超过表数据量30%</code>时，不要使用索引字段查询。实际证明会<code>比不使用索引更慢</code>，因为它<code>大量检索</code>了<code>索引表</code>和我们<code>原表</code>。</li>
+<li><code>数字索引</code>，要<code>比字符串索引快</code>的多，在百万级甚至千万级数据量面前，使用数字索引是个明确的选择。</li>
+<li>把你经常查询的数据做成一个<code>内嵌数据</code>（对象型的数据），然后集体进行索引。</li>
+</ul>
+<h3 id="复合索引-ensureIndex"><a href="#复合索引-ensureIndex" class="headerlink" title="复合索引(ensureIndex)"></a>复合索引(<code>ensureIndex</code>)</h3><p><strong>复合索引就是两条以上的索引。</strong>上节课我们已经把<code>username</code>字段建立了索引，我们现在把<code>randNum0</code>，这个字段也设置成索引。<br>    db.randomInfo.ensureIndex({randNum0:1})</p>
+<p>建立好后，再用<code>查询索引状态</code>命令进行查询。<br>    db.randomInfo.getIndexes()</p>
+<h3 id="两个索引同时查询"><a href="#两个索引同时查询" class="headerlink" title="两个索引同时查询"></a>两个索引同时查询</h3><pre><code>var db = connect(&apos;company&apos;);
+var rs= db.randomInfo.find({username:&apos;7xwb8y3&apos;,randNum0:565509});
+</code></pre><p>从性能上看并没有什么特殊的变化，查询时间还是在4ms左右。MongoDB的<code>复合查询</code>是按照我们的<code>索引顺序</code>进行查询的。就是我们用<code>db.randomInfo.getIndexes()</code>查询出的数组。</p>
+<h3 id="指定索引查询-hint"><a href="#指定索引查询-hint" class="headerlink" title="指定索引查询(hint)"></a>指定索引查询(<code>hint</code>)</h3><p><code>数字</code>的索引要比<code>字符串</code>的索引<code>快</code>，这就需要一个方法来打破索引表的查询顺序，用我们自己<code>指定的索引</code>优先查询，这个方法就是<code>hint()</code>.</p>
+<pre><code>var rs= db.randomInfo.find({username:&apos;7xwb8y3&apos;,randNum0:565509}).hint({randNum0:1});
+</code></pre><p>由于<code>数据量</code>和<code>复杂成都</code>一般，所以没有明显性能提升。工作中遇到<code>大数据</code>，会得到<code>好的效果</code>。</p>
+<h3 id="删除索引-dropIndex"><a href="#删除索引-dropIndex" class="headerlink" title="删除索引(dropIndex)"></a>删除索引(<code>dropIndex</code>)</h3><p>当索引<code>性能不佳</code>或<code>起不到作用</code>时，我们需要删除索引，删除索引的命令是<code>dropIndex()</code>.</p>
+<pre><code>db.randomInfo.dropIndex(&apos;randNum0_1&apos;); // 索引的唯一ID
+</code></pre><p>这里需要<code>注意</code>的是删除时填写的值，并<code>不是 字段名称(key)</code>，<code>而是 索引查询表(getIndexes())中 name值</code>。</p>
+<h3 id="总结：这节主要内容-操作索引，包括复合索引-建立-删除。使用-索引的-窍门。"><a href="#总结：这节主要内容-操作索引，包括复合索引-建立-删除。使用-索引的-窍门。" class="headerlink" title="总结：这节主要内容 操作索引，包括复合索引 建立/删除。使用 索引的 窍门。"></a>总结：这节主要内容 <code>操作索引</code>，包括<code>复合索引 建立/删除</code>。使用 索引的 <code>窍门</code>。</h3><h2 id="第18节：索引：全文索引-text-search"><a href="#第18节：索引：全文索引-text-search" class="headerlink" title="第18节：索引：全文索引($text $search)"></a>第18节：索引：全文索引(<code>$text</code> <code>$search</code>)</h2><p>有时候需要在<code>大篇幅文章</code>中<code>搜索关键词</code>，比如文章每篇都在<code>万字以上</code>，这时候想<code>搜索关键字</code>是非常<code>不容易</code>的，<code>MongoDB</code>为提供了<code>全文索引</code>。</p>
+<h3 id="准备工作-建立集合-插入-数据"><a href="#准备工作-建立集合-插入-数据" class="headerlink" title="准备工作(建立集合 插入 数据)"></a>准备工作(建立集合 插入 数据)</h3><p>先建立<code>集合(collections)</code> —— <code>info</code>，然后<code>插入</code> 小段文章，<code>作用</code>就是为 建立 全文索引 提供数据，不再建立 百万级数据，只看效果。</p>
+<pre><code>db.info.insert({contextInfo:&quot;I am a programmer, I love life, love family. Every day after work, I write a diary.&quot;})
+db.info.insert({contextInfo:&quot;I am a programmer, I love PlayGame, love drink. Every day after work, I playGame and drink.&quot;})
+</code></pre><p>再次强调 只是练习需要，实际工作中 简单数据 没必要 建立 全文索引。</p>
+<h3 id="建立全文索引-ensureIndex"><a href="#建立全文索引-ensureIndex" class="headerlink" title="建立全文索引(ensureIndex)"></a>建立全文索引(<code>ensureIndex</code>)</h3><pre><code>db.info.ensureIndex({contextInfo:&apos;text&apos;})
+</code></pre><p>需要注意的是这里使用<code>text</code>关键词来<code>代表全文索引</code>，这里不再 <code>建立数据模型</code>。</p>
+<h3 id="全文索引查找-text-search"><a href="#全文索引查找-text-search" class="headerlink" title="全文索引查找($text $search)"></a>全文索引查找(<code>$text</code> <code>$search</code>)</h3><p>建立好了全文索引就可以查找了，查找时需要两个关键修饰符:</p>
+<ul>
+<li>$text:表示要在全文索引中查东西。</li>
+<li><p>$search:后边跟查找的内容。</p>
+<p>  db.info.find({$text:{$search:”programmer”}})</p>
+</li>
+</ul>
+<h3 id="多词查找-单词关系为-或-排除关键词"><a href="#多词查找-单词关系为-或-排除关键词" class="headerlink" title="多词查找(单词关系为 或||, 排除关键词-)"></a>多词查找(单词关系为 <code>或||</code>, 排除关键词<code>-</code>)</h3><p><code>全文索引</code>是支持<code>多词查找</code>的，比如我们希望查找数据中有programmer，family，diary，drink的数据(单词关系属于 <code>或||</code> 的关系)，所以两条数据都会出现。</p>
+<pre><code>db.info.find({$text:{$search:&quot;programmer family diary drink&quot;}})
+</code></pre><p>如果不希望 查找带有<code>drink</code>这个单词的记录，我们可以使用<code>-</code>减号来排除。</p>
+<pre><code>db.info.find({$text:{$search:&quot;programmer family diary -drink&quot;}})
+</code></pre><h3 id="转义符"><a href="#转义符" class="headerlink" title="转义符()"></a>转义符()</h3><p><code>全文搜索</code>中<code>支持转义符</code>，比如 想 搜索的是 两个词(<code>love PlayGame</code>和<code>drink</code>)，这时候需要使用<code>\</code>反斜杠来转意。</p>
+<pre><code>db.info.find({$text:{$search:&quot;\&quot;love PlayGame\&quot; drink&quot;}})
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>全文索引</code>在工作中比较常用,比如<code>博客文章</code>搜索、<code>长文件</code>的<code>关键词</code>搜索,都需要使用全文索引。</p>
+<p>## </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/07/04/FrontEnd/前端图片上传/" data-id="cjt55fwd4004kucdvmfno04e7" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/07/SQL/NoSql/MongoDB/MongoDB学习笔记/" data-id="cjuxepwut00gi58dvfqifd5vh" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片上传/">图片上传</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB学习笔记/">MongoDB学习笔记</a></li></ul>
 
     </footer>
   </div>
@@ -209,12 +514,12 @@
 
 
   
-    <article id="post-programmingLanguage/NodeJS/Node-js调用Python" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Canvas在线签名" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/04/programmingLanguage/NodeJS/Node-js调用Python/" class="article-date">
-  <time class="post-time" datetime="2018-07-04T09:37:39.000Z" itemprop="datePublished">
+    <a href="/2018/07/07/Canvas在线签名/" class="article-date">
+  <time class="post-time" datetime="2018-07-07T01:51:07.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">04</span>
+    <span class="post-day">07</span>
   </time>
 </a>
    
@@ -226,21 +531,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/programmingLanguage/NodeJS/Node-js调用Python/">Node.js调用Python</a>
+      <a class="article-title" href="/2018/07/07/Canvas在线签名/">Canvas在线签名</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Node/">Node</a>
+    <a class="article-category-link" href="/categories/Canvas/">Canvas</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/07/04/programmingLanguage/NodeJS/Node-js调用Python/" class="leancloud_visitors" data-flag-title="Node.js调用Python">
+    <span id="/2018/07/07/Canvas在线签名/" class="leancloud_visitors" data-flag-title="Canvas在线签名">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -252,14 +557,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="python-bridge"><a href="#python-bridge" class="headerlink" title="python-bridge"></a><a href="https://blog.csdn.net/ziyetian666/article/details/80493183" target="_blank" rel="noopener">python-bridge</a></h2><h3 id="npm-Python-bridge"><a href="#npm-Python-bridge" class="headerlink" title="npm: Python-bridge"></a>npm: <a href="https://www.npmjs.com/package/python-bridge" target="_blank" rel="noopener">Python-bridge</a></h3><h3 id="API-for-TypeScript"><a href="#API-for-TypeScript" class="headerlink" title="API for TypeScript"></a><a href="https://github.com/Submersible/node-python-bridge/blob/HEAD/README.ts.md" target="_blank" rel="noopener">API for TypeScript</a></h3>
+        <h2 id="Canvas在线签名"><a href="#Canvas在线签名" class="headerlink" title="Canvas在线签名"></a>Canvas在线签名</h2><hr>
+<p><a href="https://jdc.jd.com/archives/212515" target="_blank" rel="noopener">阅读原文</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/07/04/programmingLanguage/NodeJS/Node-js调用Python/" data-id="cjt55fwim00cxucdvqgr2vc6z" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/07/Canvas在线签名/" data-id="cjuxepwey000258dvb5xz7p08" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-Python-bridge/">Node-Python-bridge</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/在线签名/">在线签名</a></li></ul>
 
     </footer>
   </div>
@@ -270,12 +577,12 @@
 
 
   
-    <article id="post-FrontEnd/JS/JSON方法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-programmingLanguage/NodeJS/Node-js-FS模块" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/04/FrontEnd/JS/JSON方法/" class="article-date">
-  <time class="post-time" datetime="2018-07-04T01:56:44.000Z" itemprop="datePublished">
+    <a href="/2018/07/05/programmingLanguage/NodeJS/Node-js-FS模块/" class="article-date">
+  <time class="post-time" datetime="2018-07-05T06:47:46.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
-    <span class="post-day">04</span>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -287,21 +594,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/04/FrontEnd/JS/JSON方法/">JSON方法</a>
+      <a class="article-title" href="/2018/07/05/programmingLanguage/NodeJS/Node-js-FS模块/">FS模块</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JSON/">JSON</a>
+    <a class="article-category-link" href="/categories/Node-FS/">Node FS</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/07/04/FrontEnd/JS/JSON方法/" class="leancloud_visitors" data-flag-title="JSON方法">
+    <span id="/2018/07/05/programmingLanguage/NodeJS/Node-js-FS模块/" class="leancloud_visitors" data-flag-title="FS模块">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -313,78 +620,149 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="JSON的食用方法"><a href="#JSON的食用方法" class="headerlink" title="JSON的食用方法"></a>JSON的食用方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify()  // 把一个对象转换成json字符串， </span><br><span class="line">JSON.parse()  // 把一个json字符串解析成对象。。</span><br></pre></td></tr></table></figure>
-
+        <h2 id="Node-js-fs模块-文件模块-创建、删除目录-文件-读取写入文件流"><a href="#Node-js-fs模块-文件模块-创建、删除目录-文件-读取写入文件流" class="headerlink" title="Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流"></a><a href="https://blog.csdn.net/houyanhua1/article/details/79443987" target="_blank" rel="noopener">Node.js fs模块(文件模块) 创建、删除目录(文件) 读取写入文件流</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line">/* </span><br><span class="line"> 1. fs.stat  检测是文件还是目录(目录 文件是否存在) </span><br><span class="line"> 2. fs.mkdir  创建目录 （创建之前先判断是否存在） </span><br><span class="line"> 3. fs.writeFile  写入文件(文件不存在就创建,但不能创建目录) </span><br><span class="line"> 4. fs.appendFile 写入追加文件 </span><br><span class="line"> 5. fs.readFile 读取文件 </span><br><span class="line"> 6. fs.readdir 读取目录 </span><br><span class="line"> 7. fs.rename 重命名 </span><br><span class="line"> 8. fs.rmdir  删除目录 </span><br><span class="line"> 9. fs.unlink 删除文件 </span><br><span class="line"> 10. fs.createReadStream(&apos;&apos;) 从文件流中读取数据</span><br><span class="line"> 11. fs.createWriteStream  写入文件流</span><br><span class="line"> 12. pipe 管道流 </span><br><span class="line"> 13. fs.access 判断目录、文件是否存在(读写权限)</span><br><span class="line">*/</span><br><span class="line"> </span><br><span class="line">var fs=require(&apos;fs&apos;);   //fs是node.js的核心模块，不用下载安装，可以直接引入  </span><br><span class="line"> </span><br><span class="line">//1. fs.stat  检测是文件还是目录  fs.statSync()同步获取stats对象,通过返回值接收。</span><br><span class="line">fs.stat(&apos;html&apos;,function(error,stats)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;文件：&apos;+stats.isFile());</span><br><span class="line">    console.log(&apos;目录：&apos;+stats.isDirectory());</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//2. fs.mkdir  创建目录  </span><br><span class="line">fs.mkdir(&apos;css&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;创建目录成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//3. fs.writeFile  写入文件（会覆盖之前的内容）（文件不存在就创建）  utf8参数可以省略  </span><br><span class="line">fs.writeFile(&apos;123.txt&apos;,&apos;你好nodejs 覆盖&apos;,&apos;utf8&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;写入成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//4. fs.appendFile 追加文件  </span><br><span class="line">fs.appendFile(&apos;123.txt&apos;,&apos;这是写入的内容\n&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;写入成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//5.fs.readFile 读取文件  </span><br><span class="line">fs.readFile(&apos;123.txt&apos;,function(error,data)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    //console.log(data);  //data是读取的十六进制的数据。  也可以在参数中加入编码格式&quot;utf8&quot;来解决十六进制的问题;</span><br><span class="line">    console.log(data.toString());  //读取出所有行的信息  </span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//6.fs.readdir 读取目录下第一级内容  把目录下面的文件和文件夹都获取到。  </span><br><span class="line">fs.readdir(&apos;html&apos;,function(error,data)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(data);  //data是数组类型，包含文件夹以及文件的名字(只有第一级目录内容)。拿到一个文件夹下面的所有目录  </span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//7.fs.rename 重命名  1.改名  2.剪切文件(移动)  </span><br><span class="line">fs.rename(&apos;html/index.html&apos;,&apos;html/news.html&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;修改名字成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//8. fs.rmdir  删除目录   rmdir 这个方法只能删除目录，不能删除文件  </span><br><span class="line">fs.rmdir(&apos;abc目录&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;删除目录成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//9. fs.unlink删除文件  </span><br><span class="line">fs.unlink(&apos;index.txt&apos;,function(error)&#123;</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        console.log(error);</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;删除文件成功&apos;);</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//10. fs.createReadStream  从文件流中读取数据，读取的文件比较大时建议用流的方式读取，文件比较大会多次读取。  </span><br><span class="line">var fileReadStream = fs.createReadStream( &apos;data1.json&apos;);</span><br><span class="line">var str = &apos;&apos;;</span><br><span class="line">fileReadStream.on(&apos;data&apos;, (data) =&gt; &#123;</span><br><span class="line">    console.log(&quot;接收到&quot; + data.length);   //文件比较大时，会多次读取，多次执行该回调函数  </span><br><span class="line">str += data;</span><br><span class="line">&#125;)</span><br><span class="line">fileReadStream.on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">    console.log(&quot; --- 结束 ---&quot;);</span><br><span class="line">console.log( str );</span><br><span class="line">&#125;)</span><br><span class="line">fileReadStream.on(&apos;error&apos;, (error) =&gt; &#123;</span><br><span class="line">    console.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//11. fs.createWriteStream  写入文件流  </span><br><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">var data  = &quot;我是从数据库获取的数据，我要保存起来&quot;;</span><br><span class="line">var writerStream = fs.createWriteStream(&apos;output.txt&apos;);</span><br><span class="line">writerStream.write( data , &apos;UTF8&apos; );</span><br><span class="line">writerStream.end();  //标记文件末尾  结束写入流，释放资源  </span><br><span class="line">writerStream.on( &apos;finish&apos;,  function() &#123;</span><br><span class="line">    console.log(&quot;写入完成。&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">writerStream.on( &apos;error&apos;,  function(error)&#123;</span><br><span class="line">    console.log(error.stack);</span><br><span class="line">&#125;);</span><br><span class="line">console.log(&quot;程序执行完毕&quot;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//12. pipe 管道流  </span><br><span class="line">var fs = require(&quot;fs&quot;);</span><br><span class="line">var readerStream = fs.createReadStream( &apos;input.txt&apos;);</span><br><span class="line">var writerStream = fs.createWriteStream( &apos;output.txt&apos;);</span><br><span class="line">readerStream.pipe( writerStream );</span><br><span class="line">console.log(&quot;程序执行完毕&quot;);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">//13. fs.access 判断目录、文件是否存在(读写权限)</span><br><span class="line">var  fs = require(&apos;fs&apos;);</span><br><span class="line">fs.access(&apos;package.json&apos;,(err)=&gt;&#123;</span><br><span class="line">    console.log(err ?  &apos;目录/文件不存在&apos;: &apos;文件存在,可以进行读写&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="FS-文件系统"><a href="#FS-文件系统" class="headerlink" title="FS-文件系统"></a><a href="http://nodejs.cn/api/fs.html#fs_file_system" target="_blank" rel="noopener">FS-文件系统</a></h2><p>fs 模块提供了一些 API，用于以一种类似标准 POSIX 函数的方式与文件系统进行交互。</p>
+<p><strong>所有的文件系统操作都有异步和同步两种形式。</strong></p>
+<p><code>异步</code>形式的 <strong>最后一个<code>参数</code>都是完成时<code>回调函数</code></strong>。 传给回调函数的参数取决于具体方法，但<code>回调函数的第一个参数都会保留给异常</code>。 如果操作成功完成，则第一个参数会是 null 或 undefined。</p>
+<p><strong>同步操作</strong></p>
+<p>当使用<code>同步操作</code>时，任何异常都会被立即抛出，可以使用 <code>try/catch</code> 来处理异常，或让异常向上冒泡。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&apos;fs&apos;);</span><br><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">  fs.unlinkSync(&apos;/tmp/hello&apos;);</span><br><span class="line">  console.log(&apos;successfully deleted /tmp/hello&apos;);</span><br><span class="line">&#125; catch (err) &#123;</span><br><span class="line">  // handle the error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>异步操作</strong></p>
+<p>注意，异步的方法不能保证执行顺序。 所以下面的例子可能会出错，因为 fs.stat() 操作可能在 fs.rename() 操作之前完成。</p>
+<p><strong>建议</strong></p>
+<p>在繁忙的进程中，建议使用函数的异步版本。 同步的方法会阻塞整个进程，直到完成（停止所有连接）。</p>
+<h3 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h3><p>大部分 <code>fs</code> 操作接受<code>字符串</code>、<code>Buffer</code>、或使用 <code>file:</code> 协议的 <code>URL</code> 对象作为文件路径。</p>
+<p><code>相对路径</code> 会相对于 <code>process.cwd()</code> 定义的当前工作目录进行处理。</p>
+<p>使用 <code>Buffer</code> 定义的路径主要用于将文件路径处理为 opaque 字节序列的特定 POSIX 操作系统。 在这种系统上，一个文件路径可能包含使用多种字符编码的子序列。 与字符串路径一样，Buffer 路径也可以是相对的或绝对的。</p>
+<p><strong>注意</strong> 在 Windows 上 Node.js 遵循 per-drive 工作目录的理念。 当使用驱动器路径不带反斜杠时可以观察到该特性。 例如，fs.readdirSync(‘c:\‘) 可能会返回与 fs.readdirSync(‘c:’) 不同的结果。 详见 <a href="">MSDN路径文档</a></p>
+<h4 id="支持-URL-对象"><a href="#支持-URL-对象" class="headerlink" title="支持 URL 对象"></a>支持 URL 对象</h4><h3 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a><strong>文件描述符</strong></h3><p>在 <code>POSIX</code> 系统，<code>内核</code>为<code>所有进程</code>维护着一张当前打开着的<code>文件与资源表格</code>。 每个打开的文件都会分配一个名为<code>文件描述符</code>的数值标识。</p>
+<p>在<code>系统层</code>，所有<code>文件系统操作</code>使用这些<code>文件描述符</code>来识别与追踪每个特定的文件。 </p>
+<p>Window 系统使用了一个<code>不同但概念类似</code>的机制来追踪资源。 </p>
+<p>为方便用户，<code>Node.js 抽象了不同操作系统间的差异</code>，为所有打开的文件分配了数值的文件描述符。</p>
+<p><code>fs.open()</code> 方法用于分配一个新的文件描述符。 一旦分配了，文件描述符可用于<code>读取</code>数据、<code>写入</code>数据、或<code>查看</code>文件信息。</p>
+<p><code>大多数操作系统</code>会<code>限制打开的文件描述符的数量</code>，所以当<code>操作完成时需关闭描述符</code>。 如果不这样做会导致<code>内存泄漏</code>，最终造成应用奔溃。</p>
+<h3 id="线程池的使用"><a href="#线程池的使用" class="headerlink" title="线程池的使用"></a>线程池的使用</h3><p>注意，所有文件系统 API 中，除了 <code>fs.FSWatcher()</code> 和那些显式同步的方法之外，都使用了 <code>libuv</code> 的线程池，这对于某些应用程序可能会产生出乎意料问题和负面的性能影响，详见 <a href="http://nodejs.cn/api/cli.html#cli_uv_threadpool_size_size" target="_blank" rel="noopener"><code>UV_THREADPOOL_SIZE</code></a> 文档。</p>
+<h1 id="fs-FSWatcher-类"><a href="#fs-FSWatcher-类" class="headerlink" title="fs.FSWatcher 类"></a>fs.FSWatcher 类</h1><p>成功调用 <code>fs.watch()</code> 方法会返回一个新的 <code>fs.FSWatcher</code> 对象。</p>
+<p>所有 <code>fs.FSWatcher</code> 对象都是 <a href="http://nodejs.cn/api/events.html" target="_blank" rel="noopener"><code>EventEmitter</code></a> 的，每当监视的文件被修改时会触发 <code>&#39;change&#39;</code> 事件。</p>
+<h2 id="‘change’-事件"><a href="#‘change’-事件" class="headerlink" title="‘change’ 事件"></a>‘change’ 事件</h2><ul>
+<li><code>eventType</code> \<string> 发生的变化事件的类型。</string></li>
+<li><code>filename</code> \<string> | \<buffer> 变化的文件名（如果是相关的或有效的）。</buffer></string></li>
+</ul>
+<p>当被监视的目录或文件有变化时触发。 详见 <code>fs.watch()</code></p>
+<h2 id="‘close’-事件"><a href="#‘close’-事件" class="headerlink" title="‘close’ 事件"></a>‘close’ 事件</h2><p>当 <code>watcher</code> 停止监视文件变化时触发。 关闭的 <code>fs.FSWatcher</code> 对象在事件处理函数中不再可用。</p>
+<h2 id="‘error’-事件"><a href="#‘error’-事件" class="headerlink" title="‘error’ 事件"></a>‘error’ 事件</h2><p>当监视文件发生错误时触发。 </p>
+<p>发生错误的 <code>fs.FSWatcher</code> 对象在事件处理函数中<code>不再可用</code>。</p>
+<h2 id="watcher-close"><a href="#watcher-close" class="headerlink" title="watcher.close()"></a>watcher.close()</h2><p><code>fs.FSWatcher</code> <code>停止监视</code>文件的变化。 </p>
+<p>一旦停止，<code>fs.FSWatcher</code> 对象将<code>不再可用</code>。</p>
+<h1 id="fs-ReadStream-类"><a href="#fs-ReadStream-类" class="headerlink" title="fs.ReadStream 类"></a>fs.ReadStream 类</h1><p>成功调用 <code>fs.createReadStream()</code> 会返回一个新的 <code>fs.ReadStream</code> 对象。</p>
+<p><code>fs.ReadStream</code> 对象都是可读流。</p>
+<h2 id="‘close’-事件-1"><a href="#‘close’-事件-1" class="headerlink" title="‘close’ 事件"></a>‘close’ 事件</h2><p>当 <code>fs.ReadStream</code> 底层的文件描述符被关闭时触发。</p>
+<h2 id="‘open’-事件"><a href="#‘open’-事件" class="headerlink" title="‘open’ 事件"></a>‘open’ 事件</h2><h2 id="‘ready’-事件"><a href="#‘ready’-事件" class="headerlink" title="‘ready’ 事件"></a>‘ready’ 事件</h2><h2 id="readStream-bytesRead"><a href="#readStream-bytesRead" class="headerlink" title="readStream.bytesRead"></a>readStream.bytesRead</h2><p>已读取的字节数。</p>
+<h2 id="readStream-path"><a href="#readStream-path" class="headerlink" title="readStream.path"></a>readStream.path</h2><h1 id="fs-Stats-类"><a href="#fs-Stats-类" class="headerlink" title="fs.Stats 类"></a>fs.Stats 类</h1><p><code>fs.Stats</code> 对象提供了一个文件的信息。</p>
+<h2 id="stats-isBlockDevice"><a href="#stats-isBlockDevice" class="headerlink" title="stats.isBlockDevice()"></a>stats.isBlockDevice()</h2><p>如果 <code>fs.Stats</code> 对象表示一个块设备，则返回 true 。</p>
+<h2 id="stats-isCharacterDevice"><a href="#stats-isCharacterDevice" class="headerlink" title="stats.isCharacterDevice()"></a>stats.isCharacterDevice()</h2><p>如果 <code>fs.Stats</code> 对象表示一个字符设备，则返回 true 。</p>
+<h2 id="stats-isDirectory"><a href="#stats-isDirectory" class="headerlink" title="stats.isDirectory()"></a>stats.isDirectory()</h2><p>如果 <code>fs.Stats</code> 对象表示一个文件系统目录，则返回 true 。</p>
+<h2 id="stats-isFIFO"><a href="#stats-isFIFO" class="headerlink" title="stats.isFIFO()"></a>stats.isFIFO()</h2><p>如果 <code>fs.Stats</code> 对象表示一个<code>先进先出 (FIFO) 管道</code>，则返回 true 。</p>
+<p>FIFO( First Input First Output)简单说就是指先进先出。<a href="https://baike.baidu.com/item/FIFO存储器/4530258?fr=aladdin" target="_blank" rel="noopener">百度百科: FIFO存储器</a></p>
+<h2 id="stats-isFile"><a href="#stats-isFile" class="headerlink" title="stats.isFile()"></a>stats.isFile()</h2><p>如果 <code>fs.Stats</code> 对象表示一个普通文件，则返回 <code>true</code> 。</p>
+<h2 id="stats-isSocket"><a href="#stats-isSocket" class="headerlink" title="stats.isSocket()"></a>stats.isSocket()</h2><p>如果 <code>fs.Stats</code> 对象表示一个 <code>socket</code>，则返回 <code>true</code> 。</p>
+<h2 id="stats-isSymbolicLink"><a href="#stats-isSymbolicLink" class="headerlink" title="stats.isSymbolicLink()"></a>stats.isSymbolicLink()</h2><p>如果 <code>fs.Stats</code> 对象表示一个符号链接，则返回 <code>true</code> 。</p>
+<p>该方法只在使用 <code>fs.lstat()</code> 时有效。</p>
+<h2 id="stats属性"><a href="#stats属性" class="headerlink" title="stats属性"></a>stats属性</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">type</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">stats.dev</td>
+<td style="text-align:left">包含文件的设备的数值型标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ino</td>
+<td style="text-align:left">文件系统特定的文件索引节点数值。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mode</td>
+<td style="text-align:left">表示文件类型与模式的位域。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.nlink</td>
+<td style="text-align:left">文件的硬链接数量。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.uid</td>
+<td style="text-align:left">文件拥有者的数值型用户标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.gid</td>
+<td style="text-align:left">拥有文件的群组的数值型群组标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.rdev</td>
+<td style="text-align:left">如果文件是一个特殊文件，则返回数值型的设备标识。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.size</td>
+<td style="text-align:left">文件的字节大小。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.blksize</td>
+<td style="text-align:left">文件系统用于 I/O 操作的块大小。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.blocks</td>
+<td style="text-align:left">分配给文件的块的数量。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.atimeMs</td>
+<td style="text-align:left">表示文件最后一次被<code>访问</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mtimeMs</td>
+<td style="text-align:left">表示文件最后一次被<code>修改</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ctimeMs</td>
+<td style="text-align:left">表示文件<code>状态最后一次被改变</code>的时间戳。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.birthtimeMs</td>
+<td style="text-align:left">表示文件的<code>创建时间戳</code>。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.atime</td>
+<td style="text-align:left">表示文件<code>最后一次被访问</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.mtime</td>
+<td style="text-align:left">表示文件<code>最后一次被修改</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.ctime</td>
+<td style="text-align:left">表示文件<code>状态最后一次被改变</code>的时间。</td>
+</tr>
+<tr>
+<td style="text-align:center">stats.birthtime</td>
+<td style="text-align:left">表示文件的<code>创建</code>时间。</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Stat-时间的值"><a href="#Stat-时间的值" class="headerlink" title="Stat 时间的值"></a>Stat 时间的值</h2><p>略</p>
+<h1 id="fs-WriteStream-类"><a href="#fs-WriteStream-类" class="headerlink" title="fs.WriteStream 类"></a>fs.WriteStream 类</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/07/04/FrontEnd/JS/JSON方法/" data-id="cjt55fwga008zucdv14v2hogy" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/07/05/programmingLanguage/NodeJS/Node-js-FS模块/" data-id="cjuxepwrm00c158dventjn7ns" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/">JSON</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Algorithm/函数防抖与函数节流" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/03/Algorithm/函数防抖与函数节流/" class="article-date">
-  <time class="post-time" datetime="2018-07-03T08:52:51.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">03</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/03/Algorithm/函数防抖与函数节流/">函数防抖与函数节流</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/07/03/Algorithm/函数防抖与函数节流/" class="leancloud_visitors" data-flag-title="函数防抖与函数节流">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="函数防抖动与节流"><a href="#函数防抖动与节流" class="headerlink" title="函数防抖动与节流"></a>函数防抖动与节流</h2><hr>
-<p><a href="http://web.jobbole.com/94844/" target="_blank" rel="noopener">阅读原文</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/07/03/Algorithm/函数防抖与函数节流/" data-id="cjt55fwbm002oucdvichoe5j9" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数防抖-节流/">函数防抖/节流</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FileSystem/">FileSystem</a></li></ul>
 
     </footer>
   </div>
@@ -398,7 +776,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/15/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/17/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/15/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/17/">next &raquo;</a>
   </nav>
 </section>
         
@@ -439,9 +817,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>161</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
       <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>126</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
     </div>
 
 
