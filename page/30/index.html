@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-SPDY：Google开发的下一代HTTP协议" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-server/NodeJS/nodejs全局安装路径的位置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="article-date">
-  <time class="post-time" datetime="2018-05-03T06:46:47.000Z" itemprop="datePublished">
+    <a href="/2018/05/08/server/NodeJS/nodejs全局安装路径的位置/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T03:17:12.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">03</span>
+    <span class="post-day">08</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/03/SPDY：Google开发的下一代HTTP协议/">SPDY：Google开发的下一代HTTP协议</a>
+      <a class="article-title" href="/2018/05/08/server/NodeJS/nodejs全局安装路径的位置/">nodejs全局安装路径的位置</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/HTTP/">HTTP</a>
+    <a class="article-category-link" href="/categories/Node/">Node</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/03/SPDY：Google开发的下一代HTTP协议/" class="leancloud_visitors" data-flag-title="SPDY：Google开发的下一代HTTP协议">
+    <span id="/2018/05/08/server/NodeJS/nodejs全局安装路径的位置/" class="leancloud_visitors" data-flag-title="nodejs全局安装路径的位置">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,17 +113,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SPDY-发音同”speedy”-：Google开发的下一代HTTP协议"><a href="#SPDY-发音同”speedy”-：Google开发的下一代HTTP协议" class="headerlink" title="SPDY(发音同”speedy”)：Google开发的下一代HTTP协议"></a><a href="http://josh-persistence.iteye.com/blog/2200727" target="_blank" rel="noopener">SPDY(发音同”speedy”)：Google开发的下一代HTTP协议</a></h1><p>（解决HTTP协议的缺点,Wrapper模式）</p>
-<p>概述</p>
-<p>SPDY是Google宣布正在开发的下一代网络协议，SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强。HTTP自上世纪90年代问世以来，已有二十年的历史，期间互联网本身发生了很大的变化，也使得HTTP的许多不足暴露了出来，现在它已经不能满足许多web app的要求。Google表示，引入SPDY协议后，在实验室测试中页面加载速度比原先快64%，并且目前已经在Gmail等应用中使用。目前业界支持SPDY的服务器有Netty和Nginx(将要支持)。Nginx 官方发布下一个版本 1.3.0 的路线图，该版本将支持 Google SPDY。</p>
+        <p>一般nodejs安装在默认的C盘，如果不知道安装在哪里，可以打开控制面板-系统和安全-系统-高级配置中找到</p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153014909-1350443214.png" alt="变量路径"></p>
+<p>所谓全局安装：</p>
+<p>是指安装在<code>node</code>中<code>node_module</code>的根目录里，可以在电脑的任何位置调用这个方法。</p>
+<p>那么，如何在找到全局安装的位置呢？</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a><font color="#f00">方法一：</font></h2><p>设置到自己想要放的位置：</p>
+<font color="#f90" style="font-size:18px"><br>打开：nodejs安装目录/node_modules/npm/.npmrc这个文件，修改里面的路径<br><br>prefix = E:\nodejs\npm_global_modules<br></font>
+
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a><font color="#f00">方法二：</font></h2><p>使用快捷键 <code>win+R</code> ,输入cmd打开命令窗口，输入如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm config ls</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153727331-2045072377.png" alt="npm配置"></p>
+<p><b style="font-size:18px"><br>其中：prefix=C:\Users\Administrator\AppData\Roaming\npm就是我们全局安装了哪些方法的地方，如图：</b></p>
+<p><img src="https://images2017.cnblogs.com/blog/1275872/201712/1275872-20171206153926816-474788164.png" alt="安装路径"></p>
+<p>这时可以通过命令来更改路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix E:\</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://www.cnblogs.com/niuxiaoling/p/7993032.html" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/03/SPDY：Google开发的下一代HTTP协议/" data-id="cjuxepwft000n58dvkecqbbz9" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/server/NodeJS/nodejs全局安装路径的位置/" data-id="cjy6ziikw00ctrwduy88x998m" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPDY/">SPDY</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node全局路径/">Node全局路径</a></li></ul>
 
     </footer>
   </div>
@@ -134,12 +148,12 @@
 
 
   
-    <article id="post-SQL/数据库范式介绍" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-server/NodeJS/NPM/npm-上传包" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/02/SQL/数据库范式介绍/" class="article-date">
-  <time class="post-time" datetime="2018-05-02T05:50:37.000Z" itemprop="datePublished">
+    <a href="/2018/05/08/server/NodeJS/NPM/npm-上传包/" class="article-date">
+  <time class="post-time" datetime="2018-05-08T02:53:07.000Z" itemprop="datePublished">
     <span class="post-month">5月</span><br/>
-    <span class="post-day">02</span>
+    <span class="post-day">08</span>
   </time>
 </a>
    
@@ -151,21 +165,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/02/SQL/数据库范式介绍/">数据库范式介绍</a>
+      <a class="article-title" href="/2018/05/08/server/NodeJS/NPM/npm-上传包/">npm 上传包</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/数据库/">数据库</a>
+    <a class="article-category-link" href="/categories/NPM/">NPM</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/05/02/SQL/数据库范式介绍/" class="leancloud_visitors" data-flag-title="数据库范式介绍">
+    <span id="/2018/05/08/server/NodeJS/NPM/npm-上传包/" class="leancloud_visitors" data-flag-title="npm 上传包">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -177,42 +191,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关系数据库·范式介绍"><a href="#关系数据库·范式介绍" class="headerlink" title="关系数据库·范式介绍"></a><a href="http://josh-persistence.iteye.com/blog/2200644" target="_blank" rel="noopener">关系数据库·范式介绍</a></h1><h2 id="一、基本介绍"><a href="#一、基本介绍" class="headerlink" title="一、基本介绍"></a>一、基本介绍</h2><p>设计<code>关系数据库</code>时,遵从不同的规范要求,设计出合理的关系型数据库,这些不同的<code>规范</code>要求被称为不同的<code>范式</code>,各种范式<code>呈 递次规范</code>,越<code>高</code>的 范式 数据库<code>冗余越小</code>。</p>
-<p>目前关系数据库有<code>六种</code>范式:第一范式(1NF)、第二范式(2NF)、第三范式(3NF)、巴斯-科德范式(BCNF)、第四范式(4NF)和第五范式(5NF,又称完美范式)。满足最低要求的范式是第一范式(1NF)。在第一范式的基础上进一步满足更多规范要求的称为第二范式(2NF),其余范式以次类推。一般说来,数据库<code>只需满足第三范式(3NF)就行</code>了。</p>
-<p>范式的<code>包含关系</code>。一个数据库设计如果符合第二范式,一定也符合第一范式。如果符合第三范式,一定也符合第二范式…</p>
-<h3 id="数据库基本概念"><a href="#数据库基本概念" class="headerlink" title="数据库基本概念"></a><strong>数据库基本概念</strong></h3><p> 要理解范式,首先必须对知道什么是<code>关系数据库</code>,简单的说:关系数据库就是用<code>二维表</code>来保存数据。表和表之间可以……(省略10W字),如果对数据库很熟悉,可以不用理会下面的概念。</p>
-<p><strong>实体</strong>: 现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。</p>
-<p><strong>属性</strong>: 教科书上解释为:“<code>实体所具有的某一特性</code>”，由此可见，属性一开始是个<code>逻辑概念</code>，比如说，“性别”是“人”的一个属性。在<code>关系数据库</code>中，属性又是个<code>物理概念</code>，属性可以看作是“<code>表的一列</code>”。</p>
-<p><strong>元组</strong>：表中的一行就是一个元组。</p>
-<p><strong>分量</strong>：<code>元组</code>的某个 <code>属性值</code>。在一个关系数据库中，它是一个<code>操作原子</code>，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。</p>
-<p><strong>码(键)</strong>：表中可以唯一确定一个元组的某个 属性(或者属性组)，如果这样的码有不止一个，那么大家都叫 <code>候选码</code>，我们从候选码中挑一个出来做老大，它就叫<code>主码(主键)</code>。</p>
-<p><strong>全码</strong>：如果一个码包含了所有的属性，这个码就是全码。</p>
-<p><strong>主属性</strong>：一个属性只要在任何一个候选码中出现过，这个属性就是主属性。</p>
-<p><strong>非主属性</strong>：与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。</p>
-<p><strong>外码</strong>：一个属性(或属性组)，它不是码，但是它别的表的码，它就是外码。</p>
-<p><strong>候选码</strong>： 若关系中的某一属性或属性组的值能唯一的标识一个元组，而其任何真子集都不能再标识，则称该属性组为(超级码)候选码。</p>
-<h4 id="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"><a href="#数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别" class="headerlink" title="数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别"></a><a href="https://blog.csdn.net/rl529014/article/details/48391465" target="_blank" rel="noopener">数据库，部分函数依赖，传递函数依赖，完全函数依赖，三种范式的区别</a></h4><p><strong>函数依赖</strong>: 设X,Y是关系R的两个属性集合,存在X→Y;则称Y 函数依赖于X。</p>
-<p><strong>部分函数依赖</strong>：设X,Y是关系R的两个属性集合，存在X→Y; 若X’是X的<code>真子集</code>，存在X’→Y，则称Y 部分函数依赖于X。</p>
-<p><strong>完全函数依赖</strong>：设X,Y是关系R的两个属性集合，X’是X的真子集，存在X→Y; X’是X的<code>真子集</code>，但对每一个X’都有X’!→Y，则称Y完全函数依赖于X。(个人理解为 只能通过 X确定 Y，并且每个X’ 都不能确定Y 的关系 就是完全函数依赖)</p>
-<p><strong>传递函数依赖</strong>：设X,Y,Z是关系R中互不相同的属性集合，存在X→Y(Y !→X),Y→Z(Z !→Y)，则称Z传递函数依赖于X。</p>
-<p>假如 Z 函数依赖于 Y，且 Y 函数依赖于 X （『Y 不包含于 X，且 X 不函数依赖于 Y』这个前提），那么我们就称 Z 传递函数依赖于 X ，记作 X T→ Z，如图3。</p>
-<h2 id="二、6种范式"><a href="#二、6种范式" class="headerlink" title="二、6种范式"></a>二、6种范式</h2><p>前面说到，<code>范式越高</code>，数据的<code>冗余</code>度<code>越小</code>。其实<code>没有冗余</code>的数据库设计是<code>可以做到</code>的。但是，<code>没有冗余</code>的数据库<code>未必是最好的</code>数据库，有时为了提高运行效率，就必须降低范式标准，适当保留冗余数据。具体做法是：在概念数据模型设计时遵守第三范式，降低范式标准的工作放到物理数据模型设计时考虑。降低范式就是增加字段，允许冗余。(最典型的就是在一些数据表中不仅存作为外键的user_id,同样存user_name,这样虽然违反数据库范式增加了user_name字段，但是却提高了效率，减少了获取user_id后再去user表中获取user name的操作)</p>
-<p>所以实际中，我们只需要考虑数据库满足第三范式就可以了,下面以最通俗的方式来解释数据库的范式。</p>
-<p><strong>第一范式(1NF)：属性不可分</strong></p>
-<p>(1NF是对属性的原子性约束，要求属性具有原子性，不可再分解)</p>
-<p>不满足第一范式的数据库，不是关系数据库！</p>
-<p><strong>第二范式（2NF）：符合1NF，并且非主属性完全依赖于码。</strong></p>
-<p>第二范式要求非主属性依赖于主关键字。</p>
-<p>（2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性，更通俗说有主键ID）</p>
-<p><strong>第三范式（3NF）：符合2NF，并且，消除传递依赖。</strong><br>（3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余）</p>
+        <h1 id="npm上传包，github封装库"><a href="#npm上传包，github封装库" class="headerlink" title="npm上传包，github封装库"></a>npm上传包，github封装库</h1><ol>
+<li><p>github新建项目，上传项目，根据杨清项目配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;absweek&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.2&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;获取从1970.1.1 至今 绝对星期数&quot;,</span><br><span class="line">  &quot;private&quot;: false,</span><br><span class="line">  &quot;author&quot;: &quot;LiSC &lt;903317164@qq.com&gt;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;MIT&quot;,</span><br><span class="line">  &quot;repository&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &quot;git&quot;,</span><br><span class="line">      &quot;url&quot;: &quot;https://github.com/SunOfHomeBoy/absWeek&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;main&quot;: &quot;./index.js&quot;,</span><br><span class="line">  &quot;typings&quot;: &quot;./index.d.ts&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">      &quot;build&quot;: &quot;tsc --declaration true --noImplicitUseStrict --removeComments ./index.ts&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置好项目 npm login </p>
+</li>
+<li><p>npm publish . 上传项目<br>NOTE: 版本号，项目名称禁止大写，Token,添加github地址，上传包之前编译。TS版，包声明。</p>
+</li>
+<li><p>在其他项目 npm install ‘包名’</p>
+</li>
+<li>引入，调用</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/02/SQL/数据库范式介绍/" data-id="cjuxepwmy006d58dvbi35t1ld" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/08/server/NodeJS/NPM/npm-上传包/" data-id="cjy6ziip700hkrwdu2gqjte3h" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL范式/">SQL范式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-上传包/">npm 上传包</a></li></ul>
 
     </footer>
   </div>
@@ -223,12 +221,12 @@
 
 
   
-    <article id="post-Operating System/UnixLike/Linux/linux 删除" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Operating System/UnixLike/Linux/持续进攻" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:32:00.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="article-date">
+  <time class="post-time" datetime="2018-05-07T08:39:27.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">07</span>
   </time>
 </a>
    
@@ -240,21 +238,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/">Linux 删除文件夹和文件的命令</a>
+      <a class="article-title" href="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/">持续进攻</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" class="leancloud_visitors" data-flag-title="Linux 删除文件夹和文件的命令">
+    <span id="/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" class="leancloud_visitors" data-flag-title="持续进攻">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -266,22 +260,110 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux-删除文件夹和文件的命令"><a href="#Linux-删除文件夹和文件的命令" class="headerlink" title="Linux 删除文件夹和文件的命令"></a>Linux 删除文件夹和文件的命令</h1><ul>
-<li>-r 就是向下递归，不管有多少级目录，一并删除</li>
-<li>-f 就是直接强行删除，不作任何提示的意思</li>
-</ul>
-<h2 id="删除文件夹实例："><a href="#删除文件夹实例：" class="headerlink" title="删除文件夹实例："></a>删除文件夹实例：</h2><pre><code>rm -rf /var/log/httpd/access
-</code></pre><p>将会删除<code>/var/log/httpd/access</code>目录以及其下所有文件、文件夹</p>
-<h2 id="删除文件使用实例："><a href="#删除文件使用实例：" class="headerlink" title="删除文件使用实例："></a>删除文件使用实例：</h2><pre><code>rm -f /var/log/httpd/access.log
-</code></pre><p>将会强制删除<code>/var/log/httpd/access.log</code>这个文件</p>
+        <h1 id="转-BOSS开源软件-一-：黑客帝国之持久进攻"><a href="#转-BOSS开源软件-一-：黑客帝国之持久进攻" class="headerlink" title="[转]BOSS开源软件(一)：黑客帝国之持久进攻"></a>[转]<a href="https://user.qzone.qq.com/525150008" target="_blank" rel="noopener">BOSS开源软件(一)：黑客帝国之持久进攻</a></h1><p> <strong>使用说明：</strong>\<br>（1）该软件属于中华人民共和国的法定危险品，请谨慎使用。\<br>（2）该软件的推荐使用范围仅限于：对公司或上级领导不满，且不便于和他们多度交流时，可使公司相关的网站作为个人情绪的发泄对象。切不可伤害无辜。\<br>（3）声明：切不可把该软件作为凌弱之手段，切不可伤害无辜。\<br>（4）如果您多度使用而进了那个地方，这一切都是您刻苦钻研自学成才之结果，皆与本人无关。\<br>（5）该软件目前只支持Linux操作系统和苹果OSX操作系统，若需要Windows版本的，请自行研发。\<br>（6）软件使用者自感为黑客，且不熟悉Linux或OSX的，官方推荐：您还是早点投胎去吧，上帝会原谅您的过错的！</p>
+<p>代码：\<br>(1) 打开Linux终端或OSX终端，新建文件<code>h.sh</code> \<br>(2) 编辑文件<code>h.sh</code>，并保存。代码内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 注释：下面变量DOMAIN可以修改成你需要的网站域名 </span><br><span class="line">DOMAIN=&quot;http://www.yourdomain.com/&quot;</span><br><span class="line">COUNT=1000</span><br><span class="line">while true</span><br><span class="line">do</span><br><span class="line">    ab -c $COUNT -n  $COUNT $DOMAIN</span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<p>(3) 添加h.sh的执行权限，输入命令：<code>chmod +x h.sh</code>\<br>(4) 执行软件，输入命令：<code>./h.sh</code></p>
+<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><ol>
+<li><p>如果系统提示找不到<code>ab</code>命令时，您需要自行安装<code>ApacheWeb</code>服务器。</p>
+<p> （1）在如CentOS/Fedora等Linux操作系统，输入命令：sudo yum install httpd</p>
+<p> （2）在如Ubuntu等Linux操作系统，输入命令：sudo apt-get install httpd</p>
+<p> （3）在苹果OSX，只需在官方下载相应的安装包进行安装即可</p>
+</li>
+<li><p>您修改代码的DOMAIN变量却会不断出现类似于帮助的信息时，请先按Ctrl+C终止当前执行进程，检查DOMAIN格式是否正确。</p>
+<p> 例如：我们设置DOMAIN为百度，我们必需写成<br> <code>http://www.baidu.com/</code>(注意反斜杠)，而不能<code>www.baidu.com</code>或<code>http://www.baidu.com</code></p>
+</li>
+<li><p>如果您已经满足使用该软件的效果，请及时停止使用，按Ctrl+C终止该软件。</p>
+</li>
+</ol>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>我们欢迎使用该软件在有限范围内用于发泄个人的不良情绪。</p>
+<p>但我们需要再次提示：</p>
+<p>该软件属于中华人民共和国的法定危险品，请谨慎使用。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/Operating System/UnixLike/Linux/linux 删除/" data-id="cjuxepwu400fr58dvltzvrna2" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/Operating System/UnixLike/Linux/持续进攻/" data-id="cjy6ziio600gvrwducfhp3hq8" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-删除命令/">Linux 删除命令</a></li></ul>
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-撩妹套路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/07/撩妹套路/" class="article-date">
+  <time class="post-time" datetime="2018-05-07T05:46:33.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/07/撩妹套路/">撩妹套路</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/感情/">感情</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/07/撩妹套路/" class="leancloud_visitors" data-flag-title="撩妹套路">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="转载知乎聊天套路"><a href="#转载知乎聊天套路" class="headerlink" title="转载知乎聊天套路"></a>转载知乎<a href="https://www.zhihu.com/question/47029505/answer/256114477" target="_blank" rel="noopener">聊天套路</a></h2><h2 id="写在前面的话："><a href="#写在前面的话：" class="headerlink" title="写在前面的话："></a>写在前面的话：</h2><p>聊天的确有套路，但套路也只是一套标准化的说法、技巧。应该学习套路的思想，拒绝照搬套路。只有真诚的付出，加上合理的聊天方式才是社交求偶的不二法门。</p>
+<p>从这篇我们能学到 寻找话题、把握交谈的节奏和时机，还有尊重女性。</p>
+<p>但这并不是一切，</p>
+<h2 id="1-寻找切入话题"><a href="#1-寻找切入话题" class="headerlink" title="1.寻找切入话题"></a>1.寻找切入话题</h2><p>通过头像、昵称、签名、空间动态、朋友圈、留言板等公开信息找到她的兴趣爱好、特别讨厌的事物、一些个人的小习惯。</p>
+<p>例一：你发现\<br>①：她喜欢听周杰伦。\<br>②：她喜欢听万青。\<br>③：她喜欢打羽毛球。\<br>④：她喜欢美剧。\<br>⑤：她讨厌鹿晗。\<br>⑥：她讨厌不清不楚的男女暧昧关系。\<br>⑦：她特别不喜欢吃菠萝。\<br>⑧：她有每天起床后喝一杯热水的习惯。\<br>⑨：她有每天晚上跑步的习惯。</p>
+<p>你会选择哪个话题切入呢？\<br>正确答案是②、④、⑥、⑧。\<br>前期话题切入优先选择小众或深度类、并形成“他乡遇故知”和“同仇敌忾”的局面。</p>
+<p>当然其它选项也不要忘了、在后期仍然有很大的用处。</p>
+<h2 id="2-负起带节奏的重担"><a href="#2-负起带节奏的重担" class="headerlink" title="2.负起带节奏的重担"></a>2.负起带节奏的重担</h2><p>①：<code>知识面</code>要广、不必什么都懂、但什么你都能说上两句。\<br>②：<code>有趣机智</code>、<code>脑回路清奇</code>以求<code>脱颖而出</code>、这里考验的是<code>段子储备</code>量和<code>临场反应</code>。烂大街的梗就不要用了、只会让你显得更加无趣。<code>前期</code>幽默的形式以自黑为主、<code>中后期</code>以黑她为主、当然是不伤大雅的那种黑。\<br>③：<code>前期</code>做一个合格的<code>捧哏</code>，不要喧宾夺主。当一个话题结束时，立刻从她的近几条消息中找到开始下一个话题的关键词，过渡要自然。<code>中后期</code>做一个合格的<code>逗哏</code>、不要冷场。可以开始分享自己有趣的故事了、但要注意观察对面的反应随时调整。\<br>④：拒绝<code>尬聊</code>。在发现话题进行不下去的时候、请找个<code>借口赶紧溜</code>了、再多说一句都可能会死。\<br>⑤：<code>换位思考</code>。你打出一行字后或准备说出一句话时、先把自己<code>带入</code>到她的位置、如果你发现这行字给人一种“不知道回复什么才好”的感觉、那么删了这行字、再打一行字并重复步骤。相信我、行云流水的聊天体验是每个人都喜欢的。\<br>⑥：<code>先人一步</code>。这个难度系数较高、首先要合理预测她对某事物的看法、在她没开口前、你先把这个看法说了。这个做法会形成“三观合、默契、偶遇知音”的假象。\<br>⑦：可以给她一个<code>专属代称</code>、就是只有你才会那么叫她的那种。\<br>⑧：从以前的聊天记录或面谈中找到几个<code>有趣的梗</code>、这些梗这么有意思千万不能浪费、放心重复吧、不会烂的。\<br>⑨：无论如何、一定要<code>尊重</code>她、开玩笑要懂得<code>分寸</code>、这是<code>底线</code>。</p>
+<h2 id="3-控场"><a href="#3-控场" class="headerlink" title="3.控场"></a>3.控场</h2><p>①：表白不是冲锋的号角、而是胜利时的鸣金收兵。毕竟自古<code>表白多白表</code>、从来<code>姻缘少原因</code>。上来就说“我龙傲天从今天开始追你了”、你怕不是个傻子。\<br>②：<code>前期</code>你可以每天主动聊天、但到<code>中后期</code>一定要克制住自己冲动、等她来找你、如果她不主动、那就是你前面做的不够好。千万不能让她觉得你整天什么事没有、就知道和她扯淡。\<br>③：制造<code>完全可控</code>的小冲突小矛盾小冷战、把握好度、这个玩好了可以很快的提高感情基础。\<br>④：制造强烈反差对比、不是忽冷忽热、而是常态热偶尔冷。</p>
+<p><strong>例二</strong>：\<br>一起出去玩，要<code>买水果</code>。路过菠萝的时候你可以不经意的说一句“我也不喜欢吃菠萝、不知道这反人类的东西为什么存在”。路过操场的时候你就可以说一句“真搞不懂这些人大晚上跑什么步、这明明是清晨做的事”。</p>
+<p><code>心理距离</code>很重要、太冒进会容易让女生起戒备心。</p>
+<p>你只要一下走<code>进</code>了太多就一定要在合适的时候后<code>退</code>一点、一直走进会形成跪舔的局面、一直后退会让她觉得你是个傻逼。在来回踱步的过程中、你会惊奇的发现你们已经可以无话不说了、甚至距离近到只要一伸手、就可以抱到她。</p>
+<h2 id="4-鸣金收兵"><a href="#4-鸣金收兵" class="headerlink" title="4.鸣金收兵"></a>4.鸣金收兵</h2><p>女生以情绪为导向做出决定。</p>
+<p>一些小事往往是最能影响情绪的、别整天只顾着说情话、多做一点、她不瞎、都能看到的。</p>
+<p>直到有一天、她嘴里哼着“明明你也很爱我、没理由爱不到结果”、她其实还是不明白为什么爱不到结果。</p>
+<p>但这并不妨碍她在接下来的某个瞬间就变成了你的女朋友。她什么也没想、反正、跟着心情走、这就是女生。</p>
+<h2 id="写在后面的话"><a href="#写在后面的话" class="headerlink" title="写在后面的话"></a>写在后面的话</h2><p>如果你已经追上心爱的女孩了。</p>
+<p>可你的噩梦才刚刚开始</p>
+<p>追女生容易, 经营、运行一段恋情走下去才是最难的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/撩妹套路/" data-id="cjy6ziia9001drwdumbbe9wyt" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/感情/">感情</a></li></ul>
 
     </footer>
   </div>
@@ -292,12 +374,12 @@
 
 
   
-    <article id="post-GIT/git-删除远程文件-目录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructures&amp;Algorithm/电梯调度算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/GIT/git-删除远程文件-目录/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T08:27:48.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/07/DataStructures&Algorithm/电梯调度算法/" class="article-date">
+  <time class="post-time" datetime="2018-05-07T02:08:18.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">07</span>
   </time>
 </a>
    
@@ -309,21 +391,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git-删除远程文件-目录/">git 删除远程文件/目录</a>
+      <a class="article-title" href="/2018/05/07/DataStructures&Algorithm/电梯调度算法/">电梯调度算法</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
+    <a class="article-category-link" href="/categories/算法/">算法</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/28/GIT/git-删除远程文件-目录/" class="leancloud_visitors" data-flag-title="git 删除远程文件/目录">
+    <span id="/2018/05/07/DataStructures&amp;Algorithm/电梯调度算法/" class="leancloud_visitors" data-flag-title="电梯调度算法">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -335,125 +417,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="git删除远程仓库的文件或目录"><a href="#git删除远程仓库的文件或目录" class="headerlink" title="git删除远程仓库的文件或目录"></a>git删除远程仓库的文件或目录</h1><p>删除a目录下的2.txt文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached a/2.txt</span><br></pre></td></tr></table></figure></p>
-<p>删除a目录</p>
-<pre><code>git rm -r --cached a
-
-git commit -m &quot;删除a目录下的2.txt文件&quot; 
-git push
-</code></pre><p><strong>Note:</strong></p>
-<p>用<code>-r</code>参数删除目录, <code>git rm --cached a.txt</code> 删除的是本地仓库中的文件，且<code>本地工作区</code>的文件会<code>保留</code>且<code>不再与远程仓库发生跟踪关系</code>，如果本地仓库中的文件也要删除则用<code>git rm a.txt</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-删除远程文件-目录/" data-id="cjuxepwle004k58dvys4t4mrl" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-删除/">git 删除</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-GIT/git-操作规范" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/28/GIT/git-操作规范/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T07:25:23.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git-操作规范/">git 操作规范</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/28/GIT/git-操作规范/" class="leancloud_visitors" data-flag-title="git 操作规范">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、-创建与合并分支"><a href="#一、-创建与合并分支" class="headerlink" title="一、 创建与合并分支"></a>一、 创建与合并分支</h2><ol>
-<li>从master分支创建dev分支并切换到dev分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master    </span><br><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><p><code>git checkout -b dev</code> 等价于：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev    </span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看<code>本地当前分支</code>，分支前面带<code>&quot;*&quot;</code>表示当前分支，剩下的分支表示本地有的分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看<code>远程全部分支</code>，白色的表示本地有的，红色的表示本地没有，仅在远程存在：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>修改代码、提交代码(当前的操作是在dev分支上进行)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add a.html</span><br><span class="line">git commit -m &quot;提交文件a.html&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>分支合并(将dev合并到master)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master     </span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并完成后，删除dev分支.(删除dev分支时，注意我们当前所在的分支不能是dev分支)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除后，查看分支(此时看不到dev分支了)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>总结 ：工作中经常从<code>master</code>创建新分支，具体操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout master   </span><br><span class="line">git checkout -b  issues1234   </span><br><span class="line">git push origin issues1234   </span><br><span class="line">git add ..  </span><br><span class="line">git commit -m &quot;***&quot;</span><br><span class="line">git push origin issues1234</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li>注意：将本地分支branch1推到远端的branch2操作步骤：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin branch1:branch2</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>删除分支</p>
-<p>git branch -D issues1234 // 本地强制删除分支 issues1234    </p>
-<p>git push origin  :issues1234  //推到远程</p>
-</li>
-</ol>
+        <h1 id="电梯调度算法"><a href="#电梯调度算法" class="headerlink" title="电梯调度算法"></a><a href="https://mp.weixin.qq.com/s?__biz=MzIyMjYyMzg3MA%3D%3D&amp;mid=2247485724&amp;idx=1&amp;sn=dafa64c031677b7c46b56e34d32c04ed&amp;chksm=e82be80ddf5c611b153984068d34a24a77b470c0f0736cb6be162a4370f97e44613f371ca97b&amp;mpshare=1&amp;scene=23&amp;srcid=05047xnZPzaJk0mK8Mo2G8jo%23rd" target="_blank" rel="noopener">电梯调度算法</a></h1><h2 id="—传统电梯调度算法—"><a href="#—传统电梯调度算法—" class="headerlink" title="—传统电梯调度算法—"></a>—传统电梯调度算法—</h2><h3 id="1-1-先来先服务算法（FCFS）"><a href="#1-1-先来先服务算法（FCFS）" class="headerlink" title="1.1 先来先服务算法（FCFS）"></a>1.1 先来先服务算法（FCFS）</h3><p>  先来先服务（FCFS-First Come First Serve）算法</p>
+<h3 id="1-2-最短寻找楼层时间优先算法（SSTF）"><a href="#1-2-最短寻找楼层时间优先算法（SSTF）" class="headerlink" title="1.2 最短寻找楼层时间优先算法（SSTF）"></a>1.2 最短寻找楼层时间优先算法（SSTF）</h3><h3 id="1-3-扫描算法（SCAN）"><a href="#1-3-扫描算法（SCAN）" class="headerlink" title="1.3 扫描算法（SCAN）"></a>1.3 扫描算法（SCAN）</h3><h3 id="1-4-LOOK-算法"><a href="#1-4-LOOK-算法" class="headerlink" title="1.4 LOOK 算法"></a>1.4 LOOK 算法</h3><h3 id="1-5-SATF-算法"><a href="#1-5-SATF-算法" class="headerlink" title="1.5 SATF 算法"></a>1.5 SATF 算法</h3><h2 id="—实时电梯调度算法—"><a href="#—实时电梯调度算法—" class="headerlink" title="—实时电梯调度算法—"></a>—实时电梯调度算法—</h2><h3 id="2-1-最早截止期优先调度算法"><a href="#2-1-最早截止期优先调度算法" class="headerlink" title="2.1 最早截止期优先调度算法"></a>2.1 最早截止期优先调度算法</h3><h3 id="2-2-SCAN-EDF-算法"><a href="#2-2-SCAN-EDF-算法" class="headerlink" title="2.2 SCAN-EDF 算法"></a>2.2 SCAN-EDF 算法</h3><h3 id="2-3-PI-算法"><a href="#2-3-PI-算法" class="headerlink" title="2.3 PI 算法"></a>2.3 PI 算法</h3><h3 id="2-4-FD-SCAN-算法"><a href="#2-4-FD-SCAN-算法" class="headerlink" title="2.4 FD-SCAN 算法"></a>2.4 FD-SCAN 算法</h3><h2 id="—电梯调度高水平研究—"><a href="#—电梯调度高水平研究—" class="headerlink" title="—电梯调度高水平研究—"></a>—电梯调度高水平研究—</h2><p>以上两节介绍了几种简单的电梯调度算法。</p>
+<p>但是并不是说目前电梯调度只发展到这个层次。目前电梯的控制技术已经进入了电梯<code>群控</code>的时代。</p>
+<p>随着微机在电梯系统中的应用和人工智能技术的发展，智能群控技术得以迅速发展起来。</p>
+<p>由此，电梯的<code>群控</code>方面陆续发展出了一批新方法，包括：<br>基于<code>专家系统</code>的电梯群控方法、<br>基于<code>模糊逻辑</code>的电梯群控方法、<br>基于<code>遗产算法</code>的电梯群控方法、<br>基于<code>神经网络</code>的电梯群控方法、<br>基于<code>模糊神经网络</code>的电梯群控方法。</p>
+<h2 id="—电梯问题的需求分析—"><a href="#—电梯问题的需求分析—" class="headerlink" title="—电梯问题的需求分析—"></a>—电梯问题的需求分析—</h2><h3 id="4-1-电梯的初始状态"><a href="#4-1-电梯的初始状态" class="headerlink" title="4.1 电梯的初始状态"></a>4.1 电梯的初始状态</h3><h3 id="4-2-电梯基本功能"><a href="#4-2-电梯基本功能" class="headerlink" title="4.2 电梯基本功能"></a>4.2 电梯基本功能</h3><h3 id="4-3-电梯按钮功能"><a href="#4-3-电梯按钮功能" class="headerlink" title="4.3 电梯按钮功能"></a>4.3 电梯按钮功能</h3><h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>可能这些算法都不是一个最佳方案，只是它确实解决了一定情况的问题。</p>
+<p>但是，对一个优秀的程序员而言，研究各种算法是无比快乐的。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIyMjYyMzg3MA%3D%3D&amp;mid=2247485724&amp;idx=1&amp;sn=dafa64c031677b7c46b56e34d32c04ed&amp;chksm=e82be80ddf5c611b153984068d34a24a77b470c0f0736cb6be162a4370f97e44613f371ca97b&amp;mpshare=1&amp;scene=23&amp;srcid=05047xnZPzaJk0mK8Mo2G8jo%23rd" target="_blank" rel="noopener">查看原文</a></p>
+<p>另：<br><a href="https://www.zhihu.com/question/24964987" target="_blank" rel="noopener">【知名互联网公司面试中常见的算法题】</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git-操作规范/" data-id="cjuxepwlf004l58dvekfzfhb6" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/07/DataStructures&Algorithm/电梯调度算法/" data-id="cjy6ziicj0033rwdu0ewclyay" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-操作规范/">git 操作规范</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/调度算法/">调度算法</a></li></ul>
 
     </footer>
   </div>
@@ -467,7 +447,7 @@ git push
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/29/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/31/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/29/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/31/">next &raquo;</a>
   </nav>
 </section>
         
@@ -508,9 +488,9 @@ git push
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

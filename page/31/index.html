@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-GIT/git使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/怪异的JS" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/28/GIT/git使用指南/" class="article-date">
-  <time class="post-time" datetime="2018-04-28T02:18:52.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2018/05/05/FrontEnd/JS/怪异的JS/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T09:50:36.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -87,257 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/28/GIT/git使用指南/">git使用指南</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">git</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/28/GIT/git使用指南/" class="leancloud_visitors" data-flag-title="git使用指南">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><h2 id="第一步-安装-全局配置"><a href="#第一步-安装-全局配置" class="headerlink" title="第一步(安装/全局配置)"></a>第一步(安装/全局配置)</h2><p><strong>安装</strong></p>
-<ul>
-<li>百度 git 然后下载安装</li>
-</ul>
-<p><strong>配置</strong></p>
-<p>一次性配置,设置<code>username</code>和<code>email</code>，因为github每次<code>commit</code>都会记录他们</p>
-<ul>
-<li>$ git config –global user.name “自定义名字” (注册时填写的名字)</li>
-<li>$ git config –global user.email “email@地址.com”(注册的地址)</li>
-</ul>
-<p><strong>检验配置是否成功</strong></p>
-<ul>
-<li>使用 <code>git config -l</code> 查看里面的 <code>user.name</code> 和 <code>email</code> 的值</li>
-</ul>
-<p><strong>查看git版本</strong></p>
-<ul>
-<li>git –version</li>
-</ul>
-<p><strong>创建公钥</strong></p>
-<ul>
-<li>第一步 : 创建 <code>ssh-keygen -t rsa -C &#39;[email地址]&#39;</code></li>
-<li>第二步 : 查看公钥 根据git命令行提示走 然后 打开路径下的<code>id_rsa.pub</code><ul>
-<li>进入c盘的<code>C:\Users\标准用户\.ssh</code>（一般都是在这个文加下）生成了两个文件，用记事本打开<code>id_rsa.pub</code>，全选然后复制。</li>
-</ul>
-</li>
-<li>第三步 : 登录 github 设置公钥<ul>
-<li>进入github官网，选择<code>setting</code> -&gt; <code>ssh and GPG keys</code> -&gt; <code>new ssh key</code> 然后title随便写一个，在下面面的内容处粘贴刚复制的内容。</li>
-</ul>
-</li>
-<li>选择则保存，然后进入git客户端输入：<code>ssh -T git@github.com</code></li>
-<li>如果<code>ssh key</code>配置成功的话，会看到以下效果<ul>
-<li>$ ssh -T git@github.com</li>
-<li>Hi SunOfHomeBoy! You’ve successfully authenticated, but GitHub does not provide shell access.</li>
-<li>您已经成功地进行了身份验证，但是GitHub不提供shell访问。</li>
-</ul>
-</li>
-</ul>
-<h2 id="第二步-初始化项目-本地配置"><a href="#第二步-初始化项目-本地配置" class="headerlink" title="第二步(初始化项目/本地配置)"></a>第二步(初始化项目/本地配置)</h2><p><strong>git初始化</strong></p>
-<ul>
-<li>在项目目录下 输入 “git init”</li>
-</ul>
-<p><strong>git简单命令</strong></p>
-<ul>
-<li><p>“ls -a” 查看项目目录</p>
-</li>
-<li><p>“git status” 查看git状态 // 重要</p>
-</li>
-<li><p>“git add &lt;文件名&gt;” 向git仓库提交一个文件 // 重要</p>
-</li>
-<li><p>“$ git add .” #把前目录下的所有文件全部添加到暂存区</p>
-</li>
-<li><p>“git rm –cached &lt;文件名&gt;” 从git中移除文件</p>
-</li>
-<li><p>“git log” 查看日志</p>
-</li>
-</ul>
-<h2 id="第三步-开始建立远程仓库连接"><a href="#第三步-开始建立远程仓库连接" class="headerlink" title="第三步(开始建立远程仓库连接)"></a>第三步(开始建立远程仓库连接)</h2><ul>
-<li><p><code>git remote add origin git@github.com:yourName/yourRepo.git</code></p>
-<p><code>yourName</code>和<code>yourRepo</code>表示你在<code>github的用户名</code>和<code>新建仓库</code>，加完之后进入.git</p>
-<p>git remote add origin git@github.com:SunOfHomeBoy/SunOfHomeBoy.github.io.git</p>
-<p>$ git push<br>fatal: The current branch dev has no upstream branch.<br>To push the current branch and set the remote as upstream, use</p>
-<p>  <code>git push --set-upstream origin dev</code></p>
-</li>
-</ul>
-<h2 id="第四步-工作区与暂存区-版本库"><a href="#第四步-工作区与暂存区-版本库" class="headerlink" title="第四步(工作区与暂存区[版本库])"></a>第四步(工作区与暂存区[版本库])</h2><ul>
-<li><p>在git add 提交文件后 使用 “git commit -m ‘一句话描述’” 命令</p>
-</li>
-<li><p>“git push origin master” 推送到远程服务器</p>
-</li>
-<li><p>“git pull origin master” 从远程服务器拉取到本地</p>
-</li>
-<li><p>“git checkout – &lt;文件名&gt;”  放弃更改</p>
-</li>
-<li><p>“git reset ‘git log 打印出来的 commit 后面的字符串’ –hard”  //回退到某个版本</p>
-</li>
-</ul>
-<h2 id="第五步-版本库管理"><a href="#第五步-版本库管理" class="headerlink" title="第五步(版本库管理)"></a>第五步(版本库管理)</h2><p><strong>git 删除本地分支</strong></p>
-<ul>
-<li>git branch -D br</li>
-</ul>
-<p><strong>git 删除远程分支</strong></p>
-<ul>
-<li>git push origin :br  (origin 后面有空格)</li>
-<li>git push origin 【空格】【冒号】【你的分支名字】</li>
-<li>git push 【你的远程仓库在本地的别名】【空格】【冒号】【你的分支名字】</li>
-</ul>
-<p><strong>git代码库回滚</strong> (指将代码库某分支退回到以前的某个”commit id”)<br>本地代码库回滚</p>
-<ul>
-<li>git reset –hard commit-id :回滚到commit-id，将commit-id之后提交的commit都去除</li>
-<li>git reset –hard HEAD~3：将最近3次的提交回滚</li>
-</ul>
-<h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><p><strong>Git 常用命令大全</strong><br>(<a href="http://blog.csdn.net/dengsilinming/article/details/8000622" target="_blank" rel="noopener">http://blog.csdn.net/dengsilinming/article/details/8000622</a>)</p>
-<p><strong>如何使用git上传代码到github</strong><br>(<a href="https://jingyan.baidu.com/article/e5c39bf5c8c4d039d76033b2.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/e5c39bf5c8c4d039d76033b2.html</a>)</p>
-<p>常用命令,仅供参考。</p>
-<h2 id="单位，win10电脑"><a href="#单位，win10电脑" class="headerlink" title="单位，win10电脑"></a>单位，win10电脑</h2><p>  2017年12月29日 09:15:05<br>  Ubuntu SSH:</p>
-<p>  $ ssh-keygen -t rsa -C ‘903317164@qq.com’</p>
-<p>Generating public/private rsa key pair.</p>
-<p>Enter file in which to save the key (/home/LiSC/.ssh/id_rsa):<br>Created directory ‘/home/LiSC/.ssh’.<br>Enter passphrase (empty for no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved in /home/LiSC/.ssh/id_rsa.<br>Your public key has been saved in /home/LiSC/.ssh/id_rsa.pub.</p>
-<p>The key fingerprint is:</p>
-<p>SHA256:SIyNEhF5sQX8YgjxEFjPBQnCFexfrL9fYLPX+L05QO0 903317164@qq.com</p>
-<p>The key’s randomart image is:</p>
-<p>+—[RSA 2048]—-+<br>|B+OO==o          |<br>|o=.=+O           |<br>| .+o*.=       .  |<br>|  .oo..+     . . |<br>|   …+ S+  . .  |<br>|     o  . + o. E |<br>|      .  . + ..  |<br>|       .  o . …|<br>|       .o.   . +o|</p>
-<h2 id="—-SHA256-—–"><a href="#—-SHA256-—–" class="headerlink" title="+—-[SHA256]—–+"></a>+—-[SHA256]—–+</h2><p>~$ ssh-keygen -t rsa - c ‘903317164@qq.com<br>生成公共/私有的rsa密钥对。<br>输入保存密钥的文件(/ home/LiSC/.ssh/id_rsa):<br>创建目录/ home / LiSC / . ssh。<br>输入passphrase(没有密码):<br>再次输入相同的密码:<br>您的身份已经保存在/ home/ lisc/. ssh/id_rsa。</p>
-<p>您的公钥已保存在/ home/ lisc/.ssh/id_rsa.pub中。</p>
-<p>指纹的关键是:<br>SHA256:SIyNEhF5sQX8YgjxEFjPBQnCFexfrL9fYLPX + L05QO0 903317164 @qq.com</p>
-<p>关键的随机图像是:</p>
-<ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>-[RSA 2048]- - - - - +<br>| | B + OO = = o<br>| o =。= + O |<br>| + o *。=。|<br>|。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/28/GIT/git使用指南/" data-id="cjuxepwli004q58dvup1sy2eu" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-阅读理解" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/20/阅读理解/" class="article-date">
-  <time class="post-time" datetime="2018-04-20T02:51:01.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">20</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/20/阅读理解/">阅读理解</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/文学技能/">文学技能</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/04/20/阅读理解/" class="leancloud_visitors" data-flag-title="阅读理解">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>为什么你的阅读速度慢、理解力低？</p>
-<h2 id="视觉商数"><a href="#视觉商数" class="headerlink" title="视觉商数"></a>视觉商数</h2><h2 id="阅读习惯"><a href="#阅读习惯" class="headerlink" title="阅读习惯"></a>阅读习惯</h2><h2 id="记忆理解习惯"><a href="#记忆理解习惯" class="headerlink" title="记忆理解习惯"></a>记忆理解习惯<br></h2><ul>
-<li>理解能力的增强也会提升记忆力，因为记忆的基础就是大脑根据信息组织意义的能力。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/20/阅读理解/" data-id="cjuxepwgi001h58dv9vxy8omf" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文学技能/">文学技能</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/JS/响应式布局JS事件" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/04/19/FrontEnd/JS/响应式布局JS事件/" class="article-date">
-  <time class="post-time" datetime="2018-04-19T01:23:15.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">19</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/19/FrontEnd/JS/响应式布局JS事件/">响应式布局JS事件</a>
+      <a class="article-title" href="/2018/05/05/FrontEnd/JS/怪异的JS/">怪异的JS系列</a>
     </h1>
   
 
@@ -351,7 +101,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/19/FrontEnd/JS/响应式布局JS事件/" class="leancloud_visitors" data-flag-title="响应式布局JS事件">
+    <span id="/2018/05/05/FrontEnd/JS/怪异的JS/" class="leancloud_visitors" data-flag-title="怪异的JS系列">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -363,15 +113,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>为解决屏幕分辨率问题，采用事件监听，动态修改 根节点 fontsize<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// getSize(解决rem布局)</span><br><span class="line">(function()&#123;</span><br><span class="line">	getSize();</span><br><span class="line">	window.addEventListener(&apos;resize&apos;,getSize);</span><br><span class="line">	</span><br><span class="line">	function getSize()&#123;</span><br><span class="line">		document.documentElement.style.fontSize </span><br><span class="line">		= document.documentElement.clientWidth/3.75/2+&apos;px&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+        <h1 id="怪异的JavaScript系列-一"><a href="#怪异的JavaScript系列-一" class="headerlink" title="怪异的JavaScript系列(一)"></a><a href="https://juejin.im/post/5ade89db6fb9a07aab297b15" target="_blank" rel="noopener">怪异的JavaScript系列(一)</a></h1><h2 id="等于"><a href="#等于" class="headerlink" title="[ ]等于![ ]"></a>[ ]等于![ ]</h2><pre><code>[] == ![] // -&gt; true
+</code></pre><p><strong>相等(==)判断操作会将两边的类型都转换为数字(number)，然后再比较。</strong></p>
+<p>因为<code>[]</code>和<code>![]</code>都会转换为<code>0</code>。我们可以理解<code>[]</code>是一个<code>数组</code>，只不过<code>为空</code>而已，那么为<code>true</code>。右侧<code>![]</code>则为<code>false</code>。<code>false</code>然后转换为数字<code>0</code>。<code>左侧[]</code>直接<code>转</code>换为<code>数字</code>，因为<code>空数组</code>会转换<code>为0</code>，所以尽管我们认为[]为true，这里却变成了0。<br>简算过程:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+[] == +![]</span><br><span class="line">0 == +false</span><br><span class="line">0 == 0</span><br><span class="line">true</span><br></pre></td></tr></table></figure></p>
+<h2 id="true-是-false"><a href="#true-是-false" class="headerlink" title="true 是 false"></a>true 是 false</h2><pre><code>!!&apos;false&apos; ==  !!&apos;true&apos;  // -&gt; true
+!!&apos;false&apos; === !!&apos;true&apos; // -&gt; true
+</code></pre><p><strong>true是一个真值，用1表示；<code>字符串的“true”则为NaN</code>。</strong></p>
+<pre><code>true == &apos;true&apos;    // -&gt; false
+false == &apos;false&apos;  // -&gt; false
+</code></pre><p><strong>‘false’是一个有意义的字符串。</strong></p>
+<h2 id="baNaNa"><a href="#baNaNa" class="headerlink" title="baNaNa"></a>baNaNa</h2><pre><code>&apos;b&apos; + &apos;a&apos; ++ &apos;a&apos; + &apos;a&apos; // -&gt; baNaNa
+</code></pre><p><strong>这是一个旧笑话，不过改进过的。原始的长这样：</strong></p>
+<pre><code>&apos;foo&apos; ++ &apos;bar&apos; // -&gt; &apos;fooNaN&apos;
+</code></pre><p>该表达式以<code>&#39;foo&#39; + (+&#39;bar&#39;)</code>的形式计算，因为<code>bar不是数字</code>，所以转换为<code>NaN</code>。    </p>
+<h2 id="NaN不等于NaN"><a href="#NaN不等于NaN" class="headerlink" title="NaN不等于NaN"></a>NaN不等于NaN</h2><pre><code>NaN === NaN // -&gt; false
+</code></pre><p>根据 === 的算法，我们可以容易理解为什么为false。</p>
+<h2 id="fail"><a href="#fail" class="headerlink" title="fail"></a>fail</h2><pre><code>(![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]] // -&gt; fail
+</code></pre><p>如果我们仔细观察序列的规律，会发现下面的模式出现很多次：</p>
+<pre><code>(![]+[]) // -&gt; &apos;false&apos;
+![]      // -&gt; false    
+</code></pre><p>因此，我们尝试将<code>[]</code>和<code>false</code>相加。但是根据内部一些列函数的计算(binary + Operator -&gt; ToPrimitive -&gt; [[DefaultValue]])，右侧的[]最终转换为string：</p>
+<pre><code>(![]+[].toString()) // &apos;false&apos;
+</code></pre><p>对于一个字符串，我们就可以通过下标来获取对应的字符：</p>
+<pre><code>&apos;false&apos;[0] // -&gt; &apos;f&apos;        
+</code></pre><p>剩下的都很直观，除了<code>i</code>很取巧。<code>fail</code>中的<code>i</code>是通过在<code>falseundefined</code>中获取第十个下标对应的字符而得到。    </p>
+<h2 id="包含值，但不是true"><a href="#包含值，但不是true" class="headerlink" title="[ ]包含值，但不是true"></a>[ ]包含值，但不是true</h2><h2 id="null不等于false"><a href="#null不等于false" class="headerlink" title="null不等于false"></a>null不等于false</h2><h2 id="document-all是一个对象，不过是-undefined"><a href="#document-all是一个对象，不过是-undefined" class="headerlink" title="document.all是一个对象，不过是 undefined"></a><code>document.all</code>是一个对象，不过是 undefined</h2><p><strong>⚠️这个是前端浏览器API，在Nodejs环境无法使用。</strong></p>
+<p>尽管<code>document.all</code>可以返回一个像<code>数组一样的对象</code>，可以用来<code>访问DOM节点</code>。但是呢，通过<code>typeof</code>查看<code>document.all</code>，你会惊讶地发现类型是<code>undefined</code>。</p>
+<pre><code>document.all instanceof Object // -&gt; true
+typeof document.all // -&gt; &apos;undefined&apos;
+</code></pre><p>而且，<code>document.all</code>并不等于<code>undefined</code>。</p>
+<pre><code>document.all === undefined // -&gt; false
+document.all === null // -&gt; false
+</code></pre><p>而且，更惊讶的是：</p>
+<pre><code>document.all == null // -&gt; true
+</code></pre><p><code>document.all</code>是一个过去常用的<code>获取DOM元素</code>的方法，特别是老版本的IE。但是<code>从未进入标准</code>，尽管广泛使用在过去的JS代码中。当<code>新的API</code>突出来(比如<code>document.getElementById</code>)后，<code>document.all</code>就被<code>淘汰</code>了。标准委员会不知道怎么处理它。可是因为它已经被广泛使用，所以委员会觉得保留它，但是违背了<code>JavaScript</code>的规范。</p>
+<h2 id="最小值比0还大"><a href="#最小值比0还大" class="headerlink" title="最小值比0还大"></a>最小值比0还大</h2><p><code>Number.MIN_VALUE</code>是最小的数，但是它比<code>0</code>还大。</p>
+<pre><code>Number.MIN_VALUE &gt; 0 // -&gt; true
+</code></pre><p>因为<code>Number.MIN_VALUE</code>是<code>5e-324</code>。也就是说即使<code>最小的值</code>也可以用<code>浮点数</code>表示出来，虽然<code>离0很接近</code>，但是<code>依然比0大</code>。其实最小的数是<code>Number.NEGATIVE_INFINITY</code>，尽管它<code>不是一个实际存在</code>的数。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/19/FrontEnd/JS/响应式布局JS事件/" data-id="cjuxepwqr00au58dvpbv3tpwe" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/怪异的JS/" data-id="cjy6ziiju00b7rwdu5d8imgil" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式-getSize/">响应式 getSize</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS特殊情况判断/">JS特殊情况判断</a></li></ul>
 
     </footer>
   </div>
@@ -382,12 +168,12 @@
 
 
   
-    <article id="post-FrontEnd/JS/JS笔记-廖雪峰" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Operating System/UnixLike/Linux/Linux-進程管理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/16/FrontEnd/JS/JS笔记-廖雪峰/" class="article-date">
-  <time class="post-time" datetime="2018-04-16T09:22:06.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">16</span>
+    <a href="/2018/05/05/Operating System/UnixLike/Linux/Linux-進程管理/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T08:00:24.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -399,21 +185,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/FrontEnd/JS/JS笔记-廖雪峰/">JS笔记-廖雪峰</a>
+      <a class="article-title" href="/2018/05/05/Operating System/UnixLike/Linux/Linux-進程管理/">Linux-進程管理</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/原生JS/">原生JS</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/16/FrontEnd/JS/JS笔记-廖雪峰/" class="leancloud_visitors" data-flag-title="JS笔记-廖雪峰">
+    <span id="/2018/05/05/Operating System/UnixLike/Linux/Linux-進程管理/" class="leancloud_visitors" data-flag-title="Linux-進程管理">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -425,28 +211,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="ES6-Map和Set-廖雪峰"><a href="#ES6-Map和Set-廖雪峰" class="headerlink" title="ES6 Map和Set(廖雪峰)"></a>ES6 Map和Set(廖雪峰)</h2><p>(<a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345007434430758e3ac6e1b44b1865178e7aff9082e000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345007434430758e3ac6e1b44b1865178e7aff9082e000</a>)<br><br>JavaScript的 默认对象 表示方式<code>{}</code>可以视为其他语言中的<code>Map</code>或<code>Dictionary</code>的数据结构，即一组<code>键值对</code>。<br>但是JavaScript的对象有个小问题，就是<code>键</code>必须是<code>字符串</code>。但实际上<code>Number</code>或者<code>其他数据类型</code>作为键也是非常合理的。</p>
-<p>为了解决这个问题，最新的<code>ES6</code>规范引入了 新的 数据类型<code>Map</code>。<br>测试浏览器是否支持<code>ES6规范</code> 执行以下代码，如浏览器报ReferenceError错误，那么你需要换一个支持ES6的浏览器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var m = new Map();</span><br><span class="line">var s = new Set();</span><br><span class="line">console.log(&apos;你的浏览器支持Map和Set！&apos;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="Map-增set-删delete-改set-查get-has"><a href="#Map-增set-删delete-改set-查get-has" class="headerlink" title="Map(增set 删delete 改set 查get has)"></a>Map(<code>增set</code> <code>删delete</code> <code>改set</code> <code>查get has</code>)</h3><p><code>Map</code>是一组<code>键值对</code>的结构，具有极快的查找速度。</p>
-<blockquote>
-<p>var m = new Map([[‘Michael’, 95], [‘Bob’, 75], [‘Tracy’, 85]]); <br><br>m.get(‘Michael’); // 95</p>
+        <h2 id="Linux-進程管理"><a href="#Linux-進程管理" class="headerlink" title="Linux-進程管理"></a>Linux-進程管理</h2><blockquote>
+<p>ps aux | grep [process]</p>
+<p>kill [process ID]</p>
+<p>pm2 status # 查看pm2狀態</p>
 </blockquote>
-<p>初始化Map需要一个二维数组，或者直接初始化一个空Map。Map具有以下方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map(); // 空Map</span><br><span class="line">m.set(&apos;Adam&apos;, 67); // 添加新的key-value</span><br><span class="line">m.set(&apos;Bob&apos;, 59);</span><br><span class="line">m.has(&apos;Adam&apos;); // 是否存在key &apos;Adam&apos;: true</span><br><span class="line">m.get(&apos;Adam&apos;); // 67</span><br><span class="line">m.delete(&apos;Adam&apos;); // 删除key &apos;Adam&apos;</span><br><span class="line">m.get(&apos;Adam&apos;); // undefined</span><br></pre></td></tr></table></figure></p>
-<p>一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map();</span><br><span class="line">m.set(&apos;Adam&apos;, 67);</span><br><span class="line">m.set(&apos;Adam&apos;, 88);</span><br><span class="line">m.get(&apos;Adam&apos;); // 88</span><br></pre></td></tr></table></figure></p>
-<h3 id="Set-没有重复的key"><a href="#Set-没有重复的key" class="headerlink" title="Set(没有重复的key)"></a>Set(<code>没有重复的key</code>)</h3><p><code>Set</code>和<code>Map</code>类似，也是一组<code>key的集合</code>，但<code>不存储value</code>。由于<code>key不能重复</code>，所以，在Set中，<code>没有重复的key</code>。<br>要<code>创建一个Set</code>，需要提供一个<code>Array</code>作为输入，或者<code>直接创建一个空Set</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s1 = new Set(); // 空Set</span><br><span class="line">var s2 = new Set([1, 2, 3]); // 含1, 2, 3</span><br></pre></td></tr></table></figure></p>
-<p>重复元素在Set中自动被过滤：</p>
-<blockquote>
-<p>var s = new Set([1, 2, 3, 3, ‘3’]);<br>s; // Set {1, 2, 3, “3”}</p>
-</blockquote>
-<p>通过<code>add(key)</code>方法可以<code>添加元素到Set</code>中，可以重复添加，但不会有效果：<br>通过<code>delete(key)</code>方法可以删除元素：</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/16/FrontEnd/JS/JS笔记-廖雪峰/" data-id="cjuxepwqa00a358dvoi04vag6" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/Operating System/UnixLike/Linux/Linux-進程管理/" data-id="cjy6ziinl00gbrwdun74bqu2v" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES5-ES6/">ES5/ES6</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-process/">Linux-process</a></li></ul>
 
     </footer>
   </div>
@@ -457,12 +234,12 @@
 
 
   
-    <article id="post-FrontEnd/JS/原生Ajax请求" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/JS常见陷阱" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/04/16/FrontEnd/JS/原生Ajax请求/" class="article-date">
-  <time class="post-time" datetime="2018-04-16T08:01:01.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">16</span>
+    <a href="/2018/05/05/FrontEnd/JS/JS常见陷阱/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T02:36:51.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
   </time>
 </a>
    
@@ -474,21 +251,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/FrontEnd/JS/原生Ajax请求/">原生Ajax请求</a>
+      <a class="article-title" href="/2018/05/05/FrontEnd/JS/JS常见陷阱/">JS常见陷阱</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Ajax/">Ajax</a>
+    <a class="article-category-link" href="/categories/JS/">JS</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/04/16/FrontEnd/JS/原生Ajax请求/" class="leancloud_visitors" data-flag-title="原生Ajax请求">
+    <span id="/2018/05/05/FrontEnd/JS/JS常见陷阱/" class="leancloud_visitors" data-flag-title="JS常见陷阱">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -500,14 +277,167 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="原生Ajax请求"><a href="#原生Ajax请求" class="headerlink" title="原生Ajax请求"></a>原生Ajax请求</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">function ajax(options) &#123;</span><br><span class="line">  options = options || &#123;&#125;;</span><br><span class="line">  options.type = (options.type || &quot;GET&quot;).toUpperCase();</span><br><span class="line">  options.dataType = options.dataType || &quot;json&quot;;</span><br><span class="line">  var params = formatParams(options.data);</span><br><span class="line"></span><br><span class="line">  //创建 - 非IE6 - 第一步</span><br><span class="line">  if (window.XMLHttpRequest) &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">  &#125; else &#123; //IE6及其以下版本浏览器</span><br><span class="line">    var xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //接收 - 第三步</span><br><span class="line">  xhr.onreadystatechange = function () &#123;</span><br><span class="line">    if (xhr.readyState == 4) &#123;</span><br><span class="line">      var status = xhr.status;</span><br><span class="line">      if (status &gt;= 200 &amp;&amp; status &lt; 300) &#123;</span><br><span class="line">        options.success &amp;&amp; options.success(xhr.responseText, xhr.responseXML);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        options.fail &amp;&amp; options.fail(status);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //连接 和 发送 - 第二步</span><br><span class="line">  if (options.type == &quot;GET&quot;) &#123;</span><br><span class="line">    xhr.open(&quot;GET&quot;, options.url + &quot;?&quot; + params, true);</span><br><span class="line">    xhr.send(null);</span><br><span class="line">  &#125; else if (options.type == &quot;POST&quot;) &#123;</span><br><span class="line">    xhr.open(&quot;POST&quot;, options.url, true);</span><br><span class="line">    //设置表单提交时的内容类型</span><br><span class="line">    xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">    xhr.send(params);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//格式化参数</span><br><span class="line">function formatParams(data) &#123;</span><br><span class="line">  var arr = [];</span><br><span class="line">  for (var name in data) &#123;</span><br><span class="line">    arr.push(encodeURIComponent(name) + &quot;=&quot; + encodeURIComponent(data[name]));</span><br><span class="line">  &#125;</span><br><span class="line">  arr.push((&quot;v=&quot; + Math.random()).replace(&quot;.&quot;, &quot;&quot;));</span><br><span class="line">  // console.log(arr.join(&quot;&amp;&quot;));</span><br><span class="line">  return arr.join(&quot;&amp;&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="JavaScript中8个常见的陷阱"><a href="#JavaScript中8个常见的陷阱" class="headerlink" title="JavaScript中8个常见的陷阱"></a>JavaScript中8个常见的陷阱</h1><h2 id="1-数组元素排序"><a href="#1-数组元素排序" class="headerlink" title="1. 数组元素排序"></a>1. 数组元素排序</h2><p>JavaScript默认使用<code>字典序(alphanumeric)</code>来排序。因此，<code>[1,2,5,10].sort()</code>的结果是<code>[1, 10, 2, 5]</code>。</p>
+<p>如果你想正确的排序，应该这样做：<code>[1,2,5,10].sort((a, b) =&gt; a - b)</code></p>
+<h2 id="2-new-Date"><a href="#2-new-Date" class="headerlink" title="2. new Date()"></a>2. new Date()</h2><p><code>new Date()</code>的使用方法有：</p>
+<ul>
+<li>不接收任何参数：返回当前时间；</li>
+<li>接收一个参数x: 返回1970年1月1日 + x毫秒的值。</li>
+<li>new Date(1, 1, 1)返回1901年2月1号。</li>
+<li>new Date(2016, 1, 1)不会在1900年的基础上加2016，而只是表示2016年。</li>
+</ul>
+<h2 id="3-替换函数-replace"><a href="#3-替换函数-replace" class="headerlink" title="3. 替换函数(replace)"></a>3. 替换函数(replace)</h2><pre><code>let s = &quot;bob&quot;
+const replaced = s.replace(&apos;b&apos;, &apos;l&apos;)
+replaced === &quot;lob&quot; // 只会替换掉第一个b
+s === &quot;bob&quot; // 并且s的值不会变  
+</code></pre><p>如果想把所有<code>b</code>都替换掉，要使用正则：</p>
+<pre><code>&quot;bob&quot;.replace(/b/g, &apos;l&apos;) === &apos;lol&apos;
+</code></pre><h2 id="4-谨慎对待比较运算"><a href="#4-谨慎对待比较运算" class="headerlink" title="4. 谨慎对待比较运算"></a>4. 谨慎对待比较运算</h2><p>  // 这些可以<br>  ‘abc’ === ‘abc’ // true<br>  1 === 1         // true<br>  // 然而这些不行<br>  [1,2,3] === [1,2,3] // false<br>  {a: 1} === {a: 1}   // false<br>  {} === {}           // false</p>
+<p>  因为<code>[1,2,3]</code>和[1,2,3]是两个不同的数组，只是它们的元素碰巧相同。因此，不能简单的通过===来判断。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/04/16/FrontEnd/JS/原生Ajax请求/" data-id="cjuxepwqu00ay58dvpkl071q3" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/FrontEnd/JS/JS常见陷阱/" data-id="cjy6ziij100a3rwdu6gz2q4ns" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生Ajax/">原生Ajax</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS常见坑/">JS常见坑</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/Windows/Windows-系统快捷键" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/Operating System/Windows/Windows-系统快捷键/" class="article-date">
+  <time class="post-time" datetime="2018-05-05T01:46:01.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/05/Operating System/Windows/Windows-系统快捷键/">Windows/系统快捷键</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Windows/">Windows</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/05/Operating System/Windows/Windows-系统快捷键/" class="leancloud_visitors" data-flag-title="Windows/系统快捷键">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Windows-系统快捷键"><a href="#Windows-系统快捷键" class="headerlink" title="Windows/系统快捷键"></a>Windows/系统快捷键</h1><h2 id="Win10"><a href="#Win10" class="headerlink" title="Win10"></a>Win10</h2><blockquote>
+<p>Win + G  // XBOX录屏软件</p>
+<p>Win + shift + 1~9  // 快速建立新窗口/多窗口</p>
+<p>Win + <code>&quot;+&quot;</code> // 屏幕放大镜</p>
+<p>Win + Esc  // 关闭屏幕放大镜</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/05/Operating System/Windows/Windows-系统快捷键/" data-id="cjy6ziik800burwdudyodj28o" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-系统快捷键/">Windows/系统快捷键</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/添加自定义shell" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" class="article-date">
+  <time class="post-time" datetime="2018-05-04T03:34:46.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/">添加自定义shell</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/shell/">shell</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" class="leancloud_visitors" data-flag-title="添加自定义shell">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="添加自定义github-shell"><a href="#添加自定义github-shell" class="headerlink" title="添加自定义github.shell"></a>添加自定义github.shell</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ echo $PATH  // 打印 路径</span><br><span class="line">$ cd /home/LiSC/bin  // 转到第一个路径</span><br><span class="line">$ mkdir /home/LiSC/bin  // 创建文件夹</span><br><span class="line">$ vim github.shell  // 创建文件[把shell脚本复制粘贴]</span><br><span class="line">$ chmod +x github.shell  // 文件权限属性设置 =&gt; 用来变更文件或目录的权限</span><br></pre></td></tr></table></figure>
+<p>附：shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">## Coptyright 2016 The HongJiang Library Authors. All rights reserved.</span><br><span class="line">## Use of this source code is governed by a Apache-style</span><br><span class="line">## license that can be found in the LICNESE file.</span><br><span class="line">##</span><br><span class="line">## Git(Github.com) Common Client Commands.</span><br><span class="line">##</span><br><span class="line">## @authors hjboss &lt;hongjiangproject@gmail.com&gt; 2018-04 $$</span><br><span class="line">## @version 1.0.0</span><br><span class="line">GIT=`/usr/bin/which git`</span><br><span class="line">HOST=&apos;git@github.com&apos;</span><br><span class="line">NAME=&apos;hlibs&apos;</span><br><span class="line">SCRIPT=`basename $0`</span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">	&quot;add&quot;)</span><br><span class="line">		if [ $# -lt 2 ] || [ &quot;$2&quot; == &quot;*&quot; ]; then</span><br><span class="line">			$GIT add --all</span><br><span class="line">		else</span><br><span class="line">			$GIT add &quot;$2&quot;</span><br><span class="line">		fi</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;ci&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			$GIT commit -a -m &quot;Initial commit&quot;</span><br><span class="line">		else</span><br><span class="line">			$GIT commit -a -m &quot;$2&quot;</span><br><span class="line">		fi</span><br><span class="line">		$GIT push -u origin master</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;co&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			echo &quot;版本庫名稱不能空值&quot;</span><br><span class="line">		elif [ $# -eq 2 ]; then</span><br><span class="line">			$GIT clone &quot;$HOST:$NAME/$2.git&quot;</span><br><span class="line">		else</span><br><span class="line">			$GIT clone &quot;$HOST:$2/$3.git&quot;</span><br><span class="line">		fi</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;rm&quot;)</span><br><span class="line">		if [ $# -lt 2 ]; then</span><br><span class="line">			echo &quot;刪除文件名不能空值&quot;</span><br><span class="line">			exit</span><br><span class="line">		fi</span><br><span class="line">		$GIT rm &quot;$2&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;up&quot;)</span><br><span class="line">		$GIT pull</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;st&quot;)</span><br><span class="line">		$GIT status</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;help&quot;)</span><br><span class="line">		echo &quot;用法: $SCRIPT &lt;subcommand&gt; [args]&quot;</span><br><span class="line">		echo &quot;版本: 1.0.0&quot;</span><br><span class="line">		echo &quot;最常用的子命令:&quot;</span><br><span class="line">		echo &quot;  add 添加文件内容至索引&quot;</span><br><span class="line">		echo &quot;  ci 记录变更到版本库并且更新至github.com&quot;</span><br><span class="line">		echo &quot;  co 将给定名称的版本库克隆到一个新目录&quot;</span><br><span class="line">		echo &quot;  rm 从工作区和索引中删除文件&quot;</span><br><span class="line">		echo &quot;  up 本地分支更新到最新版本&quot;</span><br><span class="line">		echo &quot;  st 显示工作区状态&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	&quot;version&quot;)</span><br><span class="line">		echo &quot;$SCRIPT version 1.0.0&quot;</span><br><span class="line">	;;</span><br><span class="line"></span><br><span class="line">	*)</span><br><span class="line">		echo &quot;使用$SCRIPT help得到用法&quot;</span><br><span class="line">	;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure></p>
+<h1 id="自定义NPM脚本"><a href="#自定义NPM脚本" class="headerlink" title="自定义NPM脚本"></a>自定义NPM脚本</h1><p><code>sbin &amp; bin 区别</code> root可以访问 <code>sbin</code> 下的脚本</p>
+<blockquote>
+<p>/usr/local/sbin/npm.shell</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">npm --registry=https://registry.npm.taobao.org $*</span><br></pre></td></tr></table></figure>
+<p><strong><code>$*</code></strong>: 属于 process 环境变量</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/04/Operating System/UnixLike/Linux/添加自定义shell/" data-id="cjy6ziioa00gyrwduodusubvc" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自定义shell/">自定义shell</a></li></ul>
 
     </footer>
   </div>
@@ -521,7 +451,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/30/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/32/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/30/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/32/">next &raquo;</a>
   </nav>
 </section>
         
@@ -562,9 +492,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

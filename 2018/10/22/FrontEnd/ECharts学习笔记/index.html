@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="李仕臣的博客">
 <meta property="og:description" content="ECharts学习笔记APIAPI分为 四大类[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]  echarts  init: Function \创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。  (dom, theme?, opts?) =&amp;gt; echartsInst">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-28T09:59:20.832Z">
+<meta property="og:updated_time" content="2019-05-29T01:32:16.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ECharts学习笔记">
 <meta name="twitter:description" content="ECharts学习笔记APIAPI分为 四大类[‘echarts’, ‘echartsInstance’, ‘action’, ‘events’]  echarts  init: Function \创建一个 ECharts 实例，返回 echartsInstance，不能在单个容器上初始化多个 ECharts 实例。  (dom, theme?, opts?) =&amp;gt; echartsInst">
@@ -44,9 +44,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -362,12 +362,12 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
 </ul>
 </li>
 </ul>
-<h2 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h2><h2 id="formatter"><a href="#formatter" class="headerlink" title="formatter"></a>formatter</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">axisLabel: &#123;</span><br><span class="line">  interval: 0,</span><br><span class="line">  formatter:function(value)&#123;</span><br><span class="line">    // 拼接加\n返回的类目项</span><br><span class="line">    var ret = &quot;&quot;; </span><br><span class="line"></span><br><span class="line">    // 一行显示文字个数</span><br><span class="line">    var maxLength = 2; </span><br><span class="line">    </span><br><span class="line">    // X轴类 当前项 文字长度</span><br><span class="line">    var valLength = value.length; </span><br><span class="line"></span><br><span class="line">    // 类目项需要换行的行数</span><br><span class="line">    var rowN = Math.ceil(valLength / maxLength); </span><br><span class="line">    </span><br><span class="line">    //如果类目项的文字大于3</span><br><span class="line">    if (rowN &gt; 1) &#123;</span><br><span class="line">      for (var i = 0; i &lt; rowN; i++) &#123;</span><br><span class="line">        var temp = &quot;&quot;; // 每次截取的字符串</span><br><span class="line">        var start = i * maxLength; // 开始截取的位置</span><br><span class="line">        var end = start + maxLength; // 结束截取的位置</span><br><span class="line">        //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧</span><br><span class="line">        temp = value.substring(start, end) + &quot;\n&quot;;</span><br><span class="line">        ret += temp; // 凭借最终的字符串</span><br><span class="line">      &#125;</span><br><span class="line">      return ret;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h2><h2 id="formatter-amp-amp-rich"><a href="#formatter-amp-amp-rich" class="headerlink" title="formatter &amp;&amp; rich"></a>formatter &amp;&amp; rich</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">axisLabel: &#123;</span><br><span class="line">  interval: <span class="number">0</span>,</span><br><span class="line">  <span class="string">`formatter`</span>:<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 拼接加\n返回的类目项</span></span><br><span class="line">    <span class="keyword">var</span> ret = <span class="string">""</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一行显示文字个数</span></span><br><span class="line">    <span class="keyword">var</span> maxLength = <span class="number">2</span>; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// X轴类 当前项 文字长度</span></span><br><span class="line">    <span class="keyword">var</span> valLength = value.length; </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 类目项需要换行的行数</span></span><br><span class="line">    <span class="keyword">var</span> rowN = <span class="built_in">Math</span>.ceil(valLength / maxLength); </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//如果类目项的文字大于3</span></span><br><span class="line">    <span class="keyword">if</span> (rowN &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; rowN; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> temp = <span class="string">""</span>; <span class="comment">// 每次截取的字符串</span></span><br><span class="line">        <span class="keyword">var</span> start = i * maxLength; <span class="comment">// 开始截取的位置</span></span><br><span class="line">        <span class="keyword">var</span> end = start + maxLength; <span class="comment">// 结束截取的位置</span></span><br><span class="line">        <span class="comment">//这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧</span></span><br><span class="line">        temp = value.substring(start, end) + <span class="string">"\n"</span>;</span><br><span class="line">        ret += temp; <span class="comment">// 凭借最终的字符串</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> ret;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  rich: &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">      <span class="comment">// 样式</span></span><br><span class="line">    &#125;,</span><br><span class="line">    b: &#123;</span><br><span class="line">      <span class="comment">// 样式</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/22/FrontEnd/ECharts学习笔记/" data-id="cjuxepwk8003858dvde1kx6k0" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/22/FrontEnd/ECharts学习笔记/" data-id="cjy6ziid6003nrwdu66h6fb6c" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECharts4-0/">ECharts4.0</a></li></ul>
@@ -378,7 +378,7 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
     
 <nav id="article-nav">
   
-    <a href="/2018/10/26/Algorithm/延迟判断算法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/10/26/DataStructures&Algorithm/延迟判断算法/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
@@ -444,9 +444,9 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

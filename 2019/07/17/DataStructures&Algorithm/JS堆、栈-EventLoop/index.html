@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"110.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  <meta charset="utf-8">
+  
+  <title>JS堆、栈&amp;EventLoop | 李仕臣的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JS内存机制 栈内存(stack) 基础数据类型[Number, String, Boolean, Null, Undefined, Symbol] function 函数 数据在 栈内存 储存/使用 类似数据结构 中 堆栈数据结构, 遵循后进先出/先进后出   堆内存(heap) 引用数据类型[Array, Object, Map, Set, …] 访问：从栈中获取了该对象的地址引用（或者地址指">
+<meta name="keywords" content="数据结构与算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS堆、栈&amp;EventLoop">
+<meta property="og:url" content="http://SunOfHomeBoy.github.io/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/index.html">
+<meta property="og:site_name" content="李仕臣的博客">
+<meta property="og:description" content="JS内存机制 栈内存(stack) 基础数据类型[Number, String, Boolean, Null, Undefined, Symbol] function 函数 数据在 栈内存 储存/使用 类似数据结构 中 堆栈数据结构, 遵循后进先出/先进后出   堆内存(heap) 引用数据类型[Array, Object, Map, Set, …] 访问：从栈中获取了该对象的地址引用（或者地址指">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-17T07:45:56.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS堆、栈&amp;EventLoop">
+<meta name="twitter:description" content="JS内存机制 栈内存(stack) 基础数据类型[Number, String, Boolean, Null, Undefined, Symbol] function 函数 数据在 栈内存 储存/使用 类似数据结构 中 堆栈数据结构, 遵循后进先出/先进后出   堆内存(heap) 引用数据类型[Array, Object, Map, Set, …] 访问：从栈中获取了该对象的地址引用（或者地址指">
+  
+    <link rel="alternate" href="/atom.xml" title="李仕臣的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-DataStructures&amp;Algorithm/JS堆、栈-EventLoop" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/" class="article-date">
+  <time class="post-time" datetime="2019-07-17T03:18:56.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS堆、栈&amp;EventLoop
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/DS-A/">DS&A</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/17/DataStructures&amp;Algorithm/JS堆、栈-EventLoop/" class="leancloud_visitors" data-flag-title="JS堆、栈&amp;EventLoop">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JS内存机制"><a href="#JS内存机制" class="headerlink" title="JS内存机制"></a><a href="https://github.com/BooheeFE/weekly/issues/2" target="_blank" rel="noopener">JS内存机制</a></h2><ul>
+<li>栈内存(stack)<ul>
+<li>基础数据类型[Number, String, Boolean, Null, Undefined, Symbol]</li>
+<li>function 函数</li>
+<li>数据在 <code>栈内存</code> 储存/使用 类似数据结构 中 <code>堆栈数据结构</code>, 遵循<code>后进先出</code>/<code>先进后出</code></li>
+</ul>
+</li>
+<li>堆内存(heap)<ul>
+<li>引用数据类型[Array, Object, Map, Set, …]</li>
+<li>访问：从栈中获取了该对象的地址引用（或者地址指针）</li>
+</ul>
+</li>
+</ul>
+<h2 id="浏览器事件机制-EventLoop"><a href="#浏览器事件机制-EventLoop" class="headerlink" title="浏览器事件机制(EventLoop)"></a>浏览器事件机制(EventLoop)</h2><ul>
+<li>所有同步任务都在主线程上执行, 形成一个<code>执行栈</code></li>
+<li>主线程外, 存在一个 <code>任务队列</code>. <code>异步任务</code>运行出结果, <code>任务队列</code>放置事件</li>
+<li><code>执行栈</code> 同步任务执行完毕, 系统读取<code>任务队列</code>, 并放入 <code>执行栈</code></li>
+<li>主线程从 <code>任务队列</code>读取事件, 过程循环不断(EventLoop)</li>
+</ul>
+<h2 id="队列-gt-宏任务-微任务"><a href="#队列-gt-宏任务-微任务" class="headerlink" title="队列=&gt;宏任务/微任务"></a>队列=&gt;宏任务/微任务</h2><p>概念：微任务和宏任务都是属于队列，而不是放在栈中</p>
+<ul>
+<li>宏任务(task)<ul>
+<li>新建 任务队列</li>
+</ul>
+</li>
+<li>微任务(Microtasks)<ul>
+<li>在当前队列执行任务，减小性能开销</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>栈：<ul>
+<li>存储 基础数据类型</li>
+<li>按值访问</li>
+<li>存储的值大小固定</li>
+<li>由系统自动分配内存空间</li>
+<li>空间小, 运行效率高</li>
+<li>先进后出, 后进先出</li>
+<li>栈中 <code>DOM</code>, <code>ajax</code>, <code>setTimeout</code> 依次进入队列，栈中代码执行完毕，再将队列事件放入<code>执行栈</code></li>
+<li>宏任务/微任务</li>
+</ul>
+</li>
+<li>堆：<ul>
+<li>存储 引用数据类型</li>
+<li>按引用访问</li>
+<li>存储的值 大小不定，可动态调整</li>
+<li>主要用来存放 对象</li>
+<li>空间大 运行效率相对较低</li>
+<li>无序存储，可根据引用直接获取</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/" data-id="cjy6ziic4002rrwdunb5e4rnd" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/03/《大话数据结构》-读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">《大话数据结构》--读书笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+  <div id="comments" class="comments">
+    <div id="uyan_frame"></div>
+  </div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2162222"></script>
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">李仕臣的博客</h1>
+    <h2 class="blog-subtitle">geek who devotion to write code.</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars2.githubusercontent.com/u/30047595?s=460&amp;v=4">
+    <h2 class="author">李仕臣</h2>
+    <h3 class="description">李仕臣的博客</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/SunOfHomeBoy" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://weibo.com/1691891903/profile?topnav=1&amp;wvr=6" target="_blank" title="Sina微博">
+          Sina微博
+        </a>
+      
+        <a class="hvr-bounce-in" href="" target="_blank" title="个人邮箱：903317164@qq.com">
+          个人邮箱：903317164@qq.com
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 李仕臣<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+        </div>
+        
+          <audio id="audio" src="plugin/galmenu/wulusai.mp3"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("true", "true");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+</body>
+</html>

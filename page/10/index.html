@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-server/AliCloud-SSL证书认证" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Operating System/UnixLike/Linux/catLinuxCore" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/08/server/AliCloud-SSL证书认证/" class="article-date">
-  <time class="post-time" datetime="2018-08-08T03:18:53.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">08</span>
+    <a href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:56:11.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/08/server/AliCloud-SSL证书认证/">AliCloud-SSL证书认证</a>
+      <a class="article-title" href="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/">查看Linux发行版核心</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/SSL/">SSL</a>
+    <a class="article-category-link" href="/categories/UnixLike/">UnixLike</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/08/server/AliCloud-SSL证书认证/" class="leancloud_visitors" data-flag-title="AliCloud-SSL证书认证">
+    <span id="/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" class="leancloud_visitors" data-flag-title="查看Linux发行版核心">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,33 +113,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="阿里云-SSL证书认证"><a href="#阿里云-SSL证书认证" class="headerlink" title="阿里云-SSL证书认证"></a>阿里云-SSL证书认证</h2><p>保证在规定域名下可以访问到<code>证书编号</code><br><img src="../../assets/img/AliCloud-SSL证书认证.jpg" alt=""></p>
-<h3 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h3><p>首先因为 <code>Nginx反向代理</code> 问题，需要配置目录文件</p>
-<ul>
-<li>SSH登录 生产服务器 <code>jdyxqq.com root</code> psd:<em>**</em> 5*</li>
-<li><p>找到Nginx服务配置</p>
-<blockquote>
-<p>find / -name nginx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/sbin/nginx  # 程序文件</span><br><span class="line">/usr/local/etc/rc.d/nginx  # 后台程序 管理重启、开机启动</span><br><span class="line">/usr/local/etc/nginx  # 系统配置项</span><br><span class="line">/usr/ports/www/nginx  # Nginx文档</span><br><span class="line">/mnt/www/etc/nginx  # 分配置文件(要修改的路径)</span><br><span class="line">/var/tmp/nginx  # 临时、缓存文件</span><br><span class="line">/var/log/nginx  # 临时、缓存文件</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>进入<code>/mnt/www/etc/nginx</code>修改添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim jing*.conf</span><br><span class="line"></span><br><span class="line"># 添加代理</span><br><span class="line">location /.well-known &#123;</span><br><span class="line">  alias /mnt/www/jing*/html/.well-know; # 分号很重要</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="进入配置路径并添加文件"><a href="#进入配置路径并添加文件" class="headerlink" title="进入配置路径并添加文件"></a>进入配置路径并添加文件</h3><ul>
-<li>mkdir -p /mnt/www/jing*/html/.well-know/pki-validation  # 创建目录路径</li>
-<li>vim fileauth.txt  # 创建目标文件 并把 认证码 键入</li>
-</ul>
-<h3 id="保证访问路径可以访问认证码"><a href="#保证访问路径可以访问认证码" class="headerlink" title="保证访问路径可以访问认证码"></a>保证访问路径可以访问认证码</h3><p><a href="http://jdyxqq.com/.well-known/pki-validation/fileauth.txt" target="_blank" rel="noopener">http://jdyxqq.com/.well-known/pki-validation/fileauth.txt</a></p>
-<h2 id="p-s-一般代理路径下都有-空的-index-html-防止获取-路径下文件-内容保护"><a href="#p-s-一般代理路径下都有-空的-index-html-防止获取-路径下文件-内容保护" class="headerlink" title="p.s 一般代理路径下都有 空的 index.html 防止获取 路径下文件 [内容保护]"></a>p.s 一般代理路径下都有 空的 index.html 防止获取 路径下文件 [内容保护]</h2>
+        <h2 id="Ubuntu查看系统版本-Linux内核版本"><a href="#Ubuntu查看系统版本-Linux内核版本" class="headerlink" title="Ubuntu查看系统版本-Linux内核版本"></a>Ubuntu查看系统版本-Linux内核版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br><span class="line"></span><br><span class="line">cat /etc/os-release</span><br><span class="line"></span><br><span class="line">cat /etc/redhat-release</span><br><span class="line"></span><br><span class="line">rpm -q centos-release</span><br><span class="line"></span><br><span class="line">uname -a</span><br><span class="line"></span><br><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://blog.csdn.net/haohaibo031113/article/details/70880864" target="_blank" rel="noopener">转自CSDN</a></p>
+<p><a href="https://www.baidu.com/s?wd=ubuntu%2016.04%20%E5%AE%89%E8%A3%85nginx&amp;rsv_spt=1&amp;rsv_iqid=0xe793a65000001553&amp;issp=1&amp;f=3&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=98012088_4_dg&amp;ch=1&amp;rsv_enter=1&amp;oq=linux%25E6%259F%25A5%25E7%259C%258Bubuntu%25E7%2589%2588%25E6%259C%25AC&amp;rsv_t=34e0PL5TYi1wHhbecCDMqieWCC0vKelIGuYW2od1EexG3UzWpfxhsOZUSlHq896i5PxNjA&amp;inputT=11285&amp;rsv_pq=bb5b65e700002916&amp;rsv_sug3=46&amp;rsv_sug1=44&amp;rsv_sug7=101&amp;rsv_sug2=0&amp;prefixsug=ubuntu%252016.04%2520%25E5%25AE%2589%25E8%25A3%2585&amp;rsp=3&amp;rsv_sug4=11985" target="_blank" rel="noopener">ubuntu 16.04 安装nginx</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; apt-get update // 升级集成软件包信息</span><br><span class="line">&gt; apt-get upgrade // 升级 已经安装好的本级软件</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/08/server/AliCloud-SSL证书认证/" data-id="cjuxepwm2005i58dvy8cdsomb" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/Operating System/UnixLike/Linux/catLinuxCore/" data-id="cjy6ziipi00htrwduabl5on56" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSL认证/">SSL认证</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/catLinuxCore/">catLinuxCore</a></li></ul>
 
     </footer>
   </div>
@@ -150,12 +136,12 @@
 
 
   
-    <article id="post-server/服务器环境搭建" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/组件化设计思路" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/07/server/服务器环境搭建/" class="article-date">
-  <time class="post-time" datetime="2018-08-07T07:31:15.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">07</span>
+    <a href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="article-date">
+  <time class="post-time" datetime="2018-09-13T08:41:49.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
   </time>
 </a>
    
@@ -167,21 +153,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/07/server/服务器环境搭建/">服务器环境搭建</a>
+      <a class="article-title" href="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/">组件化设计思路</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Server/">Server</a>
+    <a class="article-category-link" href="/categories/Component-design/">Component-design</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/07/server/服务器环境搭建/" class="leancloud_visitors" data-flag-title="服务器环境搭建">
+    <span id="/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" class="leancloud_visitors" data-flag-title="组件化设计思路">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -193,292 +179,274 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><h3 id="CentOS版"><a href="#CentOS版" class="headerlink" title="CentOS版"></a><a href="">CentOS版</a></h3><h3 id="Ubuntu版"><a href="#Ubuntu版" class="headerlink" title="Ubuntu版"></a><a href="">Ubuntu版</a></h3><h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><h3 id="centos7安装最新版git"><a href="#centos7安装最新版git" class="headerlink" title="centos7安装最新版git"></a><a href="https://blog.csdn.net/zxy987872674/article/details/79220469" target="_blank" rel="noopener">centos7安装最新版git</a></h3><h3 id="Centos7-yum-install-git2-x-较新版本"><a href="#Centos7-yum-install-git2-x-较新版本" class="headerlink" title="Centos7 yum install git2.x(较新版本)"></a><a href="https://blog.csdn.net/caimengyuan/article/details/80634752" target="_blank" rel="noopener">Centos7 yum install git2.x(较新版本)</a></h3><h2 id="安装Nvm"><a href="#安装Nvm" class="headerlink" title="安装Nvm"></a>安装Nvm</h2><h3 id="Github-Nvm"><a href="#Github-Nvm" class="headerlink" title="Github-Nvm"></a><a href="https://github.com/creationix/nvm#installation" target="_blank" rel="noopener">Github-Nvm</a></h3><h3 id="CentOS-7-使用NVM管理nodejs-Nvm安装Node-npm"><a href="#CentOS-7-使用NVM管理nodejs-Nvm安装Node-npm" class="headerlink" title="CentOS 7 使用NVM管理nodejs + Nvm安装Node+npm"></a><a href="https://blog.csdn.net/and04292/article/details/79423037" target="_blank" rel="noopener">CentOS 7 使用NVM管理nodejs + Nvm安装Node+npm</a></h3><h2 id="安装MongoDB"><a href="#安装MongoDB" class="headerlink" title="安装MongoDB"></a>安装MongoDB</h2><h3 id="Centos下安装配置Mongodb3-6"><a href="#Centos下安装配置Mongodb3-6" class="headerlink" title="Centos下安装配置Mongodb3.6"></a><a href="https://www.cnblogs.com/hackyo/p/7967170.html" target="_blank" rel="noopener">Centos下安装配置Mongodb3.6</a></h3><hr>
-<h2 id="二进制文件安装"><a href="#二进制文件安装" class="headerlink" title="二进制文件安装"></a><a href="https://blog.csdn.net/rzrenyu/article/details/79472508" target="_blank" rel="noopener">二进制文件安装</a></h2><p><a href="https://blog.csdn.net/BeiiGang/article/details/43797009" target="_blank" rel="noopener">二进制安装参考</a><br><a href="https://www.imooc.com/article/15618?block_id=tuijian_wz" target="_blank" rel="noopener">参考二</a><br><a href="https://www.jianshu.com/p/5598f1dcbb98" target="_blank" rel="noopener">参考三</a><br><a href="https://www.linuxidc.com/Linux/2016-07/133254.htm" target="_blank" rel="noopener">参考四</a></p>
-<h3 id="1、下载二进制文件安装包"><a href="#1、下载二进制文件安装包" class="headerlink" title="1、下载二进制文件安装包"></a>1、下载二进制文件安装包</h3><blockquote>
-<p>curl -O <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.12.tgz" target="_blank" rel="noopener">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.12.tgz</a></p>
+        <p>组件化的设计思路</p>
+<p>组件封装有一定的不确定性，更多时候在几方面做个权衡，在最开始并不可能做到完美，在业务的不断变化中，可能还会面临一些调整和重构</p>
+<p>组件化的意义<br>1 组件化是实现分层。更有效的代码组合方式<br>2 组件化是对资源的重组和优化，从而是项目管理更加合理<br>3 有利于单元测试<br>4 对重构友好</p>
+<p>组件的定义<br>1 可复用的模块，完成既定的功能<br>2 有明确的接口规定<br>3 有上下文依赖 外部依赖资源定义<br>4 可以独立发布</p>
+<p>组件设计的原则 主要的是复用性<br>1 使用单一职责原则<br>2 适用开放封闭原则<br>3 追求短小精悍<br>4 避免太多参数<br>5 缩小信赖范围和想稳定方向的信赖<br>6 追求无副作用<br>7 追求透明化<br>8 入口处检查参数的有效性，出口处检查返回的正确性<br>9 充分隔离变化的部分</p>
+<p>自省的几个问题<br>组件是否有必要再分<br>组件划分的依据通常是业务逻辑、功能、要考虑组件之间的关系是否明确<br>划分粒度的大小需要根据实际情况权衡，大小会提升维护成本，太大又不够灵活和高复用性<br>每一个组件都应该有起独特的划分目的，有的是为了复用实现，有的是为了封装的复杂度清晰业务实现</p>
+<p>2 组件的依赖是否可以再缩减<br>3 组件的可复用于其他类似场景中<br>在考虑需要适用的不同场景，在组件接口设计时需要兼容<br>4 组件当别人使用时，会怎么想<br>5 假如业务需要不需要这个功能，是否清楚方便</p>
+<h3 id="敲代码的李二狗"><a href="#敲代码的李二狗" class="headerlink" title="敲代码的李二狗:"></a>敲代码的李二狗:</h3><p><a href="https://kb.cnblogs.com/page/606682/" target="_blank" rel="noopener">为什么说 Java 程序员必须掌握 Spring Boot ？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/13/FrontEnd/WebFrameWork/组件化设计思路/" data-id="cjy6ziik500brrwdudiwvk8yo" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Compinent/">Compinent</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-SVN/SVN使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/12/SVN/SVN使用指南/" class="article-date">
+  <time class="post-time" datetime="2018-09-12T03:20:12.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/SVN/SVN使用指南/">SVN使用指南</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SVN/">SVN</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/12/SVN/SVN使用指南/" class="leancloud_visitors" data-flag-title="SVN使用指南">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="几个概念要必须掌握："><a href="#几个概念要必须掌握：" class="headerlink" title="几个概念要必须掌握："></a>几个概念要必须掌握：</h2><p><code>checkout</code>—&gt;将SVN仓库的代码烤到本地，比如你现在参与一个团队项目，项目代码在你之前肯定已经写了很多了，你可以通过checkout项目代码，获得整个项目。</p>
+<p><code>update</code>—&gt;在你写代码的过程中，同事很可能已经提交过代码到SVN服务器，而你本地项目显然没有同事新提交的代码，你可以通过update SVN获得SVN最新的代码。</p>
+<p><code>commit</code>—&gt;当你完成一部分开发后，你可以通过commit提交代码到SVN服务器，这样别人就可以获得你写的代码，记得 <strong>先update再commit</strong>。</p>
+<h2 id="TortoiseSVN图标介绍"><a href="#TortoiseSVN图标介绍" class="headerlink" title="TortoiseSVN图标介绍"></a>TortoiseSVN图标介绍</h2><ul>
+<li>绿色对勾重载，表示Svn状态正常</li>
+<li>红色感叹号，表示文件状态状态变成 已修改</li>
+<li>黄色感叹号，表示提交过程出现冲突 </li>
+<li>蓝色加号，表示 一个 文件/目录 已经被加入到 版本控制中</li>
+</ul>
+<h2 id="SVN-Client-基础操作"><a href="#SVN-Client-基础操作" class="headerlink" title="SVN Client 基础操作"></a>SVN Client 基础操作</h2><ol>
+<li>SVN检出(Checkout)\<br> 输入 url ， 确定本地 代码库 地址</li>
+</ol>
+<p>弹出<code>用户名</code> <code>密码验证</code></p>
+<h3 id="Add-增加"><a href="#Add-增加" class="headerlink" title="Add 增加"></a>Add 增加</h3><ol>
+<li><p>先提交到变更列表，再 <code>commit</code> 到配置库：选择<code>新增文件</code>，右键SVN菜单执行<code>Add</code>， 提交到<code>变更列表</code>，然后右键SVN菜单执行<code>SVN Commit</code>提交到版本库</p>
+</li>
+<li><p>不提交到变更列表，直接commit配置库：直接选择文件，右键SVN菜单执行<code>SVN Commit</code>操作。</p>
+</li>
+</ol>
+<h3 id="Delete-删除"><a href="#Delete-删除" class="headerlink" title="Delete 删除"></a>Delete 删除</h3><p>如果被删文件 未入版本库，可直接使用操作系统删除</p>
+<p>如果被删文件 已入版本库：</p>
+<ol>
+<li>选择被删文件， 右键 SVN菜单 执行<code>delete</code>操作</li>
+<li>选择被删文件父级目录， 右键 SVN菜单 执行<code>SVN Commit</code></li>
+</ol>
+<h3 id="Rename-改名"><a href="#Rename-改名" class="headerlink" title="Rename 改名"></a>Rename 改名</h3><h3 id="SVN-Revert-还原"><a href="#SVN-Revert-还原" class="headerlink" title="SVN Revert 还原"></a>SVN Revert 还原</h3><p>右键SVN菜单 <code>Update to reversion</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/12/SVN/SVN使用指南/" data-id="cjy6ziigf007lrwdu9yqxfkue" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN使用/">SVN使用</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/React/React学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T09:45:25.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/">React学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="leancloud_visitors" data-flag-title="React学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一步-实现功能模块"><a href="#第一步-实现功能模块" class="headerlink" title="第一步 实现功能模块"></a>第一步 实现功能模块</h2><ol>
+<li>npm install antd –save-dev</li>
+<li>import ‘antd css style sheets’</li>
+<li>创建 模板</li>
+<li>import {Menu, Table, Pagination} from ‘antd’;</li>
+<li>导出模板到 ./index.js</li>
+<li>Router 注册； Nav 里面 添加 路由 link<br>Compelite</li>
+</ol>
+<h2 id="四大部分-props-state-lifecircle-context"><a href="#四大部分-props-state-lifecircle-context" class="headerlink" title="四大部分(props state lifecircle context)"></a>四大部分(<code>props</code> <code>state</code> <code>lifecircle</code> <code>context</code>)</h2><h2 id="组件构建三种方法"><a href="#组件构建三种方法" class="headerlink" title="组件构建三种方法"></a>组件构建三种方法</h2><p>① React.createClass<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Button = React.createClass(&#123;</span><br><span class="line">  // method/lifecircle</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>② ES6class</p>
+<p>③ 无状态函数<br>无状态组件只传入<code>props</code>和<code>context</code>,不存在<code>state</code>.<br><code>propsTyps</code>和<code>defaultProps</code> 可通过 向 方法 设置 静态属性</p>
+<h2 id="组件五种形式"><a href="#组件五种形式" class="headerlink" title="组件五种形式"></a>组件五种形式</h2><p>[<code>容器</code>, <code>业务逻辑</code>, <code>取数据</code>, <code>布局(layout)</code>, <code>无状态组件</code>]</p>
+<h2 id="生命周期-lifecircle"><a href="#生命周期-lifecircle" class="headerlink" title="生命周期(lifecircle)"></a>生命周期(lifecircle)</h2><p><a href="https://segmentfault.com/a/1190000004168886" target="_blank" rel="noopener">参考文档</a><br><strong>初始化:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor</span><br><span class="line">componentWillMount</span><br><span class="line">+ render()</span><br><span class="line">componentDidMount</span><br></pre></td></tr></table></figure></p>
+<p><strong>周期改变:</strong>(<code>props/state</code> 改变时 触发)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">  &lt;!-- 当组件可能接收到`新道具`时调用。即使道具没有改变，你也可以这样称呼它，所以如果你只想处理改变，一定要比较新的和现有的道具。 --&gt;</span><br><span class="line">  &lt;!-- 调用组件setstate通常不会触发这种方法。 --&gt;</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState) </span><br><span class="line">componentWillUpdata() &#123;</span><br><span class="line">  &lt;!-- willUpdata 下 设置 setState 会触发 componentReceiveProps --&gt;</span><br><span class="line">&#125;</span><br><span class="line">+ render()</span><br><span class="line">componentDidUpdata</span><br></pre></td></tr></table></figure></p>
+<p><strong>组件销毁:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDis</span><br></pre></td></tr></table></figure></p>
+<h2 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h2><p>被动接收 =&gt; 数据流逻辑</p>
+<h2 id="无状态组件如何避免重绘-reflow-重排版-repaint"><a href="#无状态组件如何避免重绘-reflow-重排版-repaint" class="headerlink" title="无状态组件如何避免重绘(reflow)/重排版(repaint)"></a>无状态组件如何避免<code>重绘(reflow)</code>/<code>重排版(repaint)</code></h2><h2 id="避免组件reRender"><a href="#避免组件reRender" class="headerlink" title="避免组件reRender"></a>避免组件reRender</h2><p>在 React 中，组件 state 的变化会触发该组件以下的整个组件子树的重新渲染。为了避免不必要的子组件重新渲染， 我们需要使用 PureComponent，或尽量实现 shouldComponentUpdate。还需要使用不可变的数据结构让 state 的变化更容易被优化：</p>
+<p><a href="https://vuejs.org/v2/guide/comparison.html#Optimization-Efforts" target="_blank" rel="noopener">与其他框架的比较——Vue.js</a></p>
+<h2 id="React-Router"><a href="#React-Router" class="headerlink" title="React-Router"></a>React-Router</h2><p><a href="https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html" target="_blank" rel="noopener">reactRouter的三种形式</a></p>
+<ul>
+<li>hashHistory</li>
+<li>browserHistory</li>
+<li>createMemoryHistory</li>
+</ul>
+<h2 id="React-路由跳转"><a href="#React-路由跳转" class="headerlink" title="React 路由跳转"></a>React 路由跳转</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.history.push(<span class="string">'/login'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="React路由-与-浏览器历史回退"><a href="#React路由-与-浏览器历史回退" class="headerlink" title="React路由 与 浏览器历史回退"></a>React路由 与 浏览器历史回退</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 初始化 获取 window.location.href</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">constructor</span>(props, context) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props, context)</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 页面、路由变动时，再次 获取当前路由 */</span></span><br><span class="line">componentWillReceiveProps() &#123;</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Children-map渲染对象"><a href="#React-Children-map渲染对象" class="headerlink" title="React.Children.map渲染对象"></a>React.Children.map渲染对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    React.Children.map(children, (child) =&gt; &#123;</span><br><span class="line">        return &lt;Fragment&gt;&#123;child&#125;&lt;/Fragment&gt;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="React-router-去掉url上的"><a href="#React-router-去掉url上的" class="headerlink" title="React-router 去掉url上的"></a>React-router 去掉url上的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;browserHistory&#125; from &apos;react-router&apos;</span><br><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="React-Context应用"><a href="#React-Context应用" class="headerlink" title="React-Context应用"></a>React-Context应用</h2><p><strong>父组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/** 先定义 类似 ts中 interface  */</span><br><span class="line">export const Context = React.createContext(&#123;</span><br><span class="line">  updateHomeState: () =&gt; &#123; &#125;,</span><br><span class="line">  homeState: &#123;&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  // debugger</span><br><span class="line">  return (</span><br><span class="line">    &lt;Context.Provider value=&#123;&#123;</span><br><span class="line">      updateHomeState: this.updateHomeState,</span><br><span class="line">      homeState: this.state</span><br><span class="line">    &#125;&#125;&gt;</span><br><span class="line">      &lt;div className=&quot;main&quot;&gt;</span><br><span class="line">        &lt;div className=&quot;center&quot;&gt;</span><br><span class="line">          &#123;/* 中间地图 */&#125;</span><br><span class="line">          &lt;CenterMap /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/Context.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>子组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Context &#125; from &quot;src/views/Home/Home&quot;; // 先引入</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  return (</span><br><span class="line">    /* 引用 祖先组件的 context */</span><br><span class="line">    &lt;Context.Consumer&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        (&#123; updateHomeState, homeState &#125;) =&gt; (</span><br><span class="line">          &lt;div className=&quot;CenterMap&quot;&gt;</span><br><span class="line">            &lt;MapTopMenu</span><br><span class="line">              tableListSize=&#123;homeState.tableListSize&#125;</span><br><span class="line">              updateHomeState=&#123;updateHomeState&#125;</span><br><span class="line">              onChange=&#123;this.onChange&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/Context.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="React获取真实DOM元素-ref-并获取元素样式"><a href="#React获取真实DOM元素-ref-并获取元素样式" class="headerlink" title="React获取真实DOM元素[ref], 并获取元素样式"></a>React获取真实DOM元素[ref], 并获取元素样式</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div</span><br><span class="line">  className=<span class="string">'navContainer'</span></span><br><span class="line">  ref=&#123;navContainer =&gt; <span class="keyword">this</span>.navContainer = navContainer&#125; <span class="comment">// ref 支持接收函数进行赋值</span></span><br><span class="line">  onMouseEnter=&#123;<span class="keyword">this</span>.handleMouseEnter&#125;</span><br><span class="line">  onMouseLeave=&#123;<span class="keyword">this</span>.handleMouseLeave&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取样式</span></span><br><span class="line"><span class="keyword">const</span> cssStyle = navContainer.currentStyle</span><br><span class="line">    ? navContainer.currentStyle</span><br><span class="line">    : <span class="built_in">document</span>.defaultView.getComputedStyle(navContainer, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取详细样式</span></span><br><span class="line"><span class="keyword">const</span> pr = navContainer.currentStyle</span><br><span class="line">    ? <span class="built_in">parseInt</span>(cssStyle.paddingRight, <span class="number">10</span>)</span><br><span class="line">    : <span class="built_in">parseInt</span>(cssStyle[<span class="string">'padding-right'</span>], <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" data-id="cjy6ziipn00hzrwdujprz0bwa" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redux/">Redux</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
+<ol>
+<li></li>
+<li>定义</li>
+<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
+<p>export const APP_REDUX = “APP_REDUX”;</p>
 </blockquote>
-<p><a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz" target="_blank" rel="noopener">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.6.6.tgz</a></p>
-<p><a href="http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-v3.6-latest.tgz" target="_blank" rel="noopener">http://downloads.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-v3.6-latest.tgz</a></p>
-<h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><blockquote>
-<p>tar -zxvf [mongodb-linux-x86_64-3.2.12.tgz] // [包名]</p>
+</li>
+<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
+<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
 </blockquote>
-<h3 id="3、移动到指定位置"><a href="#3、移动到指定位置" class="headerlink" title="3、移动到指定位置"></a>3、移动到指定位置</h3><blockquote>
-<p>mv [mongodb-linux-x86_64-3.2.12/] /usr/local/mongodb // [解压后的文件夹]</p>
-</blockquote>
-<h3 id="3-1-将MongoDB的安装目录添加到Path当中-环境变量配置"><a href="#3-1-将MongoDB的安装目录添加到Path当中-环境变量配置" class="headerlink" title="3.1 将MongoDB的安装目录添加到Path当中[环境变量配置]"></a>3.1 将<code>MongoDB的安装目录添加到Path</code>当中[环境变量配置]</h3><p><strong>p.s</strong> 记得如果你的最后一个位置和我的不一样，请记得替换</p>
-<blockquote>
-<p>vi /etc/profile<br>增加<br>export PATH=/usr/local/mongodb/bin:$PATH<br>然后<br>source /etc/profile // BLog 有坑！ 拼写错误</p>
-</blockquote>
-<h3 id="4、在-usr-local-mongodb-下创建文件夹"><a href="#4、在-usr-local-mongodb-下创建文件夹" class="headerlink" title="4、在 /usr/local/mongodb 下创建文件夹"></a>4、在 <code>/usr/local/mongodb</code> 下创建文件夹</h3><blockquote>
-<p>mkdir -p /data/db</p>
-<p>mkdir  /logs</p>
-</blockquote>
-<h3 id="、创建-mongo-的数据目录"><a href="#、创建-mongo-的数据目录" class="headerlink" title="*、创建 mongo 的数据目录"></a>*、创建 mongo 的数据目录</h3><p>!important</p>
-<blockquote>
-<p>sudo mkdir -p /data/db    #创建数据存储目录</p>
-<p>sudo chmod 755 /data/*    #赋予目录权限</p>
-</blockquote>
-<h3 id="配置MongoDB"><a href="#配置MongoDB" class="headerlink" title="配置MongoDB"></a>配置MongoDB</h3><blockquote>
-<p>控制的配置文件在：/etc/mongodb.conf</p>
-<p>控制脚本在：/etc/init.d/mongodb</p>
-<p>MongoDB实例会把数据存放在：/var/lib/mongodb<br>日志存放在：/var/log/mongodb<br>默认由mongodb用户运行。  </p>
-</blockquote>
-<h3 id="5、在-usr-local-mongodb-bin下新建-分配置文件"><a href="#5、在-usr-local-mongodb-bin下新建-分配置文件" class="headerlink" title="5、在/usr/local/mongodb/bin下新建 分配置文件"></a>5、在/usr/local/mongodb/bin下新建 <strong>分配置文件</strong></h3><blockquote>
-<p>vim mongodb.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dbpath = /usr/local/mongodb/data/db #数据文件存放目录</span><br><span class="line"></span><br><span class="line">logpath = /usr/local/mongodb/logs/mongodb.log #日志文件存放目录</span><br><span class="line">port = 27017  #端口</span><br><span class="line">fork = true  #以守护程序的方式启用，即在后台运行</span><br><span class="line">nohttpinterface = true</span><br><span class="line">auth=true</span><br><span class="line">bind_ip=0.0.0.0</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>推荐第二种配置</p>
-<blockquote>
-<p>vim /etc/mongod.conf</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: true</span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongo</span><br><span class="line">  journal:</span><br><span class="line">    enabled: true</span><br><span class="line"></span><br><span class="line">processManagement:</span><br><span class="line">  fork: true</span><br><span class="line">  pidFilePath: /var/run/mongodb/mongod.pid</span><br><span class="line"></span><br><span class="line">net:</span><br><span class="line">  port: 21111</span><br><span class="line">  bindIp: 0.0.0.0</span><br><span class="line"></span><br><span class="line">security:</span><br><span class="line">  authorization: enabled</span><br><span class="line">  javascriptEnabled: false</span><br></pre></td></tr></table></figure>
-<h3 id="6、环境变量配置"><a href="#6、环境变量配置" class="headerlink" title="6、环境变量配置"></a>6、环境变量配置</h3><blockquote>
-<p>vi /etc/profile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export MONGODB_HOME=/usr/local/mongodb</span><br><span class="line"></span><br><span class="line">export PATH=$PATH:$MONGODB_HOME/bin</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>保存后，重启系统配置</p>
-<blockquote>
-<p>source /etc/profile</p>
-</blockquote>
-<h3 id="7、启动"><a href="#7、启动" class="headerlink" title="7、启动"></a>7、启动</h3><p>在<code>/usr/local/mongodb/bin</code>下</p>
-<blockquote>
-<p>mongod -f mongodb.conf || ./mongod -f mongodb.conf</p>
-</blockquote>
-<h3 id="8、关闭"><a href="#8、关闭" class="headerlink" title="8、关闭"></a>8、关闭</h3><blockquote>
-<p>mongod -f ./mongodb.conf –shutdown || ./mongod -f ./mongodb.conf –shutdown</p>
-</blockquote>
-<h3 id="9、开启端口-CentOS防火墙firewall"><a href="#9、开启端口-CentOS防火墙firewall" class="headerlink" title="9、开启端口(CentOS防火墙firewall)"></a>9、开启端口(CentOS防火墙firewall)</h3><blockquote>
-<p>firewall-cmd –zone=public –add-port=27017/tcp –permanent<br>查看端口</p>
-<p>firewall-cmd –permanent –query-port=27017/tcp<br>重启防火墙</p>
-<p>firewall-cmd –reload</p>
-</blockquote>
-<h3 id="10、创建用户管理员："><a href="#10、创建用户管理员：" class="headerlink" title="10、创建用户管理员："></a>10、创建用户管理员：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">use admin</span><br><span class="line"></span><br><span class="line">db.createUser(&#123;user:&quot;root&quot;,pwd:&quot;root123456&quot;,roles:[&quot;userAdminAnyDatabase&quot;]&#125;)</span><br><span class="line"></span><br><span class="line">db.auth(&apos;root&apos;,&apos;root123456&apos;)</span><br></pre></td></tr></table></figure>
-<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//mongodb中bin的文件说明</span><br><span class="line">1.mongod : 执行程序</span><br><span class="line">2.mongo : 用于连接客户端</span><br><span class="line">3.mongoimport/mongoexport : 导入/导出</span><br><span class="line">4.mongodump/mongorestore : 备份/恢复数据(二进制文件，不能被直接读取，一般用来做数据的备份)</span><br><span class="line">5.mongooplog : 用来操作日志的回放</span><br><span class="line">oplog : MongoDB复制集中用来记录操作记录的数据集合</span><br><span class="line">6.mongostat : 用来查看mongo服务器的各种状态</span><br><span class="line">scons all -j 12(编译,12是指CPU的核数)</span><br><span class="line">mongod是主角，数据库执行程序</span><br><span class="line">mongo 用来连接服务器的客户端</span><br><span class="line">mongoimport mongoexport 导入到处</span><br><span class="line">mongodump mongorestore 二进制北非回复</span><br><span class="line">mongostat 查看服务器状态</span><br><span class="line">mongoDB编译：进入源码目录，执行scons all进行编译。scons all -j 10 使用-j参数可以指定cpu的核数。</span><br><span class="line">编译后的文件：</span><br><span class="line">mongod:mongodb的启动文件，用来部署数据库</span><br><span class="line">mongo：链接服务器的客户端</span><br><span class="line">mongoimport,,mongoexport:用来导入导出数据库</span><br><span class="line">mongodump,mongorestore:用来导入导出二进制数据，一般用来数据的备份与恢复。</span><br><span class="line">mongologoplog 操作日志</span><br><span class="line">mongostat:用来查看mongodb服务器的各种状态</span><br></pre></td></tr></table></figure>
-<h2 id="Linux-采用-systemctl-命令设置-mongodb-自启动"><a href="#Linux-采用-systemctl-命令设置-mongodb-自启动" class="headerlink" title="Linux 采用 systemctl 命令设置 mongodb 自启动"></a><a href="https://blog.csdn.net/xhzq1986/article/details/79761263" target="_blank" rel="noopener">Linux 采用 <code>systemctl</code> 命令设置 <code>mongodb</code> 自启动</a></h2><p>需要学习的命令是 <a href="http://www.jinbuguo.com/systemd/systemd.service.html" target="_blank" rel="noopener">systemctl</a><br>需要知晓的目录是 <code>/usr/lib/systemd/system</code><br>需要掌握 <code>mongodb.service</code> 的书写格式，demo如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=mongodb</span><br><span class="line">After=network.target remote-fs.target nss-lookup.target  </span><br><span class="line">  </span><br><span class="line">[Service]  </span><br><span class="line">Type=forking  </span><br><span class="line">ExecStart=/usr/local/mongodb/bin/mongod --config /home/mongodb/mongodb/bin/mongod.conf</span><br><span class="line">ExecReload=/bin/kill -s HUP $MAINPID</span><br><span class="line">ExecStop=/usr/local/mongodb/bin/mongod --shutdown --config /home/mongodb/mongodb/bin/mongod.conf</span><br><span class="line">PrivateTmp=true  </span><br><span class="line">    </span><br><span class="line">[Install]  </span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
-<p>最初博主在 <code>ExecStart</code> 的写法是:  </p>
-<blockquote>
-<p>/home/mongodb/mongodb/bin/mongod –dbpath=/home/mongodb/mongodb/db –logpath=/home/mongodb/mongodb/logs/<code>date +%Y-%m-%d</code>.log –logappend –auth –fork &amp;</p>
-</blockquote>
-<p>后来参考资料改成：  </p>
-<blockquote>
-<p>/home/mongodb/mongodb/bin/mongod –config /home/mongodb/mongodb/bin/mongod.conf</p>
-</blockquote>
-<hr>
-<h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a><strong>附录：</strong></h2><ol>
-<li><a href="https://blog.csdn.net/wangjianno2/article/details/39718681" target="_blank" rel="noopener">Linux下curl命令的使用</a></li>
-<li><a href="https://www.cnblogs.com/duhuo/p/5695256.html" target="_blank" rel="noopener">Linux curl命令详解</a></li>
-<li><a href="https://blog.csdn.net/shuaigexiaobo/article/details/78030008" target="_blank" rel="noopener">查看CentOS版本信息</a></li>
+</li>
+<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
+<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/07/server/服务器环境搭建/" data-id="cjuxepwml006158dvessqb6n0" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjy6ziing00g4rwdun8fv21qq" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器环境配置/">服务器环境配置</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/HTML CSS/CSS-元素垂直居中" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T08:21:31.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/">元素垂直居中方法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" class="leancloud_visitors" data-flag-title="元素垂直居中方法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>这个方法把一些 div 的显示方式设置为<code>表格</code>，因此我们可以使用表格的 <code>vertical-align property</code> 属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;wrapper&quot;&gt;</span><br><span class="line">  &lt;div id=&quot;cell&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;content&quot;&gt;Content goes here&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  wrapper &#123;</span><br><span class="line">    display: table;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cell &#123;</span><br><span class="line">    display: table-cell;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br><code>content</code> 可以动态改变高度(不需在 CSS 中定义)。当 wrapper 里没有足够空间时， content 不会被截断</p>
-<p><strong>缺点：</strong><br>Internet Explorer(甚至 IE8 beta)中无效，许多嵌套标签(其实没那么糟糕，另一个专题)</p>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>这个方法使用<code>绝对定位</code>的 div，把它的 top 设置为 50％，top margin 设置为负的 content 高度。这意味着对象必须在 CSS 中<code>指定固定的高度</code>。</p>
-<p>因为有固定高度，或许你想给 <code>content</code> 指定 <code>overflow:auto</code>，这样如果 content 太多的话，就会出现滚动条，以免content 溢出。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt; Content goes here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  position: absolute; </span><br><span class="line">  top: 50%; </span><br><span class="line">  height: 240px; </span><br><span class="line">  margin-top: -120px; /* negative half of the height(高度的一半) */</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>不需要嵌套标签</p>
-<p><strong>缺点：</strong><br>没有足够空间时，content 会消失(类似div 在 body 内，当用户缩小浏览器窗口，滚动条不出现的情况)</p>
-<h2 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h2><p>这种方法，在 <code>content</code> 元素外插入一个 div。设置此 div <code>height:50%; margin-bottom:-contentheight;</code>。<br>content 清除浮动，并显示在中间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;floater&quot;&gt;</span><br><span class="line">  &lt;div id=&quot;content&quot;&gt;Content here&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">floater &#123;</span><br><span class="line">  float: left;</span><br><span class="line">  height: 50%;</span><br><span class="line">  margin-bottom: -120px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  clear: both;</span><br><span class="line">  height: 240px;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>没有足够空间时(例如：窗口缩小) content 不会被截断，滚动条出现</p>
-<p><strong>缺点：</strong><br>唯一我能想到的就是需要额外的空元素了(也没那么糟，又是另外一个话题)</p>
-<h2 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h2><p>这个方法使用了一个 <code>position:absolute</code>，有固定宽度和高度的 div。这个 div 被设置为 top:0; bottom:0;。但是因为它有固定高度，其实并不能和上下都间距为 0，因此 margin:auto; 会使它居中。使用 margin:auto;使块级元素垂直居中是很简单的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;content&quot;&gt; Content here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">  margin: auto;</span><br><span class="line">  height: 240px;</span><br><span class="line">  width: 70%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>简单</p>
-<p><strong>缺点：</strong><br><code>IE(IE8 beta)</code>中无效;<br>无足够空间时，content 被截断，但是不会有滚动条出现</p>
-<h2 id="方法五：文本居中"><a href="#方法五：文本居中" class="headerlink" title="方法五：文本居中"></a>方法五：文本居中</h2><p>这个方法只能将单行文本置中。只需要简单地把 <code>line-height</code> 设置为那个对象的 height 值就可以使文本居中了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;content&quot;&gt; Content here&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">content &#123;</span><br><span class="line">  height: 100px;</span><br><span class="line">  line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>优点：</strong><br>适用于所有浏览器<br>无足够空间时不会被截断</p>
-<p><strong>缺点：</strong><br>只对文本有效(块级元素无效)<br>多行时，断词比较糟糕</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/FrontEnd/HTML CSS/CSS-元素垂直居中/" data-id="cjuxepwov008358dv0c2ow8jf" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/元素垂直居中/">元素垂直居中</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-server/服务器部署" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/06/server/服务器部署/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T08:19:33.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/server/服务器部署/">服务器部署</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Server/">Server</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/06/server/服务器部署/" class="leancloud_visitors" data-flag-title="服务器部署">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/server/服务器部署/" data-id="cjuxepwmj005z58dvhuoaqirl" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器部署/">服务器部署</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-console用法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/06/console用法/" class="article-date">
-  <time class="post-time" datetime="2018-08-06T05:38:33.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/console用法/">console用法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/06/console用法/" class="leancloud_visitors" data-flag-title="console用法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="控制台的各种语法"><a href="#控制台的各种语法" class="headerlink" title="控制台的各种语法"></a><a href="https://www.imooc.com/article/12425" target="_blank" rel="noopener">控制台的各种语法</a></h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/06/console用法/" data-id="cjuxepwf9000858dv6sjs9hij" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console用法/">console用法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
 
     </footer>
   </div>
@@ -492,7 +460,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/11/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/11/">next &raquo;</a>
   </nav>
 </section>
         
@@ -533,9 +501,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

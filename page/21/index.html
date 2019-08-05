@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-WXApp/WxApp学习笔记1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/HTML CSS/禁止滚动条出现页面跳动" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/06/WXApp/WxApp学习笔记1/" class="article-date">
-  <time class="post-time" datetime="2018-06-06T04:16:14.000Z" itemprop="datePublished">
+    <a href="/2018/06/22/FrontEnd/HTML CSS/禁止滚动条出现页面跳动/" class="article-date">
+  <time class="post-time" datetime="2018-06-22T08:48:01.000Z" itemprop="datePublished">
     <span class="post-month">6月</span><br/>
-    <span class="post-day">06</span>
+    <span class="post-day">22</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/06/WXApp/WxApp学习笔记1/">WxApp学习笔记1</a>
+      <a class="article-title" href="/2018/06/22/FrontEnd/HTML CSS/禁止滚动条出现页面跳动/">禁止滚动条出现页面跳动</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/WxApp/">WxApp</a>
+    <a class="article-category-link" href="/categories/HTML-CSS/">HTML CSS</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/06/06/WXApp/WxApp学习笔记1/" class="leancloud_visitors" data-flag-title="WxApp学习笔记1">
+    <span id="/2018/06/22/FrontEnd/HTML CSS/禁止滚动条出现页面跳动/" class="leancloud_visitors" data-flag-title="禁止滚动条出现页面跳动">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,182 +113,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>前端<ul>
-<li>PC<ul>
-<li>WEB</li>
-<li>OS-Native(Windows/Unix[Linux/MaxOS])</li>
-</ul>
-</li>
-<li>MB<ul>
-<li>WAP</li>
-<li>hybrid</li>
-<li>OS-Native(Android/ios)</li>
-<li>WXApp(微信小程序)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>后台<ul>
-<li>Server<ul>
-<li>Java</li>
-<li>PHP</li>
-<li>NodeJS</li>
-<li>Python</li>
-<li>Golang</li>
-<li>Ruby</li>
-<li>…</li>
-</ul>
-</li>
-<li>DataBase<ul>
-<li>SQL<ul>
-<li>MySQL</li>
-<li>MsSQL</li>
-<li>…</li>
-</ul>
-</li>
-<li>NoSQL<ul>
-<li>MongoDB</li>
-<li>Redis</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、小程序开发工具下载安装"><a href="#二、小程序开发工具下载安装" class="headerlink" title="二、小程序开发工具下载安装"></a>二、小程序开发工具下载安装</h2><p>  百度小程序开发下载工具，默认安装即可</p>
-<h2 id="三、组件"><a href="#三、组件" class="headerlink" title="三、组件"></a>三、组件</h2><h3 id="scroll-view"><a href="#scroll-view" class="headerlink" title="scroll-view"></a><strong>scroll-view</strong></h3><table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">scroll-x</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">横向滚动</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-y</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">纵向滚动</td>
-</tr>
-<tr>
-<td style="text-align:center">upper-threshold</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">距<code>顶部/左边</code>??px, 触发 scrolltoupper 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">lower-threshold</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">距<code>底部/右边</code>??px, 触发 scrolltolower 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-top</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">控制横向滚动条位置</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-left</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">控制纵向滚动条位置</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-into-view</td>
-<td style="text-align:center">String</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">值为子元素ID,表现为: 元素对齐滚动区域顶部</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscrolltoupper</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动到顶部/左边,触发<code>scrolltoupper</code> 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscrolltolower</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动到底部/右边,触发<code>scrolltolower</code> 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscroll</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动过程中触发<code>scroll</code> 事件, event.detail = {scrollLeft/Top/Width/Height、detailX/Y}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a><strong>swiper</strong></h3><p>子元素只有\<swiper-item>组件,其余节点会被自动删除。</swiper-item></p>
-<p>\<swiper-item>只可放置在\<swiper>组件中，宽高自动100%。</swiper></swiper-item></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">indicator</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">控制显示面板指示点</td>
-</tr>
-<tr>
-<td style="text-align:center">autoplay</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">自动切换</td>
-</tr>
-<tr>
-<td style="text-align:center">current</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">切换到指定 index</td>
-</tr>
-<tr>
-<td style="text-align:center">interval</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">5000</td>
-<td style="text-align:center">自动切换时间间隔</td>
-</tr>
-<tr>
-<td style="text-align:center">duration</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">过渡动画时长</td>
-</tr>
-<tr>
-<td style="text-align:center">bindchange</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">current 改变触发<code>change</code> 事件, event.detail = {current: current}</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="水平居中布局与滚动条跳动的千年难题"><a href="#水平居中布局与滚动条跳动的千年难题" class="headerlink" title="水平居中布局与滚动条跳动的千年难题"></a>水平居中布局与滚动条跳动的千年难题</h2><p>1.信息流页面，如新浪微博，是从上往下push渲染的。开始只有头部一些信息加载，此时页面高度有限，没有滚动条；然后，更多内容显示，滚动条出现，占据可用宽度，margin: 0 auto主体元素自然会做偏移——跳动产生。</p>
+<p>2.JS交互，本来默认页面高度不足一屏，结果点击了个“加载更多”，内容超过一屏，滚动条出现，页面主体就会左侧跳动。</p>
+<p>3.结构类似几个页面通过头部的水平导航刷新切换，结果有的页面有滚动条，有的没有。造成的结果就是，导航尼玛怎么跳来跳去！</p>
+<h2 id="CSS3计算calc和vw单位巧妙实现滚动条出现页面不跳动"><a href="#CSS3计算calc和vw单位巧妙实现滚动条出现页面不跳动" class="headerlink" title="CSS3计算calc和vw单位巧妙实现滚动条出现页面不跳动"></a>CSS3计算<code>calc</code>和<code>vw</code>单位巧妙实现滚动条出现页面不跳动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.wrap-outer &#123;</span><br><span class="line">    margin-left: calc(100vw - 100%);</span><br><span class="line">    // 或者</span><br><span class="line">    padding-left: calc(100vw - 100%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>首先</strong>：<code>.wrap-outer</code>指的是居中定宽主体的父级，如果没有，创建一个（使用主体也是可以实现类似效果，不过本着宽度分离原则，不推荐）;</p>
+<p><strong>然后</strong>: <code>calc</code>是CSS3中的计算，IE10+浏览器支持，IE9浏览器基本支持(不能用在background-position上);</p>
+<p><strong>最后</strong>: <code>100vw</code>相对于浏览器的<code>window.innerWidth</code>，是<code>浏览器内部宽度</code>，注意，<code>滚动条宽度也计算在内</code>！ 而<code>100%是可用宽度</code>，是<code>不含滚动条宽度</code>。</p>
+<p><strong>于是</strong>: <code>calc(100vw - 100%)</code>就是<code>浏览器滚动条宽度</code>(如果没有滚动条则是0)！左右都有一个滚动条宽度（或都是0）被占用，主体内容就可以永远居中浏览器啦，从而没有任何跳动！</p>
+<h3 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a><strong>兼容性</strong></h3><p>支持：<code>IE9+</code> 以及其他现代浏览器。</p>
+<h3 id="窄屏幕宽度下的处理"><a href="#窄屏幕宽度下的处理" class="headerlink" title="窄屏幕宽度下的处理"></a><strong>窄屏幕宽度下的处理</strong></h3><p>上面CSS还是有一点瑕疵的，浏览器宽度比较小的时候，左侧留的白明显与右边多，说不定会显得有点傻。此时，可能需要做点响应式处理会更好一点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (min-width: 1150px) &#123;</span><br><span class="line">   .wrap-outer &#123;</span><br><span class="line">       margin-left: calc(100vw - 100%);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="更新于2016年9月28日"><a href="#更新于2016年9月28日" class="headerlink" title="更新于2016年9月28日"></a>更新于2016年9月28日</h2><p>经过一些列项目实践，关于浏览器出现滚动条和消失页面不滚动有了<code>更加终极的解决方案</code>，经过大型项目实践已经验证相当具有可行性，这里特意分享下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">html &#123;</span><br><span class="line">  overflow-y: scroll;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">:root &#123;</span><br><span class="line">  overflow-y: auto;</span><br><span class="line">  overflow-x: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">:root body &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">body &#123;</span><br><span class="line">  width: 100vw;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、结束语"><a href="#三、结束语" class="headerlink" title="三、结束语"></a>三、结束语</h2><p>本文参考自：<a href="https://aykevl.nl/2014/09/fix-jumping-scrollbar" target="_blank" rel="noopener">Fix ‘jumping scrollbar’ issue using only CSS</a></p>
+<p><a href="https://www.zhangxinxu.com/wordpress/2015/01/css-page-scrollbar-toggle-center-no-jumping/" target="_blank" rel="noopener">阅读原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/06/WXApp/WxApp学习笔记1/" data-id="cjuxepwmv006958dvm16a8yzq" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/22/FrontEnd/HTML CSS/禁止滚动条出现页面跳动/" data-id="cjy6ziij000a0rwdu87lqln31" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WX小程序/">WX小程序</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vw让overflow-auto/">vw让overflow:auto</a></li></ul>
 
     </footer>
   </div>
@@ -299,12 +145,12 @@
 
 
   
-    <article id="post-Movie/天才少女观影感" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/JS/JavaScript-this-原理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/06/05/Movie/天才少女观影感/" class="article-date">
-  <time class="post-time" datetime="2018-06-05T05:56:38.000Z" itemprop="datePublished">
+    <a href="/2018/06/22/FrontEnd/JS/JavaScript-this-原理/" class="article-date">
+  <time class="post-time" datetime="2018-06-22T07:20:13.000Z" itemprop="datePublished">
     <span class="post-month">6月</span><br/>
-    <span class="post-day">05</span>
+    <span class="post-day">22</span>
   </time>
 </a>
    
@@ -316,17 +162,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/05/Movie/天才少女观影感/">天才少女观影感</a>
+      <a class="article-title" href="/2018/06/22/FrontEnd/JS/JavaScript-this-原理/">JavaScript`this`原理</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/06/05/Movie/天才少女观影感/" class="leancloud_visitors" data-flag-title="天才少女观影感">
+    <span id="/2018/06/22/FrontEnd/JS/JavaScript-this-原理/" class="leancloud_visitors" data-flag-title="JavaScript`this`原理">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -338,199 +188,235 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>回复：</p>
-<blockquote>
-<p>你的文章，我读了两遍。其中提到的《摔跤》的论点，还有你的那段 描写自己 努力学正常人走路的文字，引起了我的深思。</p>
-<p>望子成龙 基本上是 每个父母的 <code>核心价值观之一</code>。 但是 <code>方式方法、实现途径</code> 却是 <code>各显神通</code>。 有一些做法 确实得到了大众的认可， 但既然有 被主流接受的做法，那就有 值得批判的做法。[这一段写 对事物进行两面性分析]</p>
-<p>很明显 从博主的文字中，我 <code>粗浅的</code> 觉得博主属于后者 ( 值得批判的做法 ) 。毕竟话说那么绝对，也不是什么好事。我觉得博主的文采还是跟童年经历有些关系的吧。不过，通过博主以上的描述，我还是觉得博主的父亲还是有些不可取的地方的。[这一段主要是 同情博主，其实我也有类似的童年经历]</p>
-<p>从博主描述的自身经历，以及抛出的两个论据来看，不被接受的教育方式大多是 <strong><code>专制</code> <code>武断</code> <code>不民主</code> <code>缺少爱</code></strong> 的。当然还有 <strong><code>溺爱</code> <code>过分的表扬</code> <code>没有正确主流价值观的爱</code></strong> 等等。。。[这一段想找出 究竟什么是 我们认为的 <code>坏的教育方式</code>]</p>
-<p>首先我不反对，专制的父爱。但是专制不代表可以无所谓的伤害。我认为在专制的过程中还要 <code>激发</code> 被专制者的<code>认同</code>或者<code>反抗心理</code>。(好的专制题材的电影会给我们观影者，以及被专制者明白，这么对待他可能是不正确的，可能是一种极端的做法。那么你来反抗，来推翻我的专制。代表作品就是《摔跤》、《爆裂鼓手》) [这一段想表达 就算是不被主流接受的教育方式 也存在很多不同。正是这些不同，造成了 有的人成功，有的人失败。当然成功和失败也只是从某种单一角度来定义的。] </p>
-<p>罗振宇说过 <code>人类和机器</code> (人工智能) 认知世界的区别就是 人类是通过把所有<code>复杂的事情简化</code>，而机器却是把所有简单的事情，复杂化。今天讨论的主体不是人工智能， 所以我想说的是，人类把事情简化的认知世界的方式其实是不完美的，但毕竟我们大脑的认知能力和带宽有限。没办法只能这样 把所有事情 分成 <code>黑/白  对/错</code> 这种简单抽象的 概念，我们并没有能力去注意分辨、辩驳，那会消耗我们大量的时间 与 精力， 就像美国的法律 只会根据 一些定义好的条条框框来判断，你是否是一个合格的父母，这是我们简化认知的结果，但是带来的弊端就是 这种做法不那么准确，或者说完美。 这个世界是多元的。每个人，每种方式，只是类似，并不完全相同。甚至相同的方法，对待不同的人，都会产生不同的效果。就像《摔跤》的方式方法虽然看似粗暴，但影片中的 汉米尔 是 正确 和 不被庸众 所接受的 一个具象化符号。 [这一段 是对上一段 论证的 加强。我们不能用非黑即白的眼光看待这个世界。有些大体上看似 跟 错误的做法类似的行为，不一定就同样是错的。因为它里面的细节，千丝万缕那才是真正需要我们去用理性分析的。]</p>
-<p>有付出就有回报，天才都是高压下的产物。如果想要成就不凡，那必须有付出代价的觉悟。当然很多电影宣传 希望主人公 过普通人的生活，平淡、快乐的一生，也没有错误。每个人生来都有选择自己 生活方式 的权利，不过前提是你有的选。</p>
-<p>最后说一句，博主文章中有一段说，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">版权归作者所有，任何形式转载请联系作者。</span><br><span class="line">作者：张天翼（来自豆瓣）</span><br><span class="line">来源：https://movie.douban.com/review/8524953/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这样会耽误了天才的发展吗？会让人类文明晚前进若干年吗？不会！莫言从小找不到书读也成了莫言。再说，人类的文明进程真是靠天才在推进？也许某个时间点上某个天才的某项发现确实推了它一把，但“前进”是历史的必然。有你没你，人类最终都会吃上熟食、用上电灯、开上汽车、连上互联网。也许，也许我们会失去一个莫扎特，但那只是“也许”！</span><br></pre></td></tr></table></figure></p>
+        <h1 id="JavaScript-的-this-原理"><a href="#JavaScript-的-this-原理" class="headerlink" title="JavaScript 的 this 原理"></a>JavaScript 的 this 原理</h1><h2 id="一、问题的由来"><a href="#一、问题的由来" class="headerlink" title="一、问题的由来"></a>一、问题的由来</h2><p>学懂 JavaScript 语言，一个标志就是理解下面两种写法，可能有不一样的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  foo: function () &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">var foo = obj.foo;</span><br><span class="line">// 写法一</span><br><span class="line">obj.foo()</span><br><span class="line">// 写法二</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>上面代码中，虽然obj.foo和foo指向同一个函数，但是执行结果可能不一样。请看下面的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">  foo: function () &#123; console.log(this.bar) &#125;,</span><br><span class="line">  bar: 1</span><br><span class="line">&#125;;</span><br><span class="line">var foo = obj.foo;</span><br><span class="line">var bar = 2;</span><br><span class="line">obj.foo() // 1</span><br><span class="line">foo() // 2</span><br></pre></td></tr></table></figure>
+<p>这种差异的原因，就在于函数体内部使用了<code>this</code>关键字。很多教科书会告诉你，this指的是函数运行时所在的环境。<br>对于obj.foo()来说，foo运行在obj环境，所以this指向obj；对于foo()来说，foo运行在全局环境，所以this指向全局环境。所以，两者的运行结果不一样。</p>
+<p>这种解释没错，但是教科书往往不告诉你，为什么会这样？也就是说，函数的运行环境到底是怎么决定的？举例来说，为什么obj.foo()就是在obj环境执行，而一旦var foo = obj.foo，foo()就变成在全局环境执行？</p>
+<p>本文就来解释 JavaScript 这样处理的原理。理解了这一点，你就会彻底理解this的作用。</p>
+<h2 id="二、内存的数据结构"><a href="#二、内存的数据结构" class="headerlink" title="二、内存的数据结构"></a>二、内存的数据结构</h2><p>JavaScript 语言之所以有<code>this</code>的设计，跟<code>内存</code>里面的<code>数据结构</code>有关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; foo:  5 &#125;;</span><br></pre></td></tr></table></figure>
+<p>上面的代码将一个<code>对象</code>赋值给变量<code>obj</code>。JavaScript 引擎会先在<code>内存</code>里面，<code>生成一个对象{ foo: 5 }</code>，然后把这个对象的<code>内存地址</code>赋值给变量obj。</p>
+<p>也就是说，变量obj是一个地址 (reference) 。后面如果要读取obj.foo，引擎先从obj拿到内存地址，然后再从该地址读出原始的对象，返回它的foo属性。</p>
+<p><code>原始的对象</code>以<code>字典结构</code>保存，每一个属性名都<code>对应</code>一个属性描述对象。举例来说，上面例子的foo属性，实际上是以下面的形式保存的。</p>
+<p><strong>注意</strong>：foo属性的值保存在属性描述对象的value属性里面。</p>
+<h2 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h2><p>这样的结构是很清晰的，问题在于属性的值可能是一个<code>函数</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; foo: function () &#123;&#125; &#125;;</span><br></pre></td></tr></table></figure>
+<p>这时，引擎会将函数单独保存在内存中，然后再将函数的地址赋值给foo属性的value属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  foo: &#123;</span><br><span class="line">    [[value]]: 函数的地址</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于函数是一个单独的值，所以它可以在不同的环境（上下文）执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f = function () &#123;&#125;;</span><br><span class="line">var obj = &#123; f: f &#125;;</span><br><span class="line">// 单独执行</span><br><span class="line">f()</span><br><span class="line">// obj 环境执行</span><br><span class="line">obj.f()</span><br></pre></td></tr></table></figure>
+<h2 id="四、环境变量"><a href="#四、环境变量" class="headerlink" title="四、环境变量"></a>四、环境变量</h2><p>JavaScript 允许在函数体内部，引用当前环境的其他变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function () &#123;</span><br><span class="line">  console.log(x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，函数体里面使用了变量<code>x</code>。该变量由运行环境提供。</p>
+<p>现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在<code>函数体内部获得当前的运行环境（context）</code>。所以，<code>this就出现</code>了，它的<code>设计目的</code>就是在函数体内部，指代函数当前的运行环境。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f = function () &#123;</span><br><span class="line">  console.log(this.x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，函数体里面的this.x就是指当前运行环境的x。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var f = function () &#123;</span><br><span class="line">  console.log(this.x);</span><br><span class="line">&#125;</span><br><span class="line">var x = 1;</span><br><span class="line">var obj = &#123;</span><br><span class="line">  f: f,</span><br><span class="line">  x: 2,</span><br><span class="line">&#125;;</span><br><span class="line">// 单独执行</span><br><span class="line">f() // 1</span><br><span class="line">// obj 环境执行</span><br><span class="line">obj.f() // 2</span><br></pre></td></tr></table></figure>
+<p>上面代码中，函数f在全局环境执行，this.x指向全局环境的x。<br><img src="https://mmbiz.qpic.cn/mmbiz_png/btsCOHx9LAOGjicfd5I43teJ3ickrLuhxcIaH1qiaI67Lt0fZ31q7eTFIqIBcg8mViacnWQD4MChFlaicu4HaUX4SKw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>在obj环境执行，this.x指向obj.x<br><img src="https://mmbiz.qpic.cn/mmbiz_png/btsCOHx9LAOGjicfd5I43teJ3ickrLuhxco6hl0vCicIXHMat4Kgt1UgdoniaMMldWogk74hVyia9DIXBHbIe142BtQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>回到本文开头提出的问题，obj.foo()是通过obj找到foo，所以就是在obj环境执行。一旦var foo = obj.foo，变量foo就直接指向函数本身，所以foo()就变成在全局环境执行。</p>
+<hr>
+<p><a href="http://www.ruanyifeng.com/blog/2018/06/javascript-this.html" target="_blank" rel="noopener">阅读原文</a> 作者：阮一峰</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/22/FrontEnd/JS/JavaScript-this-原理/" data-id="cjy6ziij400a9rwdumz4eneme" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-this原理/">JS-this原理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-获取MAC地址" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/22/获取MAC地址/" class="article-date">
+  <time class="post-time" datetime="2018-06-22T06:24:02.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/获取MAC地址/">获取MAC地址</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Node/">Node</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/22/获取MAC地址/" class="leancloud_visitors" data-flag-title="获取MAC地址">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Node模块获取MAC地址"><a href="#Node模块获取MAC地址" class="headerlink" title="Node模块获取MAC地址"></a>Node模块获取MAC地址</h2><p><a href="https://www.npmjs.com/package/address" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/22/获取MAC地址/" data-id="cjy6ziial001urwdu6bu9ujob" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node获取MAC地址/">Node获取MAC地址</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/HTML CSS/vw-vh-vm" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/22/FrontEnd/HTML CSS/vw-vh-vm/" class="article-date">
+  <time class="post-time" datetime="2018-06-22T01:07:31.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/FrontEnd/HTML CSS/vw-vh-vm/">vw/vh/vm</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/22/FrontEnd/HTML CSS/vw-vh-vm/" class="leancloud_visitors" data-flag-title="vw/vh/vm">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="视区相关单位vw-vh-vm简介以及可实际应用场景"><a href="#视区相关单位vw-vh-vm简介以及可实际应用场景" class="headerlink" title="视区相关单位vw / vh / vm简介以及可实际应用场景"></a>视区相关单位<code>vw / vh / vm</code>简介以及可实际应用场景</h2><hr>
+<p><a href="https://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/22/FrontEnd/HTML CSS/vw-vh-vm/" data-id="cjy6ziiif0098rwdual6xgzqg" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vw-vh-vm/">vw/vh/vm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/Linux命令行学习" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/21/Operating System/UnixLike/Linux/Linux命令行学习/" class="article-date">
+  <time class="post-time" datetime="2018-06-21T09:04:39.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">21</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/21/Operating System/UnixLike/Linux/Linux命令行学习/">Linux命令行学习</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/21/Operating System/UnixLike/Linux/Linux命令行学习/" class="leancloud_visitors" data-flag-title="Linux命令行学习">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux主流命令"><a href="#Linux主流命令" class="headerlink" title="Linux主流命令"></a>Linux主流命令</h1><h2 id="显示当前路径"><a href="#显示当前路径" class="headerlink" title="显示当前路径"></a>显示当前路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pwd: 显示当前目录路径</span><br><span class="line"></span><br><span class="line">dirs: 显示当前目录路径</span><br></pre></td></tr></table></figure>
+<h2 id="终端打开文件浏览窗口"><a href="#终端打开文件浏览窗口" class="headerlink" title="终端打开文件浏览窗口"></a>终端打开文件浏览窗口</h2><blockquote>
+<p>nautilus .</p>
 </blockquote>
-<p>我觉得 像<code>图灵</code>和<code>乔布斯</code>这样的人，可能不是唯一能改变世界的人。但是如果世界上像他们这样的人(上面提到的两位大神)都觉得可能会有其他人愿意或者有可能，来改变这个世界，我只需要当个快乐的普通人来享受就好了。我们现在可能真的有可能还在泥地里爬行。。。俗话说天塌了有个子高的人顶着，这句话是最冷漠以及事不关己高高挂起的 话了。就像革命先烈一样，如果没有无数像 <code>董存瑞</code> <code>黄继光</code> <code>邱少云</code>这样的人，我们现在的祖国会是个什么样子祖国。可能我也依然会很幸福，会很爱她吧。不想改变世界，没有承担痛苦的觉悟也就只能做一个普普通通的 普通 人了。这并没有什么不好</p>
-<p>我也是一个爱啰嗦的人，但是前提是有足够新颖和话题能打动我。很明显，和博主类似的童年经历，以及博主精彩的文字 吸引 并且打动了我。一切的想法，都恨幼稚，都是心直口快的产物。都是渴望找到认同的行为。尽量不去使用偏激的语言，避免造成不必要的冲突。</p>
-<p>如果看到我文字的人，觉得啰嗦。每一段 最后的 “[]” 里面有我对当前段落的总结。</p>
-<p>欢迎大家和我探讨。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/05/Movie/天才少女观影感/" data-id="cjuxepwly005c58dvh9p4j6vu" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/21/Operating System/UnixLike/Linux/Linux命令行学习/" data-id="cjy6ziinn00gerwduprjf0iib" class="article-share-link">分享</a>
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cli/">Cli</a></li></ul>
 
-
-
-
-  
-    <article id="post-FrontEnd/WebFrameWork/Vue/Vtsx判断绑定多class名" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/04/FrontEnd/WebFrameWork/Vue/Vtsx判断绑定多class名/" class="article-date">
-  <time class="post-time" datetime="2018-06-04T03:18:10.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">04</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/04/FrontEnd/WebFrameWork/Vue/Vtsx判断绑定多class名/">Vtsx判断绑定多class名</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Vtsx/">Vtsx</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/04/FrontEnd/WebFrameWork/Vue/Vtsx判断绑定多class名/" class="leancloud_visitors" data-flag-title="Vtsx判断绑定多class名">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="vtsx绑定多类名表达式"><a href="#vtsx绑定多类名表达式" class="headerlink" title="vtsx绑定多类名表达式"></a>vtsx绑定多类名表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class=&#123;(this.listNum === i + 1 ? `showdd$&#123;i&#125;` : &apos;&apos;) + &quot; &quot; + &quot;show&quot;&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/04/FrontEnd/WebFrameWork/Vue/Vtsx判断绑定多class名/" data-id="cjuxepwsy00e858dvanfy04xn" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vtsx多类名/">vtsx多类名</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Movie/爆裂鼓手·观后感" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/01/Movie/爆裂鼓手·观后感/" class="article-date">
-  <time class="post-time" datetime="2018-06-01T05:24:24.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">01</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/01/Movie/爆裂鼓手·观后感/">爆裂鼓手·观后感</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/01/Movie/爆裂鼓手·观后感/" class="leancloud_visitors" data-flag-title="爆裂鼓手·观后感">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/01/Movie/爆裂鼓手·观后感/" data-id="cjuxepwlm004w58dva45iy85q" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/WebFrameWork/Vue/Vue-动态路由匹配" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/31/FrontEnd/WebFrameWork/Vue/Vue-动态路由匹配/" class="article-date">
-  <time class="post-time" datetime="2018-05-31T07:41:49.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">31</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/31/FrontEnd/WebFrameWork/Vue/Vue-动态路由匹配/">Vue-动态路由匹配</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/31/FrontEnd/WebFrameWork/Vue/Vue-动态路由匹配/" class="leancloud_visitors" data-flag-title="Vue-动态路由匹配">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/31/FrontEnd/WebFrameWork/Vue/Vue-动态路由匹配/" data-id="cjuxepwt200ec58dvlyd9l0j8" class="article-share-link">分享</a>
-      
-      
     </footer>
   </div>
   
@@ -543,7 +429,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/20/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/22/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/20/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/22/">next &raquo;</a>
   </nav>
 </section>
         
@@ -584,9 +470,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

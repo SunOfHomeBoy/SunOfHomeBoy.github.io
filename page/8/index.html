@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-SVN/SVN使用指南" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-programmingLanguage/位运算符" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/12/SVN/SVN使用指南/" class="article-date">
-  <time class="post-time" datetime="2018-09-12T03:20:12.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br/>
-    <span class="post-day">12</span>
+    <a href="/2018/11/28/programmingLanguage/位运算符/" class="article-date">
+  <time class="post-time" datetime="2018-11-28T02:32:55.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">28</span>
   </time>
 </a>
    
@@ -87,21 +87,128 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/SVN/SVN使用指南/">SVN使用指南</a>
+      <a class="article-title" href="/2018/11/28/programmingLanguage/位运算符/">位运算符</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/11/28/programmingLanguage/位运算符/" class="leancloud_visitors" data-flag-title="位运算符">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ECMAScript-位运算符"><a href="#ECMAScript-位运算符" class="headerlink" title="ECMAScript 位运算符"></a><a href="http://www.w3school.com.cn/js/pro_js_operators_bitwise.asp" target="_blank" rel="noopener">ECMAScript 位运算符</a></h2><h3 id="位运算符是在数字底层（即表示数字的-32-个数位）进行操作的。"><a href="#位运算符是在数字底层（即表示数字的-32-个数位）进行操作的。" class="headerlink" title="位运算符是在数字底层（即表示数字的 32 个数位）进行操作的。"></a>位运算符是在数字底层（即表示数字的 32 个数位）进行操作的。</h3><hr>
+<h3 id="重温整数"><a href="#重温整数" class="headerlink" title="重温整数"></a>重温整数</h3><p><code>ECMAScript</code> 整数有<code>两种类型</code>，即<code>有符号整数</code>（允许用正数和负数）和<code>无符号整数</code>（只允许用正数）。<br>在 <code>ECMAScript</code> 中，所有<code>整数字面量</code>默认都是<code>有符号整数</code>，这意味着什么呢？</p>
+<p><code>有符号整数</code>使用 <code>31</code> 位表示整数的<code>数值</code>，用第 <code>32</code> 位表示整数的<code>符号</code>，<code>0 表示正数</code>，<code>1 表示负数</code>。数值范围从 <code>-2147483648</code> 到 <code>2147483647</code>。</p>
+<p>可以以<code>两种不同的方式</code>存储 <code>二进制形式的有符号整数</code>，一种用于存储<code>正数</code>，一种用于存储<code>负数</code>。</p>
+<p>正数是以真二进制形式存储的，前 31 位中的每一位都表示 2 的幂，从第 1 位（位 0）开始，表示 20，第 2 位（位 1）表示 21。没用到的位用 0 填充，即忽略不计。例如，下图展示的是数 18 的表示法。</p>
+<p>18 的二进制版本只用了前 5 位，它们是这个数字的有效位。把数字转换成二进制字符串，就能看到有效位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var iNum = 18;</span><br><span class="line">alert(iNum.toString(2));  //输出 &quot;10010&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码只输出 <code>&quot;10010&quot;</code>，而不是 18 的 32 位表示。其他的数位并不重要，因为仅使用前 5 位即可确定这个十进制数值。如下图所示：</p>
+<blockquote>
+<p>(2^4 <em> 1) + (2^3 </em> 0) + (2^2 <em> 0) + (2^1 </em> 1) + (2^0 * 0)</p>
+</blockquote>
+<p>负数也存储为二进制代码，不过采用的形式<code>是二进制补码</code>。计算数字二进制补码的步骤有三步：</p>
+<ol>
+<li>确定该数字的非负版本的二进制表示（例如，要计算 -18的二进制补码，首先要确定 18 的二进制表示）</li>
+</ol>
+<p>要确定 -18 的二进制表示，首先必须得到 18 的二进制表示，如下所示：</p>
+<blockquote>
+<p>0000 0000 0000 0000 0000 0000 0001 0010</p>
+</blockquote>
+<ol>
+<li>求得二进制反码，即要把 0 替换为 1，把 1 替换为 0</li>
+</ol>
+<p>接下来，计算二进制反码，如下所示：</p>
+<blockquote>
+<p>1111 1111 1111 1111 1111 1111 1110 1101</p>
+</blockquote>
+<ol>
+<li>在二进制反码上加 1</li>
+</ol>
+<p>最后，在二进制反码上加 1，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1111 1111 1111 1111 1111 1111 1110 1101</span><br><span class="line">                                      1</span><br><span class="line">---------------------------------------</span><br><span class="line">1111 1111 1111 1111 1111 1111 1110 1110</span><br></pre></td></tr></table></figure></p>
+<p>因此，-18 的二进制表示即 <code>1111 1111 1111 1111 1111 1111 1110 1110</code>。记住，在处理<code>有符号整数</code>时，开发者不能访问 <code>31</code> 位。</p>
+<p>有趣的是，把<code>负整数</code>转换成<code>二进制字符串</code>后，<code>ECMAScript</code> 并不以<code>二进制补码</code>的形式显示，而是用<code>数字绝对值</code>的<code>标准二进制代码</code>前面加<code>负号</code>的形式输出。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var iNum = -18;</span><br><span class="line">alert(iNum.toString(2));	//输出 &quot;-10010&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码输出的是 <code>&quot;-10010&quot;</code>，而<code>非二进制补码</code>，这是为<code>避免访问位 31</code>。为了简便，ECMAScript 用一种简单的方式处理整数，使得开发者不必关心它们的用法。</p>
+<p>另一方面，<code>无符号整数</code>把 最后一位 作为 另一个 数位 处理。</p>
+<p>在这种模式中，第 <code>32</code> 位不表示<code>数字的符号</code>，而是<code>值 2^31</code>。由于这个<code>额外的位</code>，无符号整数的数值范围为 0 到 4294967295。对于小于 2147483647 的整数来说，无符号整数看来与有符号整数一样，而大于 2147483647 的整数则要使用位 31（在有符号整数中，这一位总是 0）。</p>
+<p>把无符号整数转换成字符串后，只返回它们的有效位。</p>
+<p>注意：所有整数字面量都默认存储为有符号整数。只有 ECMAScript 的位运算符才能创建无符号整数。</p>
+<hr>
+<h3 id="位运算-NOT"><a href="#位运算-NOT" class="headerlink" title="位运算 NOT(~)"></a>位运算 NOT(~)</h3><p>位运算 <code>NOT</code> 由否定号（<code>~</code>）表示，它是 <code>ECMAScript</code> 中为数不多的与<code>二进制算术</code>有关的运算符之一。</p>
+<p>位运算 NOT 是三步的处理过程：</p>
+<ol>
+<li>把运算数转换成 32 位数字</li>
+<li>把二进制数转换成它的二进制反码</li>
+<li>把二进制数转换成浮点数</li>
+</ol>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var iNum1 = 25;		//25 等于 00000000000000000000000000011001</span><br><span class="line">var iNum2 = ~iNum1;	//转换为 11111111111111111111111111100110</span><br><span class="line">alert(iNum2);		//输出 &quot;-26&quot;</span><br></pre></td></tr></table></figure></p>
+<p>位运算 NOT 实质上是对数字求负，然后减 1，因此 25 变 -26。用下面的方法也可以得到同样的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var iNum1 = 25;</span><br><span class="line">var iNum2 = -iNum1 -1;</span><br><span class="line">alert(iNum2);	//输出 -26</span><br></pre></td></tr></table></figure>
+<h3 id="位运算-AND-amp"><a href="#位运算-AND-amp" class="headerlink" title="位运算 AND(&amp;)"></a>位运算 AND(&amp;)</h3><p>位运算 <code>AND</code> 由和号（<code>&amp;</code>）表示，直接对数字的二进制形式进行运算。它把每个<code>数字中的数位对齐</code>，然后用下面的规则对同一位置上的两个数位进行 AND 运算：</p>
+<h3 id="位运算-OR"><a href="#位运算-OR" class="headerlink" title="位运算 OR(|)"></a>位运算 OR(|)</h3><p>位运算 OR 由符号（|）表示，也是直接对数字的二进制形式进行运算。在计算每位时，OR 运算符采用下列规则：</p>
+<h3 id="位运算-XOR"><a href="#位运算-XOR" class="headerlink" title="位运算 XOR(^)"></a>位运算 XOR(^)</h3><h3 id="左移运算-lt-lt"><a href="#左移运算-lt-lt" class="headerlink" title="左移运算(&lt;&lt;)"></a>左移运算(&lt;&lt;)</h3><h3 id="有符号右移运算-gt-gt"><a href="#有符号右移运算-gt-gt" class="headerlink" title="有符号右移运算(&gt;&gt;)"></a>有符号右移运算(&gt;&gt;)</h3><h3 id="无符号右移运算-gt-gt-gt"><a href="#无符号右移运算-gt-gt-gt" class="headerlink" title="无符号右移运算(&gt;&gt;&gt;)"></a>无符号右移运算(&gt;&gt;&gt;)</h3><p>正数 与 有符号右移运算 相同;<br>负数 不同</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/28/programmingLanguage/位运算符/" data-id="cjy6ziif2005prwdu88lzc0tr" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logical-operation/">logical operation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-programmingLanguage/语法逻辑判断" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/23/programmingLanguage/语法逻辑判断/" class="article-date">
+  <time class="post-time" datetime="2018-11-23T02:34:43.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/programmingLanguage/语法逻辑判断/">语法逻辑判断</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/SVN/">SVN</a>
+    <a class="article-category-link" href="/categories/ProgrammingLang/">ProgrammingLang</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/09/12/SVN/SVN使用指南/" class="leancloud_visitors" data-flag-title="SVN使用指南">
+    <span id="/2018/11/23/programmingLanguage/语法逻辑判断/" class="leancloud_visitors" data-flag-title="语法逻辑判断">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,126 +220,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="几个概念要必须掌握："><a href="#几个概念要必须掌握：" class="headerlink" title="几个概念要必须掌握："></a>几个概念要必须掌握：</h2><p><code>checkout</code>—&gt;将SVN仓库的代码烤到本地，比如你现在参与一个团队项目，项目代码在你之前肯定已经写了很多了，你可以通过checkout项目代码，获得整个项目。</p>
-<p><code>update</code>—&gt;在你写代码的过程中，同事很可能已经提交过代码到SVN服务器，而你本地项目显然没有同事新提交的代码，你可以通过update SVN获得SVN最新的代码。</p>
-<p><code>commit</code>—&gt;当你完成一部分开发后，你可以通过commit提交代码到SVN服务器，这样别人就可以获得你写的代码，记得 <strong>先update再commit</strong>。</p>
-<h2 id="TortoiseSVN图标介绍"><a href="#TortoiseSVN图标介绍" class="headerlink" title="TortoiseSVN图标介绍"></a>TortoiseSVN图标介绍</h2><ul>
-<li>绿色对勾重载，表示Svn状态正常</li>
-<li>红色感叹号，表示文件状态状态变成 已修改</li>
-<li>黄色感叹号，表示提交过程出现冲突 </li>
-<li>蓝色加号，表示 一个 文件/目录 已经被加入到 版本控制中</li>
-</ul>
-<h2 id="SVN-Client-基础操作"><a href="#SVN-Client-基础操作" class="headerlink" title="SVN Client 基础操作"></a>SVN Client 基础操作</h2><ol>
-<li>SVN检出(Checkout)\<br> 输入 url ， 确定本地 代码库 地址</li>
-</ol>
-<p>弹出<code>用户名</code> <code>密码验证</code></p>
-<h3 id="Add-增加"><a href="#Add-增加" class="headerlink" title="Add 增加"></a>Add 增加</h3><ol>
-<li><p>先提交到变更列表，再 <code>commit</code> 到配置库：选择<code>新增文件</code>，右键SVN菜单执行<code>Add</code>， 提交到<code>变更列表</code>，然后右键SVN菜单执行<code>SVN Commit</code>提交到版本库</p>
-</li>
-<li><p>不提交到变更列表，直接commit配置库：直接选择文件，右键SVN菜单执行<code>SVN Commit</code>操作。</p>
-</li>
-</ol>
-<h3 id="Delete-删除"><a href="#Delete-删除" class="headerlink" title="Delete 删除"></a>Delete 删除</h3><p>如果被删文件 未入版本库，可直接使用操作系统删除</p>
-<p>如果被删文件 已入版本库：</p>
-<ol>
-<li>选择被删文件， 右键 SVN菜单 执行<code>delete</code>操作</li>
-<li>选择被删文件父级目录， 右键 SVN菜单 执行<code>SVN Commit</code></li>
-</ol>
-<h3 id="Rename-改名"><a href="#Rename-改名" class="headerlink" title="Rename 改名"></a>Rename 改名</h3><h3 id="SVN-Revert-还原"><a href="#SVN-Revert-还原" class="headerlink" title="SVN Revert 还原"></a>SVN Revert 还原</h3><p>右键SVN菜单 <code>Update to reversion</code></p>
+        <h2 id="if语法的简单判断-以下语句等价"><a href="#if语法的简单判断-以下语句等价" class="headerlink" title="if语法的简单判断(以下语句等价)"></a>if语法的简单判断(以下语句等价)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (this.state.interval) &#123; window.clearInterval(this.state.interval) &#125;</span><br><span class="line">!!this.state.interval &amp;&amp; window.clearInterval(this.state.interval)</span><br><span class="line">demo: !!this.state.interval &amp;&amp; console.log(&apos;%c 123&apos;,&apos;color:red;font-size:30px&apos;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/09/12/SVN/SVN使用指南/" data-id="cjuxepwm0005d58dv0dbmemov" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN使用/">SVN使用</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/WebFrameWork/React/React学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="article-date">
-  <time class="post-time" datetime="2018-09-05T09:45:25.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br/>
-    <span class="post-day">05</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/">React学习笔记</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" class="leancloud_visitors" data-flag-title="React学习笔记">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一步-实现功能模块"><a href="#第一步-实现功能模块" class="headerlink" title="第一步 实现功能模块"></a>第一步 实现功能模块</h2><ol>
-<li>npm install antd –save-dev</li>
-<li>import ‘antd css style sheets’</li>
-<li>创建 模板</li>
-<li>import {Menu, Table, Pagination} from ‘antd’;</li>
-<li>导出模板到 ./index.js</li>
-<li>Router 注册； Nav 里面 添加 路由 link<br>Compelite</li>
-</ol>
-<h2 id="四大部分-props-state-lifecircle-context"><a href="#四大部分-props-state-lifecircle-context" class="headerlink" title="四大部分(props state lifecircle context)"></a>四大部分(<code>props</code> <code>state</code> <code>lifecircle</code> <code>context</code>)</h2><h2 id="组件构建三种方法"><a href="#组件构建三种方法" class="headerlink" title="组件构建三种方法"></a>组件构建三种方法</h2><p>① React.createClass<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const Button = React.createClass(&#123;</span><br><span class="line">  // method/lifecircle</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>② ES6class</p>
-<p>③ 无状态函数<br>无状态组件只传入<code>props</code>和<code>context</code>,不存在<code>state</code>.<br><code>propsTyps</code>和<code>defaultProps</code> 可通过 向 方法 设置 静态属性</p>
-<h2 id="组件五种形式"><a href="#组件五种形式" class="headerlink" title="组件五种形式"></a>组件五种形式</h2><p>[<code>容器</code>, <code>业务逻辑</code>, <code>取数据</code>, <code>布局(layout)</code>, <code>无状态组件</code>]</p>
-<h2 id="生命周期-lifecircle"><a href="#生命周期-lifecircle" class="headerlink" title="生命周期(lifecircle)"></a>生命周期(lifecircle)</h2><p><a href="https://segmentfault.com/a/1190000004168886" target="_blank" rel="noopener">参考文档</a><br><strong>初始化:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">constructor</span><br><span class="line">componentWillMount</span><br><span class="line">+ render()</span><br><span class="line">componentDidMount</span><br></pre></td></tr></table></figure></p>
-<p><strong>周期改变:</strong>(<code>props/state</code> 改变时 触发)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">  &lt;!-- 当组件可能接收到`新道具`时调用。即使道具没有改变，你也可以这样称呼它，所以如果你只想处理改变，一定要比较新的和现有的道具。 --&gt;</span><br><span class="line">  &lt;!-- 调用组件setstate通常不会触发这种方法。 --&gt;</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState) </span><br><span class="line">componentWillUpdata() &#123;</span><br><span class="line">  &lt;!-- willUpdata 下 设置 setState 会触发 componentReceiveProps --&gt;</span><br><span class="line">&#125;</span><br><span class="line">+ render()</span><br><span class="line">componentDidUpdata</span><br></pre></td></tr></table></figure></p>
-<p><strong>组件销毁:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDis</span><br></pre></td></tr></table></figure></p>
-<h2 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h2><p>被动接收 =&gt; 数据流逻辑</p>
-<h2 id="无状态组件如何避免重绘-reflow-重排版-repaint"><a href="#无状态组件如何避免重绘-reflow-重排版-repaint" class="headerlink" title="无状态组件如何避免重绘(reflow)/重排版(repaint)"></a>无状态组件如何避免<code>重绘(reflow)</code>/<code>重排版(repaint)</code></h2><h2 id="避免组件reRender"><a href="#避免组件reRender" class="headerlink" title="避免组件reRender"></a>避免组件reRender</h2><p>在 React 中，组件 state 的变化会触发该组件以下的整个组件子树的重新渲染。为了避免不必要的子组件重新渲染， 我们需要使用 PureComponent，或尽量实现 shouldComponentUpdate。还需要使用不可变的数据结构让 state 的变化更容易被优化：</p>
-<p><a href="https://vuejs.org/v2/guide/comparison.html#Optimization-Efforts" target="_blank" rel="noopener">与其他框架的比较——Vue.js</a></p>
-<h2 id="React-Router"><a href="#React-Router" class="headerlink" title="React-Router"></a>React-Router</h2><p><a href="https://www.thinktxt.com/react/2017/02/26/react-router-browserHistory-refresh-404-solution.html" target="_blank" rel="noopener">reactRouter的三种形式</a></p>
-<ul>
-<li>hashHistory</li>
-<li>browserHistory</li>
-<li>createMemoryHistory</li>
-</ul>
-<h2 id="React-路由跳转"><a href="#React-路由跳转" class="headerlink" title="React 路由跳转"></a>React 路由跳转</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.props.history.push(<span class="string">'/login'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="React路由-与-浏览器历史回退"><a href="#React路由-与-浏览器历史回退" class="headerlink" title="React路由 与 浏览器历史回退"></a>React路由 与 浏览器历史回退</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 初始化 获取 window.location.href</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">constructor</span>(props, context) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props, context)</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 页面、路由变动时，再次 获取当前路由 */</span></span><br><span class="line">componentWillReceiveProps() &#123;</span><br><span class="line">    <span class="keyword">this</span>.curUrl = <span class="built_in">window</span>.location.href.split(<span class="string">'/'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        current: <span class="keyword">this</span>.curUrl[<span class="number">6</span>] || <span class="keyword">this</span>.curUrl[<span class="number">5</span>],</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="React-Children-map渲染对象"><a href="#React-Children-map渲染对象" class="headerlink" title="React.Children.map渲染对象"></a>React.Children.map渲染对象</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    React.Children.map(children, (child) =&gt; &#123;</span><br><span class="line">        return &lt;Fragment&gt;&#123;child&#125;&lt;/Fragment&gt;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="React-router-去掉url上的"><a href="#React-router-去掉url上的" class="headerlink" title="React-router 去掉url上的"></a>React-router 去掉url上的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;browserHistory&#125; from &apos;react-router&apos;</span><br><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/Router&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="React-Context应用"><a href="#React-Context应用" class="headerlink" title="React-Context应用"></a>React-Context应用</h2><p><strong>父组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">/** 先定义 类似 ts中 interface  */</span><br><span class="line">export const Context = React.createContext(&#123;</span><br><span class="line">  updateHomeState: () =&gt; &#123; &#125;,</span><br><span class="line">  homeState: &#123;&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  // debugger</span><br><span class="line">  return (</span><br><span class="line">    &lt;Context.Provider value=&#123;&#123;</span><br><span class="line">      updateHomeState: this.updateHomeState,</span><br><span class="line">      homeState: this.state</span><br><span class="line">    &#125;&#125;&gt;</span><br><span class="line">      &lt;div className=&quot;main&quot;&gt;</span><br><span class="line">        &lt;div className=&quot;center&quot;&gt;</span><br><span class="line">          &#123;/* 中间地图 */&#125;</span><br><span class="line">          &lt;CenterMap /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/Context.Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>子组件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Context &#125; from &quot;src/views/Home/Home&quot;; // 先引入</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">  return (</span><br><span class="line">    /* 引用 祖先组件的 context */</span><br><span class="line">    &lt;Context.Consumer&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        (&#123; updateHomeState, homeState &#125;) =&gt; (</span><br><span class="line">          &lt;div className=&quot;CenterMap&quot;&gt;</span><br><span class="line">            &lt;MapTopMenu</span><br><span class="line">              tableListSize=&#123;homeState.tableListSize&#125;</span><br><span class="line">              updateHomeState=&#123;updateHomeState&#125;</span><br><span class="line">              onChange=&#123;this.onChange&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/Context.Consumer&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="React获取真实DOM元素-ref-并获取元素样式"><a href="#React获取真实DOM元素-ref-并获取元素样式" class="headerlink" title="React获取真实DOM元素[ref], 并获取元素样式"></a>React获取真实DOM元素[ref], 并获取元素样式</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div</span><br><span class="line">  className=<span class="string">'navContainer'</span></span><br><span class="line">  ref=&#123;navContainer =&gt; <span class="keyword">this</span>.navContainer = navContainer&#125; <span class="comment">// ref 支持接收函数进行赋值</span></span><br><span class="line">  onMouseEnter=&#123;<span class="keyword">this</span>.handleMouseEnter&#125;</span><br><span class="line">  onMouseLeave=&#123;<span class="keyword">this</span>.handleMouseLeave&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取样式</span></span><br><span class="line"><span class="keyword">const</span> cssStyle = navContainer.currentStyle</span><br><span class="line">    ? navContainer.currentStyle</span><br><span class="line">    : <span class="built_in">document</span>.defaultView.getComputedStyle(navContainer, <span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取详细样式</span></span><br><span class="line"><span class="keyword">const</span> pr = navContainer.currentStyle</span><br><span class="line">    ? <span class="built_in">parseInt</span>(cssStyle.paddingRight, <span class="number">10</span>)</span><br><span class="line">    : <span class="built_in">parseInt</span>(cssStyle[<span class="string">'padding-right'</span>], <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/React学习笔记/" data-id="cjuxepwv500h158dv0gbmkeut" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/23/programmingLanguage/语法逻辑判断/" data-id="cjy6ziiem0058rwduvrbkyql3" class="article-share-link">分享</a>
       
       
     </footer>
@@ -244,12 +237,12 @@
 
 
   
-    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructures&amp;Algorithm/最大值算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
-  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br/>
-    <span class="post-day">05</span>
+    <a href="/2018/11/22/DataStructures&Algorithm/最大值算法/" class="article-date">
+  <time class="post-time" datetime="2018-11-22T08:03:58.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
+    <span class="post-day">22</span>
   </time>
 </a>
    
@@ -261,21 +254,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
+      <a class="article-title" href="/2018/11/22/DataStructures&Algorithm/最大值算法/">最大值算法</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Redux/">Redux</a>
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
+    <span id="/2018/11/22/DataStructures&amp;Algorithm/最大值算法/" class="leancloud_visitors" data-flag-title="最大值算法">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -287,31 +280,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
-<ol>
-<li></li>
-<li>定义</li>
-<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
-<p>export const APP_REDUX = “APP_REDUX”;</p>
-</blockquote>
-</li>
-<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
-<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
-</blockquote>
-</li>
-<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
-<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+        <h2 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/** 计算最大数算法 1*/</span><br><span class="line"> let max = 0;</span><br><span class="line"> for (let i = 1; i &lt; dataLen; i++) &#123;</span><br><span class="line">   const item = ArrData[i];</span><br><span class="line">   const preItem = ArrData[i - 1]</span><br><span class="line">   item &gt; preItem ?</span><br><span class="line">     item &gt; max ? max = item : null</span><br><span class="line">     : preItem &gt; max ? max = preItem : null</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/** 计算最大数算法 2*/</span><br><span class="line"> let max = 0;</span><br><span class="line"> for (let i = 0; i &lt; dataLen; i++) &#123;</span><br><span class="line">   const item = ArrData[i];</span><br><span class="line">   item &gt; max ? max = item : null</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjuxepwv300gy58dvrtc8lqgb" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/22/DataStructures&Algorithm/最大值算法/" data-id="cjy6ziich0031rwdu6pvds3fw" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大值/">最大值</a></li></ul>
 
     </footer>
   </div>
@@ -322,11 +299,11 @@
 
 
   
-    <article id="post-Editor/编辑器配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-webpack别名以及在scss中的用法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/15/Editor/编辑器配置/" class="article-date">
-  <time class="post-time" datetime="2018-08-15T01:53:26.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
+    <a href="/2018/11/15/webpack别名以及在scss中的用法/" class="article-date">
+  <time class="post-time" datetime="2018-11-15T04:04:51.000Z" itemprop="datePublished">
+    <span class="post-month">11月</span><br/>
     <span class="post-day">15</span>
   </time>
 </a>
@@ -339,21 +316,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/15/Editor/编辑器配置/">编辑器配置</a>
+      <a class="article-title" href="/2018/11/15/webpack别名以及在scss中的用法/">webpack别名以及在scss中的用法</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/edit/">edit</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/15/Editor/编辑器配置/" class="leancloud_visitors" data-flag-title="编辑器配置">
+    <span id="/2018/11/15/webpack别名以及在scss中的用法/" class="leancloud_visitors" data-flag-title="webpack别名以及在scss中的用法">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -365,18 +338,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CODE SETTINGS SYNC UPLOAD SUMMARY</p>
-<h2 id="Version-3-0-0"><a href="#Version-3-0-0" class="headerlink" title="Version: 3.0.0"></a>Version: 3.0.0</h2><p>GitHub Token: c875cc3b573265d55bdbe57a23d554ce9e83cde2<br>GitHub Gist: daeb8021fc8862ba3a1fe162cc301c7c<br>GitHub Gist Type: Secret</p>
-<h2 id="Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme"><a href="#Restarting-Visual-Studio-Code-may-be-required-to-apply-color-and-file-icon-theme" class="headerlink" title="Restarting Visual Studio Code may be required to apply color and file icon theme."></a>Restarting Visual Studio Code may be required to apply color and file icon theme.</h2><p>Files Uploaded:<br>  javascript.json &gt; snippets|javascript.json</p>
-<p>Extensions Ignored:<br>  No extensions ignored.</p>
-<p>Extensions Removed:<br>  No extensions removed.</p>
-<p>Extensions Added:<br>  Angular2 v6.1.5<br>  background v1.1.19<br>  beautify v1.3.2<br>  bracket-pair-colorizer v1.0.59<br>  code-gnu-global v0.2.2<br>  code-settings-sync v3.0.0<br>  cpptools v0.17.7<br>  ejs-language-support v0.0.1<br>  ejs-snippets v0.1.0<br>  git-project-manager v1.6.1<br>  githistory v0.4.2<br>  gitlens v8.5.4<br>  html-snippets v0.2.1<br>  java v0.29.0<br>  javascript-ejs-support v0.3.2<br>  JavaScriptSnippets v1.7.0<br>  jquerysnippets v0.0.1<br>  language-stylus v1.9.2<br>  markdown-all-in-one v1.6.0<br>  mongoose-os-ide v0.3.0<br>  mssql v1.4.0<br>  node-module-intellisense v1.5.0<br>  npm-intellisense v1.3.0<br>  python v2018.7.1<br>  Theme-MarkdownKit v0.1.4<br>  tslint v1.0.34<br>  vetur v0.12.6<br>  view-in-browser v0.0.5<br>  vscode-eslint v1.4.12<br>  vscode-great-icons v2.1.41<br>  vscode-html-css v0.2.0<br>  vscode-icons v7.25.0<br>  vscode-java-debug v0.11.0<br>  vscode-language-babel v0.0.20<br>  vscode-language-pack-zh-hans v1.25.3<br>  vscode-map-preview v0.4.2<br>  vscode-maven v0.10.0<br>  vscode-mongodb v0.0.2<br>  vscode-npm-script v0.3.5<br>  vscode-preview-server v1.0.1<br>  vue-vscode-snippets v1.3.0<br>  weex v0.4.0</p>
-<h2 id="xml-v2-3-1"><a href="#xml-v2-3-1" class="headerlink" title="  xml v2.3.1"></a>  xml v2.3.1</h2><p>Done.</p>
-
+        <h2 id="webpack别名在sass中的用法"><a href="#webpack别名在sass中的用法" class="headerlink" title="webpack别名在sass中的用法"></a>webpack别名在sass中的用法</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjuxepwkd003e58dvv3wwmpm8" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/11/15/webpack别名以及在scss中的用法/" data-id="cjy6zii7f000brwdu2y4zhbx7" class="article-share-link">分享</a>
       
       
     </footer>
@@ -388,12 +354,12 @@
 
 
   
-    <article id="post-programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructures&amp;Algorithm/延迟判断算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="article-date">
-  <time class="post-time" datetime="2018-08-14T06:11:24.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">14</span>
+    <a href="/2018/10/26/DataStructures&Algorithm/延迟判断算法/" class="article-date">
+  <time class="post-time" datetime="2018-10-26T08:20:06.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">26</span>
   </time>
 </a>
    
@@ -405,21 +371,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/">修改.npmrc</a>
+      <a class="article-title" href="/2018/10/26/DataStructures&Algorithm/延迟判断算法/">延迟判断算法</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/npm/">npm</a>
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" class="leancloud_visitors" data-flag-title="修改.npmrc">
+    <span id="/2018/10/26/DataStructures&amp;Algorithm/延迟判断算法/" class="leancloud_visitors" data-flag-title="延迟判断算法">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -431,28 +397,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Windows修改-npmrc"><a href="#Windows修改-npmrc" class="headerlink" title="Windows修改.npmrc"></a>Windows修改.npmrc</h2><blockquote>
-<p>vim /mnt/c/Users/Administrator/.npmrc</p>
-</blockquote>
-<h2 id="node-sass-安装失败解决"><a href="#node-sass-安装失败解决" class="headerlink" title="node-sass 安装失败解决"></a><a href="https://segmentfault.com/a/1190000010984731" target="_blank" rel="noopener">node-sass 安装失败解决</a></h2><p>@4.8.3 postinstall: <code>node scripts/build.js</code></p>
-<h3 id="解决方法一：创建-npmrc文件"><a href="#解决方法一：创建-npmrc文件" class="headerlink" title="解决方法一：创建.npmrc文件"></a>解决方法一：创建.npmrc文件</h3><p>在项目根目录创建.npmrc文件，复制下面代码到该文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">phantomjs_cdnurl=http://cnpmjs.org/downloads</span><br><span class="line">sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</span><br><span class="line">registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
-<h3 id="解决方法二：使用淘宝镜像源"><a href="#解决方法二：使用淘宝镜像源" class="headerlink" title="解决方法二：使用淘宝镜像源"></a>解决方法二：使用淘宝镜像源</h3><blockquote>
-<p>npm uninstall node-sass // 如果出现安装失败，<strong>须先卸载</strong>  </p>
-<p>npm i node-sass –sass_binary_site=<a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a> // 亲测有效</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 也可以设置系统环境变量的方式。示例</span><br><span class="line">// linux、mac 下</span><br><span class="line">SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass</span><br><span class="line"></span><br><span class="line">// window 下</span><br><span class="line">set SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ &amp;&amp; npm install node-sass</span><br></pre></td></tr></table></figure>
-<h3 id="设置全局淘宝镜像"><a href="#设置全局淘宝镜像" class="headerlink" title="设置全局淘宝镜像"></a>设置全局淘宝镜像</h3><blockquote>
-<p>npm config set sass_binary_site <a href="https://npm.taobao.org/mirrors/node-sass/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass/</a></p>
-</blockquote>
-<p>## </p>
+        <h1 id="延迟判断算法"><a href="#延迟判断算法" class="headerlink" title="延迟判断算法"></a>延迟判断算法</h1><p>延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/** 组件内，函数外 缓存状态 */</span><br><span class="line">this.state = &#123;</span><br><span class="line">  cacheValueArr: []</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/** 核心思想是：</span><br><span class="line">* 先缓存一次数据， </span><br><span class="line">* 定时器 2S 后 再缓存一次数据 </span><br><span class="line">* 对比判断 值 是否 相等，代表没有改变</span><br><span class="line">*/</span><br><span class="line">onChange(e) &#123;</span><br><span class="line">  let cacheArr = this.state.cacheValueArr; // 先引用缓存的状态</span><br><span class="line">  let len = cacheArr.push(e); // push方法 会返回 长度，改变原数组</span><br><span class="line">  let lastOne = cacheArr.slice(-1); // 数组最后一位的 值</span><br><span class="line"></span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    let lastLen = this.state.cacheValueArr.length; // 2S 后再缓存 长度有无变化</span><br><span class="line">    let lastOnes = this.state.cacheValueArr.slice(-1); // 2S 后再缓存 值有无变化</span><br><span class="line">    if (len === lastLen) &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        curE: e</span><br><span class="line">      &#125;)</span><br><span class="line">      debugger</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 2000);</span><br><span class="line">&#125;</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line"># 函数防抖动</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li><p>Created by hjl on 2017/8/15.<br>*/<br>var throttle = function (func, interval) {<br>var self = func,<br> timer,<br> firstTime = true;</p>
+<p>return function () {<br> var args = arguments,<br>   me = this;<br> if (firstTime) {<br>   self.apply(me, args);<br>   return firstTime = false;<br> }<br> if (timer) {<br>   return false;<br> }</p>
+<p> timer = setTimeout(function () {<br>   clearTimeout(timer);<br>   timer = null;<br>   self.apply(me, args);<br> }, interval || 3000);<br>};<br>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**借鉴方法**</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>函数防抖<br>*</li>
+<li>@param {any} method 方法名<br>*/<br>function debounce(method) {<br>clearTimeout(method.tId);<br>method.tId = setTimeout(function() {<br>method.call();<br>}, 200);<br>}<br>````</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/programmingLanguage/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjuxepwv000gs58dv9qxxkflw" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/DataStructures&Algorithm/延迟判断算法/" data-id="cjy6ziicd002xrwdu4dflr7fm" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npmrc/">.npmrc</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/延迟判断/">延迟判断</a></li></ul>
 
     </footer>
   </div>
@@ -466,7 +432,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/9/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/9/">next &raquo;</a>
   </nav>
 </section>
         
@@ -507,9 +473,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 

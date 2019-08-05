@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,12 +70,12 @@
 
         <section id="main">
   
-    <article id="post-工作学习日常记录/如何高效学习阅读" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-DataStructures&amp;Algorithm/JS堆、栈-EventLoop" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/04/26/工作学习日常记录/如何高效学习阅读/" class="article-date">
-  <time class="post-time" datetime="2019-04-26T01:32:31.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">26</span>
+    <a href="/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/" class="article-date">
+  <time class="post-time" datetime="2019-07-17T03:18:56.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">17</span>
   </time>
 </a>
    
@@ -87,21 +87,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/26/工作学习日常记录/如何高效学习阅读/">如何高效学习阅读</a>
+      <a class="article-title" href="/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/">JS堆、栈&amp;EventLoop</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Date/">Date</a>
+    <a class="article-category-link" href="/categories/DS-A/">DS&A</a>
   </div>
 
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/04/26/工作学习日常记录/如何高效学习阅读/" class="leancloud_visitors" data-flag-title="如何高效学习阅读">
+    <span id="/2019/07/17/DataStructures&amp;Algorithm/JS堆、栈-EventLoop/" class="leancloud_visitors" data-flag-title="JS堆、栈&amp;EventLoop">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -113,43 +113,66 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>不管是<code>文学典籍</code>，还是<code>技术文档</code>. 都应该培养、训练 快速阅读、掌握核心关键 的能力.  </p>
-<div style="float: right; margin-right: 100px;">—— 题记</div>
+        <h2 id="JS内存机制"><a href="#JS内存机制" class="headerlink" title="JS内存机制"></a><a href="https://github.com/BooheeFE/weekly/issues/2" target="_blank" rel="noopener">JS内存机制</a></h2><ul>
+<li>栈内存(stack)<ul>
+<li>基础数据类型[Number, String, Boolean, Null, Undefined, Symbol]</li>
+<li>function 函数</li>
+<li>数据在 <code>栈内存</code> 储存/使用 类似数据结构 中 <code>堆栈数据结构</code>, 遵循<code>后进先出</code>/<code>先进后出</code></li>
+</ul>
+</li>
+<li>堆内存(heap)<ul>
+<li>引用数据类型[Array, Object, Map, Set, …]</li>
+<li>访问：从栈中获取了该对象的地址引用（或者地址指针）</li>
+</ul>
+</li>
+</ul>
+<h2 id="浏览器事件机制-EventLoop"><a href="#浏览器事件机制-EventLoop" class="headerlink" title="浏览器事件机制(EventLoop)"></a>浏览器事件机制(EventLoop)</h2><ul>
+<li>所有同步任务都在主线程上执行, 形成一个<code>执行栈</code></li>
+<li>主线程外, 存在一个 <code>任务队列</code>. <code>异步任务</code>运行出结果, <code>任务队列</code>放置事件</li>
+<li><code>执行栈</code> 同步任务执行完毕, 系统读取<code>任务队列</code>, 并放入 <code>执行栈</code></li>
+<li>主线程从 <code>任务队列</code>读取事件, 过程循环不断(EventLoop)</li>
+</ul>
+<h2 id="队列-gt-宏任务-微任务"><a href="#队列-gt-宏任务-微任务" class="headerlink" title="队列=&gt;宏任务/微任务"></a>队列=&gt;宏任务/微任务</h2><p>概念：微任务和宏任务都是属于队列，而不是放在栈中</p>
+<ul>
+<li>宏任务(task)<ul>
+<li>新建 任务队列</li>
+</ul>
+</li>
+<li>微任务(Microtasks)<ul>
+<li>在当前队列执行任务，减小性能开销</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>栈：<ul>
+<li>存储 基础数据类型</li>
+<li>按值访问</li>
+<li>存储的值大小固定</li>
+<li>由系统自动分配内存空间</li>
+<li>空间小, 运行效率高</li>
+<li>先进后出, 后进先出</li>
+<li>栈中 <code>DOM</code>, <code>ajax</code>, <code>setTimeout</code> 依次进入队列，栈中代码执行完毕，再将队列事件放入<code>执行栈</code></li>
+<li>宏任务/微任务</li>
+</ul>
+</li>
+<li>堆：<ul>
+<li>存储 引用数据类型</li>
+<li>按引用访问</li>
+<li>存储的值 大小不定，可动态调整</li>
+<li>主要用来存放 对象</li>
+<li>空间大 运行效率相对较低</li>
+<li>无序存储，可根据引用直接获取</li>
+</ul>
+</li>
+</ul>
 
-<h1 id="关于快速阅读"><a href="#关于快速阅读" class="headerlink" title="关于快速阅读"></a>关于快速阅读</h1><ul>
-<li>倍速阅读：通过 定时阅读，训练阅读速度 一目十行。</li>
-<li>苹果阅读：找关键字，提炼总结、向他人复述心得。从不同角度读书</li>
-<li>卡片阅读：从 <code>见闻/思考</code> 两方面记录 金句、故事、知识点。自己的 <code>想法/素材</code> 总结提炼</li>
-</ul>
-<p>总结：归纳总结、提取精华，触类旁通、举一反三！！！</p>
-<hr>
-<h1 id="学霸的技巧与方法"><a href="#学霸的技巧与方法" class="headerlink" title="学霸的技巧与方法"></a>学霸的技巧与方法</h1><p>归纳总结、知微见著。避免死学、傻学。学一会十</p>
-<hr>
-<h1 id="近段时间学习"><a href="#近段时间学习" class="headerlink" title="近段时间学习"></a>近段时间学习</h1><h2 id="编译器原理"><a href="#编译器原理" class="headerlink" title="编译器原理"></a>编译器原理</h2><ul>
-<li>计算机二进制：通过高低电压计算，高电压=1， 低电压=0；二进制又称 <code>机器码</code>, 计算机直接识别</li>
-<li>Just in time 即时编译</li>
-<li>Ahead of time 运行时编译</li>
-</ul>
-<hr>
-<h2 id="DNS劫持、投毒、解析"><a href="#DNS劫持、投毒、解析" class="headerlink" title="DNS劫持、投毒、解析"></a>DNS劫持、投毒、解析</h2><hr>
-<h2 id="微软、GitHub支持-996-ICU运动"><a href="#微软、GitHub支持-996-ICU运动" class="headerlink" title="微软、GitHub支持 996.ICU运动"></a>微软、GitHub支持 996.ICU运动</h2><hr>
-<h2 id="常见POST提交数据方式"><a href="#常见POST提交数据方式" class="headerlink" title="常见POST提交数据方式"></a>常见POST提交数据方式</h2><hr>
-<h2 id="浏览器时间系统-掘金周刊"><a href="#浏览器时间系统-掘金周刊" class="headerlink" title="浏览器时间系统[掘金周刊]"></a>浏览器时间系统[掘金周刊]</h2><hr>
-<h2 id="关于组件化开发的规范"><a href="#关于组件化开发的规范" class="headerlink" title="关于组件化开发的规范"></a>关于组件化开发的规范</h2><ul>
-<li>应遵循 模块化、系统化 的规范开发方式</li>
-<li>语义化命名</li>
-<li>代码注释</li>
-<li>统一代码风格，缩进，等宽字体，换行</li>
-</ul>
-<hr>
-<h2 id="Chrome性能检测-——-前端九部"><a href="#Chrome性能检测-——-前端九部" class="headerlink" title="Chrome性能检测 —— 前端九部"></a>Chrome性能检测 —— 前端九部</h2><h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><h3 id="Performance-monitor"><a href="#Performance-monitor" class="headerlink" title="Performance monitor"></a>Performance monitor</h3><h3 id="Audits"><a href="#Audits" class="headerlink" title="Audits"></a>Audits</h3><h3 id="编程式性能检测-Performance-API"><a href="#编程式性能检测-Performance-API" class="headerlink" title="编程式性能检测[Performance API]"></a>编程式性能检测[Performance API]</h3><h2 id="W3C-标准-performance-API-自行拓展"><a href="#W3C-标准-performance-API-自行拓展" class="headerlink" title="W3C 标准 performance API 自行拓展"></a>W3C 标准 performance API 自行拓展</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/04/26/工作学习日常记录/如何高效学习阅读/" data-id="cjuxepwmq006458dvo1yp2jch" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/07/17/DataStructures&Algorithm/JS堆、栈-EventLoop/" data-id="cjy6ziic4002rrwdunb5e4rnd" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li></ul>
 
     </footer>
   </div>
@@ -160,11 +183,66 @@
 
 
   
-    <article id="post-FrontEnd/JS/修改css的API" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-《大话数据结构》-读书笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/18/FrontEnd/JS/修改css的API/" class="article-date">
-  <time class="post-time" datetime="2019-03-18T09:29:08.000Z" itemprop="datePublished">
-    <span class="post-month">3月</span><br/>
+    <a href="/2019/07/03/《大话数据结构》-读书笔记/" class="article-date">
+  <time class="post-time" datetime="2019-07-03T06:30:01.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/03/《大话数据结构》-读书笔记/">《大话数据结构》--读书笔记</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/07/03/《大话数据结构》-读书笔记/" class="leancloud_visitors" data-flag-title="《大话数据结构》--读书笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2019/07/03/《大话数据结构》-读书笔记/" data-id="cjy6zii7m000hrwduxpzb5o6b" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-高效沟通" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/18/高效沟通/" class="article-date">
+  <time class="post-time" datetime="2019-06-18T05:17:47.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
     <span class="post-day">18</span>
   </time>
 </a>
@@ -177,7 +255,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/18/FrontEnd/JS/修改css的API/">修改css的API</a>
+      <a class="article-title" href="/2019/06/18/高效沟通/">高效沟通</a>
     </h1>
   
 
@@ -187,7 +265,7 @@
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/03/18/FrontEnd/JS/修改css的API/" class="leancloud_visitors" data-flag-title="修改css的API">
+    <span id="/2019/06/18/高效沟通/" class="leancloud_visitors" data-flag-title="高效沟通">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -199,13 +277,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="cssText的应用"><a href="#cssText的应用" class="headerlink" title="cssText的应用"></a>cssText的应用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重写</span></span><br><span class="line">cssText = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 累加</span></span><br><span class="line">cssText += <span class="string">''</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * Element: DOM 元素</span></span><br><span class="line"><span class="comment"> * 切换元素的 className</span></span><br><span class="line"><span class="comment"> * 判断是否存在</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Element.classList.toggle(<span class="string">'pause'</span>);</span><br><span class="line"><span class="keyword">if</span> (Element.classList.contains(<span class="string">'pause'</span>)) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 兼容写法 */</span></span><br><span class="line">navContainer.currentStyle <span class="comment">// IE</span></span><br><span class="line">  ? navContainer.currentStyle</span><br><span class="line">  : <span class="built_in">document</span>.defaultView.getComputedStyle(navContainer, <span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+        <h1 id="认知篇-情商沟通底层逻辑"><a href="#认知篇-情商沟通底层逻辑" class="headerlink" title="认知篇[情商沟通底层逻辑]"></a>认知篇[情商沟通底层逻辑]</h1><h2 id="沟通中一定要避免的方式"><a href="#沟通中一定要避免的方式" class="headerlink" title="沟通中一定要避免的方式"></a>沟通中一定要避免的方式</h2><h2 id="如何不经意夸人达到自己的沟通目的"><a href="#如何不经意夸人达到自己的沟通目的" class="headerlink" title="如何不经意夸人达到自己的沟通目的"></a>如何不经意夸人达到自己的沟通目的</h2><h1 id="实践篇-开口掌握说话主动权"><a href="#实践篇-开口掌握说话主动权" class="headerlink" title="实践篇[开口掌握说话主动权]"></a>实践篇[开口掌握说话主动权]</h1><h2 id="不露痕迹地跨到对方心坎里"><a href="#不露痕迹地跨到对方心坎里" class="headerlink" title="不露痕迹地跨到对方心坎里"></a>不露痕迹地跨到对方心坎里</h2><h2 id="如何制造悬念，迅速拉近距离"><a href="#如何制造悬念，迅速拉近距离" class="headerlink" title="如何制造悬念，迅速拉近距离"></a>如何制造悬念，迅速拉近距离</h2><h2 id="顺势巧妙的夸人"><a href="#顺势巧妙的夸人" class="headerlink" title="顺势巧妙的夸人"></a>顺势巧妙的夸人</h2><h2 id="初次见面如何寒暄，才能真诚不尴尬"><a href="#初次见面如何寒暄，才能真诚不尴尬" class="headerlink" title="初次见面如何寒暄，才能真诚不尴尬"></a>初次见面如何寒暄，才能真诚不尴尬</h2><h2 id="摆脱距离感，像朋友一样聊天"><a href="#摆脱距离感，像朋友一样聊天" class="headerlink" title="摆脱距离感，像朋友一样聊天"></a>摆脱距离感，像朋友一样聊天</h2><h2 id="尴尬冷场，如何自嘲缓解气氛"><a href="#尴尬冷场，如何自嘲缓解气氛" class="headerlink" title="尴尬冷场，如何自嘲缓解气氛"></a>尴尬冷场，如何<code>自嘲</code>缓解气氛</h2><h2 id="利用心理学效应，快速拉近距离"><a href="#利用心理学效应，快速拉近距离" class="headerlink" title="利用心理学效应，快速拉近距离"></a>利用心理学效应，快速拉近距离</h2><h2 id="赞美时，如何让对方感觉发自肺腑"><a href="#赞美时，如何让对方感觉发自肺腑" class="headerlink" title="赞美时，如何让对方感觉发自肺腑"></a>赞美时，如何让对方感觉发自肺腑</h2><h2 id="3招让对方坦然接受你的请求"><a href="#3招让对方坦然接受你的请求" class="headerlink" title="3招让对方坦然接受你的请求"></a>3招让对方坦然接受你的请求</h2><h2 id="沟通时出其不意给人惊喜"><a href="#沟通时出其不意给人惊喜" class="headerlink" title="沟通时出其不意给人惊喜"></a>沟通时出其不意给人惊喜</h2><h2 id="学会利用“第三者”，让对方迅速成为自己人"><a href="#学会利用“第三者”，让对方迅速成为自己人" class="headerlink" title="学会利用“第三者”，让对方迅速成为自己人"></a>学会利用“第三者”，让对方迅速成为自己人</h2><h2 id="五个细节，让朋友越聊越走心"><a href="#五个细节，让朋友越聊越走心" class="headerlink" title="五个细节，让朋友越聊越走心"></a>五个细节，让朋友越聊越走心</h2><h2 id="如何投其所好，旁敲侧击得到你想要的信息"><a href="#如何投其所好，旁敲侧击得到你想要的信息" class="headerlink" title="如何投其所好，旁敲侧击得到你想要的信息"></a>如何投其所好，旁敲侧击得到你想要的信息</h2><ul>
+<li>具象化</li>
+<li>从否到肯</li>
+<li>4个细节</li>
+<li>主动寒暄</li>
+<li>置换角度</li>
+<li>对比法</li>
+<li>得失效应</li>
+<li>似否实肯</li>
+<li>信任刺激</li>
+<li>独辟蹊径</li>
+<li>间接赞美</li>
+<li>随手记</li>
+<li>察觉需求</li>
+</ul>
+<h1 id="进阶篇-关键时刻打破沟通僵局"><a href="#进阶篇-关键时刻打破沟通僵局" class="headerlink" title="进阶篇[关键时刻打破沟通僵局]"></a>进阶篇[关键时刻打破沟通僵局]</h1><h2 id="“说完就后悔”，如何快速反应"><a href="#“说完就后悔”，如何快速反应" class="headerlink" title="“说完就后悔”，如何快速反应"></a>“说完就后悔”，如何快速反应</h2><h2 id="亲密关系中，如何巧妙不矫情地夸赞对方"><a href="#亲密关系中，如何巧妙不矫情地夸赞对方" class="headerlink" title="亲密关系中，如何巧妙不矫情地夸赞对方"></a>亲密关系中，如何巧妙不矫情地夸赞对方</h2><h2 id="拒绝假大空，拒绝套路式沟通"><a href="#拒绝假大空，拒绝套路式沟通" class="headerlink" title="拒绝假大空，拒绝套路式沟通"></a>拒绝假大空，拒绝套路式沟通</h2><h2 id="好好说话，拒绝”语言微暴力”"><a href="#好好说话，拒绝”语言微暴力”" class="headerlink" title="好好说话，拒绝”语言微暴力”"></a>好好说话，拒绝”语言微暴力”</h2><h2 id="好好利用冲突，为你们的关系加点香料"><a href="#好好利用冲突，为你们的关系加点香料" class="headerlink" title="好好利用冲突，为你们的关系加点香料"></a>好好利用冲突，为你们的关系加点香料</h2><h2 id="学会反思，靠说话赢得最重要的人"><a href="#学会反思，靠说话赢得最重要的人" class="headerlink" title="学会反思，靠说话赢得最重要的人"></a>学会反思，靠说话赢得最重要的人</h2><ul>
+<li>弱化批评</li>
+<li>恋情密码</li>
+<li>去伪存真</li>
+<li>反观诸己</li>
+<li>就事论事</li>
+<li>七问诸君</li>
+</ul>
+<p># </p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/18/FrontEnd/JS/修改css的API/" data-id="cjuxepwqh00ad58dvxlv12agx" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/06/18/高效沟通/" data-id="cjy6ziiap001zrwdudubmhzkx" class="article-share-link">分享</a>
       
       
     </footer>
@@ -217,66 +317,11 @@
 
 
   
-    <article id="post-FrontEnd/WebFrameWork/Vue/Vue-template-slot-scope" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-编译原理" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/15/FrontEnd/WebFrameWork/Vue/Vue-template-slot-scope/" class="article-date">
-  <time class="post-time" datetime="2019-03-15T03:09:41.000Z" itemprop="datePublished">
-    <span class="post-month">3月</span><br/>
-    <span class="post-day">15</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/15/FrontEnd/WebFrameWork/Vue/Vue-template-slot-scope/">Vue-template slot-scope</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/03/15/FrontEnd/WebFrameWork/Vue/Vue-template-slot-scope/" class="leancloud_visitors" data-flag-title="Vue-template slot-scope">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/15/FrontEnd/WebFrameWork/Vue/Vue-template-slot-scope/" data-id="cjuxepwt800eh58dvnuwmdy11" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/HTML CSS/font-face-的format属性" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/14/FrontEnd/HTML CSS/font-face-的format属性/" class="article-date">
-  <time class="post-time" datetime="2019-03-14T02:58:24.000Z" itemprop="datePublished">
-    <span class="post-month">3月</span><br/>
+    <a href="/2019/06/14/编译原理/" class="article-date">
+  <time class="post-time" datetime="2019-06-14T05:34:04.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
     <span class="post-day">14</span>
   </time>
 </a>
@@ -289,17 +334,21 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/14/FrontEnd/HTML CSS/font-face-的format属性/">@font-face的format属性</a>
+      <a class="article-title" href="/2019/06/14/编译原理/">编译原理</a>
     </h1>
   
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/计算机技术原理/">计算机技术原理</a>
+  </div>
+
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/03/14/FrontEnd/HTML CSS/font-face-的format属性/" class="leancloud_visitors" data-flag-title="@font-face的format属性">
+    <span id="/2019/06/14/编译原理/" class="leancloud_visitors" data-flag-title="编译原理">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -311,11 +360,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="font-face的format属性"><a href="#font-face的format属性" class="headerlink" title="@font-face的format属性"></a><a href="https://blog.csdn.net/robocop_mao/article/details/47323911" target="_blank" rel="noopener">@font-face的format属性</a></h2>
+        <h1 id="编译原理-–-陈意云"><a href="#编译原理-–-陈意云" class="headerlink" title="编译原理 – 陈意云"></a>编译原理 – 陈意云</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>编译器 构造 一般原理、基本设计方法、主要实现技术<br>编译器技术近年来 <code>主要进展</code>在面向 新型计算机体系结构 的优化 方面。 例如 <code>并行化、低功耗</code>.</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><h3 id="高可信软件"><a href="#高可信软件" class="headerlink" title="高可信软件"></a>高可信软件</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/14/FrontEnd/HTML CSS/font-face-的format属性/" data-id="cjuxepwpa008n58dvcih6rmmu" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/06/14/编译原理/" data-id="cjy6ziiaj001srwdu9puh9bb8" class="article-share-link">分享</a>
       
       
     </footer>
@@ -327,12 +377,12 @@
 
 
   
-    <article id="post-FrontEnd/HTML CSS/CSS-placeholder样式修改" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-FrontEnd/WebFrameWork/Vue/Vue-开发技巧" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/13/FrontEnd/HTML CSS/CSS-placeholder样式修改/" class="article-date">
-  <time class="post-time" datetime="2019-03-13T02:31:22.000Z" itemprop="datePublished">
-    <span class="post-month">3月</span><br/>
-    <span class="post-day">13</span>
+    <a href="/2019/06/11/FrontEnd/WebFrameWork/Vue/Vue-开发技巧/" class="article-date">
+  <time class="post-time" datetime="2019-06-11T08:52:07.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">11</span>
   </time>
 </a>
    
@@ -344,21 +394,17 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/13/FrontEnd/HTML CSS/CSS-placeholder样式修改/">CSS-placeholder样式修改</a>
+      <a class="article-title" href="/2019/06/11/FrontEnd/WebFrameWork/Vue/Vue-开发技巧/">Vue-开发技巧</a>
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
           
               
   &nbsp; | &nbsp;
   <div class="view-box">
-    <span id="/2019/03/13/FrontEnd/HTML CSS/CSS-placeholder样式修改/" class="leancloud_visitors" data-flag-title="CSS-placeholder样式修改">
+    <span id="/2019/06/11/FrontEnd/WebFrameWork/Vue/Vue-开发技巧/" class="leancloud_visitors" data-flag-title="Vue-开发技巧">
       &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
     </span>
   </div>
@@ -370,18 +416,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="placeholder样式选择器"><a href="#placeholder样式选择器" class="headerlink" title="placeholder样式选择器"></a><a href="https://www.cnblogs.com/JennyLin77/p/5308431.html" target="_blank" rel="noopener">placeholder样式选择器</a></h1><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-input-placeholder</span>&#123;&#125;    <span class="comment">/* 使用webkit内核的浏览器 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:-moz-placeholder</span>&#123;&#125;                  <span class="comment">/* Firefox版本4-18 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">::-moz-placeholder</span>&#123;&#125;                  <span class="comment">/* Firefox版本19+ */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-pseudo">:-ms-input-placeholder</span>&#123;&#125;           <span class="comment">/* IE浏览器 */</span></span><br></pre></td></tr></table></figure>
-<p>注1：冒号前写对应的input或textarea元素等。\<br>注2：placeholder属性是css3中新增加的属性，IE9和Opera12以下版本的CSS选择器均不支持占位文本。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[input || textarea]</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#3c5482</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="Vue开发技巧"><a href="#Vue开发技巧" class="headerlink" title="Vue开发技巧"></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwNjI5MTYyMw==&amp;mid=2651497482&amp;idx=1&amp;sn=5c1bf8865cecbf4585441f257d473d09&amp;chksm=80f1adc2b78624d4b26284d65a2e8d3527f04ac186feb2a791aec68f365a8539f14d688ca9a4&amp;scene=0&amp;xtrack=1&amp;key=9f119a2cc0889571aafd9635c6417fd27ab07c1f7c3dcebda2c4a69d22280b6285d0e152ae4a18cdc33e724c8446678b124e72b5216ceed29348a2f3efc69d1778ab5702455a372a785e4232335ddd81&amp;ascene=1&amp;uin=NDc0MjYzNDU1&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=VKSwa6kXziXKUbDXPDWmyZxfaLh5uErMg1PwsZADDClFFQZmqrotIlucMHi9%2BAQT" target="_blank" rel="noopener">Vue开发技巧</a></h1><h2 id="状态共享"><a href="#状态共享" class="headerlink" title="状态共享"></a>状态共享</h2><p>vue.js 2.6 新增加的 Observable API</p>
+<h2 id="长列表性能优化"><a href="#长列表性能优化" class="headerlink" title="长列表性能优化"></a>长列表性能优化</h2><blockquote>
+<p><code>object.defineProperty</code>对数据进行劫持<br><code>object.freeze</code>方法来冻结一个对象<br>只是冻结 值，引用不会被冻结，当我们需要 reactive数据的时候，我们可以重新给 变量赋值。</p>
+</blockquote>
+<h2 id="去除多余的样式"><a href="#去除多余的样式" class="headerlink" title="去除多余的样式"></a>去除多余的样式</h2><blockquote>
+<p>purgecss</p>
+</blockquote>
+<h2 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h2><h2 id="属性事件传递"><a href="#属性事件传递" class="headerlink" title="属性事件传递"></a>属性事件传递</h2><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2><h2 id="监听组件的生命周期"><a href="#监听组件的生命周期" class="headerlink" title="监听组件的生命周期"></a>监听组件的生命周期</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/13/FrontEnd/HTML CSS/CSS-placeholder样式修改/" data-id="cjuxepwpp009958dvfjdytixw" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/06/11/FrontEnd/WebFrameWork/Vue/Vue-开发技巧/" data-id="cjy6ziimj00fcrwduf71dmszs" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/placeholder/">placeholder</a></li></ul>
-
     </footer>
   </div>
   
@@ -394,7 +442,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/2/">next &raquo;</a>
   </nav>
 </section>
         
@@ -435,9 +483,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>166</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>81</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>127</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
     </div>
 
 
