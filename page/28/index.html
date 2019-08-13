@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,71 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/WebFrameWork/Vue/vue-resize" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" class="article-date">
+  <time class="post-time" datetime="2018-05-14T07:59:59.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/">vue-resize</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VUE/">VUE</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" class="leancloud_visitors" data-flag-title="vue-resize">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="主要记录方案二："><a href="#主要记录方案二：" class="headerlink" title="主要记录方案二："></a>主要记录方案二：</h2><p>在vue 2.x 里面的时候，可以在 <code>mounted</code> 钩子中 全局监听 <code>resize</code> 事件，然后绑定的函数再做具体的处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        clientHeight: &apos;600px&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">mounted() &#123;</span><br><span class="line">    // 动态设置背景图的高度为浏览器可视区域高度</span><br><span class="line"></span><br><span class="line">    // 首先在Virtual DOM渲染数据时，设置下背景图的高度．</span><br><span class="line">    &gt; this.clientHeight.height = `$&#123;document.documentElement.clientHeight&#125;px`;</span><br><span class="line">    </span><br><span class="line">    // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度．</span><br><span class="line">    &gt; const that = this;</span><br><span class="line">    &gt; window.onresize = function temp() &#123;</span><br><span class="line">    &gt;     that.clientHeight = `$&#123;document.documentElement.clientHeight&#125;px`;</span><br><span class="line">    &gt; &#125;;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://blog.csdn.net/qq_25386583/article/details/77161478" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/WebFrameWork/Vue/vue-resize/" data-id="cjz9eo3mg00gpd4dus7eapbsn" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VueJs-监听-window-resize/">VueJs 监听 window.resize</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-FrontEnd/JS/JS-BOM" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -122,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/JS/JS-BOM/" data-id="cjyxygilp009xoodu0pobuas9" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/JS/JS-BOM/" data-id="cjz9eo3ie00a3d4duvqhfbkty" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/">BOM</a></li></ul>
@@ -186,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/" data-id="cjyxygis800fgoodunh78e1bz" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/14/FrontEnd/WebFrameWork/React/react中{if-else}/" data-id="cjz9eo3lo00fmd4dudgqz6ouk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-if-else/">react-if-else</a></li></ul>
@@ -256,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/五大浏览器-四大内核/" data-id="cjyxygiem003zooduc490ta9n" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/五大浏览器-四大内核/" data-id="cjz9eo3dz0041d4duo3tzzow5" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/browser/">browser</a></li></ul>
@@ -320,74 +385,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/JS/移动检测/" data-id="cjyxyginv00booodubff4cf7s" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/05/12/FrontEnd/JS/移动检测/" data-id="cjz9eo3je00bud4du3y6rvq0c" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/If-Mobile/">If Mobile</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/HTML CSS/Bootstrap响应式布局" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" class="article-date">
-  <time class="post-time" datetime="2018-05-11T08:24:17.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">11</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/">Bootstrap响应式布局</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" class="leancloud_visitors" data-flag-title="Bootstrap响应式布局">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Bootstrap不同分辨率下隐藏元素"><a href="#Bootstrap不同分辨率下隐藏元素" class="headerlink" title="Bootstrap不同分辨率下隐藏元素"></a>Bootstrap不同分辨率下隐藏元素</h2><p>hidden-xs hidden-sm 等控制隐藏<br>visible-xs-<em> visible-sm-</em> 等控制显示</p>
-<p><a href="http://v3.bootcss.com/css/#responsive-utilities" target="_blank" rel="noopener">说明文档</a></p>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/05/11/FrontEnd/HTML CSS/Bootstrap响应式布局/" data-id="cjyxygik5008eoodubit69fhh" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li></ul>
 
     </footer>
   </div>
@@ -442,9 +443,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
 
 

@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,84 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/WebFrameWork/React/Redux学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="article-date">
+  <time class="post-time" datetime="2018-09-05T08:44:43.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">05</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/">Redux学习笔记</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redux/">Redux</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" class="leancloud_visitors" data-flag-title="Redux学习笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function (action) &#123;</span><br><span class="line">  if (sagaMonitor &amp;&amp; sagaMonitor.actionDispatched) &#123;</span><br><span class="line">    sagaMonitor.actionDispatched(action);</span><br><span class="line">  &#125;</span><br><span class="line">  var result = next(action); // hit reducers</span><br><span class="line">  sagaEmitter.emit(action);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="项目中学习Redux"><a href="#项目中学习Redux" class="headerlink" title="项目中学习Redux"></a>项目中学习Redux</h2><p>记录在脚手架学习Demo中尝试使用Redux的过程。</p>
+<ol>
+<li></li>
+<li>定义</li>
+<li>Action中创建<code>AppRedux</code>文件夹, 创建<code>action.AppRedux.type.js</code> \<br>内容如下：<blockquote>
+<p>export const APP_REDUX = “APP_REDUX”;</p>
+</blockquote>
+</li>
+<li>在<code>Action</code>文件夹下<code>index</code>中引入 需要抛出的变量<blockquote>
+<p>import {APP_REDUX} from ‘./AppRedux/action.appRedux.type’;</p>
+</blockquote>
+</li>
+<li>定义 一个 <code>Reducer</code> <code>APP_REDUX</code>, 并引入 action 变量 type</li>
+<li>每次程序 dispatch 一个 action，所有 reducer 都会在当前reducer中通过 switch 语句 判断 action 是否 触发本状态<br>7.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux&apos;;</span><br><span class="line"></span><br><span class="line">// 所有 reducer 通过 `combineReducers(&#123;...Reducers&#125;)`方法</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/09/05/FrontEnd/WebFrameWork/React/Redux学习笔记/" data-id="cjz9eo3lm00fid4dutthlpql8" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redux/">Redux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-Editor/编辑器配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -124,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjyxygie6003kooduavum9fl9" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/15/Editor/编辑器配置/" data-id="cjz9eo3dr003pd4dur9taqv2p" class="article-share-link">分享</a>
       
       
     </footer>
@@ -197,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/server/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjyxygiw100i3ooduxpq763o8" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/14/server/NodeJS/NPM/npm安装失败-修改-npmrc/" data-id="cjz9eo3ne00i9d4dug3vh08sc" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npmrc/">.npmrc</a></li></ul>
@@ -276,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" data-id="cjyxygix900jfooduuwdl3zi3" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/13/Operating System/UnixLike/Unix-BSD/FreeBSD/FreeBSD安装开发环境/" data-id="cjz9eo3o100jld4duv7iideyl" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BSD部署/">BSD部署</a></li></ul>
@@ -333,75 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" data-id="cjyxygiuj00h5oodudc3ruxto" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-server/Nginx配置" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/10/server/Nginx配置/" class="article-date">
-  <time class="post-time" datetime="2018-08-10T02:00:45.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">10</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/10/server/Nginx配置/">Nginx配置</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/08/10/server/Nginx配置/" class="leancloud_visitors" data-flag-title="Nginx配置">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="find-name-nginx"><a href="#find-name-nginx" class="headerlink" title="find / -name nginx*"></a>find / -name nginx*</h2><blockquote>
-<p>vim /etc/<em>/nginx.conf<br>include /etc/nginx/conf.d/</em>.conf; // 分配置文件目录 绑定域名</p>
-</blockquote>
-<h2 id="Tsxt服务器-Nginx-分配置目录"><a href="#Tsxt服务器-Nginx-分配置目录" class="headerlink" title="Tsxt服务器 Nginx 分配置目录"></a>Tsxt服务器 Nginx 分配置目录</h2><blockquote>
-<p>/etc/nginx/conf.d &gt;&gt; *.conf</p>
-</blockquote>
-<h2 id="jdyxqq-com-自定义-Nginx主配置目录"><a href="#jdyxqq-com-自定义-Nginx主配置目录" class="headerlink" title="jdyxqq.com 自定义 Nginx主配置目录"></a>jdyxqq.com 自定义 Nginx主配置目录</h2><blockquote>
-<p>/mnt/www/etc/nginx</p>
-</blockquote>
-<h2 id="mv-修改拓展名"><a href="#mv-修改拓展名" class="headerlink" title="mv 修改拓展名"></a>mv 修改拓展名</h2><h2 id="注意端口有没有被占用"><a href="#注意端口有没有被占用" class="headerlink" title="注意端口有没有被占用"></a>注意端口有没有被占用</h2><h2 id="重启服务器-或者-关闭占用端口进程"><a href="#重启服务器-或者-关闭占用端口进程" class="headerlink" title="重启服务器 或者 关闭占用端口进程"></a>重启服务器 或者 关闭占用端口进程</h2><h2 id="每次修改分配置文件都要重启Nginx"><a href="#每次修改分配置文件都要重启Nginx" class="headerlink" title="每次修改分配置文件都要重启Nginx"></a>每次修改分配置文件都要重启Nginx</h2><blockquote>
-<p>service nginx restart</p>
-</blockquote>
-<p>## </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/08/10/server/Nginx配置/" data-id="cjyxygiha0063ooduz5m9ctfy" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/08/10/Operating System/UnixLike/Linux/linux查看端口占用情况/" data-id="cjz9eo3ms00hbd4du3m5qw4gs" class="article-share-link">分享</a>
       
       
     </footer>
@@ -457,9 +467,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
 
 

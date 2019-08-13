@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,81 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-DataStructures&amp;Algorithm/延迟判断算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/26/DataStructures&Algorithm/延迟判断算法/" class="article-date">
+  <time class="post-time" datetime="2018-10-26T08:20:06.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/26/DataStructures&Algorithm/延迟判断算法/">延迟判断算法</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/10/26/DataStructures&amp;Algorithm/延迟判断算法/" class="leancloud_visitors" data-flag-title="延迟判断算法">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="延迟判断算法"><a href="#延迟判断算法" class="headerlink" title="延迟判断算法"></a>延迟判断算法</h1><p>延迟判断 为了 降低 [vue,react] 框架中的, [onChange,click…] 事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/** 组件内，函数外 缓存状态 */</span><br><span class="line">this.state = &#123;</span><br><span class="line">  cacheValueArr: []</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/** 核心思想是：</span><br><span class="line">* 先缓存一次数据， </span><br><span class="line">* 定时器 2S 后 再缓存一次数据 </span><br><span class="line">* 对比判断 值 是否 相等，代表没有改变</span><br><span class="line">*/</span><br><span class="line">onChange(e) &#123;</span><br><span class="line">  let cacheArr = this.state.cacheValueArr; // 先引用缓存的状态</span><br><span class="line">  let len = cacheArr.push(e); // push方法 会返回 长度，改变原数组</span><br><span class="line">  let lastOne = cacheArr.slice(-1); // 数组最后一位的 值</span><br><span class="line"></span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    let lastLen = this.state.cacheValueArr.length; // 2S 后再缓存 长度有无变化</span><br><span class="line">    let lastOnes = this.state.cacheValueArr.slice(-1); // 2S 后再缓存 值有无变化</span><br><span class="line">    if (len === lastLen) &#123;</span><br><span class="line">      this.setState(&#123;</span><br><span class="line">        curE: e</span><br><span class="line">      &#125;)</span><br><span class="line">      debugger</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, 2000);</span><br><span class="line">&#125;</span><br><span class="line">```` </span><br><span class="line"></span><br><span class="line"># 函数防抖动</span><br></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li><p>Created by hjl on 2017/8/15.<br>*/<br>var throttle = function (func, interval) {<br>var self = func,<br> timer,<br> firstTime = true;</p>
+<p>return function () {<br> var args = arguments,<br>   me = this;<br> if (firstTime) {<br>   self.apply(me, args);<br>   return firstTime = false;<br> }<br> if (timer) {<br>   return false;<br> }</p>
+<p> timer = setTimeout(function () {<br>   clearTimeout(timer);<br>   timer = null;<br>   self.apply(me, args);<br> }, interval || 3000);<br>};<br>};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**借鉴方法**</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>函数防抖<br>*</li>
+<li>@param {any} method 方法名<br>*/<br>function debounce(method) {<br>clearTimeout(method.tId);<br>method.tId = setTimeout(function() {<br>method.call();<br>}, 200);<br>}<br>````</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/26/DataStructures&Algorithm/延迟判断算法/" data-id="cjz9eo3d70033d4duwnc0fzhz" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/延迟判断/">延迟判断</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-FrontEnd/ECharts学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -367,7 +442,7 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/22/FrontEnd/ECharts学习笔记/" data-id="cjyxygieb003roodud3sx36jv" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/22/FrontEnd/ECharts学习笔记/" data-id="cjz9eo3dv003wd4du0wrb9vnh" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECharts4-0/">ECharts4.0</a></li></ul>
@@ -548,7 +623,7 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/05/FrontEnd/JS/JS设计模式/" data-id="cjyxygimn00anoodus0loljg7" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/05/FrontEnd/JS/JS设计模式/" data-id="cjz9eo3is00atd4dutuwnfcuq" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -616,7 +691,7 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/03/工作学习日常记录/十一学习记录/" data-id="cjyxygii0006gooduv0xxzvma" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/03/工作学习日常记录/十一学习记录/" data-id="cjz9eo3ft006md4dutrpr812u" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日记/">日记</a></li></ul>
@@ -708,80 +783,9 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/10/02/关于架构设计/" data-id="cjyxygi92000yooduzq1ogwea" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/10/02/关于架构设计/" data-id="cjz9eo39o000yd4dusdt2o6vo" class="article-share-link">分享</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-GIT/git-仓库添加SSH公钥" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="article-date">
-  <time class="post-time" datetime="2018-09-27T02:06:10.000Z" itemprop="datePublished">
-    <span class="post-month">9月</span><br/>
-    <span class="post-day">27</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/27/GIT/git-仓库添加SSH公钥/">git 仓库添加SSH公钥</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Git/">Git</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/09/27/GIT/git-仓库添加SSH公钥/" class="leancloud_visitors" data-flag-title="git 仓库添加SSH公钥">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git仓库添加SSH公钥"><a href="#Git仓库添加SSH公钥" class="headerlink" title="Git仓库添加SSH公钥"></a>Git仓库添加SSH公钥</h1><h2 id="第一步-生成SSH-key"><a href="#第一步-生成SSH-key" class="headerlink" title="第一步 生成SSH key"></a>第一步 生成SSH key</h2><blockquote>
-<p>ssh-keygen -t rsa -C “xxxxx@xxxxx.com”  </p>
-</blockquote>
-<h2 id="第二步-查看公钥"><a href="#第二步-查看公钥" class="headerlink" title="第二步 查看公钥"></a>第二步 查看公钥</h2><blockquote>
-<p>cat ~/.ssh/id_rsa.pub<br>复制生成的公钥，到 远程仓库-设置 里添加ssh</p>
-</blockquote>
-<h2 id="第三步-终端检测"><a href="#第三步-终端检测" class="headerlink" title="第三步 终端检测"></a>第三步 终端检测</h2><p>添加公钥后 用下面命令检测，首次使用需要添加主机到本机SSH信任列表</p>
-<blockquote>
-<p>ssh -T git@gitee.com</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/09/27/GIT/git-仓库添加SSH公钥/" data-id="cjyxygif7004ioodu4aubgcsa" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git-SSH/">Git-SSH</a></li></ul>
-
     </footer>
   </div>
   
@@ -835,9 +839,9 @@ ECharts 中的事件有两种，1、鼠标事件，在鼠标点击某个图形�
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
 
 

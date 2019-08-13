@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,69 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/前端框架-组件分类" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/04/FrontEnd/前端框架-组件分类/" class="article-date">
+  <time class="post-time" datetime="2019-03-04T01:39:35.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/04/FrontEnd/前端框架-组件分类/">前端框架-组件分类</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/03/04/FrontEnd/前端框架-组件分类/" class="leancloud_visitors" data-flag-title="前端框架-组件分类">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="组件通信精髓归纳"><a href="#组件通信精髓归纳" class="headerlink" title="组件通信精髓归纳"></a><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTEwMTAwNg==&amp;mid=2650215866&amp;idx=1&amp;sn=c4cc189d145d5c358db61697ca70a82e&amp;chksm=befe159b89899c8d4ae785b5f63063434dc1279830c020d8b60985e8e6a36a2e55f93a2ac6d4&amp;scene=0&amp;key=0c5bd8d37f178293ee8b964c45646c816ae57fd36e3aa2fc6380b64decdaf4a2a5261e66e18fd4da68f3e50e88e6890f0b8cfb13fc60cef3d307f198994046392cad2ad20d6d954cbbc93759df3bea2b&amp;ascene=1&amp;uin=NDc0MjYzNDU1&amp;devicetype=Windows+10&amp;version=62060728&amp;lang=zh_CN&amp;pass_ticket=Te3F3fjJvEE2Ktl6HdLDEl7tf30T%2FaPZRcijm2kAZQrqmAF%2BKcIY18vg71h%2FqF59" target="_blank" rel="noopener">组件通信精髓归纳</a></h1><h2 id="组件分类"><a href="#组件分类" class="headerlink" title="组件分类"></a>组件分类</h2><h3 id="常规页面"><a href="#常规页面" class="headerlink" title="常规页面"></a><strong>常规页面</strong></h3><p>每个页面(.vue) 即是一个组件</p>
+<h3 id="功能性抽象组件"><a href="#功能性抽象组件" class="headerlink" title="功能性抽象组件"></a><strong>功能性抽象组件</strong></h3><p>不包含业务，独立、具体的功能组件，button，select、date、alert、dialog、modal。。。</p>
+<h3 id="业务组件"><a href="#业务组件" class="headerlink" title="业务组件"></a><strong>业务组件</strong></h3><p>在业务中被多个页面复用</p>
+<p>它不像第二类独立组件只包含某个功能，而是在业务中被多个页面复用的，它与独立组件的区别是，业务组件只在当前项目中会用到，不具有通用性，而且会包含一些业务，比如数据请求；而独立组件不含业务，在任何项目中都可以使用，功能单一，比如一个具有数据校验功能的输入框。</p>
+<h2 id="组件关系"><a href="#组件关系" class="headerlink" title="组件关系"></a>组件关系</h2><h3 id="父子组件"><a href="#父子组件" class="headerlink" title="父子组件"></a><strong>父子组件</strong></h3><h3 id="兄弟组件"><a href="#兄弟组件" class="headerlink" title="兄弟组件"></a><strong>兄弟组件</strong></h3><h3 id="跨级组件"><a href="#跨级组件" class="headerlink" title="跨级组件"></a><strong>跨级组件</strong></h3><p>在父子关系中，中间跨了很多个层级。</p>
+<h2 id="组件构成"><a href="#组件构成" class="headerlink" title="组件构成"></a>组件构成</h2><p>一个再复杂的组件，都是由三部分组成的： <code>prop、 event、 slot</code>，它们构成了 Vue.js 组件的 API。</p>
+<h3 id="属性-prop"><a href="#属性-prop" class="headerlink" title="属性 prop"></a><strong>属性 prop</strong></h3><h3 id="插槽-slot"><a href="#插槽-slot" class="headerlink" title="插槽 slot"></a><strong>插槽 slot</strong></h3><h3 id="自定义事件-event"><a href="#自定义事件-event" class="headerlink" title="自定义事件 event"></a><strong>自定义事件 event</strong></h3><p>两种写法：</p>
+<p>1、在组件内部自定义事件 event</p>
+<h2 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h2><h3 id="ref和-parent和-children"><a href="#ref和-parent和-children" class="headerlink" title="ref和$parent和$children"></a><strong>ref和$parent和$children</strong></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2019/03/04/FrontEnd/前端框架-组件分类/" data-id="cjz9eo3e9004gd4dunewwj6nr" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-个人优势的记录" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -118,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/01/个人优势的记录/" data-id="cjyxygi8u000uoodulyqv6b1g" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/03/01/个人优势的记录/" data-id="cjz9eo39g000td4duc47o3bpe" class="article-share-link">分享</a>
       
       
     </footer>
@@ -178,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/03/01/HTTP/OSI七层传输协议/" data-id="cjyxygifw0050ooduomxuklns" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/03/01/HTTP/OSI七层传输协议/" data-id="cjz9eo3eu0055d4dupo7o7h7t" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OSI/">OSI</a></li></ul>
@@ -239,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/server/NodeJS/NPM/Npm-查看所有依赖/" data-id="cjyxygivt00hxoodumgccnzt1" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/server/NodeJS/NPM/Npm-查看所有依赖/" data-id="cjz9eo3na00i2d4duqrkq2g3h" class="article-share-link">分享</a>
       
       
     </footer>
@@ -298,71 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/" data-id="cjyxygikp008toodudmc67e5q" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-server/Ubuntu-安装-mySQL" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/31/server/Ubuntu-安装-mySQL/" class="article-date">
-  <time class="post-time" datetime="2019-01-31T10:41:31.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">31</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/31/server/Ubuntu-安装-mySQL/">Ubuntu 安装 mySQL</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2019/01/31/server/Ubuntu-安装-mySQL/" class="leancloud_visitors" data-flag-title="Ubuntu 安装 mySQL">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>教程：<a href="https://blog.csdn.net/weixx3/article/details/80782479" target="_blank" rel="noopener">https://blog.csdn.net/weixx3/article/details/80782479</a></p>
-<hr>
-<blockquote>
-<p>GRANT ALL PRIVILEGES ON <em>.</em> TO root@localhost IDENTIFIED BY “123456”;</p>
-<h2 id="GRANT-ALL-PRIVILEGES-ON-TO-root-”-”-IDENTIFIED-BY-“123456”-允许-root-远程连接"><a href="#GRANT-ALL-PRIVILEGES-ON-TO-root-”-”-IDENTIFIED-BY-“123456”-允许-root-远程连接" class="headerlink" title="GRANT ALL PRIVILEGES ON . TO root@”%” IDENTIFIED BY “123456”; // 允许 root 远程连接"></a>GRANT ALL PRIVILEGES ON <em>.</em> TO root@”%” IDENTIFIED BY “123456”; // 允许 root 远程连接</h2></blockquote>
-<p>重启 服务</p>
-<blockquote>
-<p>service ‘服务名’ restart</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2019/01/31/server/Ubuntu-安装-mySQL/" data-id="cjyxygihd0064oodupfiae8ep" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2019/02/26/FrontEnd/HTML CSS/CSS-行内元素-消除边距/" data-id="cjz9eo3hu008zd4duxserw9ze" class="article-share-link">分享</a>
       
       
     </footer>
@@ -418,9 +417,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
 
 

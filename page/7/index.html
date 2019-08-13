@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,77 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/JS/IFrame/js之iframe父子页面通信" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" class="article-date">
+  <time class="post-time" datetime="2019-01-02T07:48:26.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/">js之iframe父子页面通信</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" class="leancloud_visitors" data-flag-title="js之iframe父子页面通信">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js之iframe父子页面通信"><a href="#js之iframe父子页面通信" class="headerlink" title="js之iframe父子页面通信"></a><a href="https://www.cnblogs.com/sydeveloper/p/3712863.html" target="_blank" rel="noopener">js之iframe父子页面通信</a></h1><p>父页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/** 父页面需要在 window对象上 挂载一个 方法，供子页面调用 */</span><br><span class="line">iframeHandle() &#123;</span><br><span class="line">  window.clickSet = () =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      showReturn: true</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    this.iframeHandle()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>子页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function clickSet() &#123;</span><br><span class="line">    parent.window.clickSet(); // 子页面方法内部 调用父级window对象 下挂载的方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$(function()&#123;</span><br><span class="line">    $(&apos;.iframeReturn&apos;).on(&apos;click&apos;,clickSet) // 调用方法</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="iframe在更改了src之后对应的网页并未刷新"><a href="#iframe在更改了src之后对应的网页并未刷新" class="headerlink" title="iframe在更改了src之后对应的网页并未刷新"></a><a href="https://blog.csdn.net/jin80506/article/details/83271401" target="_blank" rel="noopener">iframe在更改了src之后对应的网页并未刷新</a></h1><p>在更改src之前加上这一句即可。</p>
+<blockquote>
+<p>document.getElementById(iframe的id).contentWindow.location.reload(true);</p>
+</blockquote>
+<h1 id="Iframe监听ulr"><a href="#Iframe监听ulr" class="headerlink" title="Iframe监听ulr"></a>Iframe监听ulr</h1><blockquote>
+<p>onload标签属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe</span><br><span class="line">  id=&quot;AirportBusiness&quot;</span><br><span class="line">  src=&#123;ifSrc&#125; frameBorder=&quot;0&quot;</span><br><span class="line">  onLoad=&#123;this.handleButton&#125;</span><br><span class="line">  style=&#123;&#123; border: 0, width: clientWidth, height: clientHeight, marginTop: -70 &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">handleButton() &#123;</span><br><span class="line">  let ifra = document.getElementById(&apos;AirportBusiness&apos;).contentWindow.location.href;</span><br><span class="line">  let urlTest = /index/;</span><br><span class="line">  this.setState(&#123;</span><br><span class="line">    showReturn: !urlTest.test(ifra)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2019/01/02/FrontEnd/JS/IFrame/js之iframe父子页面通信/" data-id="cjz9eo3la00f4d4du714c5uj6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFrame/">IFrame</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-DataStructures&amp;Algorithm/echarts轴最大数分割算法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -118,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/29/DataStructures&Algorithm/echarts轴最大数分割算法/" data-id="cjyxygict002roodubc776pj9" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/29/DataStructures&Algorithm/echarts轴最大数分割算法/" data-id="cjz9eo3d2002yd4dubpd93y3l" class="article-share-link">分享</a>
       
       
     </footer>
@@ -177,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/19/FrontEnd/前端文件上传/" data-id="cjyxygieu0048oodu49sodivn" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/19/FrontEnd/前端文件上传/" data-id="cjz9eo3e7004dd4dul0xt0c85" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-upload/">file-upload</a></li></ul>
@@ -254,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/" data-id="cjyxygio300bvoodukqjf2w9h" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/18/FrontEnd/JS特效实现/react-无缝滚动动画/" data-id="cjz9eo3jk00c1d4du8bedyw9l" class="article-share-link">分享</a>
       
       
     </footer>
@@ -328,75 +399,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/" data-id="cjyxygis100f8oodun9wr4l4e" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/12/10/FrontEnd/WebFrameWork/React/React中key的必要性与使用/" data-id="cjz9eo3lh00fed4dujvwwi3j1" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-key/">react-key</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/JS/JS中删除对象属性" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/06/FrontEnd/JS/JS中删除对象属性/" class="article-date">
-  <time class="post-time" datetime="2018-12-06T01:51:14.000Z" itemprop="datePublished">
-    <span class="post-month">12月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/FrontEnd/JS/JS中删除对象属性/">JS中删除对象属性</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/12/06/FrontEnd/JS/JS中删除对象属性/" class="leancloud_visitors" data-flag-title="JS中删除对象属性">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JS中删除对象的属性"><a href="#JS中删除对象的属性" class="headerlink" title="JS中删除对象的属性"></a>JS中删除对象的属性</h1><p>通过 <code>delete</code> 关键字实现</p>
-<blockquote>
-<p>delete xobj[‘anyKey’] </p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/12/06/FrontEnd/JS/JS中删除对象属性/" data-id="cjyxygilu00a3ooduxalntu8h" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Delete/">Delete</a></li></ul>
 
     </footer>
   </div>
@@ -451,9 +457,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>178</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
       <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>132</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
     </div>
 
 
