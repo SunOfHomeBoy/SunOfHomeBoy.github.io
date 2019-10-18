@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>183</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>87</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>136</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,365 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/WebFrameWork/React/React-02" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/14/FrontEnd/WebFrameWork/React/React-02/" class="article-date">
+  <time class="post-time" datetime="2017-09-14T14:51:40.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/14/FrontEnd/WebFrameWork/React/React-02/">React-02</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2017/09/14/FrontEnd/WebFrameWork/React/React-02/" class="leancloud_visitors" data-flag-title="React-02">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React作用：提供jsx的语法糖支持和Component的功能<br>ReactDom作用：渲染虚拟Dom和控制桌面内容<br>ReactDom.render(){渲染虚拟Dom,Element元素}</p>
+<p>核心概念：组件化！<br>组件：创建一个构造函数，使用ES6语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class App extends Component&#123;</span><br><span class="line">  constructor()&#123;  //（ES6提供方法）</span><br><span class="line">    和 super()结合使用,来继承Compoent的方法</span><br><span class="line">    引入护法 state 状态（数据驱动视图）</span><br><span class="line">    //所有初始化属性都会存放在state</span><br><span class="line">    this.state=&#123;</span><br><span class="line">      count:0;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  xxx()&#123;//其他自定义事件&#125;</span><br><span class="line">  &apos;&#123;&#125;&apos;在任何地方都能插值</span><br><span class="line">  render()&#123;   //（React提供方法）</span><br><span class="line">    *React插入事件的方法</span><br><span class="line">    &apos;&#123;&#125;&apos;大括号的用法</span><br><span class="line">    &lt;button onClick=&#123;this.clickHandler&#125;&gt;点我&lt;/button&gt;</span><br><span class="line">  &#125;</span><br><span class="line">  //React里面function的=&gt;(箭头函数)写法能改变this的指向（如果用function会打印出window对象而不是App对象），call()和bind()也可以绑定this</span><br><span class="line">  // 在React中 修改state 不能直接修改 必须通过调用 this.setState()当前组建提供方法</span><br><span class="line">  // 数据驱动视图，当修改state的时候，数据修改如何驱动的视图？当每修改一次state后，render()方法会重新再走一次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>01.19分分析state和生命周期的匹配与使用</p>
+<p>小心this的指向！</p>
+<p>09-14 02 29分 :<br>插值数组</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2017/09/14/FrontEnd/WebFrameWork/React/React-02/" data-id="ck1t2f6qg00fqrcdug59stc0x" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/WebFrameWork/React/React-01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/13/FrontEnd/WebFrameWork/React/React-01/" class="article-date">
+  <time class="post-time" datetime="2017-09-13T07:21:11.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">13</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/13/FrontEnd/WebFrameWork/React/React-01/">React-入门</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2017/09/13/FrontEnd/WebFrameWork/React/React-01/" class="leancloud_visitors" data-flag-title="React-入门">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p></p><h2>入门</h2><p></p>
+<p><ol><br>  <li>一个核心思想——组件化</li><br>  <li>两位带头大哥——react &amp; react-dom</li><br>  <li>一个基本运作方式——数据驱动视图</li><br>  <li>一位神秘卧底——jsx语法</li><br>  <li>三位护法——state（状态）、props（属性）、refs（实例）</li><br>  <li>一群打杂小弟——生命周期</li><br></ol></p>
+<p><br>create-React-app是一个全局的命令行工具用来创建一个新的项目<br>react-scripts是一个生成的项目所需要的开发依赖<br></p><br><p><br>一般我们开始创建react应用程序的时候，要自己通过npm或者安装项目的全部依赖，再写webpack.config.js，一系列复杂的配置，搭建好开发环境后写src源代码<br></p><br><p><br>现在如果你正在搭建react运行环境，使用create-react-app去自动构建你的程序。你的项目所在的文件夹下是没有配置文件的。react-scripts是唯一的额外的构造依赖<br></p><br><p><br>在你的package.json中，你的运行环境将有每一个你需要用来构建一个现代应用程序所需要的依赖，在配置文件中编写的配置代码，React脚本都帮你写了，比如：react-scripts帮你自动下载需要的webpack-dev-server依赖，然后react脚本自己写了一个nodejs服务端的脚本代码start.js来实例化.<br></p><br><p><br>WebpackDevServer，并且运行启动了一个使用express的Http服务器，现在你只需要专心写SRC源代码就可以了。省去了很多精力，最适合快速上手一个演示了。<br></p><br><h5>React-scripts有以下支持，都帮你配置好了：</h5><br><p>React，JSX，ES6和Flow语法支持。</p><br><p>ES6之外的语言扩展像对象扩展运算符。</p><br><p>直接从JavaScript导入CSS和图像文件。</p><br><p>自动翻译CSS，所以你不需要-webkit或其他前缀。</p><br><p>一个构建脚本来捆绑JS，CSS，和图像进行生产，具有源代码图。</p>
+
+<p></p><h3>示例:</h3><p></p>
+<p><div>index:</div><br>    // 1.引入两位带头大哥 react和react-dom<br>    import React from ‘react’<br>    import ReactDom from ‘react-dom’<br>    // 引入App组件<br>    import App from ‘./App’<br>    import logo from ‘./logo.svg’<br>    // ReactDom负责控制页面的内容 但是使用ReactDom 必须依赖React<br>    // 第一个参数 是渲染的元素(必须是闭合标签)  第二个参数是渲染的位置<br>    ReactDom.render(<br>      //<div><br>        //<h1>今天学习了react</h1><br>        //<h2>这是一个h2标签</h2><br>        //<img src="{logo}" alt=""><br>        //<app><br>      //</app></div>,<br>      document.getElementById(‘root’)<br>    )<br>    // jsx ==== javascript +xml  神秘的卧底<br>    // 可以在js语言中 插入 xml(html)语言  语法糖  每一个XML标签都会被JSX转换工具转换成纯Javascript代码</p>
+<p><div>app:</div><br>    import React,{Component} from ‘react’<br>    import ‘./App.css’<br>    class App extends Component{<br>      constructor(){<br>        super()<br>        console.log(this)<br>        this.state = {<br>          name:’焦洋’,<br>          time:(new Date()).toLocaleTimeString()<br>        }<br>        setInterval(()=&gt;{<br>          // 在react中 修改state  不能直接修改 必须通过调用this.setState()<br>          // 修改我们的时间<br>          // console.log(this);<br>          this.setState({<br>            time:(new Date()).toLocaleTimeString()<br>          })<br>        },1000)<br>      }<br>      say(){<br>        return ‘say Hello’<br>      }</p>
+<pre><code>  // 引入一个打杂的小弟  生命周期 方法
+  render(){
+    // var s = &apos;abc&apos;
+    // {} 插值 插槽  &lt;%= %&gt; 插值即可以插变量 也可以插函数
+    return (
+      &lt;ul&gt;
+        &lt;li&gt;1&lt;/li&gt;
+        &lt;li className=&apos;li2&apos;&gt;{3&gt;4 ? &apos;真的&apos; : &apos;假的&apos;}&lt;/li&gt;
+        &lt;li&gt;{this.say()}&lt;/li&gt;
+        &lt;li&gt;{111}&lt;/li&gt;
+        &lt;li&gt;{this.state.name}&lt;/li&gt;
+        &lt;li&gt;{this.state.time}&lt;/li&gt;
+      &lt;/ul&gt;
+      )
+  }
+}
+//抛出 App
+export default App;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2017/09/13/FrontEnd/WebFrameWork/React/React-01/" data-id="ck1t2f6qd00forcdug7uxpshi" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-日常知识点" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/09/日常知识点/" class="article-date">
+  <time class="post-time" datetime="2017-05-09T06:15:10.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/09/日常知识点/">日常知识点</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/知识点/">知识点</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2017/05/09/日常知识点/" class="leancloud_visitors" data-flag-title="日常知识点">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>stringify: JSON转字符串</p>
+<p>toString: 返回原型数组 // 返回字符串</p>
+<p>ValueOf: 输出对象</p>
+<p>toLocalString: 格式化时间字符串</p>
+<p>V-bind用法: 计算属性基于this依赖进行缓存</p>
+<p>Computed 与 Method 区别: Computed基于依赖缓存; Method每次都重新计算</p>
+<p><a href="https://juejin.im/post/5af1980a6fb9a07acb3cd4e3" target="_blank" rel="noopener">前端-数据双向绑定</a></p>
+<p><a href="https://juejin.im/post/5af01d27f265da0b7f447ab6" target="_blank" rel="noopener">node-爬虫</a></p>
+<p><a href="https://juejin.im/post/5af152c1518825673e359539" target="_blank" rel="noopener">Git plugin</a></p>
+<h1 id="学习笔记-2019年7月3日-16-06-27"><a href="#学习笔记-2019年7月3日-16-06-27" class="headerlink" title="学习笔记 (2019年7月3日 16:06:27)"></a>学习笔记 (2019年7月3日 16:06:27)</h1><h2 id="前端面试难点"><a href="#前端面试难点" class="headerlink" title="前端面试难点"></a><a href="https://zhuanlan.zhihu.com/p/25855075?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="noopener">前端面试难点</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        console.log(new Date, i);</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(new Date, i);</span><br></pre></td></tr></table></figure>
+<p>输出结果(第一个5后连续输出五个5)</p>
+<blockquote>
+<p>5 -&gt; 5,5,5,5,5</p>
+</blockquote>
+<p>解读：<br>定时器为异步宏任务，在JS解释器EventLoop事件队列最末尾。须等待同步任务、异步微任务执行完后执行。</p>
+<hr>
+<h3 id="IIFE（Immediately-Invoked-Function-Expression：声明即执行的函数表达式）"><a href="#IIFE（Immediately-Invoked-Function-Expression：声明即执行的函数表达式）" class="headerlink" title="IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）"></a>IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）</h3><p>自执行函数表达式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  ~function(j) &#123;  // j = i</span><br><span class="line">    setTimeout(function() &#123;</span><br><span class="line">        console.log(new Date, j);</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">  &#125;(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解释：利用闭包解决ES5没有块级作用域问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function output(j) &#123;</span><br><span class="line">  setTimeout(fn, j * 1000)</span><br><span class="line">&#125;</span><br><span class="line">for (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">  output(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解释： JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const tasks = []; // 这里存放异步操作的 Promise</span><br><span class="line">const output = i =&gt; new Promise(resolve =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(new Date, i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, 1000 * i);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 生成全部的异步操作</span><br><span class="line">for (var i = 0; i &lt; 5; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 异步操作完成之后，输出最后的 i</span><br><span class="line">Promise.all(tasks).then(() =&gt; &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        console.log(new Date, i);</span><br><span class="line">    &#125;, 1000);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="学习笔记-2019年7月4日-17-11-44"><a href="#学习笔记-2019年7月4日-17-11-44" class="headerlink" title="学习笔记(2019年7月4日 17:11:44)"></a>学习笔记(2019年7月4日 17:11:44)</h1><h2 id="promise-和-await-async-的区别"><a href="#promise-和-await-async-的区别" class="headerlink" title="promise 和 await/async 的区别"></a>promise 和 await/async 的区别</h2><p>以往的异步方法无外乎<code>回调函数</code>和<code>Promise</code>。但是<code>Async/await</code>建立于<code>Promise</code>之上。</p>
+<h2 id="display-table-cell下两栏自适应布局demo"><a href="#display-table-cell下两栏自适应布局demo" class="headerlink" title="display:table-cell下两栏自适应布局demo"></a><a href="https://www.cnblogs.com/shierfen/p/5810996.html" target="_blank" rel="noopener">display:table-cell下两栏自适应布局demo</a></h2><h3 id="等高布局"><a href="#等高布局" class="headerlink" title="等高布局"></a><a href="https://www.zhangxinxu.com/study/201010/table-cell-equal-height-layout.html" target="_blank" rel="noopener">等高布局</a></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2017/05/09/日常知识点/" data-id="ck1t2f64t001hrcdub2dwafml" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日常知识点/">日常知识点</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Editor/VSCode使用笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/16/Editor/VSCode使用笔记/" class="article-date">
+  <time class="post-time" datetime="2017-01-16T07:29:53.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">16</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/16/Editor/VSCode使用笔记/">VSCode使用笔记</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/VSCode/">VSCode</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2017/01/16/Editor/VSCode使用笔记/" class="leancloud_visitors" data-flag-title="VSCode使用笔记">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="发现"><a href="#发现" class="headerlink" title="发现"></a><strong>发现</strong></h2><blockquote>
+<h3 id="新建终端"><a href="#新建终端" class="headerlink" title="新建终端"></a>新建终端</h3><p><code>ctrl</code>+<code>shift</code>+<code>~</code></p>
+<h3 id="选择使用空格缩进并配置"><a href="#选择使用空格缩进并配置" class="headerlink" title="选择使用空格缩进并配置"></a>选择使用空格缩进并配置</h3><p><code>ctrl</code>+<code>k</code> <code>j</code></p>
+<h3 id="跳转行"><a href="#跳转行" class="headerlink" title="跳转行"></a>跳转行</h3><p><code>ctrl</code>+<code>g</code></p>
+</blockquote>
+<h2 id="演练场"><a href="#演练场" class="headerlink" title="演练场"></a><strong>演练场</strong><br></h2><ul>
+<li><p><strong>Multi-Cursor Editing(多光标编辑)</strong><br></p>
+<ol>
+<li>框选择-按下<code>Ctrl+Shift+Alt+下箭头键</code>,<code>Ctrl+Shift+Alt+右转</code>,<code>Ctrl+Shift+Alt+UpArrow</code>,<code>Ctrl+Shift+Alt+LeftArrow</code>选择一个文本块,你也可以按住<code>Shift+Alt</code>,选择鼠标文本。</li>
+<li>添加一个光标-按<code>Ctrl+Alt+UpArrow</code>或<code>Ctrl+Alt+向下箭头</code>,在上面或下面添加一个新的游标,你也可以用Ctrl+Click来在任何地方添加光标。</li>
+<li>创建游标上出现的所有字符串的字符串-选择一个实例例如背景颜色和媒体未绑定。现在您可以通过简单地输入来替换所有实例。<br></li>
+</ol>
+</li>
+<li><p><strong>IntelliSense(智能提示)</strong><br></p>
+<ul>
+<li>Alt+Z/Alt+X</li>
+</ul>
+</li>
+<li><p><strong>Line Actions(行操作)</strong></p>
+<ol>
+<li>复制一条线,并将其插入到当前位置的上方或下方,分别使用Shift+Alt+向下箭头或Shift+Alt+UpArrow。</li>
+<li>用Alt+UpArrow和Alt+向下箭头移动整行或选择行。</li>
+<li>用Ctrl+Shift+K删除整个行。<br><br></li>
+</ol>
+<ul>
+<li>提示:另一个非常常见的任务是注释掉一个代码块——您可以通过按<code>Ctrl+/</code>来切换注释。</li>
+</ul>
+</li>
+<li><p><strong>Rename Refactoring(更名重构)</strong><br></p>
+<ul>
+<li>可以很容易地重命名一个符号,例如<code>函数名</code>或<code>变量名</code>。在<code>符号</code>“Book(例子)”中按<code>F2</code>重命名所有实例——这将发生在项目中的所有文件中。您还可以在右键单击上下文菜单中看到重构。</li>
+<li><code>JSDoc</code>提示:上面的示例还展示了通过使用<code>JSDoc</code>注释获得智能感知提示的另一种方法。您可以通过调用Book函数并查看功能和参数的智能感知体验中增强的上下文来尝试这一点。</li>
+</ul>
+</li>
+<li><p><strong>Refactoring via Extraction(!通过提取重构)</strong></p>
+<ul>
+<li>有时候,您希望将已经<code>编写好的代码</code>添加到一个<code>单独的函数</code>中,或者稍后再使用它。选择要提取的行并按<code>Ctrl+.</code>或者点击这个小灯泡,选择其中的一个提取到……选项。通过在第3行或任何其他您想要提出的通用代码中选择if-子句中的代码来尝试它。</li>
+</ul>
+</li>
+<li><p><strong>Formatting(格式化)</strong></p>
+<ul>
+<li>如果没有良好的格式化程序,让代码看起来很棒是很困难的。幸运的是,使用<code>Shift+Alt+F</code>或格式化的整个文档可以用<code>Ctrl+K Ctrl+F</code>来应用当前的选择。这两个选项都可以通过右键单击上下文菜单获得。</li>
+<li><code>Tip</code>: 可在扩展库中提供其他格式化程序。格式化支持也可以通过设置来配置,例如启用编辑器。</li>
+</ul>
+</li>
+<li><p><strong>Code folding(代码折叠)</strong></p>
+<ul>
+<li>在一个大的文件中,它通常可以用来折叠代码段以增加可读性。要做到这一点,你只需按<code>Ctrl+Shift+[</code>折叠代码-按<code>Ctrl+Shift+]</code>即可展开。折叠也可以用左边沟中的<code>+/-</code>图标来完成。按<code>Ctrl+Shift+Alt+[</code>或按<code>Ctrl+Shift+Alt+]</code>折叠所有部分。</li>
+<li>提示:折叠是基于缩进的,因此可以应用于所有语言。简单地缩进你的代码来创建一个可折叠的部分,你可以用Ctrl+K Ctrl+1和Ctrl+K Ctrl+5这样的快捷方式折叠一定数量的级别。</li>
+</ul>
+</li>
+<li><p><strong>Errors and Warnings(错误和警告)</strong></p>
+<ul>
+<li>在编辑代码时,会高亮显示错误和警告。在下面的示例中,您可以看到许多语法错误。按下<code>F8</code>,你可以按顺序浏览它们,并看到详细的错误信息。当您纠正它们时,弯角和滚动条指示器将会更新。</li>
+</ul>
+</li>
+<li><p><strong>Snippets(片段)</strong></p>
+<ul>
+<li>您可以通过使用片段大大加快编辑速度。简单地开始键入尝试,从<code>建议列表</code>和按<code>Tab</code>中选择<code>trycatch</code>来创建一个<code>try-&gt;catch块</code>。您的光标将被放置在文本错误,以方便编辑。如果有多个参数存在,则按Tab键跳到它。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2017/01/16/Editor/VSCode使用笔记/" data-id="ck1t2f6b0003trcdu2vzl4rb7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VSCode/">VSCode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-FrontEnd/HTML CSS/子元素居于父元素底部" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -118,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2015/05/18/FrontEnd/HTML CSS/子元素居于父元素底部/" data-id="cjz9eo3ib009xd4duphpz0zzi" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2015/05/18/FrontEnd/HTML CSS/子元素居于父元素底部/" data-id="ck1t2f6kg00a7rcdunoh6414z" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/绝对定位/">绝对定位</a></li></ul>
@@ -132,223 +491,10 @@
 
 
   
-    <article id="post-日常随笔" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/01/日常随笔/" class="article-date">
-  <time class="post-time" datetime="2015-05-01T02:31:27.000Z" itemprop="datePublished">
-    <span class="post-month">5月</span><br/>
-    <span class="post-day">01</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/01/日常随笔/">日常随笔</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/日记/">日记</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2015/05/01/日常随笔/" class="leancloud_visitors" data-flag-title="日常随笔">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于写blog的意义"><a href="#关于写blog的意义" class="headerlink" title="关于写blog的意义"></a>关于写blog的意义</h1><p>博客日志相当于一个日常记事本，可以理解为日记，学习笔记。</p>
-<p>工作的状态也是属于不停学习的状态，在我们遇到问题的时候，大脑进行思考，以及运用互联网解决问题的过程，都会收获 想法 与 知识。</p>
-<p>俗话说：好记性不如烂笔头。在保持勤思考的同时，也应该及时做记录。</p>
-<p>罗辑思维《如何成为一个高手》里讲到: 钱钟书虽然是响当当的文学家，但是家里是没有多少藏书的 ( 相对而言，不可片面认知 ) ，更多的是记笔记的笔记本。</p>
-<p>这就说明我们不应该以 <code>收集知识的总量</code> 来衡量 一个人的学识，而是应该判断 一个人 <code>掌握知识的总量</code> 来确定他的学识。</p>
-<p>判断掌握知识的标准，在《罗辑思维》里被界定为，知道、理解知识的运用方法及手段。\<br>或者说可以理解为，遇到问题，在大脑里有解决问题的思路与方法。相当于数据库的索引，可以快速调取知识，如果是庞杂的知识体量可以用静态资源目录的方式储存（类似于遇到问题用百度，但是要知道查询什么知识点）。</p>
-<p>所以我认为，blog的过程就是，大脑对 问题 和 知识点 进行<code>思考</code> 并 <code>建立索引</code>的过称。</p>
-<hr>
-<h2 id="权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。"><a href="#权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。" class="headerlink" title="权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。"></a>权力与理想的斗争，是人类自有文明以来，迄今仍在不断探索的命题。</h2><p>2018年7月24日 16:27:27</p>
-<hr>
-<h2 id="我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》"><a href="#我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》" class="headerlink" title="我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》"></a>我国对于充气娃娃最早的记载，是在中国学者夏燮的《中西纪事》</h2><p>2018年7月25日 16:27:35</p>
-<blockquote>
-<p>“洋人又能制物为裸妇人，肌肤骸骨耳目齿舌，阴窍无一不具，初折迭如衣物，以气吹之，则柔软温暖如美人，可拥以交接如人道，其巧而丧心如此。”</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2015/05/01/日常随笔/" data-id="cjz9eo3a4001kd4duarunhe2p" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/感悟/">感悟</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/HTML CSS/CSS-潜藏着的BFC" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" class="article-date">
-  <time class="post-time" datetime="2015-04-16T07:54:04.000Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br/>
-    <span class="post-day">16</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/">CSS-潜藏着的BFC</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" class="leancloud_visitors" data-flag-title="CSS-潜藏着的BFC">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、什么是BFC-Block-Formatting-Context"><a href="#一、什么是BFC-Block-Formatting-Context" class="headerlink" title="一、什么是BFC(Block Formatting Context)"></a>一、什么是BFC(Block Formatting Context)</h3><p>   写<code>CSS</code>样式时，对一个<code>元素</code>设置css,我们首先要知道这个元素是<code>块级元素</code>还是<code>行内元素</code>，而<code>BFC</code>就是用来<strong><code>格式化块级盒子</code></strong>的。<br><br>  <code>Formatting Context</code>：指页面中一个渲染区域，并且拥有一套渲染规则，它决定了其子元素如何定位，以及与其他元素的相互关系和作用。<br><br>  <code>BFC定义</code>：块级格式化上下文  它是指一个独立的块级渲染区域，只有<code>Block-level Box</code>参与，该区域拥有一套渲染规则来约束块级盒子的布局，且与区域外部无关。<br></p>
-<h3 id="二、BFC的生成"><a href="#二、BFC的生成" class="headerlink" title="二、BFC的生成"></a>二、BFC的生成</h3><p>  说到BFC是一块渲染区域，那么这块渲染区域到底在哪里呢，具体大小又是多少？这些都是由生成BFC的元素来决定的。<br><br>  满足下列CSS声明<code>之一</code>的元素便会生成BFC：</p>
-<ul>
-<li>1.根元素或其它包含它的元素</li>
-<li>2.float的值不为none；</li>
-<li>3.overflow的值不为visible；</li>
-<li>4.position的值不为static；</li>
-<li>5.display的值为inline-block、table-cell、table-caption；</li>
-<li><p>6.flex boxes (元素的display: flex或inline-flex)；</p>
-<p>注：也有人认为<code>display: table</code>能生成BFC，我认为最主要原因是table会默认生成一个匿名的table-cell，正是这个匿名的table-cell生成了BFC。</p>
-<h3 id="三、BFC的布局规则"><a href="#三、BFC的布局规则" class="headerlink" title="三、BFC的布局规则"></a>三、BFC的布局规则</h3><p>菜鸟教程待续</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2015/04/16/FrontEnd/HTML CSS/CSS-潜藏着的BFC/" data-id="cjz9eo3hs008vd4duosbno8v1" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFC/">BFC</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-hello-world" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/01/hello-world/" class="article-date">
-  <time class="post-time" datetime="2014-10-01T07:21:11.000Z" itemprop="datePublished">
-    <span class="post-month">10月</span><br/>
-    <span class="post-day">01</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2014/10/01/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2014/10/01/hello-world/" data-id="cjz9eo391000dd4duuzf7fm8l" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/35/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span>
+    <a class="extend prev" rel="prev" href="/page/35/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="page-number" href="/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/37/">next &raquo;</a>
   </nav>
 </section>
         
@@ -389,9 +535,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>183</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>87</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>136</strong><br>标签</div></a>
     </div>
 
 

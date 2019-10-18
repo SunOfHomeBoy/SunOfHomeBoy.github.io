@@ -42,9 +42,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>183</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>87</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>136</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -69,6 +69,303 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-FrontEnd/HTML CSS/CSS固定宽高比" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/14/FrontEnd/HTML CSS/CSS固定宽高比/" class="article-date">
+  <time class="post-time" datetime="2018-06-14T08:40:12.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/14/FrontEnd/HTML CSS/CSS固定宽高比/">CSS固定宽高比</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/HTML-CSS/">HTML+CSS</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/14/FrontEnd/HTML CSS/CSS固定宽高比/" class="leancloud_visitors" data-flag-title="CSS固定宽高比">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="纯CSS实现固定宽高比"><a href="#纯CSS实现固定宽高比" class="headerlink" title="纯CSS实现固定宽高比"></a>纯CSS实现固定宽高比</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">  &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    .container &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      width: 40%;</span><br><span class="line">      /*触发BFC，否则内部元素撑不开container*/</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      /*为了让大家看清楚效果加的边*/</span><br><span class="line">      border: 1px solid black;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /*支架，用于按2:1的宽高比撑开父级元素，如果是4:3，那么这里改成75%即可*/</span><br><span class="line">    .container::before &#123;</span><br><span class="line">      display: block;</span><br><span class="line">      content: &apos;&apos;;</span><br><span class="line">      margin-top: 50%;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .target &#123;</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 0;</span><br><span class="line">      bottom: 0;</span><br><span class="line">      left: 0;</span><br><span class="line">      right: 0;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;img class=&quot;target&quot; src=&quot;http://i2.tiimg.com/611341/b66c935ed2587806t.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<p>容器元素：宽度百分比，<code>overflow：hidden;</code> 防止与父元素margin重叠，进入BFC块级格式化上下文。相对定位，为<code>target</code>容器确定定位参照。</p>
+<p>伪类元素：<code>margin-top</code>百分比值继承自父元素宽度,通过伪类元素撑开容器盒子,使其拥有高度.</p>
+<p>目标元素：通过绝对定位，脱离文档流，并使 宽/高100% 继承父元素宽高值。来达到img固定宽高比。</p>
+<hr>
+<p><a href="https://www.cnblogs.com/coolle/p/6553092.html" target="_blank" rel="noopener">附：原文地址</a></p>
+<p><a href="https://www.cnblogs.com/xjnotxj/p/5517651.html" target="_blank" rel="noopener">参考文献</a></p>
+<hr>
+<h2 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h2><p>16进制cdc转rgb(204,221,204)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/14/FrontEnd/HTML CSS/CSS固定宽高比/" data-id="ck1t2f6jk009grcdu2ksaewp5" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/固定宽高比/">固定宽高比</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/深入理解JS中this" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/12/FrontEnd/JS/深入理解JS中this/" class="article-date">
+  <time class="post-time" datetime="2018-06-12T06:34:52.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/12/FrontEnd/JS/深入理解JS中this/">深入理解JS中this</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/12/FrontEnd/JS/深入理解JS中this/" class="leancloud_visitors" data-flag-title="深入理解JS中this">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="转-深入理解javascript之this"><a href="#转-深入理解javascript之this" class="headerlink" title="[转]深入理解javascript之this"></a>[转]深入理解javascript之this</h1><p>  (2018年2月28日 16:38:18)</p>
+<p>  javascript中的<code>this</code>含义非常丰富,它可以是<code>全局对象</code>,<code>当前对象</code>或者是<code>任意对象</code>,这都<code>取决于</code><strong>函数的调用方式</strong>。<br>  函数有<code>以下几种</code>调用方式：<code>作为对象方法调用</code>、<code>作为函数调用</code>、<code>作为构造函数调用</code>、<code>apply</code>或<code>call</code>调用。</p>
+<ul>
+<li><p><strong>对象方法调用</strong><br>作为<code>对象方法</code>调用的时候,<code>this</code>会被<code>绑定到该对象</code>。<br>例：略</p>
+</li>
+<li><p><strong>强调</strong>:<br><code>this</code>是在函数<code>执行时</code>去获取对应的值,而不是函数<code>定义时</code>。即使是<code>对象方法</code>调用,如果该方法的<code>函数属性</code>以<code>函数名的形式</code>传入<code>其他作用域</code>,也会<code>改变this</code>的指向。我举一个例子：</p>
+</li>
+<li><p><strong>函数调用</strong><br>函数也可以<code>直接被调用</code>,这个时候<code>this</code>被<code>绑定到了全局对象</code>。</p>
+</li>
+<li><p><strong>构造函数调用</strong><br>在javascript中自己创建<code>构造函数</code>时可以<code>利用this</code>来指向新创建的对象上。这样就可以避免函数中的this指向全局了。</p>
+</li>
+<li><p><strong>apply或call调用</strong><br>这两个方法可以<code>切换</code>函数执行的<code>上下文环境</code>,也就是<code>改变this绑定的对象</code>。apply和call比较类似,区别在于传入参数时一个要求是数组,一个要求是分开传入。所以我们以apply为例：</p>
+</li>
+<li><p><strong>箭头函数调用</strong><br><code>补充</code>:ES6中 <code>箭头函数</code>的<code>this始终指向函数定义时的this, 而非执行时</code>。<br>我们通过一个例子来理解:<br>还需要<strong>注意</strong>一点的就是这个<code>this不会改变指向对象</code>,我们知道<code>call</code>和<code>apply</code>可以改变<code>this</code>的指向,但是在<code>箭头函数中无效</code>的。</p>
+</li>
+<li><p><strong>箭头函数的特性</strong><br>箭头函数内部没有<code>constructor</code>方法,也没有<code>prototype</code>,所以不支持<code>new</code>操作。但是它对<code>this</code>的处理与一般的普通函数不一样。箭头函数的<code>this</code>始终指向函数<code>定义时</code>的 <code>this</code>,而非执行时。我们通过一个例子来理解:</p>
+</li>
+</ul>
+<hr>
+<p><a href="http://blog.csdn.net/mevicky/article/details/46659273" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/12/FrontEnd/JS/深入理解JS中this/" data-id="ck1t2f6me00c5rcdu8t3j754i" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-this/">JS-this</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-FrontEnd/JS/console食用方法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/12/FrontEnd/JS/console食用方法/" class="article-date">
+  <time class="post-time" datetime="2018-06-12T06:31:29.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/12/FrontEnd/JS/console食用方法/">console食用方法</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS-console/">JS-console</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/12/FrontEnd/JS/console食用方法/" class="leancloud_visitors" data-flag-title="console食用方法">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="console的食用方法"><a href="#console的食用方法" class="headerlink" title="console的食用方法"></a>console的食用方法</h1><p>  <strong>console.log</strong></p>
+<p>  <strong>console.dir</strong></p>
+<pre><code>打印方法 
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/12/FrontEnd/JS/console食用方法/" data-id="ck1t2f6lr00bkrcdu3767gfkn" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/">console</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Operating System/UnixLike/Linux/Vim大全" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/12/Operating System/UnixLike/Linux/Vim大全/" class="article-date">
+  <time class="post-time" datetime="2018-06-12T02:22:50.000Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/12/Operating System/UnixLike/Linux/Vim大全/">Vim大全</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/06/12/Operating System/UnixLike/Linux/Vim大全/" class="leancloud_visitors" data-flag-title="Vim大全">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Academy</th>
+<th style="text-align:right">score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harry Potter</td>
+<td style="text-align:center">Gryffindor</td>
+<td style="text-align:right">90</td>
+</tr>
+<tr>
+<td>Hermione Granger</td>
+<td style="text-align:center">Gryffindor</td>
+<td style="text-align:right">100</td>
+</tr>
+<tr>
+<td>Draco Malfoy</td>
+<td style="text-align:center">Slytherin</td>
+<td style="text-align:right">90</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/12/Operating System/UnixLike/Linux/Vim大全/" data-id="ck1t2f6t600hdrcdueudigc37" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-server/Nginx-Vue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -162,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/09/server/Nginx-Vue/" data-id="cjz9eo3fe0061d4due90rhkbg" class="article-share-link">分享</a>
+      <a data-url="http://SunOfHomeBoy.github.io/2018/06/09/server/Nginx-Vue/" data-id="ck1t2f6fd006arcdu0ebom9c6" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx-Vue/">Nginx / Vue</a></li></ul>
@@ -176,601 +473,10 @@
 
 
   
-    <article id="post-改变世界的想法" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/08/改变世界的想法/" class="article-date">
-  <time class="post-time" datetime="2018-06-08T07:48:33.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">08</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/08/改变世界的想法/">改变世界的想法</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Change-the-world/">Change the world</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/08/改变世界的想法/" class="leancloud_visitors" data-flag-title="改变世界的想法">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在当下的宇宙中，目前人类科技，两大难题。时间 和 空间</p>
-<p>改变世界的方法一：类似《头号玩家》的虚拟现实，解决 空间问题，缩短时间问题。</p>
-<p>具体技术：VR、人脸识别、微表情、触觉感应器</p>
-<p>改变世界的方法二：物理硬件 的飞行器。降低成本，解放人类空间自由度。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/08/改变世界的想法/" data-id="cjz9eo39z001cd4duynsv6op9" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-programmingLanguage/Python/简单python服务器" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/08/programmingLanguage/Python/简单python服务器/" class="article-date">
-  <time class="post-time" datetime="2018-06-08T07:44:31.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">08</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/08/programmingLanguage/Python/简单python服务器/">简单python服务器</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/08/programmingLanguage/Python/简单python服务器/" class="leancloud_visitors" data-flag-title="简单python服务器">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Python-2-7-14-SimpleHTTPServer"><a href="#Python-2-7-14-SimpleHTTPServer" class="headerlink" title="Python 2.7.14 SimpleHTTPServer"></a><a href="https://www.cnblogs.com/chenjiaxin--007/p/8658419.html" target="_blank" rel="noopener">Python 2.7.14 SimpleHTTPServer</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer 8000</span><br></pre></td></tr></table></figure>
-<p>这里的“Web服务器模块”有如下三种：</p>
-<p><code>BaseHTTPServer</code>: 提供基本的Web服务和处理器类，分别是HTTPServer和BaseHTTPRequestHandler。</p>
-<p><code>SimpleHTTPServer</code>: 包含执行GET和HEAD请求的SimpleHTTPRequestHandler类。</p>
-<p><code>CGIHTTPServer</code>: 包含处理POST请求和执行CGIHTTPRequestHandler类。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/08/programmingLanguage/Python/简单python服务器/" data-id="cjz9eo3ju00cid4du4pd3elac" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-SimpleHTTPServer/">python SimpleHTTPServer</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-FrontEnd/WXAPP/WX小程序学习/WxApp学习笔记1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/06/FrontEnd/WXAPP/WX小程序学习/WxApp学习笔记1/" class="article-date">
-  <time class="post-time" datetime="2018-06-06T04:16:14.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">06</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/06/FrontEnd/WXAPP/WX小程序学习/WxApp学习笔记1/">WxApp学习笔记1</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/WxApp/">WxApp</a>
-  </div>
-
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/06/FrontEnd/WXAPP/WX小程序学习/WxApp学习笔记1/" class="leancloud_visitors" data-flag-title="WxApp学习笔记1">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
-<li>前端<ul>
-<li>PC<ul>
-<li>WEB</li>
-<li>OS-Native(Windows/Unix[Linux/MaxOS])</li>
-</ul>
-</li>
-<li>MB<ul>
-<li>WAP</li>
-<li>hybrid</li>
-<li>OS-Native(Android/ios)</li>
-<li>WXApp(微信小程序)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>后台<ul>
-<li>Server<ul>
-<li>Java</li>
-<li>PHP</li>
-<li>NodeJS</li>
-<li>Python</li>
-<li>Golang</li>
-<li>Ruby</li>
-<li>…</li>
-</ul>
-</li>
-<li>DataBase<ul>
-<li>SQL<ul>
-<li>MySQL</li>
-<li>MsSQL</li>
-<li>…</li>
-</ul>
-</li>
-<li>NoSQL<ul>
-<li>MongoDB</li>
-<li>Redis</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、小程序开发工具下载安装"><a href="#二、小程序开发工具下载安装" class="headerlink" title="二、小程序开发工具下载安装"></a>二、小程序开发工具下载安装</h2><p>  百度小程序开发下载工具，默认安装即可</p>
-<h2 id="三、组件"><a href="#三、组件" class="headerlink" title="三、组件"></a>三、组件</h2><h3 id="scroll-view"><a href="#scroll-view" class="headerlink" title="scroll-view"></a><strong>scroll-view</strong></h3><table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">scroll-x</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">横向滚动</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-y</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">纵向滚动</td>
-</tr>
-<tr>
-<td style="text-align:center">upper-threshold</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">距<code>顶部/左边</code>??px, 触发 scrolltoupper 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">lower-threshold</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">距<code>底部/右边</code>??px, 触发 scrolltolower 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-top</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">控制横向滚动条位置</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-left</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">控制纵向滚动条位置</td>
-</tr>
-<tr>
-<td style="text-align:center">scroll-into-view</td>
-<td style="text-align:center">String</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">值为子元素ID,表现为: 元素对齐滚动区域顶部</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscrolltoupper</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动到顶部/左边,触发<code>scrolltoupper</code> 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscrolltolower</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动到底部/右边,触发<code>scrolltolower</code> 事件</td>
-</tr>
-<tr>
-<td style="text-align:center">bindscroll</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">滚动过程中触发<code>scroll</code> 事件, event.detail = {scrollLeft/Top/Width/Height、detailX/Y}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a><strong>swiper</strong></h3><p>子元素只有\<swiper-item>组件,其余节点会被自动删除。</swiper-item></p>
-<p>\<swiper-item>只可放置在\<swiper>组件中，宽高自动100%。</swiper></swiper-item></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性名</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">默认值</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">indicator</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">控制显示面板指示点</td>
-</tr>
-<tr>
-<td style="text-align:center">autoplay</td>
-<td style="text-align:center">Boolean</td>
-<td style="text-align:center">false</td>
-<td style="text-align:center">自动切换</td>
-</tr>
-<tr>
-<td style="text-align:center">current</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">切换到指定 index</td>
-</tr>
-<tr>
-<td style="text-align:center">interval</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">5000</td>
-<td style="text-align:center">自动切换时间间隔</td>
-</tr>
-<tr>
-<td style="text-align:center">duration</td>
-<td style="text-align:center">Number</td>
-<td style="text-align:center">1000</td>
-<td style="text-align:center">过渡动画时长</td>
-</tr>
-<tr>
-<td style="text-align:center">bindchange</td>
-<td style="text-align:center">EventHandle</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">current 改变触发<code>change</code> 事件, event.detail = {current: current}</td>
-</tr>
-</tbody>
-</table>
-<h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="小程序简介"><a href="#小程序简介" class="headerlink" title="小程序简介"></a>小程序简介</h2><ul>
-<li>小程序技术发展史</li>
-<li>小程序与普通网页开发区别</li>
-<li>体验小程序</li>
-</ul>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><ul>
-<li>申请账号</li>
-<li>install dev tool</li>
-<li>your first 小程序</li>
-<li>build | preview</li>
-</ul>
-<h2 id="小程序代码构成"><a href="#小程序代码构成" class="headerlink" title="小程序代码构成"></a>小程序代码构成</h2><ul>
-<li>JSON 配置</li>
-<li>WXML 模板</li>
-<li>WXSS 样式</li>
-<li>JS 交互逻辑</li>
-</ul>
-<h2 id="小程序宿主环境"><a href="#小程序宿主环境" class="headerlink" title="小程序宿主环境"></a>小程序宿主环境</h2><ul>
-<li>渲染层和逻辑层</li>
-<li>程序与页面</li>
-<li>组件</li>
-<li>API</li>
-</ul>
-<h2 id="小程序协同工作和发布"><a href="#小程序协同工作和发布" class="headerlink" title="小程序协同工作和发布"></a>小程序协同工作和发布</h2><ul>
-<li>协同工作</li>
-<li>小程序的版本</li>
-<li>发布上线</li>
-<li>运营数据</li>
-</ul>
-<h2 id="小程序开发指南"><a href="#小程序开发指南" class="headerlink" title="小程序开发指南"></a>小程序开发指南</h2><h1 id="小程序App-目录结构"><a href="#小程序App-目录结构" class="headerlink" title="小程序App 目录结构"></a>小程序App 目录结构</h1><h2 id="微信小程序-目录结构解读"><a href="#微信小程序-目录结构解读" class="headerlink" title="微信小程序 目录结构解读"></a>微信小程序 目录结构解读</h2><p>小程序包含一个描述整体程序的 <code>app</code> 和多个描述各自页面的 <code>page</code>。</p>
-<ul>
-<li>project.config.json // 项目配置文件</li>
-</ul>
-<p>小程序 <code>主体</code> 部分由三个文件组成，必须放在项目的根目录，如下：</p>
-<ul>
-<li>entry(入口 | 主体)<ul>
-<li>app.js    // 小程序逻辑</li>
-<li>app.json  // 小程序公共配置</li>
-<li>app.wxss  // 小程序公共样式表</li>
-</ul>
-</li>
-</ul>
-<p>小程序<code>页面</code>由四个文件组成，分别是：</p>
-<ul>
-<li>page(页面)<ul>
-<li>pageName.js   // 页面逻辑</li>
-<li>pageName.wxml // 页面结构</li>
-<li>pageName.json // 页面配置</li>
-<li>pageName.wxss // 页面样式表</li>
-</ul>
-</li>
-</ul>
-<p><strong>注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名。</strong></p>
-<h2 id="允许上传的文件-白名单"><a href="#允许上传的文件-白名单" class="headerlink" title="允许上传的文件(白名单)"></a>允许上传的文件(白名单)</h2><ol>
-<li>wxs</li>
-<li>png</li>
-<li>jpg</li>
-<li>jpeg</li>
-<li>gif</li>
-<li>svg</li>
-<li>json</li>
-<li>cer</li>
-<li>mp3</li>
-<li>aac</li>
-<li>m4a</li>
-<li>mp4</li>
-<li>wav</li>
-<li>ogg</li>
-<li>silk</li>
-</ol>
-<h1 id="配置小程序"><a href="#配置小程序" class="headerlink" title="配置小程序"></a>配置小程序</h1><h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><h2 id="页面配置"><a href="#页面配置" class="headerlink" title="页面配置"></a>页面配置</h2><h2 id="sitemap-配置"><a href="#sitemap-配置" class="headerlink" title="sitemap 配置"></a>sitemap 配置</h2><p>配置其小程序页面是否允许微信索引</p>
-<h1 id="小程序框架"><a href="#小程序框架" class="headerlink" title="小程序框架"></a>小程序框架</h1><h2 id="场景值"><a href="#场景值" class="headerlink" title="场景值"></a>场景值</h2><h2 id="逻辑层"><a href="#逻辑层" class="headerlink" title="逻辑层"></a>逻辑层</h2><ul>
-<li>注册小程序</li>
-<li>注册页面</li>
-<li>页面生命周期</li>
-<li>页面路由</li>
-<li>模块化</li>
-<li>API</li>
-</ul>
-<h2 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h2><ul>
-<li>WXML</li>
-<li>WXSS</li>
-<li>WXS</li>
-<li>事件系统<ul>
-<li>WXS响应事件</li>
-</ul>
-</li>
-<li>基础组件</li>
-<li>获取界面上的节点信息</li>
-<li>响应显示区域变化</li>
-<li>动画</li>
-</ul>
-<h1 id="小程序运行时"><a href="#小程序运行时" class="headerlink" title="小程序运行时"></a>小程序运行时</h1><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><h2 id="JS支持情况"><a href="#JS支持情况" class="headerlink" title="JS支持情况"></a>JS支持情况</h2><h2 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h2><h3 id="小程序启动"><a href="#小程序启动" class="headerlink" title="小程序启动"></a><strong>小程序启动</strong></h3><ul>
-<li><p>热启动：假如用户已经打开过某小程序，然后在一定时间内再次打开该小程序，此时无需重新启动，只需将 <code>后台态</code> 的小程序切换到前台，这个过程就是热启动；</p>
-</li>
-<li><p>冷启动：用户首次打开或小程序被微信主动销毁后再次打开的情况，此时小程序需要重新加载启动，即冷启动。</p>
-</li>
-</ul>
-<h2 id="小程序没有重启的概念。"><a href="#小程序没有重启的概念。" class="headerlink" title="  - 小程序没有重启的概念。"></a>  - 小程序没有重启的概念。</h2><h3 id="前台-后台状态"><a href="#前台-后台状态" class="headerlink" title="前台/后台状态"></a>前台/后台状态</h3><h3 id="小程序销毁"><a href="#小程序销毁" class="headerlink" title="小程序销毁"></a>小程序销毁</h3><p><strong>注意</strong>：只有当小程序进入后台一定时间，或者系统资源占用过高，才会被真正的销毁。</p>
-<ul>
-<li>当小程序进入后台，客户端会维持一段时间的运行状态，超过一定时间后（目前是5分钟）小程序会被微信主动销毁。</li>
-<li>当小程序占用系统资源过高，可能会被系统销毁或被微信客户端主动回收。<ul>
-<li>在 iOS 上，当微信客户端在一定时间间隔内（目前是 5 秒）连续收到两次及以上系统内存告警时，会主动进行小程序的销毁，并提示用户 「该小程序可能导致微信响应变慢被终止」。</li>
-<li>建议小程序在必要时使用 wx.onMemoryWarning 监听内存告警事件，进行必要的内存清理。<blockquote>
-<p>基础库 1.1.0 及以上，1.4.0 以下版本： 当用户从扫一扫、转发等入口（场景值为1007, 1008, 1011, 1025）进入小程序，且没有置顶小程序的情况下退出，小程序会被销毁。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="再次打开逻辑"><a href="#再次打开逻辑" class="headerlink" title="再次打开逻辑"></a>再次打开逻辑</h3><blockquote>
-<p>基础库 1.4.0 开始支持，低版本需做兼容处理。<br>用户打开小程序的预期有以下两类场景：</p>
-<ul>
-<li>A. 打开首页： 场景值有以下几项：</li>
-<li>B. 打开小程序指定的某个页面： 场景值为除 A 以外的其他</li>
-</ul>
-</blockquote>
-<h2 id="更新机制"><a href="#更新机制" class="headerlink" title="更新机制"></a>更新机制</h2><h1 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h1><h2 id="组件模板和样式"><a href="#组件模板和样式" class="headerlink" title="组件模板和样式"></a>组件模板和样式</h2><h2 id="Component-构造器"><a href="#Component-构造器" class="headerlink" title="Component 构造器"></a>Component 构造器</h2><h2 id="组件间通信与事件"><a href="#组件间通信与事件" class="headerlink" title="组件间通信与事件"></a>组件间通信与事件</h2><h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><h2 id="behaviors-行为"><a href="#behaviors-行为" class="headerlink" title="behaviors(行为)"></a>behaviors(行为)</h2><h2 id="组件间关系"><a href="#组件间关系" class="headerlink" title="组件间关系"></a>组件间关系</h2><h2 id="数据监听器"><a href="#数据监听器" class="headerlink" title="数据监听器"></a>数据监听器</h2><h2 id="抽象节点"><a href="#抽象节点" class="headerlink" title="抽象节点"></a>抽象节点</h2><h2 id="自定义组件扩展"><a href="#自定义组件扩展" class="headerlink" title="自定义组件扩展"></a>自定义组件扩展</h2><h2 id="开发第三方自定义组件"><a href="#开发第三方自定义组件" class="headerlink" title="开发第三方自定义组件"></a>开发第三方自定义组件</h2><h2 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h2><h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="开发插件"><a href="#开发插件" class="headerlink" title="开发插件"></a>开发插件</h2><h2 id="使用插件"><a href="#使用插件" class="headerlink" title="使用插件"></a>使用插件</h2><h2 id="插件调用API的限制"><a href="#插件调用API的限制" class="headerlink" title="插件调用API的限制"></a>插件调用API的限制</h2><h2 id="插件使用组件的限制"><a href="#插件使用组件的限制" class="headerlink" title="插件使用组件的限制"></a>插件使用组件的限制</h2><h2 id="插件功能页"><a href="#插件功能页" class="headerlink" title="插件功能页"></a>插件功能页</h2><h3 id="用户信息功能页"><a href="#用户信息功能页" class="headerlink" title="用户信息功能页"></a>用户信息功能页</h3><h3 id="支付功能页"><a href="#支付功能页" class="headerlink" title="支付功能页"></a>支付功能页</h3><h3 id="收货地址功能页"><a href="#收货地址功能页" class="headerlink" title="收货地址功能页"></a>收货地址功能页</h3><h1 id="基础能力"><a href="#基础能力" class="headerlink" title="基础能力"></a>基础能力</h1><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h2 id="存储-持久化"><a href="#存储-持久化" class="headerlink" title="存储(持久化)"></a>存储(持久化)</h2><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h2 id="画布-canvas"><a href="#画布-canvas" class="headerlink" title="画布(canvas)"></a>画布(canvas)</h2><h2 id="分包加载"><a href="#分包加载" class="headerlink" title="分包加载"></a>分包加载</h2><h2 id="多线程-Worker"><a href="#多线程-Worker" class="headerlink" title="多线程(Worker)"></a>多线程(Worker)</h2><h2 id="服务端能力-server"><a href="#服务端能力-server" class="headerlink" title="服务端能力(server)"></a>服务端能力(server)</h2><h2 id="自定义-tabBar"><a href="#自定义-tabBar" class="headerlink" title="自定义(tabBar)"></a>自定义(tabBar)</h2><h1 id="硬件能力"><a href="#硬件能力" class="headerlink" title="硬件能力"></a>硬件能力</h1><h2 id="蓝牙"><a href="#蓝牙" class="headerlink" title="蓝牙"></a>蓝牙</h2><h2 id="NFC"><a href="#NFC" class="headerlink" title="NFC"></a>NFC</h2><h2 id="Wi-Fi"><a href="#Wi-Fi" class="headerlink" title="Wi-Fi"></a>Wi-Fi</h2><h1 id="开放能力"><a href="#开放能力" class="headerlink" title="开放能力"></a>开放能力</h1><h2 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h2><ul>
-<li>小程序登录</li>
-<li>UnionID机制说明</li>
-<li>授权</li>
-<li>开放数据校验与解密</li>
-<li>获取手机号</li>
-<li>生物认证</li>
-</ul>
-<h2 id="转发"><a href="#转发" class="headerlink" title="转发"></a>转发</h2><ul>
-<li>转发</li>
-<li>动态消息</li>
-</ul>
-<h2 id="打开APP"><a href="#打开APP" class="headerlink" title="打开APP"></a>打开APP</h2><h2 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h2><ul>
-<li>模板消息</li>
-<li>统一服务消息</li>
-<li>客服消息<ul>
-<li>概述</li>
-<li>接收消息和事件</li>
-<li>发送消息</li>
-<li>转发消息</li>
-<li>下发客服输入状态</li>
-<li>临时素材</li>
-</ul>
-</li>
-<li>卡券<ul>
-<li>概述</li>
-<li>会员卡组件</li>
-</ul>
-</li>
-<li>获取小程序码</li>
-<li>数据分析</li>
-<li>附近的小程序</li>
-<li>物流助手<ul>
-<li>商户侧接入说明</li>
-<li>快递侧接入说明</li>
-<li>打单软件</li>
-</ul>
-</li>
-<li>广告<ul>
-<li>Banner广告</li>
-<li>激励视频广告</li>
-<li>插屏广告</li>
-</ul>
-</li>
-</ul>
-<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><h1 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h1><h2 id="优化建议"><a href="#优化建议" class="headerlink" title="优化建议"></a>优化建议</h2><h2 id="分析工具"><a href="#分析工具" class="headerlink" title="分析工具"></a>分析工具</h2><h1 id="基础库"><a href="#基础库" class="headerlink" title="基础库"></a>基础库</h1><h2 id="版本分布"><a href="#版本分布" class="headerlink" title="版本分布"></a>版本分布</h2><h2 id="低版本兼容"><a href="#低版本兼容" class="headerlink" title="低版本兼容"></a>低版本兼容</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/06/FrontEnd/WXAPP/WX小程序学习/WxApp学习笔记1/" data-id="cjz9eo3lb00f5d4du7k6rudj3" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WX小程序/">WX小程序</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Movie/天才少女观影感" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/05/Movie/天才少女观影感/" class="article-date">
-  <time class="post-time" datetime="2018-06-05T05:56:38.000Z" itemprop="datePublished">
-    <span class="post-month">6月</span><br/>
-    <span class="post-day">05</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/05/Movie/天才少女观影感/">天才少女观影感</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-  &nbsp; | &nbsp;
-  <div class="view-box">
-    <span id="/2018/06/05/Movie/天才少女观影感/" class="leancloud_visitors" data-flag-title="天才少女观影感">
-      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
-    </span>
-  </div>
-
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>回复：</p>
-<blockquote>
-<p>你的文章，我读了两遍。其中提到的《摔跤》的论点，还有你的那段 描写自己 努力学正常人走路的文字，引起了我的深思。</p>
-<p>望子成龙 基本上是 每个父母的 <code>核心价值观之一</code>。 但是 <code>方式方法、实现途径</code> 却是 <code>各显神通</code>。 有一些做法 确实得到了大众的认可， 但既然有 被主流接受的做法，那就有 值得批判的做法。[这一段写 对事物进行两面性分析]</p>
-<p>很明显 从博主的文字中，我 <code>粗浅的</code> 觉得博主属于后者 ( 值得批判的做法 ) 。毕竟话说那么绝对，也不是什么好事。我觉得博主的文采还是跟童年经历有些关系的吧。不过，通过博主以上的描述，我还是觉得博主的父亲还是有些不可取的地方的。[这一段主要是 同情博主，其实我也有类似的童年经历]</p>
-<p>从博主描述的自身经历，以及抛出的两个论据来看，不被接受的教育方式大多是 <strong><code>专制</code> <code>武断</code> <code>不民主</code> <code>缺少爱</code></strong> 的。当然还有 <strong><code>溺爱</code> <code>过分的表扬</code> <code>没有正确主流价值观的爱</code></strong> 等等。。。[这一段想找出 究竟什么是 我们认为的 <code>坏的教育方式</code>]</p>
-<p>首先我不反对，专制的父爱。但是专制不代表可以无所谓的伤害。我认为在专制的过程中还要 <code>激发</code> 被专制者的<code>认同</code>或者<code>反抗心理</code>。(好的专制题材的电影会给我们观影者，以及被专制者明白，这么对待他可能是不正确的，可能是一种极端的做法。那么你来反抗，来推翻我的专制。代表作品就是《摔跤》、《爆裂鼓手》) [这一段想表达 就算是不被主流接受的教育方式 也存在很多不同。正是这些不同，造成了 有的人成功，有的人失败。当然成功和失败也只是从某种单一角度来定义的。] </p>
-<p>罗振宇说过 <code>人类和机器</code> (人工智能) 认知世界的区别就是 人类是通过把所有<code>复杂的事情简化</code>，而机器却是把所有简单的事情，复杂化。今天讨论的主体不是人工智能， 所以我想说的是，人类把事情简化的认知世界的方式其实是不完美的，但毕竟我们大脑的认知能力和带宽有限。没办法只能这样 把所有事情 分成 <code>黑/白  对/错</code> 这种简单抽象的 概念，我们并没有能力去注意分辨、辩驳，那会消耗我们大量的时间 与 精力， 就像美国的法律 只会根据 一些定义好的条条框框来判断，你是否是一个合格的父母，这是我们简化认知的结果，但是带来的弊端就是 这种做法不那么准确，或者说完美。 这个世界是多元的。每个人，每种方式，只是类似，并不完全相同。甚至相同的方法，对待不同的人，都会产生不同的效果。就像《摔跤》的方式方法虽然看似粗暴，但影片中的 汉米尔 是 正确 和 不被庸众 所接受的 一个具象化符号。 [这一段 是对上一段 论证的 加强。我们不能用非黑即白的眼光看待这个世界。有些大体上看似 跟 错误的做法类似的行为，不一定就同样是错的。因为它里面的细节，千丝万缕那才是真正需要我们去用理性分析的。]</p>
-<p>有付出就有回报，天才都是高压下的产物。如果想要成就不凡，那必须有付出代价的觉悟。当然很多电影宣传 希望主人公 过普通人的生活，平淡、快乐的一生，也没有错误。每个人生来都有选择自己 生活方式 的权利，不过前提是你有的选。</p>
-<p>最后说一句，博主文章中有一段说，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">版权归作者所有，任何形式转载请联系作者。</span><br><span class="line">作者：张天翼（来自豆瓣）</span><br><span class="line">来源：https://movie.douban.com/review/8524953/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这样会耽误了天才的发展吗？会让人类文明晚前进若干年吗？不会！莫言从小找不到书读也成了莫言。再说，人类的文明进程真是靠天才在推进？也许某个时间点上某个天才的某项发现确实推了它一把，但“前进”是历史的必然。有你没你，人类最终都会吃上熟食、用上电灯、开上汽车、连上互联网。也许，也许我们会失去一个莫扎特，但那只是“也许”！</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>我觉得 像<code>图灵</code>和<code>乔布斯</code>这样的人，可能不是唯一能改变世界的人。但是如果世界上像他们这样的人(上面提到的两位大神)都觉得可能会有其他人愿意或者有可能，来改变这个世界，我只需要当个快乐的普通人来享受就好了。我们现在可能真的有可能还在泥地里爬行。。。俗话说天塌了有个子高的人顶着，这句话是最冷漠以及事不关己高高挂起的 话了。就像革命先烈一样，如果没有无数像 <code>董存瑞</code> <code>黄继光</code> <code>邱少云</code>这样的人，我们现在的祖国会是个什么样子祖国。可能我也依然会很幸福，会很爱她吧。不想改变世界，没有承担痛苦的觉悟也就只能做一个普普通通的 普通 人了。这并没有什么不好</p>
-<p>我也是一个爱啰嗦的人，但是前提是有足够新颖和话题能打动我。很明显，和博主类似的童年经历，以及博主精彩的文字 吸引 并且打动了我。一切的想法，都恨幼稚，都是心直口快的产物。都是渴望找到认同的行为。尽量不去使用偏激的语言，避免造成不必要的冲突。</p>
-<p>如果看到我文字的人，觉得啰嗦。每一段 最后的 “[]” 里面有我对当前段落的总结。</p>
-<p>欢迎大家和我探讨。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://SunOfHomeBoy.github.io/2018/06/05/Movie/天才少女观影感/" data-id="cjz9eo3f0005dd4dupjudmcho" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/22/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/24/">next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/22/">&laquo; pre</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/37/">37</a><a class="extend next" rel="next" href="/page/24/">next &raquo;</a>
   </nav>
 </section>
         
@@ -811,9 +517,9 @@
     <h2 class="author">李仕臣</h2>
     <h3 class="description">李仕臣的博客</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>179</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>86</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>133</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>183</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>87</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>136</strong><br>标签</div></a>
     </div>
 
 
